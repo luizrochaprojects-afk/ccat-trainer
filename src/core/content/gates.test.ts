@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { buildQuestion } from '../generators'
 import type { Question } from '../schema'
 import { dedupSignature, jaccard, runGates, trigrams, type GateId } from './gates'
+import { SPATIAL_GENERATOR_IDS } from '../spatial/generators'
 
 const AGORA = '2026-09-21T12:00:00.000Z'
 
@@ -20,9 +21,9 @@ describe('runGates — caminho feliz', () => {
     const drafts = [
       boa('serie_simples', 1),
       boa('serie_alternada', 2),
-      boa('rotacao', 3),
+      boa('rotacao.arcos', 3),
       boa('porcentagem', 4),
-      boa('matriz', 5),
+      boa('matriz.raios', 5),
     ]
     const r = runGates(drafts)
     expect(r.violations, JSON.stringify(r.violations, null, 2)).toHaveLength(0)
@@ -264,29 +265,30 @@ describe('similaridade', () => {
  */
 describe('G4 — dedup de questões gráficas', () => {
   it('aprova 20 questões espaciais distintas do mesmo gerador', () => {
-    const drafts = Array.from({ length: 20 }, (_, i) => boa('rotacao', i + 1, 3))
+    const drafts = Array.from({ length: 20 }, (_, i) => boa('rotacao.arcos', i + 1, 3))
     const r = runGates(drafts)
     expect(r.rejected, JSON.stringify(r.rejected.map((x) => x.violations))).toHaveLength(0)
     expect(r.approved).toHaveLength(20)
   })
 
   it('aprova questões de todos os geradores espaciais em lote', () => {
-    const geradores = ['rotacao', 'reflexao', 'odd_one_out', 'serie_formas', 'matriz']
-    const drafts = geradores.flatMap((g) =>
-      Array.from({ length: 10 }, (_, i) => boa(g, i + 1, 3)),
+    const porGerador = 10
+    const drafts = SPATIAL_GENERATOR_IDS.flatMap((g) =>
+      Array.from({ length: porGerador }, (_, i) => boa(g, i + 1, 3)),
     )
     const r = runGates(drafts)
-    expect(r.approved).toHaveLength(50)
+    expect(r.rejected, JSON.stringify(r.rejected.map((x) => x.violations))).toHaveLength(0)
+    expect(r.approved).toHaveLength(SPATIAL_GENERATOR_IDS.length * porGerador)
   })
 
   it('ainda barra a MESMA figura repetida (mesma seed)', () => {
-    const q = boa('rotacao', 7, 3)
+    const q = boa('rotacao.arcos', 7, 3)
     const r = runGates([q, { ...q, id: 'clone' }])
     expect(r.approved).toHaveLength(1)
     expect(r.violations.map((v) => v.gate)).toContain('G4_dedup')
   })
 
   it('a assinatura de duas figuras diferentes é diferente', () => {
-    expect(dedupSignature(boa('matriz', 1, 3))).not.toBe(dedupSignature(boa('matriz', 2, 3)))
+    expect(dedupSignature(boa('matriz.raios', 1, 3))).not.toBe(dedupSignature(boa('matriz.raios', 2, 3)))
   })
 })

@@ -6,7 +6,11 @@
  * uma figura pode ter gabarito matematicamente correto e ainda ser impossível
  * de ler em 18 segundos.
  *
- *   npx tsx scripts/preview-spatial.ts [amostras-por-nivel]
+ *   npx tsx scripts/preview-spatial.ts [amostras-por-nivel] [filtro]
+ *
+ * O filtro casa com o id do gerador ("matriz", "raios", "matriz.arcos"). Sem
+ * ele a pagina sai com as 28 combinacoes, que e pesada demais para abrir de uma
+ * vez — use o filtro para conferir uma familia ou uma forma por vez.
  */
 import { mkdirSync, writeFileSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'
@@ -15,20 +19,48 @@ import {
   SPATIAL_GENERATORS,
   SPATIAL_GENERATOR_IDS,
 } from '../src/core/spatial/generators'
+import { FORMAS } from '../src/core/spatial/formas'
+import { IDS_FAMILIAS } from '../src/core/spatial/figuras/index'
 import { specToSvgString } from '../src/core/spatial/svg'
 import { DIFFICULTIES } from '../src/core/taxonomy'
 
 const raiz = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const porNivel = Number(process.argv[2] ?? 2)
+const filtro = process.argv[3] ?? ''
 
 const blocos: string[] = []
 
-for (const id of SPATIAL_GENERATOR_IDS) {
-  blocos.push(`<h2>${id}</h2>`)
+/**
+ * Grade forma × família no topo.
+ *
+ * É a conferência que importa depois da reescrita: cada célula preenchida é uma
+ * combinação que existe, e os vazios têm de ser exatamente rotação e reflexão
+ * sobre a família aquiral.
+ */
+const cabecalho = IDS_FAMILIAS.map((f) => `<th>${f}</th>`).join('')
+const linhas = Object.keys(FORMAS)
+  .map((forma) => {
+    const celulas = IDS_FAMILIAS.map((familia) =>
+      SPATIAL_GENERATOR_IDS.includes(`${forma}.${familia}`)
+        ? `<td class="sim"><a href="#${forma}.${familia}">sim</a></td>`
+        : '<td class="nao">—</td>',
+    ).join('')
+    return `<tr><th class="lin">${forma}</th>${celulas}</tr>`
+  })
+  .join('')
+blocos.push(
+  `<table class="grade"><thead><tr><th></th>${cabecalho}</tr></thead><tbody>${linhas}</tbody></table>`,
+)
+
+for (const id of SPATIAL_GENERATOR_IDS.filter((g) => g.includes(filtro))) {
+  blocos.push(`<h2 id="${id}">${id}</h2>`)
   for (const nivel of DIFFICULTIES) {
     for (let i = 0; i < porNivel; i++) {
       const seed = nivel * 1000 + i
-      const q = SPATIAL_GENERATORS[id](seed, nivel)
+      const gerar = SPATIAL_GENERATORS[id] as (s: number, n: typeof nivel) => ReturnType<
+        (typeof SPATIAL_GENERATORS)[string]
+      >
+      const q = gerar(seed, nivel)
       const alternativas = q.options
         .map(
           (o) => `
@@ -45,7 +77,7 @@ for (const id of SPATIAL_GENERATOR_IDS) {
           <p class="stem">${q.stem}</p>
           ${q.stemSpatial ? `<div class="enunciado">${specToSvgString(q.stemSpatial, { label: 'enunciado' })}</div>` : ''}
           <div class="opts">${alternativas}</div>
-          <details><summary>explicação</summary><p>${q.explanation}</p></details>
+          <details><summary>explicação</summary><p>${q.explanation.pt}</p><p lang="en">${q.explanation.en}</p></details>
         </section>`)
     }
   }
@@ -69,14 +101,18 @@ const html = `<!doctype html>
   .opt svg { width:100px; height:100px; display:block; }
   figcaption { font:13px ui-monospace, monospace; margin-top:4px; }
   details { margin-top:12px; font-size:14px; color:#444; }
+  .grade { border-collapse:collapse; margin:16px 0 32px; font:14px system-ui, sans-serif; }
+  .grade th, .grade td { border:1px solid #ddd; padding:6px 12px; text-align:center; }
+  .grade th.lin { text-align:left; font:13px ui-monospace, monospace; }
+  .grade td.nao { color:#bbb; }
 </style></head>
 <body>
 <h1>Auditoria visual — geradores espaciais</h1>
-<p class="lead">O gabarito está destacado. Confira se a alternativa marcada é de fato a única que satisfaz o enunciado, e se dá para ler a figura em ~18s.</p>
+<p class="lead">Confira contra as provas reais: uma matriz de arcos tem de parecer com a imagem de referência da grade 3×3, uma série de ponteiros com a do mostrador. O gabarito está destacado. Confira se a alternativa marcada é de fato a única que satisfaz o enunciado, e se dá para ler a figura em ~18s.</p>
 ${blocos.join('\n')}
 </body></html>`
 
-const saida = resolve(raiz, '.preview/spatial.html')
+const saida = resolve(raiz, `.preview/spatial${filtro ? '-' + filtro : ''}.html`)
 mkdirSync(dirname(saida), { recursive: true })
 writeFileSync(saida, html, 'utf8')
 console.log(`preview gerado: ${saida}`)

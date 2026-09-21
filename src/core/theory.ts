@@ -518,10 +518,10 @@ export const THEORY: Record<Tipo, TipoTheory> = {
     ritmo: {
       pt:
         'Alvo de 15 segundos. O segredo é nunca tentar girar a figura inteira na cabeça: ' +
-        'escolha um detalhe e acompanhe só ele.',
+        'escolha um detalhe — um canto, um ponteiro, um marcador — e acompanhe só ele.',
       en:
         'Target 15 seconds. The trick is never to rotate the whole figure in your head: pick ' +
-        'one detail and follow only that.',
+        'one detail — a corner, a hand, a marker — and follow only that.',
     },
     subtipos: [
       {
@@ -533,25 +533,25 @@ export const THEORY: Record<Tipo, TipoTheory> = {
         },
         metodo: {
           pt: [
-            'Fixe um vértice de referência — o ponto preenchido serve.',
-            'Percorra os outros vértices a partir dele, no sentido horário.',
-            'Girar preserva essa ordem; espelhar inverte.',
+            'Escolha um detalhe único da figura: o canto com o arco maior, o ponteiro longo.',
+            'Veja o que vem logo em seguida no sentido horário.',
+            'Girar preserva essa vizinhança; espelhar inverte.',
             'A alternativa que mantém a ordem é a resposta.',
           ],
           en: [
-            'Fix one reference vertex — the filled dot works.',
-            'Walk the other vertices from there, clockwise.',
-            'Rotation preserves that order; reflection reverses it.',
+            'Pick one unique detail: the corner with the larger arc, the long hand.',
+            'Note what comes right after it going clockwise.',
+            'Rotation preserves that neighbour; mirroring reverses it.',
             'The option that keeps the order is the answer.',
           ],
         },
         armadilha: {
           pt:
-            'Os distratores são a imagem ESPELHADA. De relance parecem iguais; a ordem dos ' +
-            'vértices é o que denuncia.',
+            'Os distratores são a imagem ESPELHADA. De relance parecem iguais; a ordem em que ' +
+            'os detalhes se sucedem é o que denuncia.',
           en:
-            'The distractors are the MIRROR image. At a glance they look the same; the order of ' +
-            'the vertices is what gives them away.',
+            'The distractors are the MIRROR image. At a glance they look the same; the order in ' +
+            'which the details follow one another is what gives them away.',
         },
       },
       {
@@ -563,16 +563,16 @@ export const THEORY: Record<Tipo, TipoTheory> = {
         },
         metodo: {
           pt: [
-            'Fixe o mesmo vértice de referência do enunciado (o ponto preenchido).',
-            'Percorra os vértices a partir dele e anote o sentido: horário ou anti-horário.',
+            'Escolha o mesmo detalhe de referência no enunciado.',
+            'Anote o sentido em que os outros detalhes se sucedem a partir dele.',
             'Procure a alternativa em que esse sentido está INVERTIDO.',
-            'Cuidado: ela também pode estar girada — inversão de sentido é o único critério.',
+            'Cuidado: ela também pode estar girada — a inversão é o único critério.',
           ],
           en: [
-            'Fix the same reference vertex as in the prompt (the filled dot).',
-            'Walk the vertices from there and note the direction: clockwise or counter-clockwise.',
+            'Pick the same reference detail as in the prompt.',
+            'Note the direction in which the other details follow from it.',
             'Look for the option where that direction is REVERSED.',
-            'Careful: it may also be rotated — reversed direction is the only criterion.',
+            'Careful: it may also be rotated — the reversal is the only criterion.',
           ],
         },
         armadilha: {
@@ -589,7 +589,7 @@ export const THEORY: Record<Tipo, TipoTheory> = {
         },
         metodo: {
           pt: [
-            'Não compare as figuras duas a duas: são muitas combinações.',
+            'Não compare as figuras duas a duas: são combinações demais.',
             'Escolha um detalhe assimétrico e veja onde ele aparece do lado oposto.',
             'Essa é a intrusa.',
           ],
@@ -613,22 +613,25 @@ export const THEORY: Record<Tipo, TipoTheory> = {
         },
         metodo: {
           pt: [
-            'Acompanhe UM vértice ao longo dos quadros.',
+            'Acompanhe UM detalhe ao longo dos quadros.',
             'Conte de quantos passos ele anda de um quadro para o outro.',
-            'Aplique o mesmo passo a partir do último quadro.',
+            'Confira se algo além da posição muda: preenchimento, tamanho, número de anéis.',
+            'Aplique as mesmas mudanças a partir do último quadro.',
           ],
           en: [
-            'Track ONE vertex across the frames.',
+            'Track ONE detail across the frames.',
             'Count how many steps it moves from one frame to the next.',
-            'Apply that same step starting from the last frame.',
+            'Check whether anything besides position changes: fill, size, number of rings.',
+            'Apply the same changes starting from the last frame.',
           ],
         },
         armadilha: {
           pt:
-            'Tentar visualizar a figura inteira girando. Um ponto de referência resolve em ' +
-            'metade do tempo.',
+            'Enxergar só a rotação e perder a segunda regra. Nas séries mais difíceis duas ' +
+            'coisas mudam ao mesmo tempo.',
           en:
-            'Trying to visualise the whole figure rotating. One reference point solves it in half the time.',
+            'Seeing only the rotation and missing the second rule. In the harder series two ' +
+            'things change at once.',
         },
       },
       {
@@ -640,21 +643,53 @@ export const THEORY: Record<Tipo, TipoTheory> = {
         },
         metodo: {
           pt: [
-            'Leia da esquerda para a direita, linha a linha, como um texto.',
-            'Ache o passo entre casas vizinhas.',
-            'Confira o mesmo padrão pela coluna: se fecha nos dois sentidos, é a regra certa.',
+            'Leia da esquerda para a direita, linha a linha: essa é a regra de rotação.',
+            'Depois leia de cima para baixo: essa costuma ser a regra de atributo.',
+            'A célula que falta obedece às duas leituras ao mesmo tempo.',
           ],
           en: [
-            'Read left to right, row by row, like text.',
-            'Find the step between neighbouring cells.',
-            'Check the same pattern down the columns: if it holds both ways, it is the right rule.',
+            'Read left to right, row by row: that is the rotation rule.',
+            'Then read top to bottom: that is usually the attribute rule.',
+            'The missing cell obeys both readings at once.',
           ],
         },
         armadilha: {
           pt:
-            'Ler só a última linha. A regra costuma ficar evidente na primeira, que está completa.',
+            'Achar a regra da linha e responder. Entre as alternativas há sempre uma que acerta ' +
+            'a rotação e erra o atributo.',
           en:
-            'Reading only the last row. The rule is usually obvious in the first one, which is complete.',
+            'Finding the row rule and answering. There is always an option that gets the rotation ' +
+            'right and the attribute wrong.',
+        },
+      },
+      {
+        subtipo: 'identical_pair',
+        titulo: { pt: 'Comparação visual', en: 'Visual comparison' },
+        oQuePede: {
+          pt: 'Qual alternativa é exatamente idêntica à figura do enunciado.',
+          en: 'Which option is exactly identical to the figure in the prompt.',
+        },
+        metodo: {
+          pt: [
+            'Não julgue pela impressão geral: todas foram feitas para parecer iguais.',
+            'Escolha UMA posição — o canto superior esquerdo, por exemplo — e compare-a em todas.',
+            'Descarte as que já diferem ali e repita com outra posição.',
+            'Duas ou três passadas eliminam tudo menos a resposta.',
+          ],
+          en: [
+            'Do not judge by overall impression: they were all built to look alike.',
+            'Pick ONE position — the top-left corner, say — and compare it across all options.',
+            'Discard the ones that already differ there, then repeat with another position.',
+            'Two or three passes eliminate everything but the answer.',
+          ],
+        },
+        armadilha: {
+          pt:
+            'Voltar ao enunciado a cada alternativa. Guarde uma posição de cada vez e varra as ' +
+            'alternativas de uma só vez.',
+          en:
+            'Going back to the prompt for every option. Hold one position in mind and sweep ' +
+            'across the options in a single pass.',
         },
       },
     ],

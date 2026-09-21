@@ -24,7 +24,7 @@ export const SUBTIPOS = {
   verbal_logic: ['deducao'],
   math_series: ['serie_simples', 'serie_alternada', 'serie_dois_passos'],
   math_word: ['aritmetica', 'razao_proporcao', 'porcentagem', 'taxa'],
-  spatial: ['rotacao', 'reflexao', 'odd_one_out', 'serie_formas', 'matriz'],
+  spatial: ['rotacao', 'reflexao', 'odd_one_out', 'serie_formas', 'matriz', 'identical_pair'],
 } as const satisfies Record<Tipo, readonly string[]>
 
 export type Subtipo<T extends Tipo = Tipo> = (typeof SUBTIPOS)[T][number]
@@ -151,6 +151,7 @@ export const SUBTIPO_LABEL: Record<AnySubtipo, LocalizedText> = {
   odd_one_out: { pt: 'Qual não pertence', en: 'Odd one out' },
   serie_formas: { pt: 'Série de formas', en: 'Figure series' },
   matriz: { pt: 'Matriz', en: 'Matrix' },
+  identical_pair: { pt: 'Comparação visual', en: 'Visual comparison' },
 }
 
 // --- Helpers -----------------------------------------------------------------

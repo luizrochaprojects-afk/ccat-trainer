@@ -60,7 +60,13 @@ export const spatialSpecSchema = z.object({
         stroke: z.string().optional(),
         strokeWidth: z.number().optional(),
         /** rotação em graus, aplicada em torno do centro do viewBox */
-        rotate: z.number().optional(),
+        /**
+         * Deslocamento do shape. Existe para o layout empilhar figuras de
+         * 100×100 numa sequência ou matriz sem reescrever coordenadas — em
+         * particular sem reparsear o `d` de um path.
+         */
+        dx: z.number().optional(),
+        dy: z.number().optional(),
       }),
     )
     .min(1),

@@ -81,7 +81,7 @@ describe('percentil', () => {
 describe('diagnóstico por tipo', () => {
   const misto = (): Question[] => [
     ...Array.from({ length: 4 }, (_, i) => buildQuestion('serie_simples', i + 1, 3, ISO)),
-    ...Array.from({ length: 4 }, (_, i) => buildQuestion('rotacao', i + 1, 3, ISO)),
+    ...Array.from({ length: 4 }, (_, i) => buildQuestion('rotacao.arcos', i + 1, 3, ISO)),
   ]
 
   it('reporta acurácia separada por tipo', () => {
@@ -136,7 +136,7 @@ describe('diagnóstico por tipo', () => {
     // demais para virar diagnóstico
     const fila = [
       ...Array.from({ length: 4 }, (_, i) => buildQuestion('serie_simples', i + 1, 3, ISO)),
-      buildQuestion('rotacao', 1, 3, ISO),
+      buildQuestion('rotacao.arcos', 1, 3, ISO),
     ]
     let s = createExam(fila, T0)
     let t = T0

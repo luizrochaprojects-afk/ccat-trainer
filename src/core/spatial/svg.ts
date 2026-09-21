@@ -27,7 +27,7 @@ function shapeToSvg(shape: SpatialSpec['shapes'][number]): string {
     ` stroke="${escapeXml(shape.stroke ?? '#111111')}"` +
     ` stroke-width="${num(shape.strokeWidth ?? 2)}"` +
     ' stroke-linejoin="round" stroke-linecap="round"' +
-    (shape.rotate ? ` transform="rotate(${num(shape.rotate)})"` : '')
+    (shape.dx || shape.dy ? ` transform="translate(${num(shape.dx ?? 0)} ${num(shape.dy ?? 0)})"` : '')
 
   switch (shape.kind) {
     case 'polygon':

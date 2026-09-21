@@ -47,12 +47,12 @@ describe('G4 — o que é duplicata e o que não é', () => {
 
   it('questões espaciais distintas do mesmo gerador convivem', () => {
     expect(
-      quaseDuplicatas(Array.from({ length: 40 }, (_, i) => gerar('rotacao', i + 1))),
+      quaseDuplicatas(Array.from({ length: 40 }, (_, i) => gerar('rotacao.arcos', i + 1))),
     ).toHaveLength(0)
   })
 
   it('mas a MESMA questão repetida continua sendo barrada', () => {
-    for (const g of ['deducao', 'porcentagem', 'rotacao', 'antonimo', 'analogia']) {
+    for (const g of ['deducao', 'porcentagem', 'rotacao.arcos', 'antonimo', 'analogia']) {
       const q = gerar(g, 11)
       const r = runGates([q, { ...q, id: `${q.id}-clone` }])
       expect(r.approved, `${g}: clone passou`).toHaveLength(1)
