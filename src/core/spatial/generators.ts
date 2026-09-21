@@ -15,6 +15,11 @@ import {
 } from './glyph'
 import { glyphToSpec, matrixToSpec, sequenceToSpec } from './render'
 import type { LocalizedText } from '../i18n'
+import {
+  distanciaVisual,
+  ehLegivel,
+  MIN_SEPARACAO_ALTERNATIVAS,
+} from './legibility'
 import { optionIdAt } from '../optionIds'
 
 /**
@@ -49,24 +54,34 @@ export type SpatialGenerator = (seed: number, difficulty: Difficulty) => Spatial
 interface Params {
   cells: number
   optionCount: 4 | 5
-  /** distratores "quase certos" (uma célula deslocada) entram a partir do nível 4 */
-  nearMiss: boolean
 }
+
+/**
+ * O distrator "quase certo" foi removido.
+ *
+ * Ele deslocava UMA celula um passo de raio. Medido, isso deixava 95% das
+ * questoes de nivel 4-5 com duas alternativas a menos de 14px uma da outra:
+ * nao testava raciocinio espacial, testava acuidade visual. A dificuldade dos
+ * niveis altos vem do numero de vertices e de alternativas, que ja escalam.
+ */
 
 function paramsFor(difficulty: Difficulty): Params {
   switch (difficulty) {
     case 1:
-      return { cells: 3, optionCount: 4, nearMiss: false }
+      return { cells: 3, optionCount: 4 }
     case 2:
-      return { cells: 4, optionCount: 4, nearMiss: false }
+      return { cells: 4, optionCount: 4 }
     case 3:
-      return { cells: 4, optionCount: 5, nearMiss: false }
+      return { cells: 4, optionCount: 5 }
     case 4:
-      return { cells: 5, optionCount: 5, nearMiss: true }
+      return { cells: 5, optionCount: 5 }
     case 5:
-      return { cells: 6, optionCount: 5, nearMiss: true }
+      return { cells: 6, optionCount: 5 }
   }
 }
+
+/** Passos de 30 graus aplicados ao espelho: 0, +-30, +-60. */
+const GIRO_DO_ESPELHO = [0, 1, 2, 10, 11]
 
 // --- Geradores ---------------------------------------------------------------
 
@@ -83,11 +98,7 @@ export const gerarRotacao: SpatialGenerator = (seed, difficulty) => {
   // a figura é quiral por construção.
   const satisfiesRule = (g: Glyph) => sameUpToRotation(g, base)
 
-  let n = 0
-  const nextDistractor = () =>
-    p.nearMiss && ++n % 3 === 0
-      ? perturb(rng, correct)
-      : rotate(espelho, rng.int(0, ANGULAR_STEPS - 1))
+  const nextDistractor = () => rotate(espelho, rng.int(0, ANGULAR_STEPS - 1))
 
   const { options, answerId, optionGlyphs } = buildOptions(
     rng,
@@ -128,14 +139,17 @@ export const gerarReflexao: SpatialGenerator = (seed, difficulty) => {
   const base = drawUsableGlyph(rng, p.cells)
 
   const espelho = reflect(base)
-  const correct = rotate(espelho, rng.int(0, ANGULAR_STEPS - 1))
+  // Giro extra PEQUENO (ate 60 graus), nao aleatorio entre 0 e 330.
+  //
+  // Girar o espelho a esmo obriga a normalizar a orientacao E detectar a
+  // lateralidade ao mesmo tempo: nenhuma alternativa se parece com um "vira de
+  // lado" do enunciado, e a questao deixa de ser respondivel em 18 segundos.
+  // Um giro curto mantem a exigencia sem torna-la impossivel. Alargue esta
+  // lista para deixar a reflexao mais dura.
+  const correct = rotate(espelho, rng.pick(GIRO_DO_ESPELHO))
   const satisfiesRule = (g: Glyph) => sameUpToRotation(g, espelho)
 
-  let n = 0
-  const nextDistractor = () =>
-    p.nearMiss && ++n % 3 === 0
-      ? perturb(rng, correct)
-      : rotate(base, rng.int(0, ANGULAR_STEPS - 1))
+  const nextDistractor = () => rotate(base, rng.int(0, ANGULAR_STEPS - 1))
 
   const { options, answerId, optionGlyphs } = buildOptions(
     rng,
@@ -223,12 +237,7 @@ export const gerarSerieFormas: SpatialGenerator = (seed, difficulty) => {
   const alvo = key(correct)
   const satisfiesRule = (g: Glyph) => key(g) === alvo
 
-  let n = 0
-  const nextDistractor = () => {
-    n++
-    if (p.nearMiss && n % 4 === 0) return rotate(reflect(base), 4 * passo)
-    return rotate(base, rng.int(0, ANGULAR_STEPS - 1))
-  }
+  const nextDistractor = () => rotate(base, rng.int(0, ANGULAR_STEPS - 1))
 
   const { options, answerId, optionGlyphs } = buildOptions(
     rng,
@@ -275,12 +284,7 @@ export const gerarMatriz: SpatialGenerator = (seed, difficulty) => {
   const alvo = key(correct)
   const satisfiesRule = (g: Glyph) => key(g) === alvo
 
-  let n = 0
-  const nextDistractor = () => {
-    n++
-    if (p.nearMiss && n % 4 === 0) return rotate(reflect(base), 8 * passo)
-    return rotate(base, rng.int(0, ANGULAR_STEPS - 1))
-  }
+  const nextDistractor = () => rotate(base, rng.int(0, ANGULAR_STEPS - 1))
 
   const { options, answerId, optionGlyphs } = buildOptions(
     rng,
@@ -329,9 +333,17 @@ export const SPATIAL_GENERATOR_IDS = Object.keys(
 
 // --- Infra compartilhada -----------------------------------------------------
 
-/** Sorteia uma figura quiral e sem simetria rotacional. */
+/**
+ * Sorteia uma figura utilizavel E legivel.
+ *
+ * `isUsable` garante o que a algebra precisa: quiral, sem simetria rotacional.
+ * Nao garante o que o OLHO precisa. Numa figura de tres vertices quase
+ * colineares — uma reta disfarcada — o espelho e visualmente identico a uma
+ * rotacao, e a questao fica impossivel de responder mesmo estando correta.
+ * `ehLegivel` mede isso em pixels, na caixa em que a figura e desenhada.
+ */
 function drawUsableGlyph(rng: Rng, cells: number): Glyph {
-  for (let tentativa = 0; tentativa < 500; tentativa++) {
+  for (let tentativa = 0; tentativa < 4000; tentativa++) {
     const usadas = new Set<string>()
     const glyph: Cell[] = []
     while (glyph.length < cells) {
@@ -342,9 +354,9 @@ function drawUsableGlyph(rng: Rng, cells: number): Glyph {
       usadas.add(k)
       glyph.push({ a, r })
     }
-    if (isUsable(glyph)) return glyph
+    if (isUsable(glyph) && ehLegivel(glyph)) return glyph
   }
-  throw new Error(`não consegui sortear figura utilizável com ${cells} células`)
+  throw new Error(`não consegui sortear figura legível com ${cells} células`)
 }
 
 /**
@@ -375,6 +387,10 @@ function buildOptions(
     if (satisfiesRule(cand)) continue
     const k = key(cand)
     if (chaves.has(k)) continue
+    // Nao basta ser uma figura diferente: precisa PARECER diferente. Duas
+    // alternativas a poucos pixels uma da outra transformam a questao em caca
+    // ao pixel em vez de raciocinio espacial.
+    if (escolhidas.some((e) => distanciaVisual(e, cand) < MIN_SEPARACAO_ALTERNATIVAS)) continue
     chaves.add(k)
     escolhidas.push(cand)
   }
@@ -394,17 +410,4 @@ function buildOptions(
     answerId: optionIdAt(answerIndex) as string,
     optionGlyphs: embaralhadas.map((o) => o.glyph),
   }
-}
-
-/** Desloca uma célula — vira um distrator "quase certo" nos níveis altos. */
-function perturb(rng: Rng, glyph: Glyph): Glyph {
-  for (let tentativa = 0; tentativa < 20; tentativa++) {
-    const idx = rng.int(0, glyph.length - 1)
-    const cell = glyph[idx] as Cell
-    const novoR = rng.int(MIN_RADIUS, MAX_RADIUS)
-    if (novoR === cell.r) continue
-    const next = glyph.map((c, i) => (i === idx ? { a: c.a, r: novoR } : c))
-    if (new Set(next.map((c) => `${c.a}:${c.r}`)).size === next.length) return next
-  }
-  return glyph // rejeitado adiante pela checagem de duplicata
 }

@@ -35,9 +35,9 @@
       "method": "rule",
       "seed": 1,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d1-00002",
@@ -75,9 +75,9 @@
       "method": "rule",
       "seed": 2,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d1-00004",
@@ -115,9 +115,9 @@
       "method": "rule",
       "seed": 4,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d1-00006",
@@ -155,9 +155,9 @@
       "method": "rule",
       "seed": 6,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d1-00007",
@@ -195,9 +195,9 @@
       "method": "rule",
       "seed": 7,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d1-00008",
@@ -235,9 +235,9 @@
       "method": "rule",
       "seed": 8,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d1-00009",
@@ -275,9 +275,9 @@
       "method": "rule",
       "seed": 9,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d1-00012",
@@ -315,9 +315,9 @@
       "method": "rule",
       "seed": 12,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d1-00014",
@@ -355,9 +355,9 @@
       "method": "rule",
       "seed": 14,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d1-00018",
@@ -395,9 +395,9 @@
       "method": "rule",
       "seed": 18,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d1-00020",
@@ -435,9 +435,9 @@
       "method": "rule",
       "seed": 20,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d1-00030",
@@ -475,9 +475,9 @@
       "method": "rule",
       "seed": 30,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d2-00001",
@@ -515,9 +515,9 @@
       "method": "rule",
       "seed": 1,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d2-00002",
@@ -555,9 +555,9 @@
       "method": "rule",
       "seed": 2,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d2-00004",
@@ -595,9 +595,9 @@
       "method": "rule",
       "seed": 4,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d2-00006",
@@ -635,9 +635,9 @@
       "method": "rule",
       "seed": 6,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d2-00007",
@@ -675,9 +675,9 @@
       "method": "rule",
       "seed": 7,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d2-00008",
@@ -715,9 +715,9 @@
       "method": "rule",
       "seed": 8,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d2-00009",
@@ -755,9 +755,9 @@
       "method": "rule",
       "seed": 9,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d2-00012",
@@ -795,9 +795,9 @@
       "method": "rule",
       "seed": 12,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d2-00014",
@@ -835,9 +835,9 @@
       "method": "rule",
       "seed": 14,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d2-00018",
@@ -875,9 +875,9 @@
       "method": "rule",
       "seed": 18,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d2-00020",
@@ -915,9 +915,9 @@
       "method": "rule",
       "seed": 20,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d2-00030",
@@ -955,9 +955,9 @@
       "method": "rule",
       "seed": 30,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d3-00001",
@@ -999,9 +999,9 @@
       "method": "rule",
       "seed": 1,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d3-00002",
@@ -1043,9 +1043,9 @@
       "method": "rule",
       "seed": 2,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d3-00004",
@@ -1087,9 +1087,9 @@
       "method": "rule",
       "seed": 4,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d3-00006",
@@ -1131,9 +1131,9 @@
       "method": "rule",
       "seed": 6,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d3-00007",
@@ -1175,9 +1175,9 @@
       "method": "rule",
       "seed": 7,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d3-00008",
@@ -1219,9 +1219,9 @@
       "method": "rule",
       "seed": 8,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d3-00009",
@@ -1263,9 +1263,9 @@
       "method": "rule",
       "seed": 9,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d3-00012",
@@ -1307,9 +1307,9 @@
       "method": "rule",
       "seed": 12,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d3-00014",
@@ -1351,9 +1351,9 @@
       "method": "rule",
       "seed": 14,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d3-00018",
@@ -1395,9 +1395,9 @@
       "method": "rule",
       "seed": 18,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d3-00020",
@@ -1439,9 +1439,9 @@
       "method": "rule",
       "seed": 20,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d3-00030",
@@ -1483,9 +1483,9 @@
       "method": "rule",
       "seed": 30,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d4-00001",
@@ -1527,9 +1527,9 @@
       "method": "rule",
       "seed": 1,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d4-00002",
@@ -1571,9 +1571,9 @@
       "method": "rule",
       "seed": 2,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d4-00004",
@@ -1615,9 +1615,9 @@
       "method": "rule",
       "seed": 4,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d4-00006",
@@ -1659,9 +1659,9 @@
       "method": "rule",
       "seed": 6,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d4-00007",
@@ -1703,9 +1703,9 @@
       "method": "rule",
       "seed": 7,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d4-00008",
@@ -1747,9 +1747,9 @@
       "method": "rule",
       "seed": 8,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d4-00009",
@@ -1791,9 +1791,9 @@
       "method": "rule",
       "seed": 9,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d4-00012",
@@ -1835,9 +1835,9 @@
       "method": "rule",
       "seed": 12,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d4-00014",
@@ -1879,9 +1879,9 @@
       "method": "rule",
       "seed": 14,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d4-00018",
@@ -1923,9 +1923,9 @@
       "method": "rule",
       "seed": 18,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d4-00020",
@@ -1967,9 +1967,9 @@
       "method": "rule",
       "seed": 20,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d4-00030",
@@ -2011,9 +2011,9 @@
       "method": "rule",
       "seed": 30,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d5-00001",
@@ -2055,9 +2055,9 @@
       "method": "rule",
       "seed": 1,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d5-00002",
@@ -2099,9 +2099,9 @@
       "method": "rule",
       "seed": 2,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d5-00004",
@@ -2143,9 +2143,9 @@
       "method": "rule",
       "seed": 4,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d5-00006",
@@ -2187,9 +2187,9 @@
       "method": "rule",
       "seed": 6,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d5-00007",
@@ -2231,9 +2231,9 @@
       "method": "rule",
       "seed": 7,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d5-00008",
@@ -2275,9 +2275,9 @@
       "method": "rule",
       "seed": 8,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d5-00009",
@@ -2319,9 +2319,9 @@
       "method": "rule",
       "seed": 9,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d5-00012",
@@ -2363,9 +2363,9 @@
       "method": "rule",
       "seed": 12,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d5-00014",
@@ -2407,9 +2407,9 @@
       "method": "rule",
       "seed": 14,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d5-00018",
@@ -2451,9 +2451,9 @@
       "method": "rule",
       "seed": 18,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d5-00020",
@@ -2495,9 +2495,9 @@
       "method": "rule",
       "seed": 20,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "antonimo-d5-00030",
@@ -2539,9 +2539,9 @@
       "method": "rule",
       "seed": 30,
       "generator": "antonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "completar_frase-d1-00001",
@@ -2579,9 +2579,9 @@
       "method": "rule",
       "seed": 1,
       "generator": "completar_frase",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "completar_frase-d1-00002",
@@ -2619,9 +2619,9 @@
       "method": "rule",
       "seed": 2,
       "generator": "completar_frase",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "completar_frase-d1-00004",
@@ -2659,9 +2659,9 @@
       "method": "rule",
       "seed": 4,
       "generator": "completar_frase",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "completar_frase-d1-00007",
@@ -2699,9 +2699,9 @@
       "method": "rule",
       "seed": 7,
       "generator": "completar_frase",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "completar_frase-d1-00009",
@@ -2739,9 +2739,9 @@
       "method": "rule",
       "seed": 9,
       "generator": "completar_frase",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "completar_frase-d1-00014",
@@ -2779,9 +2779,9 @@
       "method": "rule",
       "seed": 14,
       "generator": "completar_frase",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "completar_frase-d2-00001",
@@ -2819,9 +2819,9 @@
       "method": "rule",
       "seed": 1,
       "generator": "completar_frase",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "completar_frase-d2-00002",
@@ -2859,9 +2859,9 @@
       "method": "rule",
       "seed": 2,
       "generator": "completar_frase",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "completar_frase-d2-00004",
@@ -2899,9 +2899,9 @@
       "method": "rule",
       "seed": 4,
       "generator": "completar_frase",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "completar_frase-d2-00006",
@@ -2939,9 +2939,9 @@
       "method": "rule",
       "seed": 6,
       "generator": "completar_frase",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "completar_frase-d2-00007",
@@ -2979,9 +2979,9 @@
       "method": "rule",
       "seed": 7,
       "generator": "completar_frase",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "completar_frase-d2-00008",
@@ -3019,9 +3019,9 @@
       "method": "rule",
       "seed": 8,
       "generator": "completar_frase",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "completar_frase-d2-00012",
@@ -3059,9 +3059,9 @@
       "method": "rule",
       "seed": 12,
       "generator": "completar_frase",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "completar_frase-d3-00001",
@@ -3103,9 +3103,9 @@
       "method": "rule",
       "seed": 1,
       "generator": "completar_frase",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "completar_frase-d3-00002",
@@ -3147,9 +3147,9 @@
       "method": "rule",
       "seed": 2,
       "generator": "completar_frase",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "completar_frase-d3-00004",
@@ -3191,9 +3191,9 @@
       "method": "rule",
       "seed": 4,
       "generator": "completar_frase",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "completar_frase-d3-00007",
@@ -3235,9 +3235,9 @@
       "method": "rule",
       "seed": 7,
       "generator": "completar_frase",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "completar_frase-d3-00009",
@@ -3279,9 +3279,9 @@
       "method": "rule",
       "seed": 9,
       "generator": "completar_frase",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "completar_frase-d3-00014",
@@ -3323,9 +3323,9 @@
       "method": "rule",
       "seed": 14,
       "generator": "completar_frase",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "completar_frase-d4-00001",
@@ -3367,9 +3367,9 @@
       "method": "rule",
       "seed": 1,
       "generator": "completar_frase",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "completar_frase-d4-00004",
@@ -3411,9 +3411,9 @@
       "method": "rule",
       "seed": 4,
       "generator": "completar_frase",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "completar_frase-d4-00006",
@@ -3455,9 +3455,9 @@
       "method": "rule",
       "seed": 6,
       "generator": "completar_frase",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "completar_frase-d4-00007",
@@ -3499,9 +3499,9 @@
       "method": "rule",
       "seed": 7,
       "generator": "completar_frase",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "completar_frase-d4-00012",
@@ -3543,9 +3543,9 @@
       "method": "rule",
       "seed": 12,
       "generator": "completar_frase",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "completar_frase-d5-00001",
@@ -3587,9 +3587,9 @@
       "method": "rule",
       "seed": 1,
       "generator": "completar_frase",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "completar_frase-d5-00002",
@@ -3631,9 +3631,9 @@
       "method": "rule",
       "seed": 2,
       "generator": "completar_frase",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "completar_frase-d5-00004",
@@ -3675,9 +3675,9 @@
       "method": "rule",
       "seed": 4,
       "generator": "completar_frase",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "completar_frase-d5-00007",
@@ -3719,9 +3719,9 @@
       "method": "rule",
       "seed": 7,
       "generator": "completar_frase",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "completar_frase-d5-00009",
@@ -3763,9 +3763,9 @@
       "method": "rule",
       "seed": 9,
       "generator": "completar_frase",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "completar_frase-d5-00014",
@@ -3807,9 +3807,9 @@
       "method": "rule",
       "seed": 14,
       "generator": "completar_frase",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d1-00001",
@@ -3847,9 +3847,9 @@
       "method": "rule",
       "seed": 1,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d1-00002",
@@ -3887,9 +3887,9 @@
       "method": "rule",
       "seed": 2,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d1-00004",
@@ -3927,9 +3927,9 @@
       "method": "rule",
       "seed": 4,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d1-00006",
@@ -3967,9 +3967,9 @@
       "method": "rule",
       "seed": 6,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d1-00007",
@@ -4007,9 +4007,9 @@
       "method": "rule",
       "seed": 7,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d1-00008",
@@ -4047,9 +4047,9 @@
       "method": "rule",
       "seed": 8,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d1-00009",
@@ -4087,9 +4087,9 @@
       "method": "rule",
       "seed": 9,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d1-00012",
@@ -4127,9 +4127,9 @@
       "method": "rule",
       "seed": 12,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d1-00014",
@@ -4167,9 +4167,9 @@
       "method": "rule",
       "seed": 14,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d1-00018",
@@ -4207,9 +4207,9 @@
       "method": "rule",
       "seed": 18,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d1-00020",
@@ -4247,9 +4247,9 @@
       "method": "rule",
       "seed": 20,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d1-00030",
@@ -4287,9 +4287,9 @@
       "method": "rule",
       "seed": 30,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d2-00001",
@@ -4327,9 +4327,9 @@
       "method": "rule",
       "seed": 1,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d2-00002",
@@ -4367,9 +4367,9 @@
       "method": "rule",
       "seed": 2,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d2-00004",
@@ -4407,9 +4407,9 @@
       "method": "rule",
       "seed": 4,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d2-00006",
@@ -4447,9 +4447,9 @@
       "method": "rule",
       "seed": 6,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d2-00007",
@@ -4487,9 +4487,9 @@
       "method": "rule",
       "seed": 7,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d2-00008",
@@ -4527,9 +4527,9 @@
       "method": "rule",
       "seed": 8,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d2-00009",
@@ -4567,9 +4567,9 @@
       "method": "rule",
       "seed": 9,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d2-00012",
@@ -4607,9 +4607,9 @@
       "method": "rule",
       "seed": 12,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d2-00014",
@@ -4647,9 +4647,9 @@
       "method": "rule",
       "seed": 14,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d2-00018",
@@ -4687,9 +4687,9 @@
       "method": "rule",
       "seed": 18,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d2-00020",
@@ -4727,9 +4727,9 @@
       "method": "rule",
       "seed": 20,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d2-00030",
@@ -4767,9 +4767,9 @@
       "method": "rule",
       "seed": 30,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d3-00001",
@@ -4811,9 +4811,9 @@
       "method": "rule",
       "seed": 1,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d3-00002",
@@ -4855,9 +4855,9 @@
       "method": "rule",
       "seed": 2,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d3-00004",
@@ -4899,9 +4899,9 @@
       "method": "rule",
       "seed": 4,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d3-00006",
@@ -4943,9 +4943,9 @@
       "method": "rule",
       "seed": 6,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d3-00007",
@@ -4987,9 +4987,9 @@
       "method": "rule",
       "seed": 7,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d3-00008",
@@ -5031,9 +5031,9 @@
       "method": "rule",
       "seed": 8,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d3-00009",
@@ -5075,9 +5075,9 @@
       "method": "rule",
       "seed": 9,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d3-00012",
@@ -5119,9 +5119,9 @@
       "method": "rule",
       "seed": 12,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d3-00014",
@@ -5163,9 +5163,9 @@
       "method": "rule",
       "seed": 14,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d3-00018",
@@ -5207,9 +5207,9 @@
       "method": "rule",
       "seed": 18,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d3-00020",
@@ -5251,9 +5251,9 @@
       "method": "rule",
       "seed": 20,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d3-00030",
@@ -5295,9 +5295,9 @@
       "method": "rule",
       "seed": 30,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d4-00001",
@@ -5339,9 +5339,9 @@
       "method": "rule",
       "seed": 1,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d4-00002",
@@ -5383,9 +5383,9 @@
       "method": "rule",
       "seed": 2,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d4-00004",
@@ -5427,9 +5427,9 @@
       "method": "rule",
       "seed": 4,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d4-00006",
@@ -5471,9 +5471,9 @@
       "method": "rule",
       "seed": 6,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d4-00007",
@@ -5515,9 +5515,9 @@
       "method": "rule",
       "seed": 7,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d4-00008",
@@ -5559,9 +5559,9 @@
       "method": "rule",
       "seed": 8,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d4-00009",
@@ -5603,9 +5603,9 @@
       "method": "rule",
       "seed": 9,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d4-00012",
@@ -5647,9 +5647,9 @@
       "method": "rule",
       "seed": 12,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d4-00014",
@@ -5691,9 +5691,9 @@
       "method": "rule",
       "seed": 14,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d4-00018",
@@ -5735,9 +5735,9 @@
       "method": "rule",
       "seed": 18,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d4-00020",
@@ -5779,9 +5779,9 @@
       "method": "rule",
       "seed": 20,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d4-00030",
@@ -5823,9 +5823,9 @@
       "method": "rule",
       "seed": 30,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d5-00001",
@@ -5867,9 +5867,9 @@
       "method": "rule",
       "seed": 1,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d5-00002",
@@ -5911,9 +5911,9 @@
       "method": "rule",
       "seed": 2,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d5-00004",
@@ -5955,9 +5955,9 @@
       "method": "rule",
       "seed": 4,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d5-00006",
@@ -5999,9 +5999,9 @@
       "method": "rule",
       "seed": 6,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d5-00007",
@@ -6043,9 +6043,9 @@
       "method": "rule",
       "seed": 7,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d5-00008",
@@ -6087,9 +6087,9 @@
       "method": "rule",
       "seed": 8,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d5-00009",
@@ -6131,9 +6131,9 @@
       "method": "rule",
       "seed": 9,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d5-00012",
@@ -6175,9 +6175,9 @@
       "method": "rule",
       "seed": 12,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d5-00014",
@@ -6219,9 +6219,9 @@
       "method": "rule",
       "seed": 14,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d5-00018",
@@ -6263,9 +6263,9 @@
       "method": "rule",
       "seed": 18,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d5-00020",
@@ -6307,9 +6307,9 @@
       "method": "rule",
       "seed": 20,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   },
   {
     "id": "sinonimo-d5-00030",
@@ -6351,8 +6351,8 @@
       "method": "rule",
       "seed": 30,
       "generator": "sinonimo",
-      "checkedAt": "2026-09-21T15:06:08.674Z"
+      "checkedAt": "2026-09-21T17:10:08.503Z"
     },
-    "createdAt": "2026-09-21T15:06:08.674Z"
+    "createdAt": "2026-09-21T17:10:08.503Z"
   }
 ]
