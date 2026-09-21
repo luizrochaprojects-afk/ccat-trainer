@@ -3,3 +3,4 @@ dist/
 .preview/
 *.local
 .DS_Store
+tsconfig.tsbuildinfo

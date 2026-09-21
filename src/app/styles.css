@@ -1,0 +1,578 @@
+/*
+ * Sistema visual do CCAT Trainer.
+ *
+ * Tema claro fixo: fundo branco, letra preta, alto contraste (PRD §6). Sem
+ * variante escura — a tela de questão precisa ser legível em 18 segundos, e
+ * contraste máximo é o que sustenta isso.
+ *
+ * Tipografia: texto em serifada (leitura de enunciado longo) e todo NÚMERO em
+ * monoespaçada. Cronômetro, contador e score mudam o tempo todo; com fonte
+ * proporcional o layout treme a cada dígito e o olho precisa reancorar.
+ */
+
+:root {
+  color-scheme: light;
+
+  --tinta: #111111;
+  --tinta-fraca: #5a5a5a;
+  --tinta-tenue: #8a8a8a;
+  --papel: #ffffff;
+  --papel-suave: #f6f5f3;
+  --linha: #d9d7d3;
+  --linha-forte: #111111;
+
+  --certo: #1a6b3c;
+  --certo-fundo: #e8f3ec;
+  --errado: #a4242b;
+  --errado-fundo: #fbebec;
+  --alerta: #8a5a00;
+
+  --serif: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+  --sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, 'SF Mono', 'Cascadia Mono', Menlo, Consolas, monospace;
+
+  --gutter: 20px;
+  --max: 720px;
+  --raio: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- estrutura ----------------------------------------------------------- */
+
+.shell {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--gutter) 80px;
+}
+
+.topo {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 0 28px;
+  border-bottom: 1px solid var(--linha);
+  margin-bottom: 32px;
+}
+
+.marca {
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  color: var(--tinta);
+}
+
+.nav {
+  display: flex;
+  gap: 18px;
+  font-size: 14px;
+}
+
+.nav a {
+  color: var(--tinta-fraca);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+}
+
+.nav a:hover,
+.nav a[aria-current='page'] {
+  color: var(--tinta);
+  border-bottom-color: var(--tinta);
+}
+
+/* --- tipografia ---------------------------------------------------------- */
+
+h1 {
+  font-family: var(--serif);
+  font-size: 34px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0 0 10px;
+  font-weight: 600;
+}
+
+h2 {
+  font-family: var(--serif);
+  font-size: 23px;
+  margin: 40px 0 12px;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 15px;
+  margin: 28px 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--tinta-fraca);
+  font-weight: 600;
+}
+
+.lead {
+  color: var(--tinta-fraca);
+  margin: 0 0 32px;
+  font-size: 17px;
+}
+
+.num {
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- botões -------------------------------------------------------------- */
+
+.btn {
+  display: inline-block;
+  font: inherit;
+  font-size: 16px;
+  padding: 13px 22px;
+  border: 1.5px solid var(--linha-forte);
+  border-radius: var(--raio);
+  background: var(--tinta);
+  color: var(--papel);
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn:hover {
+  opacity: 0.85;
+}
+
+.btn.secundario {
+  background: var(--papel);
+  color: var(--tinta);
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn-linha {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+/* --- cartões ------------------------------------------------------------- */
+
+.cartao {
+  border: 1px solid var(--linha);
+  border-radius: var(--raio);
+  padding: 22px;
+  margin-bottom: 16px;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: var(--papel);
+}
+
+a.cartao:hover {
+  border-color: var(--linha-forte);
+}
+
+.cartao h2 {
+  margin: 0 0 6px;
+  font-size: 21px;
+}
+
+.cartao p {
+  margin: 0;
+  color: var(--tinta-fraca);
+  font-size: 15px;
+}
+
+/* --- sessão -------------------------------------------------------------- */
+
+.barra-sessao {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--linha);
+  position: sticky;
+  top: 0;
+  background: var(--papel);
+  z-index: 10;
+}
+
+.relogio {
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.relogio.urgente {
+  color: var(--errado);
+}
+
+.contador {
+  font-family: var(--mono);
+  font-size: 15px;
+  color: var(--tinta-fraca);
+}
+
+.progresso {
+  height: 3px;
+  background: var(--linha);
+  overflow: hidden;
+}
+
+.progresso > i {
+  display: block;
+  height: 100%;
+  background: var(--tinta);
+}
+
+.enunciado {
+  font-family: var(--serif);
+  font-size: 25px;
+  line-height: 1.4;
+  margin: 36px 0 28px;
+  white-space: pre-line;
+}
+
+.enunciado.serie {
+  font-family: var(--mono);
+  font-size: 27px;
+  letter-spacing: 0.04em;
+}
+
+.figura-enunciado {
+  margin: 28px 0;
+}
+
+.figura-enunciado svg {
+  max-width: 100%;
+  height: auto;
+  max-height: 260px;
+  display: block;
+}
+
+/* --- alternativas -------------------------------------------------------- */
+
+.opcoes {
+  display: grid;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.opcoes.graficas {
+  grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
+}
+
+.opcao {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  font: inherit;
+  text-align: left;
+  padding: 15px 18px;
+  border: 1.5px solid var(--linha);
+  border-radius: var(--raio);
+  background: var(--papel);
+  color: var(--tinta);
+  cursor: pointer;
+}
+
+.opcao:hover:not(:disabled) {
+  border-color: var(--linha-forte);
+}
+
+.opcoes.graficas .opcao {
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+}
+
+.opcao svg {
+  width: 100%;
+  max-width: 104px;
+  height: auto;
+}
+
+.tecla {
+  font-family: var(--mono);
+  font-size: 13px;
+  min-width: 26px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--linha);
+  border-radius: 6px;
+  color: var(--tinta-fraca);
+  flex-shrink: 0;
+}
+
+.opcao.certa {
+  border-color: var(--certo);
+  background: var(--certo-fundo);
+}
+
+.opcao.errada {
+  border-color: var(--errado);
+  background: var(--errado-fundo);
+}
+
+.opcao:disabled {
+  cursor: default;
+}
+
+/* --- feedback ------------------------------------------------------------ */
+
+.feedback {
+  margin-top: 22px;
+  padding: 18px;
+  border-radius: var(--raio);
+  border: 1px solid var(--linha);
+  background: var(--papel-suave);
+  font-size: 15.5px;
+}
+
+.feedback .veredito {
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+.feedback .veredito.acerto {
+  color: var(--certo);
+}
+
+.feedback .veredito.erro {
+  color: var(--errado);
+}
+
+.feedback p {
+  margin: 0 0 10px;
+}
+
+/* --- resultado ----------------------------------------------------------- */
+
+.placar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 1px;
+  background: var(--linha);
+  border: 1px solid var(--linha);
+  border-radius: var(--raio);
+  overflow: hidden;
+  margin: 28px 0;
+}
+
+.stat {
+  background: var(--papel);
+  padding: 18px;
+}
+
+.stat .valor {
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.1;
+  display: block;
+}
+
+.stat .rotulo {
+  font-size: 12.5px;
+  color: var(--tinta-fraca);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 6px;
+  display: block;
+}
+
+.stat .nota {
+  font-size: 12.5px;
+  color: var(--tinta-tenue);
+  margin-top: 4px;
+  display: block;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  margin: 12px 0 8px;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--linha);
+}
+
+th {
+  font-size: 12.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--tinta-fraca);
+  font-weight: 600;
+}
+
+td.n {
+  font-family: var(--mora, var(--mono));
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+th.n {
+  text-align: right;
+}
+
+.medidor {
+  height: 6px;
+  background: var(--linha);
+  border-radius: 3px;
+  overflow: hidden;
+  min-width: 56px;
+}
+
+.medidor > i {
+  display: block;
+  height: 100%;
+  background: var(--tinta);
+}
+
+/* --- diversos ------------------------------------------------------------ */
+
+.aviso {
+  border-left: 3px solid var(--alerta);
+  padding: 12px 16px;
+  background: var(--papel-suave);
+  font-size: 15px;
+  margin: 20px 0;
+  border-radius: 0 var(--raio) var(--raio) 0;
+}
+
+.vazio {
+  color: var(--tinta-fraca);
+  padding: 40px 0;
+  text-align: center;
+}
+
+.campo {
+  display: block;
+  margin-bottom: 18px;
+}
+
+.campo > span {
+  display: block;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--tinta-fraca);
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+select,
+input[type='number'] {
+  font: inherit;
+  font-size: 16px;
+  padding: 11px 13px;
+  border: 1.5px solid var(--linha);
+  border-radius: var(--raio);
+  background: var(--papel);
+  color: var(--tinta);
+  width: 100%;
+  max-width: 340px;
+}
+
+.chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.chip {
+  font: inherit;
+  font-size: 14px;
+  padding: 8px 14px;
+  border: 1.5px solid var(--linha);
+  border-radius: 999px;
+  background: var(--papel);
+  color: var(--tinta);
+  cursor: pointer;
+}
+
+.chip[aria-pressed='true'] {
+  background: var(--tinta);
+  color: var(--papel);
+  border-color: var(--tinta);
+}
+
+.rodape-teoria {
+  font-size: 14px;
+  color: var(--tinta-fraca);
+  margin-top: 10px;
+}
+
+.rodape-teoria a {
+  color: var(--tinta);
+}
+
+ul.metodo {
+  padding-left: 20px;
+}
+
+ul.metodo li {
+  margin-bottom: 7px;
+}
+
+.sparkline {
+  display: block;
+  width: 100%;
+  height: 90px;
+  margin: 8px 0 4px;
+}
+
+.legenda {
+  font-size: 13px;
+  color: var(--tinta-tenue);
+}
+
+@media (max-width: 560px) {
+  :root {
+    --gutter: 16px;
+  }
+  h1 {
+    font-size: 27px;
+  }
+  .enunciado {
+    font-size: 21px;
+  }
+  .relogio {
+    font-size: 25px;
+  }
+}
