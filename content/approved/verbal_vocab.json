@@ -1,0 +1,5908 @@
+[
+  {
+    "id": "antonimo-d1-00001",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 1,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"CALM\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "serene"
+      },
+      {
+        "id": "b",
+        "text": "tranquil"
+      },
+      {
+        "id": "c",
+        "text": "frantic"
+      },
+      {
+        "id": "d",
+        "text": "raucous"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "\"calm\" significa algo próximo de \"tranquil\". O oposto é \"frantic\". Repare que \"tranquil\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 1,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d1-00002",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 1,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"SIMPLE\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "straightforward"
+      },
+      {
+        "id": "b",
+        "text": "intricate"
+      },
+      {
+        "id": "c",
+        "text": "uncomplicated"
+      },
+      {
+        "id": "d",
+        "text": "antagonistic"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "\"simple\" significa algo próximo de \"straightforward\". O oposto é \"intricate\". Repare que \"straightforward\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 2,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d1-00004",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 1,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"NOISY\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "loud"
+      },
+      {
+        "id": "b",
+        "text": "quick"
+      },
+      {
+        "id": "c",
+        "text": "raucous"
+      },
+      {
+        "id": "d",
+        "text": "hushed"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "\"noisy\" significa algo próximo de \"loud\". O oposto é \"hushed\". Repare que \"loud\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 4,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d1-00006",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 1,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"FEEBLE\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "frail"
+      },
+      {
+        "id": "b",
+        "text": "vacant"
+      },
+      {
+        "id": "c",
+        "text": "strong"
+      },
+      {
+        "id": "d",
+        "text": "weak"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "\"feeble\" significa algo próximo de \"frail\". O oposto é \"strong\". Repare que \"frail\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 6,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d1-00007",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 1,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"RAPID\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "uncomplicated"
+      },
+      {
+        "id": "b",
+        "text": "slow"
+      },
+      {
+        "id": "c",
+        "text": "swift"
+      },
+      {
+        "id": "d",
+        "text": "quick"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "\"rapid\" significa algo próximo de \"swift\". O oposto é \"slow\". Repare que \"swift\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 7,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d1-00008",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 1,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"ANCIENT\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "recent"
+      },
+      {
+        "id": "b",
+        "text": "straightforward"
+      },
+      {
+        "id": "c",
+        "text": "archaic"
+      },
+      {
+        "id": "d",
+        "text": "aged"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "\"ancient\" significa algo próximo de \"aged\". O oposto é \"recent\". Repare que \"aged\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 8,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d1-00009",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 1,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"VACANT\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "unoccupied"
+      },
+      {
+        "id": "b",
+        "text": "crowded"
+      },
+      {
+        "id": "c",
+        "text": "humid"
+      },
+      {
+        "id": "d",
+        "text": "empty"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "\"vacant\" significa algo próximo de \"empty\". O oposto é \"crowded\". Repare que \"empty\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 9,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d1-00012",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 1,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"VISIBLE\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "noticeable"
+      },
+      {
+        "id": "b",
+        "text": "apparent"
+      },
+      {
+        "id": "c",
+        "text": "loud"
+      },
+      {
+        "id": "d",
+        "text": "hidden"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "\"visible\" significa algo próximo de \"apparent\". O oposto é \"hidden\". Repare que \"apparent\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 12,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d1-00014",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 1,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"HOSTILE\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "noticeable"
+      },
+      {
+        "id": "b",
+        "text": "antagonistic"
+      },
+      {
+        "id": "c",
+        "text": "unfriendly"
+      },
+      {
+        "id": "d",
+        "text": "friendly"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "\"hostile\" significa algo próximo de \"unfriendly\". O oposto é \"friendly\". Repare que \"unfriendly\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 14,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d1-00018",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 1,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"ABUNDANT\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "meager"
+      },
+      {
+        "id": "b",
+        "text": "copious"
+      },
+      {
+        "id": "c",
+        "text": "plentiful"
+      },
+      {
+        "id": "d",
+        "text": "vacant"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "\"abundant\" significa algo próximo de \"plentiful\". O oposto é \"meager\". Repare que \"plentiful\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 18,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d1-00020",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 1,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"PERMANENT\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "enduring"
+      },
+      {
+        "id": "b",
+        "text": "visible"
+      },
+      {
+        "id": "c",
+        "text": "temporary"
+      },
+      {
+        "id": "d",
+        "text": "lasting"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "\"permanent\" significa algo próximo de \"lasting\". O oposto é \"temporary\". Repare que \"lasting\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 20,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d1-00030",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 1,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"HUMID\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "archaic"
+      },
+      {
+        "id": "b",
+        "text": "damp"
+      },
+      {
+        "id": "c",
+        "text": "muggy"
+      },
+      {
+        "id": "d",
+        "text": "arid"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "\"humid\" significa algo próximo de \"damp\". O oposto é \"arid\". Repare que \"damp\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 30,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d2-00001",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 2,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"AMPLE\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "spacious"
+      },
+      {
+        "id": "b",
+        "text": "generous"
+      },
+      {
+        "id": "c",
+        "text": "scant"
+      },
+      {
+        "id": "d",
+        "text": "bashful"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "\"ample\" significa algo próximo de \"generous\". O oposto é \"scant\". Repare que \"generous\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 1,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d2-00002",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 2,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"RIGID\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "stiff"
+      },
+      {
+        "id": "b",
+        "text": "pliable"
+      },
+      {
+        "id": "c",
+        "text": "unbending"
+      },
+      {
+        "id": "d",
+        "text": "industrious"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "\"rigid\" significa algo próximo de \"stiff\". O oposto é \"pliable\". Repare que \"stiff\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 2,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d2-00004",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 2,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"TIMID\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "bashful"
+      },
+      {
+        "id": "b",
+        "text": "archaic"
+      },
+      {
+        "id": "c",
+        "text": "diffident"
+      },
+      {
+        "id": "d",
+        "text": "bold"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "\"timid\" significa algo próximo de \"bashful\". O oposto é \"bold\". Repare que \"bashful\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 4,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d2-00006",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 2,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"LUCID\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "clear"
+      },
+      {
+        "id": "b",
+        "text": "plentiful"
+      },
+      {
+        "id": "c",
+        "text": "muddled"
+      },
+      {
+        "id": "d",
+        "text": "intelligible"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "\"lucid\" significa algo próximo de \"clear\". O oposto é \"muddled\". Repare que \"clear\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 6,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d2-00007",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 2,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"DILIGENT\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "brisk"
+      },
+      {
+        "id": "b",
+        "text": "lazy"
+      },
+      {
+        "id": "c",
+        "text": "industrious"
+      },
+      {
+        "id": "d",
+        "text": "assiduous"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "\"diligent\" significa algo próximo de \"industrious\". O oposto é \"lazy\". Repare que \"industrious\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 7,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d2-00008",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 2,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"TRIVIAL\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "momentous"
+      },
+      {
+        "id": "b",
+        "text": "brisk"
+      },
+      {
+        "id": "c",
+        "text": "petty"
+      },
+      {
+        "id": "d",
+        "text": "insignificant"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "\"trivial\" significa algo próximo de \"insignificant\". O oposto é \"momentous\". Repare que \"insignificant\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 8,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d2-00009",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 2,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"CANDID\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "forthright"
+      },
+      {
+        "id": "b",
+        "text": "guarded"
+      },
+      {
+        "id": "c",
+        "text": "spacious"
+      },
+      {
+        "id": "d",
+        "text": "frank"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "\"candid\" significa algo próximo de \"frank\". O oposto é \"guarded\". Repare que \"frank\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 9,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d2-00012",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 2,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"PRUDENT\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "judicious"
+      },
+      {
+        "id": "b",
+        "text": "cautious"
+      },
+      {
+        "id": "c",
+        "text": "productive"
+      },
+      {
+        "id": "d",
+        "text": "reckless"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "\"prudent\" significa algo próximo de \"cautious\". O oposto é \"reckless\". Repare que \"cautious\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 12,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d2-00014",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 2,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"BRISK\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "uncomplicated"
+      },
+      {
+        "id": "b",
+        "text": "energetic"
+      },
+      {
+        "id": "c",
+        "text": "lively"
+      },
+      {
+        "id": "d",
+        "text": "sluggish"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "\"brisk\" significa algo próximo de \"lively\". O oposto é \"sluggish\". Repare que \"lively\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 14,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d2-00018",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 2,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"STURDY\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "fragile"
+      },
+      {
+        "id": "b",
+        "text": "durable"
+      },
+      {
+        "id": "c",
+        "text": "robust"
+      },
+      {
+        "id": "d",
+        "text": "plentiful"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "\"sturdy\" significa algo próximo de \"robust\". O oposto é \"fragile\". Repare que \"robust\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 18,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d2-00020",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 2,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"DORMANT\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "latent"
+      },
+      {
+        "id": "b",
+        "text": "feeble"
+      },
+      {
+        "id": "c",
+        "text": "active"
+      },
+      {
+        "id": "d",
+        "text": "inactive"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "\"dormant\" significa algo próximo de \"inactive\". O oposto é \"active\". Repare que \"inactive\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 20,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d2-00030",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 2,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"FERTILE\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "abundant"
+      },
+      {
+        "id": "b",
+        "text": "productive"
+      },
+      {
+        "id": "c",
+        "text": "fruitful"
+      },
+      {
+        "id": "d",
+        "text": "infertile"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "\"fertile\" significa algo próximo de \"productive\". O oposto é \"infertile\". Repare que \"productive\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 30,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d3-00001",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 3,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"TRANSIENT\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "remunerative"
+      },
+      {
+        "id": "b",
+        "text": "perpetual"
+      },
+      {
+        "id": "c",
+        "text": "equivocal"
+      },
+      {
+        "id": "d",
+        "text": "passing"
+      },
+      {
+        "id": "e",
+        "text": "momentary"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "\"transient\" significa algo próximo de \"momentary\". O oposto é \"perpetual\". Repare que \"momentary\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 1,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d3-00002",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 3,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"ADEPT\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "bungling"
+      },
+      {
+        "id": "b",
+        "text": "proficient"
+      },
+      {
+        "id": "c",
+        "text": "permissive"
+      },
+      {
+        "id": "d",
+        "text": "skilled"
+      },
+      {
+        "id": "e",
+        "text": "intelligible"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "\"adept\" significa algo próximo de \"proficient\". O oposto é \"bungling\". Repare que \"proficient\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 2,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d3-00004",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 3,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"AMBIGUOUS\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "unoccupied"
+      },
+      {
+        "id": "b",
+        "text": "indeterminate"
+      },
+      {
+        "id": "c",
+        "text": "serene"
+      },
+      {
+        "id": "d",
+        "text": "unequivocal"
+      },
+      {
+        "id": "e",
+        "text": "equivocal"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "\"ambiguous\" significa algo próximo de \"equivocal\". O oposto é \"unequivocal\". Repare que \"equivocal\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 4,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d3-00006",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 3,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"LENIENT\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "weak"
+      },
+      {
+        "id": "b",
+        "text": "permissive"
+      },
+      {
+        "id": "c",
+        "text": "indulgent"
+      },
+      {
+        "id": "d",
+        "text": "clear"
+      },
+      {
+        "id": "e",
+        "text": "strict"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "\"lenient\" significa algo próximo de \"permissive\". O oposto é \"strict\". Repare que \"permissive\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 6,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d3-00007",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 3,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"METICULOUS\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "intelligible"
+      },
+      {
+        "id": "b",
+        "text": "abstruse"
+      },
+      {
+        "id": "c",
+        "text": "careless"
+      },
+      {
+        "id": "d",
+        "text": "thorough"
+      },
+      {
+        "id": "e",
+        "text": "scrupulous"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "\"meticulous\" significa algo próximo de \"thorough\". O oposto é \"careless\". Repare que \"thorough\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 7,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d3-00008",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 3,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"OBSCURE\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "unbending"
+      },
+      {
+        "id": "b",
+        "text": "abstruse"
+      },
+      {
+        "id": "c",
+        "text": "evident"
+      },
+      {
+        "id": "d",
+        "text": "thorough"
+      },
+      {
+        "id": "e",
+        "text": "cryptic"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "\"obscure\" significa algo próximo de \"cryptic\". O oposto é \"evident\". Repare que \"cryptic\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 8,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d3-00009",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 3,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"VOLATILE\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "cryptic"
+      },
+      {
+        "id": "b",
+        "text": "stable"
+      },
+      {
+        "id": "c",
+        "text": "unstable"
+      },
+      {
+        "id": "d",
+        "text": "erratic"
+      },
+      {
+        "id": "e",
+        "text": "grueling"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "\"volatile\" significa algo próximo de \"unstable\". O oposto é \"stable\". Repare que \"unstable\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 9,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d3-00012",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 3,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"BENEVOLENT\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "feeble"
+      },
+      {
+        "id": "b",
+        "text": "lucrative"
+      },
+      {
+        "id": "c",
+        "text": "charitable"
+      },
+      {
+        "id": "d",
+        "text": "kindly"
+      },
+      {
+        "id": "e",
+        "text": "malevolent"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "\"benevolent\" significa algo próximo de \"charitable\". O oposto é \"malevolent\". Repare que \"charitable\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 12,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d3-00014",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 3,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"ARDUOUS\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "industrious"
+      },
+      {
+        "id": "b",
+        "text": "strenuous"
+      },
+      {
+        "id": "c",
+        "text": "effortless"
+      },
+      {
+        "id": "d",
+        "text": "weak"
+      },
+      {
+        "id": "e",
+        "text": "grueling"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "\"arduous\" significa algo próximo de \"strenuous\". O oposto é \"effortless\". Repare que \"strenuous\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 14,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d3-00018",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 3,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"TEDIOUS\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "monotonous"
+      },
+      {
+        "id": "b",
+        "text": "weak"
+      },
+      {
+        "id": "c",
+        "text": "riveting"
+      },
+      {
+        "id": "d",
+        "text": "arduous"
+      },
+      {
+        "id": "e",
+        "text": "dreary"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "\"tedious\" significa algo próximo de \"monotonous\". O oposto é \"riveting\". Repare que \"monotonous\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 18,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d3-00020",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 3,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"FRUGAL\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "thrifty"
+      },
+      {
+        "id": "b",
+        "text": "forthright"
+      },
+      {
+        "id": "c",
+        "text": "humid"
+      },
+      {
+        "id": "d",
+        "text": "economical"
+      },
+      {
+        "id": "e",
+        "text": "extravagant"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "\"frugal\" significa algo próximo de \"thrifty\". O oposto é \"extravagant\". Repare que \"thrifty\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 20,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d3-00030",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 3,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"LUCRATIVE\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "ruinous"
+      },
+      {
+        "id": "b",
+        "text": "unfriendly"
+      },
+      {
+        "id": "c",
+        "text": "remunerative"
+      },
+      {
+        "id": "d",
+        "text": "frail"
+      },
+      {
+        "id": "e",
+        "text": "profitable"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "\"lucrative\" significa algo próximo de \"profitable\". O oposto é \"ruinous\". Repare que \"profitable\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 30,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d4-00001",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 4,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"INEPT\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "ubiquitous"
+      },
+      {
+        "id": "b",
+        "text": "competent"
+      },
+      {
+        "id": "c",
+        "text": "innocuous"
+      },
+      {
+        "id": "d",
+        "text": "maladroit"
+      },
+      {
+        "id": "e",
+        "text": "incompetent"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "\"inept\" significa algo próximo de \"incompetent\". O oposto é \"competent\". Repare que \"incompetent\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 1,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d4-00002",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 4,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"ZEALOUS\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "apathetic"
+      },
+      {
+        "id": "b",
+        "text": "fervent"
+      },
+      {
+        "id": "c",
+        "text": "redundant"
+      },
+      {
+        "id": "d",
+        "text": "ardent"
+      },
+      {
+        "id": "e",
+        "text": "obscure"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "\"zealous\" significa algo próximo de \"fervent\". O oposto é \"apathetic\". Repare que \"fervent\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 2,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d4-00004",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 4,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"INNOCUOUS\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "noticeable"
+      },
+      {
+        "id": "b",
+        "text": "benign"
+      },
+      {
+        "id": "c",
+        "text": "muggy"
+      },
+      {
+        "id": "d",
+        "text": "harmful"
+      },
+      {
+        "id": "e",
+        "text": "harmless"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "\"innocuous\" significa algo próximo de \"harmless\". O oposto é \"harmful\". Repare que \"harmless\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 4,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d4-00006",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 4,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"GARRULOUS\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "lasting"
+      },
+      {
+        "id": "b",
+        "text": "loquacious"
+      },
+      {
+        "id": "c",
+        "text": "voluble"
+      },
+      {
+        "id": "d",
+        "text": "cryptic"
+      },
+      {
+        "id": "e",
+        "text": "taciturn"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "\"garrulous\" significa algo próximo de \"loquacious\". O oposto é \"taciturn\". Repare que \"loquacious\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 6,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d4-00007",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 4,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"EPHEMERAL\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "thorough"
+      },
+      {
+        "id": "b",
+        "text": "thrifty"
+      },
+      {
+        "id": "c",
+        "text": "everlasting"
+      },
+      {
+        "id": "d",
+        "text": "transitory"
+      },
+      {
+        "id": "e",
+        "text": "evanescent"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "\"ephemeral\" significa algo próximo de \"transitory\". O oposto é \"everlasting\". Repare que \"transitory\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 7,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d4-00008",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 4,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"AUSTERE\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "benevolent"
+      },
+      {
+        "id": "b",
+        "text": "spartan"
+      },
+      {
+        "id": "c",
+        "text": "indulgent"
+      },
+      {
+        "id": "d",
+        "text": "frugal"
+      },
+      {
+        "id": "e",
+        "text": "stern"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "\"austere\" significa algo próximo de \"stern\". O oposto é \"indulgent\". Repare que \"stern\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 8,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d4-00009",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 4,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"TENACIOUS\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "lucrative"
+      },
+      {
+        "id": "b",
+        "text": "irresolute"
+      },
+      {
+        "id": "c",
+        "text": "dogged"
+      },
+      {
+        "id": "d",
+        "text": "unrelenting"
+      },
+      {
+        "id": "e",
+        "text": "impenetrable"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "\"tenacious\" significa algo próximo de \"dogged\". O oposto é \"irresolute\". Repare que \"dogged\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 9,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d4-00012",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 4,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"OPAQUE\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "serene"
+      },
+      {
+        "id": "b",
+        "text": "frankness"
+      },
+      {
+        "id": "c",
+        "text": "impenetrable"
+      },
+      {
+        "id": "d",
+        "text": "murky"
+      },
+      {
+        "id": "e",
+        "text": "transparent"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "\"opaque\" significa algo próximo de \"impenetrable\". O oposto é \"transparent\". Repare que \"impenetrable\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 12,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d4-00014",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 4,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"REDUNDANT\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "robust"
+      },
+      {
+        "id": "b",
+        "text": "superfluous"
+      },
+      {
+        "id": "c",
+        "text": "indispensable"
+      },
+      {
+        "id": "d",
+        "text": "permanent"
+      },
+      {
+        "id": "e",
+        "text": "surplus"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "\"redundant\" significa algo próximo de \"superfluous\". O oposto é \"indispensable\". Repare que \"superfluous\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 14,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d4-00018",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 4,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"PLACID\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "untroubled"
+      },
+      {
+        "id": "b",
+        "text": "enduring"
+      },
+      {
+        "id": "c",
+        "text": "agitated"
+      },
+      {
+        "id": "d",
+        "text": "tenacious"
+      },
+      {
+        "id": "e",
+        "text": "unruffled"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "\"placid\" significa algo próximo de \"untroubled\". O oposto é \"agitated\". Repare que \"untroubled\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 18,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d4-00020",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 4,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"CANDOR\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "frankness"
+      },
+      {
+        "id": "b",
+        "text": "stiff"
+      },
+      {
+        "id": "c",
+        "text": "trivial"
+      },
+      {
+        "id": "d",
+        "text": "openness"
+      },
+      {
+        "id": "e",
+        "text": "duplicity"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "\"candor\" significa algo próximo de \"frankness\". O oposto é \"duplicity\". Repare que \"frankness\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 20,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d4-00030",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 4,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"PERVASIVE\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "confined"
+      },
+      {
+        "id": "b",
+        "text": "tranquil"
+      },
+      {
+        "id": "c",
+        "text": "widespread"
+      },
+      {
+        "id": "d",
+        "text": "straightforward"
+      },
+      {
+        "id": "e",
+        "text": "ubiquitous"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "\"pervasive\" significa algo próximo de \"ubiquitous\". O oposto é \"confined\". Repare que \"ubiquitous\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 30,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d5-00001",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 5,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"MENDACIOUS\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "truculent"
+      },
+      {
+        "id": "b",
+        "text": "veracious"
+      },
+      {
+        "id": "c",
+        "text": "pugnacious"
+      },
+      {
+        "id": "d",
+        "text": "deceitful"
+      },
+      {
+        "id": "e",
+        "text": "untruthful"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "\"mendacious\" significa algo próximo de \"untruthful\". O oposto é \"veracious\". Repare que \"untruthful\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 1,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d5-00002",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 5,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"INTRANSIGENT\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "accommodating"
+      },
+      {
+        "id": "b",
+        "text": "uncompromising"
+      },
+      {
+        "id": "c",
+        "text": "exuberant"
+      },
+      {
+        "id": "d",
+        "text": "implacable"
+      },
+      {
+        "id": "e",
+        "text": "passing"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "\"intransigent\" significa algo próximo de \"uncompromising\". O oposto é \"accommodating\". Repare que \"uncompromising\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 2,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d5-00004",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 5,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"SOPORIFIC\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "copious"
+      },
+      {
+        "id": "b",
+        "text": "sedative"
+      },
+      {
+        "id": "c",
+        "text": "petty"
+      },
+      {
+        "id": "d",
+        "text": "stimulating"
+      },
+      {
+        "id": "e",
+        "text": "somniferous"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "\"soporific\" significa algo próximo de \"somniferous\". O oposto é \"stimulating\". Repare que \"somniferous\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 4,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d5-00006",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 5,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"QUIESCENT\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "industrious"
+      },
+      {
+        "id": "b",
+        "text": "quiet"
+      },
+      {
+        "id": "c",
+        "text": "reposeful"
+      },
+      {
+        "id": "d",
+        "text": "skilled"
+      },
+      {
+        "id": "e",
+        "text": "tumultuous"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "\"quiescent\" significa algo próximo de \"quiet\". O oposto é \"tumultuous\". Repare que \"quiet\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 6,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d5-00007",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 5,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"PERFUNCTORY\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "passing"
+      },
+      {
+        "id": "b",
+        "text": "surplus"
+      },
+      {
+        "id": "c",
+        "text": "painstaking"
+      },
+      {
+        "id": "d",
+        "text": "cursory"
+      },
+      {
+        "id": "e",
+        "text": "desultory"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "\"perfunctory\" significa algo próximo de \"cursory\". O oposto é \"painstaking\". Repare que \"cursory\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 7,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d5-00008",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 5,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"LACONIC\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "economical"
+      },
+      {
+        "id": "b",
+        "text": "succinct"
+      },
+      {
+        "id": "c",
+        "text": "prolix"
+      },
+      {
+        "id": "d",
+        "text": "untroubled"
+      },
+      {
+        "id": "e",
+        "text": "terse"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "\"laconic\" significa algo próximo de \"terse\". O oposto é \"prolix\". Repare que \"terse\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 8,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d5-00009",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 5,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"OBDURATE\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "voluble"
+      },
+      {
+        "id": "b",
+        "text": "compliant"
+      },
+      {
+        "id": "c",
+        "text": "unyielding"
+      },
+      {
+        "id": "d",
+        "text": "adamant"
+      },
+      {
+        "id": "e",
+        "text": "cursory"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "\"obdurate\" significa algo próximo de \"unyielding\". O oposto é \"compliant\". Repare que \"unyielding\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 9,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d5-00012",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 5,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"EBULLIENT\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "uncomplicated"
+      },
+      {
+        "id": "b",
+        "text": "uncompromising"
+      },
+      {
+        "id": "c",
+        "text": "exuberant"
+      },
+      {
+        "id": "d",
+        "text": "effervescent"
+      },
+      {
+        "id": "e",
+        "text": "morose"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "\"ebullient\" significa algo próximo de \"exuberant\". O oposto é \"morose\". Repare que \"exuberant\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 12,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d5-00014",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 5,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"MUNIFICENT\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "stiff"
+      },
+      {
+        "id": "b",
+        "text": "bountiful"
+      },
+      {
+        "id": "c",
+        "text": "miserly"
+      },
+      {
+        "id": "d",
+        "text": "noisy"
+      },
+      {
+        "id": "e",
+        "text": "openhanded"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "\"munificent\" significa algo próximo de \"bountiful\". O oposto é \"miserly\". Repare que \"bountiful\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 14,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d5-00018",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 5,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"RECALCITRANT\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "refractory"
+      },
+      {
+        "id": "b",
+        "text": "raucous"
+      },
+      {
+        "id": "c",
+        "text": "submissive"
+      },
+      {
+        "id": "d",
+        "text": "harmless"
+      },
+      {
+        "id": "e",
+        "text": "unruly"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "\"recalcitrant\" significa algo próximo de \"refractory\". O oposto é \"submissive\". Repare que \"refractory\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 18,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d5-00020",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 5,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"SAGACIOUS\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "discerning"
+      },
+      {
+        "id": "b",
+        "text": "abstruse"
+      },
+      {
+        "id": "c",
+        "text": "lively"
+      },
+      {
+        "id": "d",
+        "text": "perspicacious"
+      },
+      {
+        "id": "e",
+        "text": "obtuse"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "\"sagacious\" significa algo próximo de \"discerning\". O oposto é \"obtuse\". Repare que \"discerning\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 20,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "antonimo-d5-00030",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 5,
+    "stem": "Which word is most nearly OPPOSITE in meaning to \"TRUCULENT\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "amiable"
+      },
+      {
+        "id": "b",
+        "text": "lasting"
+      },
+      {
+        "id": "c",
+        "text": "pugnacious"
+      },
+      {
+        "id": "d",
+        "text": "muggy"
+      },
+      {
+        "id": "e",
+        "text": "belligerent"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "\"truculent\" significa algo próximo de \"belligerent\". O oposto é \"amiable\". Repare que \"belligerent\" também está entre as alternativas: é sinônimo, não antônimo — a pegadinha mais comum da prova é marcar o sinônimo por ler o enunciado rápido demais. Leia OPPOSITE antes de olhar as opções.",
+    "theoryRef": "verbal_vocab.md#antonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 30,
+      "generator": "antonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "completar_frase-d1-00001",
+    "tipo": "verbal_vocab",
+    "subtipo": "completar_frase",
+    "difficulty": 1,
+    "stem": "Because the instructions were ___, half the class assembled the kit incorrectly.",
+    "options": [
+      {
+        "id": "a",
+        "text": "bilingual"
+      },
+      {
+        "id": "b",
+        "text": "laminated"
+      },
+      {
+        "id": "c",
+        "text": "confusing"
+      },
+      {
+        "id": "d",
+        "text": "illustrated"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A resposta é \"confusing\". \"Because\" liga causa e efeito: metade errou, logo a instrução era ruim. \"confusing\" é a única causa que produz o erro. Regra geral: antes de olhar as alternativas, decida que TIPO de palavra a frase pede (positiva ou negativa, forte ou fraca). Conectivos como \"although\", \"despite\" e os dois-pontos são o que denuncia isso.",
+    "theoryRef": "verbal_vocab.md#completar_frase",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 1,
+      "generator": "completar_frase",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "completar_frase-d1-00002",
+    "tipo": "verbal_vocab",
+    "subtipo": "completar_frase",
+    "difficulty": 1,
+    "stem": "Years of ___ left the machinery rusted beyond repair.",
+    "options": [
+      {
+        "id": "a",
+        "text": "investment"
+      },
+      {
+        "id": "b",
+        "text": "neglect"
+      },
+      {
+        "id": "c",
+        "text": "inspection"
+      },
+      {
+        "id": "d",
+        "text": "maintenance"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A resposta é \"neglect\". Ferrugem irreparável é consequência de abandono. \"neglect\" é a única causa coerente; \"maintenance\" produziria o oposto. Regra geral: antes de olhar as alternativas, decida que TIPO de palavra a frase pede (positiva ou negativa, forte ou fraca). Conectivos como \"although\", \"despite\" e os dois-pontos são o que denuncia isso.",
+    "theoryRef": "verbal_vocab.md#completar_frase",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 2,
+      "generator": "completar_frase",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "completar_frase-d1-00004",
+    "tipo": "verbal_vocab",
+    "subtipo": "completar_frase",
+    "difficulty": 1,
+    "stem": "Attendance was ___ this year, with barely a third of the usual crowd.",
+    "options": [
+      {
+        "id": "a",
+        "text": "ticketed"
+      },
+      {
+        "id": "b",
+        "text": "record-breaking"
+      },
+      {
+        "id": "c",
+        "text": "staggered"
+      },
+      {
+        "id": "d",
+        "text": "sparse"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é \"sparse\". Um terço do público habitual é pouca gente. \"sparse\" descreve a escassez; os outros não dialogam com o número. Regra geral: antes de olhar as alternativas, decida que TIPO de palavra a frase pede (positiva ou negativa, forte ou fraca). Conectivos como \"although\", \"despite\" e os dois-pontos são o que denuncia isso.",
+    "theoryRef": "verbal_vocab.md#completar_frase",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 4,
+      "generator": "completar_frase",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "completar_frase-d1-00007",
+    "tipo": "verbal_vocab",
+    "subtipo": "completar_frase",
+    "difficulty": 1,
+    "stem": "The evidence was so ___ that the jury reached a verdict in under an hour.",
+    "options": [
+      {
+        "id": "a",
+        "text": "reluctant"
+      },
+      {
+        "id": "b",
+        "text": "compelling"
+      },
+      {
+        "id": "c",
+        "text": "ornate"
+      },
+      {
+        "id": "d",
+        "text": "ambiguous"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A resposta é \"compelling\". Um veredito rápido indica prova FORTE. \"compelling\" (convincente) é o único que explica a pressa; \"ambiguous\" diria o contrário. Regra geral: antes de olhar as alternativas, decida que TIPO de palavra a frase pede (positiva ou negativa, forte ou fraca). Conectivos como \"although\", \"despite\" e os dois-pontos são o que denuncia isso.",
+    "theoryRef": "verbal_vocab.md#completar_frase",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 7,
+      "generator": "completar_frase",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "completar_frase-d1-00009",
+    "tipo": "verbal_vocab",
+    "subtipo": "completar_frase",
+    "difficulty": 1,
+    "stem": "The old bridge was ___ by decades of neglect and finally closed to traffic.",
+    "options": [
+      {
+        "id": "a",
+        "text": "widened"
+      },
+      {
+        "id": "b",
+        "text": "weakened"
+      },
+      {
+        "id": "c",
+        "text": "reinforced"
+      },
+      {
+        "id": "d",
+        "text": "celebrated"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A resposta é \"weakened\". Negligência por décadas + fechamento = deterioração. \"weakened\" é a única consequência coerente. Regra geral: antes de olhar as alternativas, decida que TIPO de palavra a frase pede (positiva ou negativa, forte ou fraca). Conectivos como \"although\", \"despite\" e os dois-pontos são o que denuncia isso.",
+    "theoryRef": "verbal_vocab.md#completar_frase",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 9,
+      "generator": "completar_frase",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "completar_frase-d1-00014",
+    "tipo": "verbal_vocab",
+    "subtipo": "completar_frase",
+    "difficulty": 1,
+    "stem": "Supplies were ___ after the harvest, so the village stored what it could not use.",
+    "options": [
+      {
+        "id": "a",
+        "text": "rationed"
+      },
+      {
+        "id": "b",
+        "text": "scarce"
+      },
+      {
+        "id": "c",
+        "text": "expensive"
+      },
+      {
+        "id": "d",
+        "text": "abundant"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é \"abundant\". Só se guarda o que sobra. \"abundant\" explica a sobra; \"scarce\" tornaria a frase incoerente. Regra geral: antes de olhar as alternativas, decida que TIPO de palavra a frase pede (positiva ou negativa, forte ou fraca). Conectivos como \"although\", \"despite\" e os dois-pontos são o que denuncia isso.",
+    "theoryRef": "verbal_vocab.md#completar_frase",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 14,
+      "generator": "completar_frase",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "completar_frase-d2-00001",
+    "tipo": "verbal_vocab",
+    "subtipo": "completar_frase",
+    "difficulty": 2,
+    "stem": "Unlike her predecessor, who micromanaged every task, the new director was ___.",
+    "options": [
+      {
+        "id": "a",
+        "text": "intrusive"
+      },
+      {
+        "id": "b",
+        "text": "demanding"
+      },
+      {
+        "id": "c",
+        "text": "hands-off"
+      },
+      {
+        "id": "d",
+        "text": "controlling"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A resposta é \"hands-off\". \"Unlike\" exige o oposto de microgerenciar. \"hands-off\" inverte; os outros três são sinônimos de microgerenciar. Regra geral: antes de olhar as alternativas, decida que TIPO de palavra a frase pede (positiva ou negativa, forte ou fraca). Conectivos como \"although\", \"despite\" e os dois-pontos são o que denuncia isso.",
+    "theoryRef": "verbal_vocab.md#completar_frase",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 1,
+      "generator": "completar_frase",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "completar_frase-d2-00002",
+    "tipo": "verbal_vocab",
+    "subtipo": "completar_frase",
+    "difficulty": 2,
+    "stem": "The lecture was ___, covering four centuries of history in ninety minutes.",
+    "options": [
+      {
+        "id": "a",
+        "text": "repetitive"
+      },
+      {
+        "id": "b",
+        "text": "sweeping"
+      },
+      {
+        "id": "c",
+        "text": "cancelled"
+      },
+      {
+        "id": "d",
+        "text": "narrow"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A resposta é \"sweeping\". Quatro séculos em noventa minutos é escopo amplo. \"sweeping\" descreve a amplitude; \"narrow\" contradiz o dado. Regra geral: antes de olhar as alternativas, decida que TIPO de palavra a frase pede (positiva ou negativa, forte ou fraca). Conectivos como \"although\", \"despite\" e os dois-pontos são o que denuncia isso.",
+    "theoryRef": "verbal_vocab.md#completar_frase",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 2,
+      "generator": "completar_frase",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "completar_frase-d2-00004",
+    "tipo": "verbal_vocab",
+    "subtipo": "completar_frase",
+    "difficulty": 2,
+    "stem": "Rather than confront the problem, the board chose to ___ the decision to next quarter.",
+    "options": [
+      {
+        "id": "a",
+        "text": "enforce"
+      },
+      {
+        "id": "b",
+        "text": "announce"
+      },
+      {
+        "id": "c",
+        "text": "publish"
+      },
+      {
+        "id": "d",
+        "text": "defer"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é \"defer\". \"Rather than confront\" anuncia fuga. Empurrar para o próximo trimestre é adiar: \"defer\". Regra geral: antes de olhar as alternativas, decida que TIPO de palavra a frase pede (positiva ou negativa, forte ou fraca). Conectivos como \"although\", \"despite\" e os dois-pontos são o que denuncia isso.",
+    "theoryRef": "verbal_vocab.md#completar_frase",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 4,
+      "generator": "completar_frase",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "completar_frase-d2-00006",
+    "tipo": "verbal_vocab",
+    "subtipo": "completar_frase",
+    "difficulty": 2,
+    "stem": "The drought made once-___ farmland useless within a single season.",
+    "options": [
+      {
+        "id": "a",
+        "text": "expensive"
+      },
+      {
+        "id": "b",
+        "text": "distant"
+      },
+      {
+        "id": "c",
+        "text": "fertile"
+      },
+      {
+        "id": "d",
+        "text": "forested"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A resposta é \"fertile\". \"once-___ ... useless\" exige que antes fosse o contrário de inútil. \"fertile\" cria o contraste; \"barren\" o destruiria. Regra geral: antes de olhar as alternativas, decida que TIPO de palavra a frase pede (positiva ou negativa, forte ou fraca). Conectivos como \"although\", \"despite\" e os dois-pontos são o que denuncia isso.",
+    "theoryRef": "verbal_vocab.md#completar_frase",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 6,
+      "generator": "completar_frase",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "completar_frase-d2-00007",
+    "tipo": "verbal_vocab",
+    "subtipo": "completar_frase",
+    "difficulty": 2,
+    "stem": "Although the road looked short on the map, the climb proved ___.",
+    "options": [
+      {
+        "id": "a",
+        "text": "scenic"
+      },
+      {
+        "id": "b",
+        "text": "arduous"
+      },
+      {
+        "id": "c",
+        "text": "punctual"
+      },
+      {
+        "id": "d",
+        "text": "brief"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A resposta é \"arduous\". \"Although\" anuncia contraste: o esperado era fácil, o real foi difícil. \"arduous\" é o contraste; \"effortless\" repetiria a expectativa. Regra geral: antes de olhar as alternativas, decida que TIPO de palavra a frase pede (positiva ou negativa, forte ou fraca). Conectivos como \"although\", \"despite\" e os dois-pontos são o que denuncia isso.",
+    "theoryRef": "verbal_vocab.md#completar_frase",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 7,
+      "generator": "completar_frase",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "completar_frase-d2-00008",
+    "tipo": "verbal_vocab",
+    "subtipo": "completar_frase",
+    "difficulty": 2,
+    "stem": "What began as a ___ interest in photography became his life’s work.",
+    "options": [
+      {
+        "id": "a",
+        "text": "casual"
+      },
+      {
+        "id": "b",
+        "text": "obsessive"
+      },
+      {
+        "id": "c",
+        "text": "reluctant"
+      },
+      {
+        "id": "d",
+        "text": "professional"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A resposta é \"casual\". \"What began as X became Y\" pede contraste entre início e fim. O fim é \"life’s work\", então o início tem de ser leve: \"casual\". Regra geral: antes de olhar as alternativas, decida que TIPO de palavra a frase pede (positiva ou negativa, forte ou fraca). Conectivos como \"although\", \"despite\" e os dois-pontos são o que denuncia isso.",
+    "theoryRef": "verbal_vocab.md#completar_frase",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 8,
+      "generator": "completar_frase",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "completar_frase-d2-00012",
+    "tipo": "verbal_vocab",
+    "subtipo": "completar_frase",
+    "difficulty": 2,
+    "stem": "Despite the storm warning, the captain remained ___ and kept the crew calm.",
+    "options": [
+      {
+        "id": "a",
+        "text": "seasick"
+      },
+      {
+        "id": "b",
+        "text": "indecisive"
+      },
+      {
+        "id": "c",
+        "text": "oblivious"
+      },
+      {
+        "id": "d",
+        "text": "composed"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é \"composed\". Manter a tripulação calma exige estar calmo. \"composed\" sustenta a segunda metade da frase. Regra geral: antes de olhar as alternativas, decida que TIPO de palavra a frase pede (positiva ou negativa, forte ou fraca). Conectivos como \"although\", \"despite\" e os dois-pontos são o que denuncia isso.",
+    "theoryRef": "verbal_vocab.md#completar_frase",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 12,
+      "generator": "completar_frase",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "completar_frase-d3-00001",
+    "tipo": "verbal_vocab",
+    "subtipo": "completar_frase",
+    "difficulty": 3,
+    "stem": "The startup burned through its funding in months, a ___ that its investors had predicted.",
+    "options": [
+      {
+        "id": "a",
+        "text": "collapse"
+      },
+      {
+        "id": "b",
+        "text": "expansion"
+      },
+      {
+        "id": "c",
+        "text": "merger"
+      },
+      {
+        "id": "d",
+        "text": "rebate"
+      },
+      {
+        "id": "e",
+        "text": "triumph"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A resposta é \"collapse\". Queimar o caixa em meses é fracasso. \"collapse\" nomeia o desfecho; \"triumph\" contradiz a primeira metade. Regra geral: antes de olhar as alternativas, decida que TIPO de palavra a frase pede (positiva ou negativa, forte ou fraca). Conectivos como \"although\", \"despite\" e os dois-pontos são o que denuncia isso.",
+    "theoryRef": "verbal_vocab.md#completar_frase",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 1,
+      "generator": "completar_frase",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "completar_frase-d3-00002",
+    "tipo": "verbal_vocab",
+    "subtipo": "completar_frase",
+    "difficulty": 3,
+    "stem": "The treaty was ___ only after eleven rounds of talks spread over four years.",
+    "options": [
+      {
+        "id": "a",
+        "text": "drafted"
+      },
+      {
+        "id": "b",
+        "text": "ratified"
+      },
+      {
+        "id": "c",
+        "text": "leaked"
+      },
+      {
+        "id": "d",
+        "text": "translated"
+      },
+      {
+        "id": "e",
+        "text": "rejected"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A resposta é \"ratified\". \"only after\" tantas rodadas indica o passo FINAL do processo. \"ratified\" é o desfecho; \"drafted\" seria o começo. Regra geral: antes de olhar as alternativas, decida que TIPO de palavra a frase pede (positiva ou negativa, forte ou fraca). Conectivos como \"although\", \"despite\" e os dois-pontos são o que denuncia isso.",
+    "theoryRef": "verbal_vocab.md#completar_frase",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 2,
+      "generator": "completar_frase",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "completar_frase-d3-00004",
+    "tipo": "verbal_vocab",
+    "subtipo": "completar_frase",
+    "difficulty": 3,
+    "stem": "The audit found no errors at all, a result the accountants called ___.",
+    "options": [
+      {
+        "id": "a",
+        "text": "routine"
+      },
+      {
+        "id": "b",
+        "text": "alarming"
+      },
+      {
+        "id": "c",
+        "text": "unprecedented"
+      },
+      {
+        "id": "d",
+        "text": "preliminary"
+      },
+      {
+        "id": "e",
+        "text": "confidential"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A resposta é \"unprecedented\". \"no errors at all\" é resultado extraordinário. \"unprecedented\" reage à raridade; \"routine\" anularia o \"at all\". Regra geral: antes de olhar as alternativas, decida que TIPO de palavra a frase pede (positiva ou negativa, forte ou fraca). Conectivos como \"although\", \"despite\" e os dois-pontos são o que denuncia isso.",
+    "theoryRef": "verbal_vocab.md#completar_frase",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 4,
+      "generator": "completar_frase",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "completar_frase-d3-00007",
+    "tipo": "verbal_vocab",
+    "subtipo": "completar_frase",
+    "difficulty": 3,
+    "stem": "Her ___ replies gave the impression that she wanted the meeting to end.",
+    "options": [
+      {
+        "id": "a",
+        "text": "rambling"
+      },
+      {
+        "id": "b",
+        "text": "curt"
+      },
+      {
+        "id": "c",
+        "text": "detailed"
+      },
+      {
+        "id": "d",
+        "text": "hesitant"
+      },
+      {
+        "id": "e",
+        "text": "cordial"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A resposta é \"curt\". Querer encerrar produz respostas CURTAS e secas. \"curt\" casa; \"rambling\" e \"detailed\" alongariam a reunião. Regra geral: antes de olhar as alternativas, decida que TIPO de palavra a frase pede (positiva ou negativa, forte ou fraca). Conectivos como \"although\", \"despite\" e os dois-pontos são o que denuncia isso.",
+    "theoryRef": "verbal_vocab.md#completar_frase",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 7,
+      "generator": "completar_frase",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "completar_frase-d3-00009",
+    "tipo": "verbal_vocab",
+    "subtipo": "completar_frase",
+    "difficulty": 3,
+    "stem": "The new policy was deliberately ___, leaving each department free to interpret it.",
+    "options": [
+      {
+        "id": "a",
+        "text": "retroactive"
+      },
+      {
+        "id": "b",
+        "text": "punitive"
+      },
+      {
+        "id": "c",
+        "text": "vague"
+      },
+      {
+        "id": "d",
+        "text": "mandatory"
+      },
+      {
+        "id": "e",
+        "text": "precise"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A resposta é \"vague\". Liberdade de interpretação decorre de texto impreciso. \"vague\" explica a liberdade; \"precise\" a eliminaria. Regra geral: antes de olhar as alternativas, decida que TIPO de palavra a frase pede (positiva ou negativa, forte ou fraca). Conectivos como \"although\", \"despite\" e os dois-pontos são o que denuncia isso.",
+    "theoryRef": "verbal_vocab.md#completar_frase",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 9,
+      "generator": "completar_frase",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "completar_frase-d3-00014",
+    "tipo": "verbal_vocab",
+    "subtipo": "completar_frase",
+    "difficulty": 3,
+    "stem": "Funding was ___, so the team cut the study from three years to one.",
+    "options": [
+      {
+        "id": "a",
+        "text": "taxable"
+      },
+      {
+        "id": "b",
+        "text": "renewable"
+      },
+      {
+        "id": "c",
+        "text": "generous"
+      },
+      {
+        "id": "d",
+        "text": "anonymous"
+      },
+      {
+        "id": "e",
+        "text": "meager"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "A resposta é \"meager\". Cortar o estudo é consequência de pouco dinheiro. \"meager\" é a causa; \"generous\" inverteria o resultado. Regra geral: antes de olhar as alternativas, decida que TIPO de palavra a frase pede (positiva ou negativa, forte ou fraca). Conectivos como \"although\", \"despite\" e os dois-pontos são o que denuncia isso.",
+    "theoryRef": "verbal_vocab.md#completar_frase",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 14,
+      "generator": "completar_frase",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "completar_frase-d4-00001",
+    "tipo": "verbal_vocab",
+    "subtipo": "completar_frase",
+    "difficulty": 4,
+    "stem": "His memory of the accident was ___, limited to a sound and a flash of light.",
+    "options": [
+      {
+        "id": "a",
+        "text": "fragmentary"
+      },
+      {
+        "id": "b",
+        "text": "fabricated"
+      },
+      {
+        "id": "c",
+        "text": "photographic"
+      },
+      {
+        "id": "d",
+        "text": "traumatic"
+      },
+      {
+        "id": "e",
+        "text": "vivid"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A resposta é \"fragmentary\". A vírgula explica a lacuna: só restaram pedaços soltos. \"fragmentary\" nomeia isso; \"vivid\" contradiz o que vem depois. Regra geral: antes de olhar as alternativas, decida que TIPO de palavra a frase pede (positiva ou negativa, forte ou fraca). Conectivos como \"although\", \"despite\" e os dois-pontos são o que denuncia isso.",
+    "theoryRef": "verbal_vocab.md#completar_frase",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 1,
+      "generator": "completar_frase",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "completar_frase-d4-00004",
+    "tipo": "verbal_vocab",
+    "subtipo": "completar_frase",
+    "difficulty": 4,
+    "stem": "She was ___ about the deadline, refusing every request for an extension.",
+    "options": [
+      {
+        "id": "a",
+        "text": "flexible"
+      },
+      {
+        "id": "b",
+        "text": "uncertain"
+      },
+      {
+        "id": "c",
+        "text": "adamant"
+      },
+      {
+        "id": "d",
+        "text": "apologetic"
+      },
+      {
+        "id": "e",
+        "text": "forgetful"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A resposta é \"adamant\". Recusar cada um dos pedidos revela firmeza inabalável. \"adamant\" casa; \"flexible\" tornaria a segunda metade impossível. Regra geral: antes de olhar as alternativas, decida que TIPO de palavra a frase pede (positiva ou negativa, forte ou fraca). Conectivos como \"although\", \"despite\" e os dois-pontos são o que denuncia isso.",
+    "theoryRef": "verbal_vocab.md#completar_frase",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 4,
+      "generator": "completar_frase",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "completar_frase-d4-00006",
+    "tipo": "verbal_vocab",
+    "subtipo": "completar_frase",
+    "difficulty": 4,
+    "stem": "The negotiator stayed ___ even as both sides raised their voices.",
+    "options": [
+      {
+        "id": "a",
+        "text": "agitated"
+      },
+      {
+        "id": "b",
+        "text": "apologetic"
+      },
+      {
+        "id": "c",
+        "text": "triumphant"
+      },
+      {
+        "id": "d",
+        "text": "impassive"
+      },
+      {
+        "id": "e",
+        "text": "bewildered"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é \"impassive\". \"even as\" marca contraste com o clima da sala: todos exaltados, ele imperturbável. \"agitated\" repetiria a cena em vez de contrastar. Regra geral: antes de olhar as alternativas, decida que TIPO de palavra a frase pede (positiva ou negativa, forte ou fraca). Conectivos como \"although\", \"despite\" e os dois-pontos são o que denuncia isso.",
+    "theoryRef": "verbal_vocab.md#completar_frase",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 6,
+      "generator": "completar_frase",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "completar_frase-d4-00007",
+    "tipo": "verbal_vocab",
+    "subtipo": "completar_frase",
+    "difficulty": 4,
+    "stem": "The critic’s praise was ___ compared with the harsh reviews of the other papers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "scathing"
+      },
+      {
+        "id": "b",
+        "text": "effusive"
+      },
+      {
+        "id": "c",
+        "text": "belated"
+      },
+      {
+        "id": "d",
+        "text": "anonymous"
+      },
+      {
+        "id": "e",
+        "text": "restrained"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A resposta é \"effusive\". \"compared with harsh reviews\" pede contraste: elogio caloroso. \"effusive\" contrasta; \"scathing\" seria mais do mesmo. Regra geral: antes de olhar as alternativas, decida que TIPO de palavra a frase pede (positiva ou negativa, forte ou fraca). Conectivos como \"although\", \"despite\" e os dois-pontos são o que denuncia isso.",
+    "theoryRef": "verbal_vocab.md#completar_frase",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 7,
+      "generator": "completar_frase",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "completar_frase-d4-00012",
+    "tipo": "verbal_vocab",
+    "subtipo": "completar_frase",
+    "difficulty": 4,
+    "stem": "The manuscript was ___: three separate scribes had copied it over two centuries.",
+    "options": [
+      {
+        "id": "a",
+        "text": "pristine"
+      },
+      {
+        "id": "b",
+        "text": "anonymous"
+      },
+      {
+        "id": "c",
+        "text": "illegible"
+      },
+      {
+        "id": "d",
+        "text": "forged"
+      },
+      {
+        "id": "e",
+        "text": "composite"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "A resposta é \"composite\". Os dois-pontos explicam: feito de partes de origens diferentes. \"composite\" nomeia isso. Regra geral: antes de olhar as alternativas, decida que TIPO de palavra a frase pede (positiva ou negativa, forte ou fraca). Conectivos como \"although\", \"despite\" e os dois-pontos são o que denuncia isso.",
+    "theoryRef": "verbal_vocab.md#completar_frase",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 12,
+      "generator": "completar_frase",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "completar_frase-d5-00001",
+    "tipo": "verbal_vocab",
+    "subtipo": "completar_frase",
+    "difficulty": 5,
+    "stem": "The reforms were ___: they changed the letter of the law but not a single practice.",
+    "options": [
+      {
+        "id": "a",
+        "text": "cosmetic"
+      },
+      {
+        "id": "b",
+        "text": "unpopular"
+      },
+      {
+        "id": "c",
+        "text": "overdue"
+      },
+      {
+        "id": "d",
+        "text": "expensive"
+      },
+      {
+        "id": "e",
+        "text": "sweeping"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A resposta é \"cosmetic\". Os dois-pontos definem: mudança de fachada. \"cosmetic\" é exatamente isso; \"sweeping\" diria o contrário. Regra geral: antes de olhar as alternativas, decida que TIPO de palavra a frase pede (positiva ou negativa, forte ou fraca). Conectivos como \"although\", \"despite\" e os dois-pontos são o que denuncia isso.",
+    "theoryRef": "verbal_vocab.md#completar_frase",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 1,
+      "generator": "completar_frase",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "completar_frase-d5-00002",
+    "tipo": "verbal_vocab",
+    "subtipo": "completar_frase",
+    "difficulty": 5,
+    "stem": "The witness gave an ___ account, adding details that no one else had mentioned.",
+    "options": [
+      {
+        "id": "a",
+        "text": "terse"
+      },
+      {
+        "id": "b",
+        "text": "embellished"
+      },
+      {
+        "id": "c",
+        "text": "recorded"
+      },
+      {
+        "id": "d",
+        "text": "translated"
+      },
+      {
+        "id": "e",
+        "text": "sworn"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A resposta é \"embellished\". Acrescentar detalhes que ninguém mais viu sugere enfeite. \"embellished\" nomeia; \"terse\" contradiz o acréscimo. Regra geral: antes de olhar as alternativas, decida que TIPO de palavra a frase pede (positiva ou negativa, forte ou fraca). Conectivos como \"although\", \"despite\" e os dois-pontos são o que denuncia isso.",
+    "theoryRef": "verbal_vocab.md#completar_frase",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 2,
+      "generator": "completar_frase",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "completar_frase-d5-00004",
+    "tipo": "verbal_vocab",
+    "subtipo": "completar_frase",
+    "difficulty": 5,
+    "stem": "The proposal was ___ enough to satisfy both factions without committing to either.",
+    "options": [
+      {
+        "id": "a",
+        "text": "explicit"
+      },
+      {
+        "id": "b",
+        "text": "binding"
+      },
+      {
+        "id": "c",
+        "text": "ambiguous"
+      },
+      {
+        "id": "d",
+        "text": "itemized"
+      },
+      {
+        "id": "e",
+        "text": "notarized"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A resposta é \"ambiguous\". Agradar dois lados sem se comprometer exige texto que admite duas leituras. \"ambiguous\" é o mecanismo; \"explicit\" o impediria. Regra geral: antes de olhar as alternativas, decida que TIPO de palavra a frase pede (positiva ou negativa, forte ou fraca). Conectivos como \"although\", \"despite\" e os dois-pontos são o que denuncia isso.",
+    "theoryRef": "verbal_vocab.md#completar_frase",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 4,
+      "generator": "completar_frase",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "completar_frase-d5-00007",
+    "tipo": "verbal_vocab",
+    "subtipo": "completar_frase",
+    "difficulty": 5,
+    "stem": "The committee was ___: not one member was willing to change position.",
+    "options": [
+      {
+        "id": "a",
+        "text": "conciliatory"
+      },
+      {
+        "id": "b",
+        "text": "intransigent"
+      },
+      {
+        "id": "c",
+        "text": "enthusiastic"
+      },
+      {
+        "id": "d",
+        "text": "disorganized"
+      },
+      {
+        "id": "e",
+        "text": "indecisive"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A resposta é \"intransigent\". Depois dos dois-pontos vem a definição: ninguém cede. \"intransigent\" é exatamente isso; \"conciliatory\" é o oposto. Regra geral: antes de olhar as alternativas, decida que TIPO de palavra a frase pede (positiva ou negativa, forte ou fraca). Conectivos como \"although\", \"despite\" e os dois-pontos são o que denuncia isso.",
+    "theoryRef": "verbal_vocab.md#completar_frase",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 7,
+      "generator": "completar_frase",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "completar_frase-d5-00009",
+    "tipo": "verbal_vocab",
+    "subtipo": "completar_frase",
+    "difficulty": 5,
+    "stem": "He offered a ___ apology, delivered in a monotone as he checked his watch.",
+    "options": [
+      {
+        "id": "a",
+        "text": "public"
+      },
+      {
+        "id": "b",
+        "text": "tearful"
+      },
+      {
+        "id": "c",
+        "text": "perfunctory"
+      },
+      {
+        "id": "d",
+        "text": "elaborate"
+      },
+      {
+        "id": "e",
+        "text": "heartfelt"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A resposta é \"perfunctory\". Monotonia + olhar o relógio revelam desculpa feita por obrigação. \"perfunctory\" nomeia isso; \"heartfelt\" contradiz a cena. Regra geral: antes de olhar as alternativas, decida que TIPO de palavra a frase pede (positiva ou negativa, forte ou fraca). Conectivos como \"although\", \"despite\" e os dois-pontos são o que denuncia isso.",
+    "theoryRef": "verbal_vocab.md#completar_frase",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 9,
+      "generator": "completar_frase",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "completar_frase-d5-00014",
+    "tipo": "verbal_vocab",
+    "subtipo": "completar_frase",
+    "difficulty": 5,
+    "stem": "His argument was ___, moving from evidence to conclusion without a gap.",
+    "options": [
+      {
+        "id": "a",
+        "text": "rehearsed"
+      },
+      {
+        "id": "b",
+        "text": "emotional"
+      },
+      {
+        "id": "c",
+        "text": "rambling"
+      },
+      {
+        "id": "d",
+        "text": "lengthy"
+      },
+      {
+        "id": "e",
+        "text": "cogent"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "A resposta é \"cogent\". \"sem lacuna entre prova e conclusão\" descreve raciocínio rigoroso. \"cogent\" nomeia; \"rambling\" é o oposto. Regra geral: antes de olhar as alternativas, decida que TIPO de palavra a frase pede (positiva ou negativa, forte ou fraca). Conectivos como \"although\", \"despite\" e os dois-pontos são o que denuncia isso.",
+    "theoryRef": "verbal_vocab.md#completar_frase",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 14,
+      "generator": "completar_frase",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d1-00001",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 1,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"CALM\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "turbulent"
+      },
+      {
+        "id": "b",
+        "text": "frantic"
+      },
+      {
+        "id": "c",
+        "text": "tranquil"
+      },
+      {
+        "id": "d",
+        "text": "raucous"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "\"calm\" significa algo próximo de \"tranquil\". Cuidado com \"frantic\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 1,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d1-00002",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 1,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"SIMPLE\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "intricate"
+      },
+      {
+        "id": "b",
+        "text": "straightforward"
+      },
+      {
+        "id": "c",
+        "text": "convoluted"
+      },
+      {
+        "id": "d",
+        "text": "antagonistic"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "\"simple\" significa algo próximo de \"straightforward\". Cuidado com \"intricate\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 2,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d1-00004",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 1,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"NOISY\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "hushed"
+      },
+      {
+        "id": "b",
+        "text": "quick"
+      },
+      {
+        "id": "c",
+        "text": "silent"
+      },
+      {
+        "id": "d",
+        "text": "loud"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "\"noisy\" significa algo próximo de \"loud\". Cuidado com \"hushed\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 4,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d1-00006",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 1,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"FEEBLE\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "strong"
+      },
+      {
+        "id": "b",
+        "text": "vacant"
+      },
+      {
+        "id": "c",
+        "text": "frail"
+      },
+      {
+        "id": "d",
+        "text": "vigorous"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "\"feeble\" significa algo próximo de \"frail\". Cuidado com \"strong\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 6,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d1-00007",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 1,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"RAPID\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "uncomplicated"
+      },
+      {
+        "id": "b",
+        "text": "swift"
+      },
+      {
+        "id": "c",
+        "text": "slow"
+      },
+      {
+        "id": "d",
+        "text": "gradual"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "\"rapid\" significa algo próximo de \"swift\". Cuidado com \"slow\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 7,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d1-00008",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 1,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"ANCIENT\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "archaic"
+      },
+      {
+        "id": "b",
+        "text": "straightforward"
+      },
+      {
+        "id": "c",
+        "text": "recent"
+      },
+      {
+        "id": "d",
+        "text": "modern"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "\"ancient\" significa algo próximo de \"archaic\". Cuidado com \"modern\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 8,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d1-00009",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 1,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"VACANT\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "crowded"
+      },
+      {
+        "id": "b",
+        "text": "unoccupied"
+      },
+      {
+        "id": "c",
+        "text": "humid"
+      },
+      {
+        "id": "d",
+        "text": "occupied"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "\"vacant\" significa algo próximo de \"unoccupied\". Cuidado com \"occupied\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 9,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d1-00012",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 1,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"VISIBLE\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "concealed"
+      },
+      {
+        "id": "b",
+        "text": "hidden"
+      },
+      {
+        "id": "c",
+        "text": "loud"
+      },
+      {
+        "id": "d",
+        "text": "apparent"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "\"visible\" significa algo próximo de \"apparent\". Cuidado com \"hidden\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 12,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d1-00014",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 1,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"HOSTILE\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "noticeable"
+      },
+      {
+        "id": "b",
+        "text": "welcoming"
+      },
+      {
+        "id": "c",
+        "text": "friendly"
+      },
+      {
+        "id": "d",
+        "text": "unfriendly"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "\"hostile\" significa algo próximo de \"unfriendly\". Cuidado com \"friendly\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 14,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d1-00018",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 1,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"ABUNDANT\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "copious"
+      },
+      {
+        "id": "b",
+        "text": "meager"
+      },
+      {
+        "id": "c",
+        "text": "scarce"
+      },
+      {
+        "id": "d",
+        "text": "vacant"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "\"abundant\" significa algo próximo de \"copious\". Cuidado com \"scarce\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 18,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d1-00020",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 1,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"PERMANENT\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "fleeting"
+      },
+      {
+        "id": "b",
+        "text": "visible"
+      },
+      {
+        "id": "c",
+        "text": "lasting"
+      },
+      {
+        "id": "d",
+        "text": "temporary"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "\"permanent\" significa algo próximo de \"lasting\". Cuidado com \"temporary\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 20,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d1-00030",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 1,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"HUMID\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "archaic"
+      },
+      {
+        "id": "b",
+        "text": "dry"
+      },
+      {
+        "id": "c",
+        "text": "arid"
+      },
+      {
+        "id": "d",
+        "text": "muggy"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "\"humid\" significa algo próximo de \"muggy\". Cuidado com \"dry\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 30,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d2-00001",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 2,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"AMPLE\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "cramped"
+      },
+      {
+        "id": "b",
+        "text": "scant"
+      },
+      {
+        "id": "c",
+        "text": "generous"
+      },
+      {
+        "id": "d",
+        "text": "bashful"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "\"ample\" significa algo próximo de \"generous\". Cuidado com \"scant\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 1,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d2-00002",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 2,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"RIGID\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "pliable"
+      },
+      {
+        "id": "b",
+        "text": "stiff"
+      },
+      {
+        "id": "c",
+        "text": "supple"
+      },
+      {
+        "id": "d",
+        "text": "industrious"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "\"rigid\" significa algo próximo de \"stiff\". Cuidado com \"pliable\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 2,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d2-00004",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 2,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"TIMID\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "bold"
+      },
+      {
+        "id": "b",
+        "text": "archaic"
+      },
+      {
+        "id": "c",
+        "text": "audacious"
+      },
+      {
+        "id": "d",
+        "text": "bashful"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "\"timid\" significa algo próximo de \"bashful\". Cuidado com \"bold\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 4,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d2-00006",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 2,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"LUCID\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "muddled"
+      },
+      {
+        "id": "b",
+        "text": "plentiful"
+      },
+      {
+        "id": "c",
+        "text": "clear"
+      },
+      {
+        "id": "d",
+        "text": "incoherent"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "\"lucid\" significa algo próximo de \"clear\". Cuidado com \"muddled\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 6,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d2-00007",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 2,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"DILIGENT\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "brisk"
+      },
+      {
+        "id": "b",
+        "text": "industrious"
+      },
+      {
+        "id": "c",
+        "text": "lazy"
+      },
+      {
+        "id": "d",
+        "text": "idle"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "\"diligent\" significa algo próximo de \"industrious\". Cuidado com \"lazy\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 7,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d2-00008",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 2,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"TRIVIAL\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "petty"
+      },
+      {
+        "id": "b",
+        "text": "brisk"
+      },
+      {
+        "id": "c",
+        "text": "momentous"
+      },
+      {
+        "id": "d",
+        "text": "crucial"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "\"trivial\" significa algo próximo de \"petty\". Cuidado com \"crucial\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 8,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d2-00009",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 2,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"CANDID\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "guarded"
+      },
+      {
+        "id": "b",
+        "text": "forthright"
+      },
+      {
+        "id": "c",
+        "text": "spacious"
+      },
+      {
+        "id": "d",
+        "text": "evasive"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "\"candid\" significa algo próximo de \"forthright\". Cuidado com \"evasive\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 9,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d2-00012",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 2,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"PRUDENT\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "rash"
+      },
+      {
+        "id": "b",
+        "text": "reckless"
+      },
+      {
+        "id": "c",
+        "text": "productive"
+      },
+      {
+        "id": "d",
+        "text": "cautious"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "\"prudent\" significa algo próximo de \"cautious\". Cuidado com \"reckless\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 12,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d2-00014",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 2,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"BRISK\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "uncomplicated"
+      },
+      {
+        "id": "b",
+        "text": "languid"
+      },
+      {
+        "id": "c",
+        "text": "sluggish"
+      },
+      {
+        "id": "d",
+        "text": "lively"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "\"brisk\" significa algo próximo de \"lively\". Cuidado com \"sluggish\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 14,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d2-00018",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 2,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"STURDY\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "durable"
+      },
+      {
+        "id": "b",
+        "text": "fragile"
+      },
+      {
+        "id": "c",
+        "text": "flimsy"
+      },
+      {
+        "id": "d",
+        "text": "plentiful"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "\"sturdy\" significa algo próximo de \"durable\". Cuidado com \"flimsy\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 18,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d2-00020",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 2,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"DORMANT\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "bustling"
+      },
+      {
+        "id": "b",
+        "text": "feeble"
+      },
+      {
+        "id": "c",
+        "text": "inactive"
+      },
+      {
+        "id": "d",
+        "text": "active"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "\"dormant\" significa algo próximo de \"inactive\". Cuidado com \"active\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 20,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d2-00030",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 2,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"FERTILE\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "abundant"
+      },
+      {
+        "id": "b",
+        "text": "barren"
+      },
+      {
+        "id": "c",
+        "text": "infertile"
+      },
+      {
+        "id": "d",
+        "text": "fruitful"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "\"fertile\" significa algo próximo de \"fruitful\". Cuidado com \"barren\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 30,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d3-00001",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 3,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"TRANSIENT\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "remunerative"
+      },
+      {
+        "id": "b",
+        "text": "momentary"
+      },
+      {
+        "id": "c",
+        "text": "equivocal"
+      },
+      {
+        "id": "d",
+        "text": "abiding"
+      },
+      {
+        "id": "e",
+        "text": "perpetual"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "\"transient\" significa algo próximo de \"momentary\". Cuidado com \"perpetual\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 1,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d3-00002",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 3,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"ADEPT\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "proficient"
+      },
+      {
+        "id": "b",
+        "text": "bungling"
+      },
+      {
+        "id": "c",
+        "text": "permissive"
+      },
+      {
+        "id": "d",
+        "text": "unskilled"
+      },
+      {
+        "id": "e",
+        "text": "intelligible"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "\"adept\" significa algo próximo de \"proficient\". Cuidado com \"bungling\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 2,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d3-00004",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 3,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"AMBIGUOUS\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "unoccupied"
+      },
+      {
+        "id": "b",
+        "text": "definite"
+      },
+      {
+        "id": "c",
+        "text": "serene"
+      },
+      {
+        "id": "d",
+        "text": "equivocal"
+      },
+      {
+        "id": "e",
+        "text": "unequivocal"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "\"ambiguous\" significa algo próximo de \"equivocal\". Cuidado com \"unequivocal\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 4,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d3-00006",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 3,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"LENIENT\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "weak"
+      },
+      {
+        "id": "b",
+        "text": "strict"
+      },
+      {
+        "id": "c",
+        "text": "exacting"
+      },
+      {
+        "id": "d",
+        "text": "clear"
+      },
+      {
+        "id": "e",
+        "text": "permissive"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "\"lenient\" significa algo próximo de \"permissive\". Cuidado com \"strict\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 6,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d3-00007",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 3,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"METICULOUS\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "intelligible"
+      },
+      {
+        "id": "b",
+        "text": "abstruse"
+      },
+      {
+        "id": "c",
+        "text": "thorough"
+      },
+      {
+        "id": "d",
+        "text": "careless"
+      },
+      {
+        "id": "e",
+        "text": "slapdash"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "\"meticulous\" significa algo próximo de \"thorough\". Cuidado com \"careless\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 7,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d3-00008",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 3,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"OBSCURE\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "unbending"
+      },
+      {
+        "id": "b",
+        "text": "evident"
+      },
+      {
+        "id": "c",
+        "text": "abstruse"
+      },
+      {
+        "id": "d",
+        "text": "thorough"
+      },
+      {
+        "id": "e",
+        "text": "obvious"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "\"obscure\" significa algo próximo de \"abstruse\". Cuidado com \"obvious\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 8,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d3-00009",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 3,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"VOLATILE\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "cryptic"
+      },
+      {
+        "id": "b",
+        "text": "erratic"
+      },
+      {
+        "id": "c",
+        "text": "steady"
+      },
+      {
+        "id": "d",
+        "text": "stable"
+      },
+      {
+        "id": "e",
+        "text": "grueling"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "\"volatile\" significa algo próximo de \"erratic\". Cuidado com \"steady\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 9,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d3-00012",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 3,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"BENEVOLENT\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "feeble"
+      },
+      {
+        "id": "b",
+        "text": "lucrative"
+      },
+      {
+        "id": "c",
+        "text": "malevolent"
+      },
+      {
+        "id": "d",
+        "text": "spiteful"
+      },
+      {
+        "id": "e",
+        "text": "charitable"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "\"benevolent\" significa algo próximo de \"charitable\". Cuidado com \"malevolent\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 12,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d3-00014",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 3,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"ARDUOUS\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "industrious"
+      },
+      {
+        "id": "b",
+        "text": "effortless"
+      },
+      {
+        "id": "c",
+        "text": "strenuous"
+      },
+      {
+        "id": "d",
+        "text": "weak"
+      },
+      {
+        "id": "e",
+        "text": "undemanding"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "\"arduous\" significa algo próximo de \"strenuous\". Cuidado com \"effortless\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 14,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d3-00018",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 3,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"TEDIOUS\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "engaging"
+      },
+      {
+        "id": "b",
+        "text": "weak"
+      },
+      {
+        "id": "c",
+        "text": "dreary"
+      },
+      {
+        "id": "d",
+        "text": "arduous"
+      },
+      {
+        "id": "e",
+        "text": "riveting"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "\"tedious\" significa algo próximo de \"dreary\". Cuidado com \"engaging\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 18,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d3-00020",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 3,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"FRUGAL\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "extravagant"
+      },
+      {
+        "id": "b",
+        "text": "forthright"
+      },
+      {
+        "id": "c",
+        "text": "humid"
+      },
+      {
+        "id": "d",
+        "text": "wasteful"
+      },
+      {
+        "id": "e",
+        "text": "thrifty"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "\"frugal\" significa algo próximo de \"thrifty\". Cuidado com \"extravagant\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 20,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d3-00030",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 3,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"LUCRATIVE\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "remunerative"
+      },
+      {
+        "id": "b",
+        "text": "unfriendly"
+      },
+      {
+        "id": "c",
+        "text": "ruinous"
+      },
+      {
+        "id": "d",
+        "text": "frail"
+      },
+      {
+        "id": "e",
+        "text": "unprofitable"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "\"lucrative\" significa algo próximo de \"remunerative\". Cuidado com \"unprofitable\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 30,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d4-00001",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 4,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"INEPT\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "ubiquitous"
+      },
+      {
+        "id": "b",
+        "text": "incompetent"
+      },
+      {
+        "id": "c",
+        "text": "innocuous"
+      },
+      {
+        "id": "d",
+        "text": "dexterous"
+      },
+      {
+        "id": "e",
+        "text": "competent"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "\"inept\" significa algo próximo de \"incompetent\". Cuidado com \"competent\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 1,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d4-00002",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 4,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"ZEALOUS\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "fervent"
+      },
+      {
+        "id": "b",
+        "text": "apathetic"
+      },
+      {
+        "id": "c",
+        "text": "redundant"
+      },
+      {
+        "id": "d",
+        "text": "indifferent"
+      },
+      {
+        "id": "e",
+        "text": "obscure"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "\"zealous\" significa algo próximo de \"fervent\". Cuidado com \"apathetic\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 2,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d4-00004",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 4,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"INNOCUOUS\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "noticeable"
+      },
+      {
+        "id": "b",
+        "text": "pernicious"
+      },
+      {
+        "id": "c",
+        "text": "muggy"
+      },
+      {
+        "id": "d",
+        "text": "harmless"
+      },
+      {
+        "id": "e",
+        "text": "harmful"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "\"innocuous\" significa algo próximo de \"harmless\". Cuidado com \"harmful\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 4,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d4-00006",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 4,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"GARRULOUS\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "lasting"
+      },
+      {
+        "id": "b",
+        "text": "taciturn"
+      },
+      {
+        "id": "c",
+        "text": "reticent"
+      },
+      {
+        "id": "d",
+        "text": "cryptic"
+      },
+      {
+        "id": "e",
+        "text": "loquacious"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "\"garrulous\" significa algo próximo de \"loquacious\". Cuidado com \"taciturn\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 6,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d4-00007",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 4,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"EPHEMERAL\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "thorough"
+      },
+      {
+        "id": "b",
+        "text": "thrifty"
+      },
+      {
+        "id": "c",
+        "text": "transitory"
+      },
+      {
+        "id": "d",
+        "text": "everlasting"
+      },
+      {
+        "id": "e",
+        "text": "imperishable"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "\"ephemeral\" significa algo próximo de \"transitory\". Cuidado com \"everlasting\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 7,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d4-00008",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 4,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"AUSTERE\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "benevolent"
+      },
+      {
+        "id": "b",
+        "text": "indulgent"
+      },
+      {
+        "id": "c",
+        "text": "spartan"
+      },
+      {
+        "id": "d",
+        "text": "frugal"
+      },
+      {
+        "id": "e",
+        "text": "lavish"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "\"austere\" significa algo próximo de \"spartan\". Cuidado com \"lavish\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 8,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d4-00009",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 4,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"TENACIOUS\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "lucrative"
+      },
+      {
+        "id": "b",
+        "text": "unrelenting"
+      },
+      {
+        "id": "c",
+        "text": "yielding"
+      },
+      {
+        "id": "d",
+        "text": "irresolute"
+      },
+      {
+        "id": "e",
+        "text": "impenetrable"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "\"tenacious\" significa algo próximo de \"unrelenting\". Cuidado com \"yielding\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 9,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d4-00012",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 4,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"OPAQUE\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "serene"
+      },
+      {
+        "id": "b",
+        "text": "frankness"
+      },
+      {
+        "id": "c",
+        "text": "transparent"
+      },
+      {
+        "id": "d",
+        "text": "limpid"
+      },
+      {
+        "id": "e",
+        "text": "impenetrable"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "\"opaque\" significa algo próximo de \"impenetrable\". Cuidado com \"transparent\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 12,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d4-00014",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 4,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"REDUNDANT\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "robust"
+      },
+      {
+        "id": "b",
+        "text": "indispensable"
+      },
+      {
+        "id": "c",
+        "text": "superfluous"
+      },
+      {
+        "id": "d",
+        "text": "permanent"
+      },
+      {
+        "id": "e",
+        "text": "requisite"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "\"redundant\" significa algo próximo de \"superfluous\". Cuidado com \"indispensable\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 14,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d4-00018",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 4,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"PLACID\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "tempestuous"
+      },
+      {
+        "id": "b",
+        "text": "enduring"
+      },
+      {
+        "id": "c",
+        "text": "unruffled"
+      },
+      {
+        "id": "d",
+        "text": "tenacious"
+      },
+      {
+        "id": "e",
+        "text": "agitated"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "\"placid\" significa algo próximo de \"unruffled\". Cuidado com \"tempestuous\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 18,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d4-00020",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 4,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"CANDOR\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "duplicity"
+      },
+      {
+        "id": "b",
+        "text": "stiff"
+      },
+      {
+        "id": "c",
+        "text": "trivial"
+      },
+      {
+        "id": "d",
+        "text": "evasiveness"
+      },
+      {
+        "id": "e",
+        "text": "frankness"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "\"candor\" significa algo próximo de \"frankness\". Cuidado com \"duplicity\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 20,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d4-00030",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 4,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"PERVASIVE\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "widespread"
+      },
+      {
+        "id": "b",
+        "text": "tranquil"
+      },
+      {
+        "id": "c",
+        "text": "confined"
+      },
+      {
+        "id": "d",
+        "text": "straightforward"
+      },
+      {
+        "id": "e",
+        "text": "localized"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "\"pervasive\" significa algo próximo de \"widespread\". Cuidado com \"localized\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 30,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d5-00001",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 5,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"MENDACIOUS\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "truculent"
+      },
+      {
+        "id": "b",
+        "text": "untruthful"
+      },
+      {
+        "id": "c",
+        "text": "pugnacious"
+      },
+      {
+        "id": "d",
+        "text": "truthful"
+      },
+      {
+        "id": "e",
+        "text": "veracious"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "\"mendacious\" significa algo próximo de \"untruthful\". Cuidado com \"veracious\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 1,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d5-00002",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 5,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"INTRANSIGENT\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "uncompromising"
+      },
+      {
+        "id": "b",
+        "text": "accommodating"
+      },
+      {
+        "id": "c",
+        "text": "exuberant"
+      },
+      {
+        "id": "d",
+        "text": "conciliatory"
+      },
+      {
+        "id": "e",
+        "text": "passing"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "\"intransigent\" significa algo próximo de \"uncompromising\". Cuidado com \"accommodating\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 2,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d5-00004",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 5,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"SOPORIFIC\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "copious"
+      },
+      {
+        "id": "b",
+        "text": "invigorating"
+      },
+      {
+        "id": "c",
+        "text": "petty"
+      },
+      {
+        "id": "d",
+        "text": "somniferous"
+      },
+      {
+        "id": "e",
+        "text": "stimulating"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "\"soporific\" significa algo próximo de \"somniferous\". Cuidado com \"stimulating\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 4,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d5-00006",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 5,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"QUIESCENT\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "industrious"
+      },
+      {
+        "id": "b",
+        "text": "tumultuous"
+      },
+      {
+        "id": "c",
+        "text": "restive"
+      },
+      {
+        "id": "d",
+        "text": "skilled"
+      },
+      {
+        "id": "e",
+        "text": "quiet"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "\"quiescent\" significa algo próximo de \"quiet\". Cuidado com \"tumultuous\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 6,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d5-00007",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 5,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"PERFUNCTORY\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "passing"
+      },
+      {
+        "id": "b",
+        "text": "surplus"
+      },
+      {
+        "id": "c",
+        "text": "cursory"
+      },
+      {
+        "id": "d",
+        "text": "painstaking"
+      },
+      {
+        "id": "e",
+        "text": "exhaustive"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "\"perfunctory\" significa algo próximo de \"cursory\". Cuidado com \"painstaking\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 7,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d5-00008",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 5,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"LACONIC\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "economical"
+      },
+      {
+        "id": "b",
+        "text": "prolix"
+      },
+      {
+        "id": "c",
+        "text": "succinct"
+      },
+      {
+        "id": "d",
+        "text": "untroubled"
+      },
+      {
+        "id": "e",
+        "text": "verbose"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "\"laconic\" significa algo próximo de \"succinct\". Cuidado com \"verbose\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 8,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d5-00009",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 5,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"OBDURATE\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "voluble"
+      },
+      {
+        "id": "b",
+        "text": "adamant"
+      },
+      {
+        "id": "c",
+        "text": "tractable"
+      },
+      {
+        "id": "d",
+        "text": "compliant"
+      },
+      {
+        "id": "e",
+        "text": "cursory"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "\"obdurate\" significa algo próximo de \"adamant\". Cuidado com \"tractable\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 9,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d5-00012",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 5,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"EBULLIENT\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "uncomplicated"
+      },
+      {
+        "id": "b",
+        "text": "uncompromising"
+      },
+      {
+        "id": "c",
+        "text": "morose"
+      },
+      {
+        "id": "d",
+        "text": "sullen"
+      },
+      {
+        "id": "e",
+        "text": "exuberant"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "\"ebullient\" significa algo próximo de \"exuberant\". Cuidado com \"morose\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 12,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d5-00014",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 5,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"MUNIFICENT\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "stiff"
+      },
+      {
+        "id": "b",
+        "text": "miserly"
+      },
+      {
+        "id": "c",
+        "text": "bountiful"
+      },
+      {
+        "id": "d",
+        "text": "noisy"
+      },
+      {
+        "id": "e",
+        "text": "parsimonious"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "\"munificent\" significa algo próximo de \"bountiful\". Cuidado com \"miserly\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 14,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d5-00018",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 5,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"RECALCITRANT\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "docile"
+      },
+      {
+        "id": "b",
+        "text": "raucous"
+      },
+      {
+        "id": "c",
+        "text": "unruly"
+      },
+      {
+        "id": "d",
+        "text": "harmless"
+      },
+      {
+        "id": "e",
+        "text": "submissive"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "\"recalcitrant\" significa algo próximo de \"unruly\". Cuidado com \"docile\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 18,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d5-00020",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 5,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"SAGACIOUS\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "obtuse"
+      },
+      {
+        "id": "b",
+        "text": "abstruse"
+      },
+      {
+        "id": "c",
+        "text": "lively"
+      },
+      {
+        "id": "d",
+        "text": "fatuous"
+      },
+      {
+        "id": "e",
+        "text": "discerning"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "\"sagacious\" significa algo próximo de \"discerning\". Cuidado com \"obtuse\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 20,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "sinonimo-d5-00030",
+    "tipo": "verbal_vocab",
+    "subtipo": "sinonimo",
+    "difficulty": 5,
+    "stem": "Which word is most nearly SIMILAR in meaning to \"TRUCULENT\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "pugnacious"
+      },
+      {
+        "id": "b",
+        "text": "lasting"
+      },
+      {
+        "id": "c",
+        "text": "amiable"
+      },
+      {
+        "id": "d",
+        "text": "muggy"
+      },
+      {
+        "id": "e",
+        "text": "peaceable"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "\"truculent\" significa algo próximo de \"pugnacious\". Cuidado com \"peaceable\", que é o antônimo e está ali justamente para quem lê o enunciado no automático. Confirme se a pergunta pede SIMILAR ou OPPOSITE antes de escolher.",
+    "theoryRef": "verbal_vocab.md#sinonimo",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 30,
+      "generator": "sinonimo",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  }
+]

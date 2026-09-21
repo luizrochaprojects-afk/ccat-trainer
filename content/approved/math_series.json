@@ -1,0 +1,6062 @@
+[
+  {
+    "id": "serie_alternada-d1-00001",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 1,
+    "stem": "18, 90, 27, 92, 36, 94, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "54"
+      },
+      {
+        "id": "b",
+        "text": "36"
+      },
+      {
+        "id": "c",
+        "text": "50"
+      },
+      {
+        "id": "d",
+        "text": "45"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é 45. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 9 em 9; nas posições 2ª, 4ª, 6ª… variam de 2 em 2. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 1,
+      "generator": "serie_alternada",
+      "expression": "18+3*(9)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d1-00002",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 1,
+    "stem": "11, 67, 21, 75, 31, 83, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "41"
+      },
+      {
+        "id": "b",
+        "text": "83"
+      },
+      {
+        "id": "c",
+        "text": "135"
+      },
+      {
+        "id": "d",
+        "text": "31"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A resposta é 41. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 10 em 10; nas posições 2ª, 4ª, 6ª… variam de 8 em 8. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 2,
+      "generator": "serie_alternada",
+      "expression": "11+3*(10)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d1-00003",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 1,
+    "stem": "16, 43, 26, 45, 36, 47, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "46"
+      },
+      {
+        "id": "b",
+        "text": "51"
+      },
+      {
+        "id": "c",
+        "text": "58"
+      },
+      {
+        "id": "d",
+        "text": "47"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A resposta é 46. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 10 em 10; nas posições 2ª, 4ª, 6ª… variam de 2 em 2. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 3,
+      "generator": "serie_alternada",
+      "expression": "16+3*(10)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d1-00004",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 1,
+    "stem": "9, 44, 21, 52, 33, 60, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "45"
+      },
+      {
+        "id": "b",
+        "text": "33"
+      },
+      {
+        "id": "c",
+        "text": "90"
+      },
+      {
+        "id": "d",
+        "text": "39"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A resposta é 45. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 12 em 12; nas posições 2ª, 4ª, 6ª… variam de 8 em 8. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 4,
+      "generator": "serie_alternada",
+      "expression": "9+3*(12)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d1-00005",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 1,
+    "stem": "9, 71, 18, 65, 27, 59, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "35"
+      },
+      {
+        "id": "b",
+        "text": "31"
+      },
+      {
+        "id": "c",
+        "text": "36"
+      },
+      {
+        "id": "d",
+        "text": "27"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A resposta é 36. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 9 em 9; nas posições 2ª, 4ª, 6ª… variam de -6 em -6. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 5,
+      "generator": "serie_alternada",
+      "expression": "9+3*(9)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d1-00006",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 1,
+    "stem": "21, 50, 29, 52, 37, 54, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "37"
+      },
+      {
+        "id": "b",
+        "text": "44"
+      },
+      {
+        "id": "c",
+        "text": "46"
+      },
+      {
+        "id": "d",
+        "text": "45"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é 45. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 8 em 8; nas posições 2ª, 4ª, 6ª… variam de 2 em 2. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 6,
+      "generator": "serie_alternada",
+      "expression": "21+3*(8)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d1-00007",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 1,
+    "stem": "30, 75, 33, 79, 36, 83, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "37"
+      },
+      {
+        "id": "b",
+        "text": "39"
+      },
+      {
+        "id": "c",
+        "text": "41"
+      },
+      {
+        "id": "d",
+        "text": "42"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A resposta é 39. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 3 em 3; nas posições 2ª, 4ª, 6ª… variam de 4 em 4. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 7,
+      "generator": "serie_alternada",
+      "expression": "30+3*(3)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d1-00008",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 1,
+    "stem": "12, 75, 16, 66, 20, 57, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "94"
+      },
+      {
+        "id": "b",
+        "text": "22"
+      },
+      {
+        "id": "c",
+        "text": "24"
+      },
+      {
+        "id": "d",
+        "text": "48"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A resposta é 24. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 4 em 4; nas posições 2ª, 4ª, 6ª… variam de -9 em -9. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 8,
+      "generator": "serie_alternada",
+      "expression": "12+3*(4)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d1-00009",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 1,
+    "stem": "7, 81, 11, 77, 15, 73, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "18"
+      },
+      {
+        "id": "b",
+        "text": "19"
+      },
+      {
+        "id": "c",
+        "text": "73"
+      },
+      {
+        "id": "d",
+        "text": "131"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A resposta é 19. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 4 em 4; nas posições 2ª, 4ª, 6ª… variam de -4 em -4. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 9,
+      "generator": "serie_alternada",
+      "expression": "7+3*(4)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d1-00010",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 1,
+    "stem": "22, 80, 30, 77, 38, 74, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "74"
+      },
+      {
+        "id": "b",
+        "text": "46"
+      },
+      {
+        "id": "c",
+        "text": "47"
+      },
+      {
+        "id": "d",
+        "text": "42"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A resposta é 46. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 8 em 8; nas posições 2ª, 4ª, 6ª… variam de -3 em -3. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 10,
+      "generator": "serie_alternada",
+      "expression": "22+3*(8)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d2-00011",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 2,
+    "stem": "20, 70, 28, 60, 36, 50, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "44"
+      },
+      {
+        "id": "b",
+        "text": "50"
+      },
+      {
+        "id": "c",
+        "text": "45"
+      },
+      {
+        "id": "d",
+        "text": "40"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A resposta é 44. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 8 em 8; nas posições 2ª, 4ª, 6ª… variam de -10 em -10. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 11,
+      "generator": "serie_alternada",
+      "expression": "20+3*(8)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d2-00012",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 2,
+    "stem": "19, 88, 24, 91, 29, 94, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "34"
+      },
+      {
+        "id": "b",
+        "text": "94"
+      },
+      {
+        "id": "c",
+        "text": "68"
+      },
+      {
+        "id": "d",
+        "text": "37"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A resposta é 34. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 5 em 5; nas posições 2ª, 4ª, 6ª… variam de 3 em 3. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 12,
+      "generator": "serie_alternada",
+      "expression": "19+3*(5)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d2-00013",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 2,
+    "stem": "5, 42, 13, 51, 21, 60, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "99"
+      },
+      {
+        "id": "b",
+        "text": "21"
+      },
+      {
+        "id": "c",
+        "text": "29"
+      },
+      {
+        "id": "d",
+        "text": "25"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A resposta é 29. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 8 em 8; nas posições 2ª, 4ª, 6ª… variam de 9 em 9. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 13,
+      "generator": "serie_alternada",
+      "expression": "5+3*(8)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d2-00014",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 2,
+    "stem": "17, 58, 24, 69, 31, 80, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "39"
+      },
+      {
+        "id": "b",
+        "text": "42"
+      },
+      {
+        "id": "c",
+        "text": "38"
+      },
+      {
+        "id": "d",
+        "text": "80"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A resposta é 38. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 7 em 7; nas posições 2ª, 4ª, 6ª… variam de 11 em 11. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 14,
+      "generator": "serie_alternada",
+      "expression": "17+3*(7)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d2-00015",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 2,
+    "stem": "14, 62, 19, 72, 24, 82, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "82"
+      },
+      {
+        "id": "b",
+        "text": "28"
+      },
+      {
+        "id": "c",
+        "text": "140"
+      },
+      {
+        "id": "d",
+        "text": "29"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é 29. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 5 em 5; nas posições 2ª, 4ª, 6ª… variam de 10 em 10. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 15,
+      "generator": "serie_alternada",
+      "expression": "14+3*(5)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d2-00016",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 2,
+    "stem": "24, 59, 33, 63, 42, 67, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "51"
+      },
+      {
+        "id": "b",
+        "text": "92"
+      },
+      {
+        "id": "c",
+        "text": "42"
+      },
+      {
+        "id": "d",
+        "text": "52"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A resposta é 51. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 9 em 9; nas posições 2ª, 4ª, 6ª… variam de 4 em 4. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 16,
+      "generator": "serie_alternada",
+      "expression": "24+3*(9)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d2-00017",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 2,
+    "stem": "18, 48, 27, 53, 36, 58, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "58"
+      },
+      {
+        "id": "b",
+        "text": "80"
+      },
+      {
+        "id": "c",
+        "text": "50"
+      },
+      {
+        "id": "d",
+        "text": "45"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é 45. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 9 em 9; nas posições 2ª, 4ª, 6ª… variam de 5 em 5. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 17,
+      "generator": "serie_alternada",
+      "expression": "18+3*(9)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d2-00018",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 2,
+    "stem": "18, 50, 24, 41, 30, 32, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "33"
+      },
+      {
+        "id": "b",
+        "text": "35"
+      },
+      {
+        "id": "c",
+        "text": "32"
+      },
+      {
+        "id": "d",
+        "text": "36"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é 36. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 6 em 6; nas posições 2ª, 4ª, 6ª… variam de -9 em -9. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 18,
+      "generator": "serie_alternada",
+      "expression": "18+3*(6)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d2-00019",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 2,
+    "stem": "16, 78, 19, 87, 22, 96, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "25"
+      },
+      {
+        "id": "b",
+        "text": "28"
+      },
+      {
+        "id": "c",
+        "text": "22"
+      },
+      {
+        "id": "d",
+        "text": "23"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A resposta é 25. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 3 em 3; nas posições 2ª, 4ª, 6ª… variam de 9 em 9. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 19,
+      "generator": "serie_alternada",
+      "expression": "16+3*(3)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d2-00020",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 2,
+    "stem": "20, 54, 30, 63, 40, 72, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "104"
+      },
+      {
+        "id": "b",
+        "text": "50"
+      },
+      {
+        "id": "c",
+        "text": "60"
+      },
+      {
+        "id": "d",
+        "text": "100"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A resposta é 50. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 10 em 10; nas posições 2ª, 4ª, 6ª… variam de 9 em 9. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 20,
+      "generator": "serie_alternada",
+      "expression": "20+3*(10)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d3-00021",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 3,
+    "stem": "11, 59, 18, 70, 25, 81, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "81"
+      },
+      {
+        "id": "b",
+        "text": "31"
+      },
+      {
+        "id": "c",
+        "text": "32"
+      },
+      {
+        "id": "d",
+        "text": "25"
+      },
+      {
+        "id": "e",
+        "text": "39"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A resposta é 32. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 7 em 7; nas posições 2ª, 4ª, 6ª… variam de 11 em 11. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 21,
+      "generator": "serie_alternada",
+      "expression": "11+3*(7)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d3-00022",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 3,
+    "stem": "10, 50, 19, 56, 28, 62, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "38"
+      },
+      {
+        "id": "b",
+        "text": "42"
+      },
+      {
+        "id": "c",
+        "text": "46"
+      },
+      {
+        "id": "d",
+        "text": "28"
+      },
+      {
+        "id": "e",
+        "text": "37"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "A resposta é 37. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 9 em 9; nas posições 2ª, 4ª, 6ª… variam de 6 em 6. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 22,
+      "generator": "serie_alternada",
+      "expression": "10+3*(9)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d3-00023",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 3,
+    "stem": "21, 55, 24, 59, 27, 63, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "60"
+      },
+      {
+        "id": "b",
+        "text": "33"
+      },
+      {
+        "id": "c",
+        "text": "28"
+      },
+      {
+        "id": "d",
+        "text": "63"
+      },
+      {
+        "id": "e",
+        "text": "30"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "A resposta é 30. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 3 em 3; nas posições 2ª, 4ª, 6ª… variam de 4 em 4. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 23,
+      "generator": "serie_alternada",
+      "expression": "21+3*(3)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d3-00024",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 3,
+    "stem": "11, 44, 17, 42, 23, 40, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "26"
+      },
+      {
+        "id": "b",
+        "text": "28"
+      },
+      {
+        "id": "c",
+        "text": "58"
+      },
+      {
+        "id": "d",
+        "text": "32"
+      },
+      {
+        "id": "e",
+        "text": "29"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "A resposta é 29. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 6 em 6; nas posições 2ª, 4ª, 6ª… variam de -2 em -2. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 24,
+      "generator": "serie_alternada",
+      "expression": "11+3*(6)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d3-00025",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 3,
+    "stem": "19, 77, 27, 72, 35, 67, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "42"
+      },
+      {
+        "id": "b",
+        "text": "86"
+      },
+      {
+        "id": "c",
+        "text": "99"
+      },
+      {
+        "id": "d",
+        "text": "43"
+      },
+      {
+        "id": "e",
+        "text": "47"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é 43. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 8 em 8; nas posições 2ª, 4ª, 6ª… variam de -5 em -5. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 25,
+      "generator": "serie_alternada",
+      "expression": "19+3*(8)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d3-00026",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 3,
+    "stem": "17, 40, 25, 34, 33, 28, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "33"
+      },
+      {
+        "id": "b",
+        "text": "41"
+      },
+      {
+        "id": "c",
+        "text": "42"
+      },
+      {
+        "id": "d",
+        "text": "49"
+      },
+      {
+        "id": "e",
+        "text": "40"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A resposta é 41. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 8 em 8; nas posições 2ª, 4ª, 6ª… variam de -6 em -6. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 26,
+      "generator": "serie_alternada",
+      "expression": "17+3*(8)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d3-00027",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 3,
+    "stem": "4, 48, 11, 50, 18, 52, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "21"
+      },
+      {
+        "id": "b",
+        "text": "86"
+      },
+      {
+        "id": "c",
+        "text": "25"
+      },
+      {
+        "id": "d",
+        "text": "29"
+      },
+      {
+        "id": "e",
+        "text": "24"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A resposta é 25. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 7 em 7; nas posições 2ª, 4ª, 6ª… variam de 2 em 2. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 27,
+      "generator": "serie_alternada",
+      "expression": "4+3*(7)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d3-00028",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 3,
+    "stem": "23, 78, 30, 71, 37, 64, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "40"
+      },
+      {
+        "id": "b",
+        "text": "48"
+      },
+      {
+        "id": "c",
+        "text": "88"
+      },
+      {
+        "id": "d",
+        "text": "44"
+      },
+      {
+        "id": "e",
+        "text": "37"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é 44. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 7 em 7; nas posições 2ª, 4ª, 6ª… variam de -7 em -7. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 28,
+      "generator": "serie_alternada",
+      "expression": "23+3*(7)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d3-00029",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 3,
+    "stem": "12, 52, 17, 56, 22, 60, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "24"
+      },
+      {
+        "id": "b",
+        "text": "27"
+      },
+      {
+        "id": "c",
+        "text": "32"
+      },
+      {
+        "id": "d",
+        "text": "60"
+      },
+      {
+        "id": "e",
+        "text": "98"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A resposta é 27. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 5 em 5; nas posições 2ª, 4ª, 6ª… variam de 4 em 4. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 29,
+      "generator": "serie_alternada",
+      "expression": "12+3*(5)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d3-00030",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 3,
+    "stem": "15, 49, 26, 45, 37, 41, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "48"
+      },
+      {
+        "id": "b",
+        "text": "96"
+      },
+      {
+        "id": "c",
+        "text": "54"
+      },
+      {
+        "id": "d",
+        "text": "59"
+      },
+      {
+        "id": "e",
+        "text": "41"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A resposta é 48. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 11 em 11; nas posições 2ª, 4ª, 6ª… variam de -4 em -4. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 30,
+      "generator": "serie_alternada",
+      "expression": "15+3*(11)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d4-00031",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 4,
+    "stem": "24, 42, 33, 37, 42, 32, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "46"
+      },
+      {
+        "id": "b",
+        "text": "51"
+      },
+      {
+        "id": "c",
+        "text": "102"
+      },
+      {
+        "id": "d",
+        "text": "32"
+      },
+      {
+        "id": "e",
+        "text": "42"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A resposta é 51. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 9 em 9; nas posições 2ª, 4ª, 6ª… variam de -5 em -5. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 31,
+      "generator": "serie_alternada",
+      "expression": "24+3*(9)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d4-00032",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 4,
+    "stem": "10, 84, 16, 79, 22, 74, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "25"
+      },
+      {
+        "id": "b",
+        "text": "28"
+      },
+      {
+        "id": "c",
+        "text": "126"
+      },
+      {
+        "id": "d",
+        "text": "29"
+      },
+      {
+        "id": "e",
+        "text": "22"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A resposta é 28. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 6 em 6; nas posições 2ª, 4ª, 6ª… variam de -5 em -5. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 32,
+      "generator": "serie_alternada",
+      "expression": "10+3*(6)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d4-00033",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 4,
+    "stem": "20, 40, 28, 34, 36, 28, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "44"
+      },
+      {
+        "id": "b",
+        "text": "28"
+      },
+      {
+        "id": "c",
+        "text": "88"
+      },
+      {
+        "id": "d",
+        "text": "52"
+      },
+      {
+        "id": "e",
+        "text": "45"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A resposta é 44. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 8 em 8; nas posições 2ª, 4ª, 6ª… variam de -6 em -6. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 33,
+      "generator": "serie_alternada",
+      "expression": "20+3*(8)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d4-00034",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 4,
+    "stem": "7, 59, 16, 54, 25, 49, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "43"
+      },
+      {
+        "id": "b",
+        "text": "68"
+      },
+      {
+        "id": "c",
+        "text": "35"
+      },
+      {
+        "id": "d",
+        "text": "39"
+      },
+      {
+        "id": "e",
+        "text": "34"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "A resposta é 34. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 9 em 9; nas posições 2ª, 4ª, 6ª… variam de -5 em -5. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 34,
+      "generator": "serie_alternada",
+      "expression": "7+3*(9)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d4-00035",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 4,
+    "stem": "23, 84, 26, 73, 29, 62, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "35"
+      },
+      {
+        "id": "b",
+        "text": "29"
+      },
+      {
+        "id": "c",
+        "text": "62"
+      },
+      {
+        "id": "d",
+        "text": "32"
+      },
+      {
+        "id": "e",
+        "text": "30"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é 32. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 3 em 3; nas posições 2ª, 4ª, 6ª… variam de -11 em -11. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 35,
+      "generator": "serie_alternada",
+      "expression": "23+3*(3)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d4-00036",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 4,
+    "stem": "10, 48, 22, 45, 34, 42, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "42"
+      },
+      {
+        "id": "b",
+        "text": "47"
+      },
+      {
+        "id": "c",
+        "text": "58"
+      },
+      {
+        "id": "d",
+        "text": "34"
+      },
+      {
+        "id": "e",
+        "text": "46"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "A resposta é 46. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 12 em 12; nas posições 2ª, 4ª, 6ª… variam de -3 em -3. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 36,
+      "generator": "serie_alternada",
+      "expression": "10+3*(12)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d4-00037",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 4,
+    "stem": "4, 77, 12, 75, 20, 73, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "28"
+      },
+      {
+        "id": "b",
+        "text": "24"
+      },
+      {
+        "id": "c",
+        "text": "56"
+      },
+      {
+        "id": "d",
+        "text": "29"
+      },
+      {
+        "id": "e",
+        "text": "36"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A resposta é 28. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 8 em 8; nas posições 2ª, 4ª, 6ª… variam de -2 em -2. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 37,
+      "generator": "serie_alternada",
+      "expression": "4+3*(8)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d4-00038",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 4,
+    "stem": "5, 80, 15, 76, 25, 72, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "35"
+      },
+      {
+        "id": "b",
+        "text": "45"
+      },
+      {
+        "id": "c",
+        "text": "40"
+      },
+      {
+        "id": "d",
+        "text": "72"
+      },
+      {
+        "id": "e",
+        "text": "30"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A resposta é 35. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 10 em 10; nas posições 2ª, 4ª, 6ª… variam de -4 em -4. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 38,
+      "generator": "serie_alternada",
+      "expression": "5+3*(10)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d4-00039",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 4,
+    "stem": "18, 41, 21, 35, 24, 29, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "25"
+      },
+      {
+        "id": "b",
+        "text": "28"
+      },
+      {
+        "id": "c",
+        "text": "27"
+      },
+      {
+        "id": "d",
+        "text": "29"
+      },
+      {
+        "id": "e",
+        "text": "26"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A resposta é 27. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 3 em 3; nas posições 2ª, 4ª, 6ª… variam de -6 em -6. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 39,
+      "generator": "serie_alternada",
+      "expression": "18+3*(3)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d4-00040",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 4,
+    "stem": "4, 75, 13, 70, 22, 65, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "32"
+      },
+      {
+        "id": "b",
+        "text": "65"
+      },
+      {
+        "id": "c",
+        "text": "62"
+      },
+      {
+        "id": "d",
+        "text": "31"
+      },
+      {
+        "id": "e",
+        "text": "36"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é 31. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 9 em 9; nas posições 2ª, 4ª, 6ª… variam de -5 em -5. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 40,
+      "generator": "serie_alternada",
+      "expression": "4+3*(9)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d5-00041",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 5,
+    "stem": "21, 67, 32, 56, 43, 45, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "47"
+      },
+      {
+        "id": "b",
+        "text": "54"
+      },
+      {
+        "id": "c",
+        "text": "60"
+      },
+      {
+        "id": "d",
+        "text": "45"
+      },
+      {
+        "id": "e",
+        "text": "43"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A resposta é 54. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 11 em 11; nas posições 2ª, 4ª, 6ª… variam de -11 em -11. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 41,
+      "generator": "serie_alternada",
+      "expression": "21+3*(11)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d5-00042",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 5,
+    "stem": "27, 74, 36, 85, 45, 96, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "59"
+      },
+      {
+        "id": "b",
+        "text": "49"
+      },
+      {
+        "id": "c",
+        "text": "54"
+      },
+      {
+        "id": "d",
+        "text": "55"
+      },
+      {
+        "id": "e",
+        "text": "63"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A resposta é 54. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 9 em 9; nas posições 2ª, 4ª, 6ª… variam de 11 em 11. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 42,
+      "generator": "serie_alternada",
+      "expression": "27+3*(9)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d5-00043",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 5,
+    "stem": "18, 43, 30, 50, 42, 57, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "42"
+      },
+      {
+        "id": "b",
+        "text": "53"
+      },
+      {
+        "id": "c",
+        "text": "55"
+      },
+      {
+        "id": "d",
+        "text": "54"
+      },
+      {
+        "id": "e",
+        "text": "108"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é 54. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 12 em 12; nas posições 2ª, 4ª, 6ª… variam de 7 em 7. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 43,
+      "generator": "serie_alternada",
+      "expression": "18+3*(12)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d5-00044",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 5,
+    "stem": "6, 80, 17, 85, 28, 90, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "28"
+      },
+      {
+        "id": "b",
+        "text": "39"
+      },
+      {
+        "id": "c",
+        "text": "90"
+      },
+      {
+        "id": "d",
+        "text": "50"
+      },
+      {
+        "id": "e",
+        "text": "152"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A resposta é 39. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 11 em 11; nas posições 2ª, 4ª, 6ª… variam de 5 em 5. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 44,
+      "generator": "serie_alternada",
+      "expression": "6+3*(11)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d5-00045",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 5,
+    "stem": "25, 59, 28, 56, 31, 53, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "31"
+      },
+      {
+        "id": "b",
+        "text": "36"
+      },
+      {
+        "id": "c",
+        "text": "68"
+      },
+      {
+        "id": "d",
+        "text": "34"
+      },
+      {
+        "id": "e",
+        "text": "32"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é 34. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 3 em 3; nas posições 2ª, 4ª, 6ª… variam de -3 em -3. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 45,
+      "generator": "serie_alternada",
+      "expression": "25+3*(3)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d5-00046",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 5,
+    "stem": "15, 80, 18, 77, 21, 74, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "26"
+      },
+      {
+        "id": "b",
+        "text": "22"
+      },
+      {
+        "id": "c",
+        "text": "24"
+      },
+      {
+        "id": "d",
+        "text": "48"
+      },
+      {
+        "id": "e",
+        "text": "21"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A resposta é 24. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 3 em 3; nas posições 2ª, 4ª, 6ª… variam de -3 em -3. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 46,
+      "generator": "serie_alternada",
+      "expression": "15+3*(3)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d5-00047",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 5,
+    "stem": "16, 67, 25, 70, 34, 73, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "86"
+      },
+      {
+        "id": "b",
+        "text": "38"
+      },
+      {
+        "id": "c",
+        "text": "44"
+      },
+      {
+        "id": "d",
+        "text": "43"
+      },
+      {
+        "id": "e",
+        "text": "34"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é 43. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 9 em 9; nas posições 2ª, 4ª, 6ª… variam de 3 em 3. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 47,
+      "generator": "serie_alternada",
+      "expression": "16+3*(9)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d5-00048",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 5,
+    "stem": "7, 62, 14, 57, 21, 52, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "27"
+      },
+      {
+        "id": "b",
+        "text": "32"
+      },
+      {
+        "id": "c",
+        "text": "28"
+      },
+      {
+        "id": "d",
+        "text": "52"
+      },
+      {
+        "id": "e",
+        "text": "83"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A resposta é 28. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 7 em 7; nas posições 2ª, 4ª, 6ª… variam de -5 em -5. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 48,
+      "generator": "serie_alternada",
+      "expression": "7+3*(7)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d5-00049",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 5,
+    "stem": "24, 45, 30, 36, 36, 27, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "42"
+      },
+      {
+        "id": "b",
+        "text": "27"
+      },
+      {
+        "id": "c",
+        "text": "43"
+      },
+      {
+        "id": "d",
+        "text": "39"
+      },
+      {
+        "id": "e",
+        "text": "84"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A resposta é 42. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 6 em 6; nas posições 2ª, 4ª, 6ª… variam de -9 em -9. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 49,
+      "generator": "serie_alternada",
+      "expression": "24+3*(6)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_alternada-d5-00050",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 5,
+    "stem": "13, 43, 21, 47, 29, 51, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "38"
+      },
+      {
+        "id": "b",
+        "text": "41"
+      },
+      {
+        "id": "c",
+        "text": "51"
+      },
+      {
+        "id": "d",
+        "text": "36"
+      },
+      {
+        "id": "e",
+        "text": "37"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "A resposta é 37. São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de 8 em 8; nas posições 2ª, 4ª, 6ª… variam de 4 em 4. A vaga que falta é de posição ímpar, então ela continua a primeira série. O sinal de série alternada é a sequência subir e descer sem padrão — olhe um termo sim, um termo não.",
+    "theoryRef": "math_series.md#serie_alternada",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 50,
+      "generator": "serie_alternada",
+      "expression": "13+3*(8)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d1-00001",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 1,
+    "stem": "12, 26, 52, 66, 132, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "147"
+      },
+      {
+        "id": "b",
+        "text": "160"
+      },
+      {
+        "id": "c",
+        "text": "146"
+      },
+      {
+        "id": "d",
+        "text": "198"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A resposta é 146. A regra alterna duas operações: soma 14, depois multiplica por 2, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 132 + 14. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 1,
+      "generator": "serie_dois_passos",
+      "expression": "132+14",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d1-00002",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 1,
+    "stem": "7, 23, 46, 62, 124, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "156"
+      },
+      {
+        "id": "b",
+        "text": "132"
+      },
+      {
+        "id": "c",
+        "text": "148"
+      },
+      {
+        "id": "d",
+        "text": "140"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é 140. A regra alterna duas operações: soma 16, depois multiplica por 2, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 124 + 16. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 2,
+      "generator": "serie_dois_passos",
+      "expression": "124+16",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d1-00003",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 1,
+    "stem": "10, 25, 50, 65, 130, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "153"
+      },
+      {
+        "id": "b",
+        "text": "290"
+      },
+      {
+        "id": "c",
+        "text": "195"
+      },
+      {
+        "id": "d",
+        "text": "145"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é 145. A regra alterna duas operações: soma 15, depois multiplica por 2, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 130 + 15. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 3,
+      "generator": "serie_dois_passos",
+      "expression": "130+15",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d1-00004",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 1,
+    "stem": "6, 25, 50, 69, 138, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "157"
+      },
+      {
+        "id": "b",
+        "text": "147"
+      },
+      {
+        "id": "c",
+        "text": "314"
+      },
+      {
+        "id": "d",
+        "text": "167"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A resposta é 157. A regra alterna duas operações: soma 19, depois multiplica por 2, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 138 + 19. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 4,
+      "generator": "serie_dois_passos",
+      "expression": "138+19",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d1-00005",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 1,
+    "stem": "6, 21, 84, 99, 396, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "410"
+      },
+      {
+        "id": "b",
+        "text": "411"
+      },
+      {
+        "id": "c",
+        "text": "396"
+      },
+      {
+        "id": "d",
+        "text": "822"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A resposta é 411. A regra alterna duas operações: soma 15, depois multiplica por 4, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 396 + 15. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 5,
+      "generator": "serie_dois_passos",
+      "expression": "396+15",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d1-00006",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 1,
+    "stem": "14, 26, 52, 64, 128, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "146"
+      },
+      {
+        "id": "b",
+        "text": "128"
+      },
+      {
+        "id": "c",
+        "text": "140"
+      },
+      {
+        "id": "d",
+        "text": "141"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A resposta é 140. A regra alterna duas operações: soma 12, depois multiplica por 2, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 128 + 12. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 6,
+      "generator": "serie_dois_passos",
+      "expression": "128+12",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d1-00007",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 1,
+    "stem": "20, 23, 46, 49, 98, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "100"
+      },
+      {
+        "id": "b",
+        "text": "202"
+      },
+      {
+        "id": "c",
+        "text": "104"
+      },
+      {
+        "id": "d",
+        "text": "101"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é 101. A regra alterna duas operações: soma 3, depois multiplica por 2, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 98 + 3. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 7,
+      "generator": "serie_dois_passos",
+      "expression": "98+3",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d1-00008",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 1,
+    "stem": "7, 12, 36, 41, 123, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "131"
+      },
+      {
+        "id": "b",
+        "text": "133"
+      },
+      {
+        "id": "c",
+        "text": "123"
+      },
+      {
+        "id": "d",
+        "text": "128"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é 128. A regra alterna duas operações: soma 5, depois multiplica por 3, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 123 + 5. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 8,
+      "generator": "serie_dois_passos",
+      "expression": "123+5",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d1-00009",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 1,
+    "stem": "4, 10, 40, 46, 184, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "184"
+      },
+      {
+        "id": "b",
+        "text": "189"
+      },
+      {
+        "id": "c",
+        "text": "190"
+      },
+      {
+        "id": "d",
+        "text": "191"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A resposta é 190. A regra alterna duas operações: soma 6, depois multiplica por 4, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 184 + 6. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 9,
+      "generator": "serie_dois_passos",
+      "expression": "184+6",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d1-00010",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 1,
+    "stem": "15, 27, 108, 120, 480, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "498"
+      },
+      {
+        "id": "b",
+        "text": "493"
+      },
+      {
+        "id": "c",
+        "text": "486"
+      },
+      {
+        "id": "d",
+        "text": "492"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é 492. A regra alterna duas operações: soma 12, depois multiplica por 4, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 480 + 12. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 10,
+      "generator": "serie_dois_passos",
+      "expression": "480+12",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d2-00011",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 2,
+    "stem": "13, 25, 75, 87, 261, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "273"
+      },
+      {
+        "id": "b",
+        "text": "261"
+      },
+      {
+        "id": "c",
+        "text": "546"
+      },
+      {
+        "id": "d",
+        "text": "435"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A resposta é 273. A regra alterna duas operações: soma 12, depois multiplica por 3, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 261 + 12. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 11,
+      "generator": "serie_dois_passos",
+      "expression": "261+12",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d2-00012",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 2,
+    "stem": "13, 21, 42, 50, 100, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "104"
+      },
+      {
+        "id": "b",
+        "text": "216"
+      },
+      {
+        "id": "c",
+        "text": "108"
+      },
+      {
+        "id": "d",
+        "text": "112"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A resposta é 108. A regra alterna duas operações: soma 8, depois multiplica por 2, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 100 + 8. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 12,
+      "generator": "serie_dois_passos",
+      "expression": "100+8",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d2-00013",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 2,
+    "stem": "3, 16, 48, 61, 183, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "203"
+      },
+      {
+        "id": "b",
+        "text": "305"
+      },
+      {
+        "id": "c",
+        "text": "196"
+      },
+      {
+        "id": "d",
+        "text": "195"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A resposta é 196. A regra alterna duas operações: soma 13, depois multiplica por 3, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 183 + 13. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 13,
+      "generator": "serie_dois_passos",
+      "expression": "183+13",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d2-00014",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 2,
+    "stem": "11, 22, 66, 77, 231, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "484"
+      },
+      {
+        "id": "b",
+        "text": "236"
+      },
+      {
+        "id": "c",
+        "text": "248"
+      },
+      {
+        "id": "d",
+        "text": "242"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é 242. A regra alterna duas operações: soma 11, depois multiplica por 3, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 231 + 11. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 14,
+      "generator": "serie_dois_passos",
+      "expression": "231+11",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d2-00015",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 2,
+    "stem": "9, 16, 48, 55, 165, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "171"
+      },
+      {
+        "id": "b",
+        "text": "168"
+      },
+      {
+        "id": "c",
+        "text": "172"
+      },
+      {
+        "id": "d",
+        "text": "173"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A resposta é 172. A regra alterna duas operações: soma 7, depois multiplica por 3, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 165 + 7. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 15,
+      "generator": "serie_dois_passos",
+      "expression": "165+7",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d2-00016",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 2,
+    "stem": "16, 30, 60, 74, 148, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "148"
+      },
+      {
+        "id": "b",
+        "text": "222"
+      },
+      {
+        "id": "c",
+        "text": "155"
+      },
+      {
+        "id": "d",
+        "text": "162"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é 162. A regra alterna duas operações: soma 14, depois multiplica por 2, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 148 + 14. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 16,
+      "generator": "serie_dois_passos",
+      "expression": "148+14",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d2-00017",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 2,
+    "stem": "12, 27, 54, 69, 138, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "207"
+      },
+      {
+        "id": "b",
+        "text": "152"
+      },
+      {
+        "id": "c",
+        "text": "153"
+      },
+      {
+        "id": "d",
+        "text": "306"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A resposta é 153. A regra alterna duas operações: soma 15, depois multiplica por 2, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 138 + 15. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 17,
+      "generator": "serie_dois_passos",
+      "expression": "138+15",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d2-00018",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 2,
+    "stem": "11, 21, 63, 73, 219, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "230"
+      },
+      {
+        "id": "b",
+        "text": "234"
+      },
+      {
+        "id": "c",
+        "text": "229"
+      },
+      {
+        "id": "d",
+        "text": "458"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A resposta é 229. A regra alterna duas operações: soma 10, depois multiplica por 3, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 219 + 10. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 18,
+      "generator": "serie_dois_passos",
+      "expression": "219+10",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d2-00019",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 2,
+    "stem": "10, 14, 28, 32, 64, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "72"
+      },
+      {
+        "id": "b",
+        "text": "68"
+      },
+      {
+        "id": "c",
+        "text": "70"
+      },
+      {
+        "id": "d",
+        "text": "64"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A resposta é 68. A regra alterna duas operações: soma 4, depois multiplica por 2, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 64 + 4. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 19,
+      "generator": "serie_dois_passos",
+      "expression": "64+4",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d2-00020",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 2,
+    "stem": "13, 29, 87, 103, 309, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "341"
+      },
+      {
+        "id": "b",
+        "text": "650"
+      },
+      {
+        "id": "c",
+        "text": "309"
+      },
+      {
+        "id": "d",
+        "text": "325"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é 325. A regra alterna duas operações: soma 16, depois multiplica por 3, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 309 + 16. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 20,
+      "generator": "serie_dois_passos",
+      "expression": "309+16",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d3-00021",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 3,
+    "stem": "7, 17, 51, 61, 183, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "194"
+      },
+      {
+        "id": "b",
+        "text": "193"
+      },
+      {
+        "id": "c",
+        "text": "305"
+      },
+      {
+        "id": "d",
+        "text": "203"
+      },
+      {
+        "id": "e",
+        "text": "386"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A resposta é 193. A regra alterna duas operações: soma 10, depois multiplica por 3, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 183 + 10. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 21,
+      "generator": "serie_dois_passos",
+      "expression": "183+10",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d3-00022",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 3,
+    "stem": "6, 20, 40, 54, 108, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "162"
+      },
+      {
+        "id": "b",
+        "text": "136"
+      },
+      {
+        "id": "c",
+        "text": "108"
+      },
+      {
+        "id": "d",
+        "text": "129"
+      },
+      {
+        "id": "e",
+        "text": "122"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "A resposta é 122. A regra alterna duas operações: soma 14, depois multiplica por 2, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 108 + 14. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 22,
+      "generator": "serie_dois_passos",
+      "expression": "108+14",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d3-00023",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 3,
+    "stem": "14, 18, 36, 40, 80, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "88"
+      },
+      {
+        "id": "b",
+        "text": "86"
+      },
+      {
+        "id": "c",
+        "text": "82"
+      },
+      {
+        "id": "d",
+        "text": "84"
+      },
+      {
+        "id": "e",
+        "text": "168"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é 84. A regra alterna duas operações: soma 4, depois multiplica por 2, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 80 + 4. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 23,
+      "generator": "serie_dois_passos",
+      "expression": "80+4",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d3-00024",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 3,
+    "stem": "7, 15, 60, 68, 272, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "560"
+      },
+      {
+        "id": "b",
+        "text": "284"
+      },
+      {
+        "id": "c",
+        "text": "279"
+      },
+      {
+        "id": "d",
+        "text": "280"
+      },
+      {
+        "id": "e",
+        "text": "276"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é 280. A regra alterna duas operações: soma 8, depois multiplica por 4, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 272 + 8. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 24,
+      "generator": "serie_dois_passos",
+      "expression": "272+8",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d3-00025",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 3,
+    "stem": "12, 25, 100, 113, 452, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "452"
+      },
+      {
+        "id": "b",
+        "text": "464"
+      },
+      {
+        "id": "c",
+        "text": "472"
+      },
+      {
+        "id": "d",
+        "text": "791"
+      },
+      {
+        "id": "e",
+        "text": "465"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "A resposta é 465. A regra alterna duas operações: soma 13, depois multiplica por 4, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 452 + 13. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 25,
+      "generator": "serie_dois_passos",
+      "expression": "452+13",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d3-00026",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 3,
+    "stem": "11, 23, 92, 104, 416, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "856"
+      },
+      {
+        "id": "b",
+        "text": "416"
+      },
+      {
+        "id": "c",
+        "text": "429"
+      },
+      {
+        "id": "d",
+        "text": "728"
+      },
+      {
+        "id": "e",
+        "text": "428"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "A resposta é 428. A regra alterna duas operações: soma 12, depois multiplica por 4, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 416 + 12. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 26,
+      "generator": "serie_dois_passos",
+      "expression": "416+12",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d3-00027",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 3,
+    "stem": "2, 12, 24, 34, 68, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "83"
+      },
+      {
+        "id": "b",
+        "text": "78"
+      },
+      {
+        "id": "c",
+        "text": "77"
+      },
+      {
+        "id": "d",
+        "text": "79"
+      },
+      {
+        "id": "e",
+        "text": "102"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A resposta é 78. A regra alterna duas operações: soma 10, depois multiplica por 2, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 68 + 10. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 27,
+      "generator": "serie_dois_passos",
+      "expression": "68+10",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d3-00028",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 3,
+    "stem": "16, 26, 104, 114, 456, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "798"
+      },
+      {
+        "id": "b",
+        "text": "471"
+      },
+      {
+        "id": "c",
+        "text": "466"
+      },
+      {
+        "id": "d",
+        "text": "456"
+      },
+      {
+        "id": "e",
+        "text": "465"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A resposta é 466. A regra alterna duas operações: soma 10, depois multiplica por 4, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 456 + 10. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 28,
+      "generator": "serie_dois_passos",
+      "expression": "456+10",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d3-00029",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 3,
+    "stem": "7, 13, 26, 32, 64, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "76"
+      },
+      {
+        "id": "b",
+        "text": "73"
+      },
+      {
+        "id": "c",
+        "text": "140"
+      },
+      {
+        "id": "d",
+        "text": "96"
+      },
+      {
+        "id": "e",
+        "text": "70"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "A resposta é 70. A regra alterna duas operações: soma 6, depois multiplica por 2, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 64 + 6. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 29,
+      "generator": "serie_dois_passos",
+      "expression": "64+6",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d3-00030",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 3,
+    "stem": "10, 28, 112, 130, 520, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "538"
+      },
+      {
+        "id": "b",
+        "text": "556"
+      },
+      {
+        "id": "c",
+        "text": "529"
+      },
+      {
+        "id": "d",
+        "text": "1.076"
+      },
+      {
+        "id": "e",
+        "text": "910"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A resposta é 538. A regra alterna duas operações: soma 18, depois multiplica por 4, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 520 + 18. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 30,
+      "generator": "serie_dois_passos",
+      "expression": "520+18",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d4-00031",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 4,
+    "stem": "16, 31, 124, 139, 556, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "571"
+      },
+      {
+        "id": "b",
+        "text": "1.142"
+      },
+      {
+        "id": "c",
+        "text": "563"
+      },
+      {
+        "id": "d",
+        "text": "579"
+      },
+      {
+        "id": "e",
+        "text": "556"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A resposta é 571. A regra alterna duas operações: soma 15, depois multiplica por 4, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 556 + 15. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 31,
+      "generator": "serie_dois_passos",
+      "expression": "556+15",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d4-00032",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 4,
+    "stem": "6, 15, 60, 69, 276, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "280"
+      },
+      {
+        "id": "b",
+        "text": "276"
+      },
+      {
+        "id": "c",
+        "text": "290"
+      },
+      {
+        "id": "d",
+        "text": "286"
+      },
+      {
+        "id": "e",
+        "text": "285"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "A resposta é 285. A regra alterna duas operações: soma 9, depois multiplica por 4, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 276 + 9. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 32,
+      "generator": "serie_dois_passos",
+      "expression": "276+9",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d4-00033",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 4,
+    "stem": "13, 25, 100, 112, 448, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "784"
+      },
+      {
+        "id": "b",
+        "text": "454"
+      },
+      {
+        "id": "c",
+        "text": "448"
+      },
+      {
+        "id": "d",
+        "text": "460"
+      },
+      {
+        "id": "e",
+        "text": "920"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é 460. A regra alterna duas operações: soma 12, depois multiplica por 4, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 448 + 12. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 33,
+      "generator": "serie_dois_passos",
+      "expression": "448+12",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d4-00034",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 4,
+    "stem": "4, 17, 68, 81, 324, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "350"
+      },
+      {
+        "id": "b",
+        "text": "674"
+      },
+      {
+        "id": "c",
+        "text": "567"
+      },
+      {
+        "id": "d",
+        "text": "337"
+      },
+      {
+        "id": "e",
+        "text": "330"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é 337. A regra alterna duas operações: soma 13, depois multiplica por 4, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 324 + 13. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 34,
+      "generator": "serie_dois_passos",
+      "expression": "324+13",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d4-00035",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 4,
+    "stem": "15, 18, 54, 57, 171, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "177"
+      },
+      {
+        "id": "b",
+        "text": "176"
+      },
+      {
+        "id": "c",
+        "text": "174"
+      },
+      {
+        "id": "d",
+        "text": "172"
+      },
+      {
+        "id": "e",
+        "text": "285"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A resposta é 174. A regra alterna duas operações: soma 3, depois multiplica por 3, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 171 + 3. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 35,
+      "generator": "serie_dois_passos",
+      "expression": "171+3",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d4-00036",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 4,
+    "stem": "6, 26, 104, 124, 496, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "1.032"
+      },
+      {
+        "id": "b",
+        "text": "536"
+      },
+      {
+        "id": "c",
+        "text": "496"
+      },
+      {
+        "id": "d",
+        "text": "516"
+      },
+      {
+        "id": "e",
+        "text": "517"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é 516. A regra alterna duas operações: soma 20, depois multiplica por 4, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 496 + 20. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 36,
+      "generator": "serie_dois_passos",
+      "expression": "496+20",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d4-00037",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 4,
+    "stem": "2, 14, 56, 68, 272, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "285"
+      },
+      {
+        "id": "b",
+        "text": "296"
+      },
+      {
+        "id": "c",
+        "text": "283"
+      },
+      {
+        "id": "d",
+        "text": "284"
+      },
+      {
+        "id": "e",
+        "text": "290"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é 284. A regra alterna duas operações: soma 12, depois multiplica por 4, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 272 + 12. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 37,
+      "generator": "serie_dois_passos",
+      "expression": "272+12",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d4-00038",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 4,
+    "stem": "3, 18, 72, 87, 348, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "609"
+      },
+      {
+        "id": "b",
+        "text": "362"
+      },
+      {
+        "id": "c",
+        "text": "371"
+      },
+      {
+        "id": "d",
+        "text": "348"
+      },
+      {
+        "id": "e",
+        "text": "363"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "A resposta é 363. A regra alterna duas operações: soma 15, depois multiplica por 4, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 348 + 15. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 38,
+      "generator": "serie_dois_passos",
+      "expression": "348+15",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d4-00039",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 4,
+    "stem": "12, 16, 64, 68, 272, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "552"
+      },
+      {
+        "id": "b",
+        "text": "276"
+      },
+      {
+        "id": "c",
+        "text": "278"
+      },
+      {
+        "id": "d",
+        "text": "275"
+      },
+      {
+        "id": "e",
+        "text": "277"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A resposta é 276. A regra alterna duas operações: soma 4, depois multiplica por 4, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 272 + 4. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 39,
+      "generator": "serie_dois_passos",
+      "expression": "272+4",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d4-00040",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 4,
+    "stem": "2, 16, 64, 78, 312, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "340"
+      },
+      {
+        "id": "b",
+        "text": "652"
+      },
+      {
+        "id": "c",
+        "text": "546"
+      },
+      {
+        "id": "d",
+        "text": "326"
+      },
+      {
+        "id": "e",
+        "text": "312"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é 326. A regra alterna duas operações: soma 14, depois multiplica por 4, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 312 + 14. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 40,
+      "generator": "serie_dois_passos",
+      "expression": "312+14",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d5-00041",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 5,
+    "stem": "14, 32, 96, 114, 342, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "378"
+      },
+      {
+        "id": "b",
+        "text": "360"
+      },
+      {
+        "id": "c",
+        "text": "342"
+      },
+      {
+        "id": "d",
+        "text": "361"
+      },
+      {
+        "id": "e",
+        "text": "720"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A resposta é 360. A regra alterna duas operações: soma 18, depois multiplica por 3, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 342 + 18. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 41,
+      "generator": "serie_dois_passos",
+      "expression": "342+18",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d5-00042",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 5,
+    "stem": "18, 31, 93, 106, 318, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "332"
+      },
+      {
+        "id": "b",
+        "text": "338"
+      },
+      {
+        "id": "c",
+        "text": "331"
+      },
+      {
+        "id": "d",
+        "text": "344"
+      },
+      {
+        "id": "e",
+        "text": "530"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A resposta é 331. A regra alterna duas operações: soma 13, depois multiplica por 3, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 318 + 13. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 42,
+      "generator": "serie_dois_passos",
+      "expression": "318+13",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d5-00043",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 5,
+    "stem": "12, 32, 64, 84, 168, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "168"
+      },
+      {
+        "id": "b",
+        "text": "189"
+      },
+      {
+        "id": "c",
+        "text": "188"
+      },
+      {
+        "id": "d",
+        "text": "252"
+      },
+      {
+        "id": "e",
+        "text": "187"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A resposta é 188. A regra alterna duas operações: soma 20, depois multiplica por 2, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 168 + 20. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 43,
+      "generator": "serie_dois_passos",
+      "expression": "168+20",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d5-00044",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 5,
+    "stem": "3, 21, 42, 60, 120, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "139"
+      },
+      {
+        "id": "b",
+        "text": "180"
+      },
+      {
+        "id": "c",
+        "text": "156"
+      },
+      {
+        "id": "d",
+        "text": "120"
+      },
+      {
+        "id": "e",
+        "text": "138"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "A resposta é 138. A regra alterna duas operações: soma 18, depois multiplica por 2, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 120 + 18. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 44,
+      "generator": "serie_dois_passos",
+      "expression": "120+18",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d5-00045",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 5,
+    "stem": "16, 19, 76, 79, 316, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "316"
+      },
+      {
+        "id": "b",
+        "text": "553"
+      },
+      {
+        "id": "c",
+        "text": "319"
+      },
+      {
+        "id": "d",
+        "text": "321"
+      },
+      {
+        "id": "e",
+        "text": "320"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A resposta é 319. A regra alterna duas operações: soma 3, depois multiplica por 4, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 316 + 3. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 45,
+      "generator": "serie_dois_passos",
+      "expression": "316+3",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d5-00046",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 5,
+    "stem": "10, 14, 56, 60, 240, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "242"
+      },
+      {
+        "id": "b",
+        "text": "246"
+      },
+      {
+        "id": "c",
+        "text": "245"
+      },
+      {
+        "id": "d",
+        "text": "420"
+      },
+      {
+        "id": "e",
+        "text": "244"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "A resposta é 244. A regra alterna duas operações: soma 4, depois multiplica por 4, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 240 + 4. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 46,
+      "generator": "serie_dois_passos",
+      "expression": "240+4",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d5-00047",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 5,
+    "stem": "10, 24, 48, 62, 124, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "137"
+      },
+      {
+        "id": "b",
+        "text": "124"
+      },
+      {
+        "id": "c",
+        "text": "152"
+      },
+      {
+        "id": "d",
+        "text": "145"
+      },
+      {
+        "id": "e",
+        "text": "138"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "A resposta é 138. A regra alterna duas operações: soma 14, depois multiplica por 2, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 124 + 14. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 47,
+      "generator": "serie_dois_passos",
+      "expression": "124+14",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d5-00048",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 5,
+    "stem": "6, 24, 72, 90, 270, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "450"
+      },
+      {
+        "id": "b",
+        "text": "576"
+      },
+      {
+        "id": "c",
+        "text": "270"
+      },
+      {
+        "id": "d",
+        "text": "279"
+      },
+      {
+        "id": "e",
+        "text": "288"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "A resposta é 288. A regra alterna duas operações: soma 18, depois multiplica por 3, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 270 + 18. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 48,
+      "generator": "serie_dois_passos",
+      "expression": "270+18",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d5-00049",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 5,
+    "stem": "16, 25, 75, 84, 252, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "266"
+      },
+      {
+        "id": "b",
+        "text": "270"
+      },
+      {
+        "id": "c",
+        "text": "261"
+      },
+      {
+        "id": "d",
+        "text": "256"
+      },
+      {
+        "id": "e",
+        "text": "260"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A resposta é 261. A regra alterna duas operações: soma 9, depois multiplica por 3, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 252 + 9. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 49,
+      "generator": "serie_dois_passos",
+      "expression": "252+9",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_dois_passos-d5-00050",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 5,
+    "stem": "8, 20, 40, 52, 104, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "156"
+      },
+      {
+        "id": "b",
+        "text": "232"
+      },
+      {
+        "id": "c",
+        "text": "117"
+      },
+      {
+        "id": "d",
+        "text": "115"
+      },
+      {
+        "id": "e",
+        "text": "116"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "A resposta é 116. A regra alterna duas operações: soma 12, depois multiplica por 2, e repete. O termo que falta vem logo após uma multiplicação, então é uma soma: 104 + 12. Quando nem a diferença nem a razão são constantes, teste se elas se alternam.",
+    "theoryRef": "math_series.md#serie_dois_passos",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 50,
+      "generator": "serie_dois_passos",
+      "expression": "104+12",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d1-00001",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 1,
+    "stem": "23, 25, 27, 29, 31, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "31"
+      },
+      {
+        "id": "b",
+        "text": "34"
+      },
+      {
+        "id": "c",
+        "text": "33"
+      },
+      {
+        "id": "d",
+        "text": "35"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A resposta é 33. A série soma 2 a cada passo (23 → 25 → 27…). Confira sempre a diferença entre termos vizinhos antes de procurar regra mais complicada: a maioria das séries da CCAT é aritmética simples.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 1,
+      "generator": "serie_simples",
+      "expression": "23+5*(2)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d1-00002",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 1,
+    "stem": "13, 17, 21, 25, 29, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "37"
+      },
+      {
+        "id": "b",
+        "text": "31"
+      },
+      {
+        "id": "c",
+        "text": "35"
+      },
+      {
+        "id": "d",
+        "text": "33"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é 33. A série soma 4 a cada passo (13 → 17 → 21…). Confira sempre a diferença entre termos vizinhos antes de procurar regra mais complicada: a maioria das séries da CCAT é aritmética simples.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 2,
+      "generator": "serie_simples",
+      "expression": "13+5*(4)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d1-00003",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 1,
+    "stem": "20, 22, 24, 26, 28, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "32"
+      },
+      {
+        "id": "b",
+        "text": "28"
+      },
+      {
+        "id": "c",
+        "text": "60"
+      },
+      {
+        "id": "d",
+        "text": "30"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é 30. A série soma 2 a cada passo (20 → 22 → 24…). Confira sempre a diferença entre termos vizinhos antes de procurar regra mais complicada: a maioria das séries da CCAT é aritmética simples.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 3,
+      "generator": "serie_simples",
+      "expression": "20+5*(2)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d1-00004",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 1,
+    "stem": "11, 15, 19, 23, 27, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "31"
+      },
+      {
+        "id": "b",
+        "text": "29"
+      },
+      {
+        "id": "c",
+        "text": "62"
+      },
+      {
+        "id": "d",
+        "text": "33"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A resposta é 31. A série soma 4 a cada passo (11 → 15 → 19…). Confira sempre a diferença entre termos vizinhos antes de procurar regra mais complicada: a maioria das séries da CCAT é aritmética simples.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 4,
+      "generator": "serie_simples",
+      "expression": "11+5*(4)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d1-00005",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 1,
+    "stem": "11, 19, 27, 35, 43, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "50"
+      },
+      {
+        "id": "b",
+        "text": "51"
+      },
+      {
+        "id": "c",
+        "text": "43"
+      },
+      {
+        "id": "d",
+        "text": "102"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A resposta é 51. A série soma 8 a cada passo (11 → 19 → 27…). Confira sempre a diferença entre termos vizinhos antes de procurar regra mais complicada: a maioria das séries da CCAT é aritmética simples.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 5,
+      "generator": "serie_simples",
+      "expression": "11+5*(8)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d1-00006",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 1,
+    "stem": "28, 30, 32, 34, 36, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "40"
+      },
+      {
+        "id": "b",
+        "text": "36"
+      },
+      {
+        "id": "c",
+        "text": "38"
+      },
+      {
+        "id": "d",
+        "text": "39"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A resposta é 38. A série soma 2 a cada passo (28 → 30 → 32…). Confira sempre a diferença entre termos vizinhos antes de procurar regra mais complicada: a maioria das séries da CCAT é aritmética simples.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 6,
+      "generator": "serie_simples",
+      "expression": "28+5*(2)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d1-00007",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 1,
+    "stem": "40, 42, 44, 46, 48, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "49"
+      },
+      {
+        "id": "b",
+        "text": "100"
+      },
+      {
+        "id": "c",
+        "text": "52"
+      },
+      {
+        "id": "d",
+        "text": "50"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é 50. A série soma 2 a cada passo (40 → 42 → 44…). Confira sempre a diferença entre termos vizinhos antes de procurar regra mais complicada: a maioria das séries da CCAT é aritmética simples.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 7,
+      "generator": "serie_simples",
+      "expression": "40+5*(2)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d1-00008",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 1,
+    "stem": "14, 21, 28, 35, 42, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "53"
+      },
+      {
+        "id": "b",
+        "text": "56"
+      },
+      {
+        "id": "c",
+        "text": "42"
+      },
+      {
+        "id": "d",
+        "text": "49"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é 49. A série soma 7 a cada passo (14 → 21 → 28…). Confira sempre a diferença entre termos vizinhos antes de procurar regra mais complicada: a maioria das séries da CCAT é aritmética simples.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 8,
+      "generator": "serie_simples",
+      "expression": "14+5*(7)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d1-00009",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 1,
+    "stem": "8, 16, 24, 32, 40, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "40"
+      },
+      {
+        "id": "b",
+        "text": "47"
+      },
+      {
+        "id": "c",
+        "text": "48"
+      },
+      {
+        "id": "d",
+        "text": "49"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A resposta é 48. A série soma 8 a cada passo (8 → 16 → 24…). Confira sempre a diferença entre termos vizinhos antes de procurar regra mais complicada: a maioria das séries da CCAT é aritmética simples.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 9,
+      "generator": "serie_simples",
+      "expression": "8+5*(8)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d1-00010",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 1,
+    "stem": "29, 38, 47, 56, 65, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "79"
+      },
+      {
+        "id": "b",
+        "text": "75"
+      },
+      {
+        "id": "c",
+        "text": "69"
+      },
+      {
+        "id": "d",
+        "text": "74"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é 74. A série soma 9 a cada passo (29 → 38 → 47…). Confira sempre a diferença entre termos vizinhos antes de procurar regra mais complicada: a maioria das séries da CCAT é aritmética simples.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 10,
+      "generator": "serie_simples",
+      "expression": "29+5*(9)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d2-00001",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 2,
+    "stem": "49, 51, 53, 55, 57, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "57"
+      },
+      {
+        "id": "b",
+        "text": "60"
+      },
+      {
+        "id": "c",
+        "text": "59"
+      },
+      {
+        "id": "d",
+        "text": "61"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A resposta é 59. A série soma 2 a cada passo (49 → 51 → 53…). Confira sempre a diferença entre termos vizinhos antes de procurar regra mais complicada: a maioria das séries da CCAT é aritmética simples.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 1,
+      "generator": "serie_simples",
+      "expression": "49+5*(2)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d2-00002",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 2,
+    "stem": "28, 32, 36, 40, 44, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "52"
+      },
+      {
+        "id": "b",
+        "text": "46"
+      },
+      {
+        "id": "c",
+        "text": "50"
+      },
+      {
+        "id": "d",
+        "text": "48"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é 48. A série soma 4 a cada passo (28 → 32 → 36…). Confira sempre a diferença entre termos vizinhos antes de procurar regra mais complicada: a maioria das séries da CCAT é aritmética simples.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 2,
+      "generator": "serie_simples",
+      "expression": "28+5*(4)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d2-00003",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 2,
+    "stem": "43, 45, 47, 49, 51, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "55"
+      },
+      {
+        "id": "b",
+        "text": "51"
+      },
+      {
+        "id": "c",
+        "text": "106"
+      },
+      {
+        "id": "d",
+        "text": "53"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é 53. A série soma 2 a cada passo (43 → 45 → 47…). Confira sempre a diferença entre termos vizinhos antes de procurar regra mais complicada: a maioria das séries da CCAT é aritmética simples.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 3,
+      "generator": "serie_simples",
+      "expression": "43+5*(2)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d2-00004",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 2,
+    "stem": "22, 26, 30, 34, 38, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "42"
+      },
+      {
+        "id": "b",
+        "text": "40"
+      },
+      {
+        "id": "c",
+        "text": "84"
+      },
+      {
+        "id": "d",
+        "text": "44"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A resposta é 42. A série soma 4 a cada passo (22 → 26 → 30…). Confira sempre a diferença entre termos vizinhos antes de procurar regra mais complicada: a maioria das séries da CCAT é aritmética simples.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 4,
+      "generator": "serie_simples",
+      "expression": "22+5*(4)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d2-00005",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 2,
+    "stem": "22, 30, 38, 46, 54, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "61"
+      },
+      {
+        "id": "b",
+        "text": "62"
+      },
+      {
+        "id": "c",
+        "text": "54"
+      },
+      {
+        "id": "d",
+        "text": "124"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A resposta é 62. A série soma 8 a cada passo (22 → 30 → 38…). Confira sempre a diferença entre termos vizinhos antes de procurar regra mais complicada: a maioria das séries da CCAT é aritmética simples.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 5,
+      "generator": "serie_simples",
+      "expression": "22+5*(8)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d2-00006",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 2,
+    "stem": "61, 63, 65, 67, 69, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "73"
+      },
+      {
+        "id": "b",
+        "text": "69"
+      },
+      {
+        "id": "c",
+        "text": "71"
+      },
+      {
+        "id": "d",
+        "text": "72"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A resposta é 71. A série soma 2 a cada passo (61 → 63 → 65…). Confira sempre a diferença entre termos vizinhos antes de procurar regra mais complicada: a maioria das séries da CCAT é aritmética simples.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 6,
+      "generator": "serie_simples",
+      "expression": "61+5*(2)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d2-00007",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 2,
+    "stem": "59, 71, 83, 95, 107, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "118"
+      },
+      {
+        "id": "b",
+        "text": "238"
+      },
+      {
+        "id": "c",
+        "text": "131"
+      },
+      {
+        "id": "d",
+        "text": "119"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é 119. A série soma 12 a cada passo (59 → 71 → 83…). Confira sempre a diferença entre termos vizinhos antes de procurar regra mais complicada: a maioria das séries da CCAT é aritmética simples.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 7,
+      "generator": "serie_simples",
+      "expression": "59+5*(12)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d2-00008",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 2,
+    "stem": "20, -2, -24, -46, -68, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "-79"
+      },
+      {
+        "id": "b",
+        "text": "-89"
+      },
+      {
+        "id": "c",
+        "text": "-68"
+      },
+      {
+        "id": "d",
+        "text": "-90"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é -90. A série subtrai 22 a cada passo (20 → -2 → -24…). Confira sempre a diferença entre termos vizinhos antes de procurar regra mais complicada: a maioria das séries da CCAT é aritmética simples.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 8,
+      "generator": "serie_simples",
+      "expression": "20+5*(-22)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d2-00009",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 2,
+    "stem": "11, -4, -19, -34, -49, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "-49"
+      },
+      {
+        "id": "b",
+        "text": "-65"
+      },
+      {
+        "id": "c",
+        "text": "-64"
+      },
+      {
+        "id": "d",
+        "text": "-63"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A resposta é -64. A série subtrai 15 a cada passo (11 → -4 → -19…). Confira sempre a diferença entre termos vizinhos antes de procurar regra mais complicada: a maioria das séries da CCAT é aritmética simples.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 9,
+      "generator": "serie_simples",
+      "expression": "11+5*(-15)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d2-00010",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 2,
+    "stem": "63, 72, 81, 90, 99, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "113"
+      },
+      {
+        "id": "b",
+        "text": "109"
+      },
+      {
+        "id": "c",
+        "text": "103"
+      },
+      {
+        "id": "d",
+        "text": "108"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é 108. A série soma 9 a cada passo (63 → 72 → 81…). Confira sempre a diferença entre termos vizinhos antes de procurar regra mais complicada: a maioria das séries da CCAT é aritmética simples.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 10,
+      "generator": "serie_simples",
+      "expression": "63+5*(9)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d3-00001",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 3,
+    "stem": "1, 12, 13, 25, 38, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "50"
+      },
+      {
+        "id": "b",
+        "text": "64"
+      },
+      {
+        "id": "c",
+        "text": "51"
+      },
+      {
+        "id": "d",
+        "text": "63"
+      },
+      {
+        "id": "e",
+        "text": "88"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é 63. Cada termo é a soma dos dois anteriores (13 = 1 + 12, e assim por diante). Quando nem diferença nem razão são constantes, o próximo teste é somar os dois termos anteriores — é o padrão de Fibonacci.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 1,
+      "generator": "serie_simples",
+      "expression": "38+25",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d3-00002",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 3,
+    "stem": "5, 7, 12, 19, 31, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "50"
+      },
+      {
+        "id": "b",
+        "text": "69"
+      },
+      {
+        "id": "c",
+        "text": "40"
+      },
+      {
+        "id": "d",
+        "text": "49"
+      },
+      {
+        "id": "e",
+        "text": "60"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A resposta é 50. Cada termo é a soma dos dois anteriores (12 = 5 + 7, e assim por diante). Quando nem diferença nem razão são constantes, o próximo teste é somar os dois termos anteriores — é o padrão de Fibonacci.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 2,
+      "generator": "serie_simples",
+      "expression": "31+19",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d3-00003",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 3,
+    "stem": "1, 10, 11, 21, 32, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "32"
+      },
+      {
+        "id": "b",
+        "text": "106"
+      },
+      {
+        "id": "c",
+        "text": "64"
+      },
+      {
+        "id": "d",
+        "text": "43"
+      },
+      {
+        "id": "e",
+        "text": "53"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "A resposta é 53. Cada termo é a soma dos dois anteriores (11 = 1 + 10, e assim por diante). Quando nem diferença nem razão são constantes, o próximo teste é somar os dois termos anteriores — é o padrão de Fibonacci.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 3,
+      "generator": "serie_simples",
+      "expression": "32+21",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d3-00004",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 3,
+    "stem": "5, 6, 11, 17, 28, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "45"
+      },
+      {
+        "id": "b",
+        "text": "46"
+      },
+      {
+        "id": "c",
+        "text": "36"
+      },
+      {
+        "id": "d",
+        "text": "90"
+      },
+      {
+        "id": "e",
+        "text": "54"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A resposta é 45. Cada termo é a soma dos dois anteriores (11 = 5 + 6, e assim por diante). Quando nem diferença nem razão são constantes, o próximo teste é somar os dois termos anteriores — é o padrão de Fibonacci.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 4,
+      "generator": "serie_simples",
+      "expression": "28+17",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d3-00005",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 3,
+    "stem": "12, 6, 18, 24, 42, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "42"
+      },
+      {
+        "id": "b",
+        "text": "67"
+      },
+      {
+        "id": "c",
+        "text": "66"
+      },
+      {
+        "id": "d",
+        "text": "132"
+      },
+      {
+        "id": "e",
+        "text": "65"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A resposta é 66. Cada termo é a soma dos dois anteriores (18 = 12 + 6, e assim por diante). Quando nem diferença nem razão são constantes, o próximo teste é somar os dois termos anteriores — é o padrão de Fibonacci.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 5,
+      "generator": "serie_simples",
+      "expression": "42+24",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d3-00006",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 3,
+    "stem": "1, 14, 15, 29, 44, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "72"
+      },
+      {
+        "id": "b",
+        "text": "44"
+      },
+      {
+        "id": "c",
+        "text": "88"
+      },
+      {
+        "id": "d",
+        "text": "73"
+      },
+      {
+        "id": "e",
+        "text": "74"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é 73. Cada termo é a soma dos dois anteriores (15 = 1 + 14, e assim por diante). Quando nem diferença nem razão são constantes, o próximo teste é somar os dois termos anteriores — é o padrão de Fibonacci.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 6,
+      "generator": "serie_simples",
+      "expression": "44+29",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d3-00007",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 3,
+    "stem": "15, 30, 60, 120, 240, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "720"
+      },
+      {
+        "id": "b",
+        "text": "600"
+      },
+      {
+        "id": "c",
+        "text": "960"
+      },
+      {
+        "id": "d",
+        "text": "479"
+      },
+      {
+        "id": "e",
+        "text": "480"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "A resposta é 480. Cada termo é o anterior multiplicado por 2. Sinal de série geométrica: a diferença entre termos cresce rápido demais para ser soma constante. Divida um termo pelo anterior — se der sempre o mesmo número, é essa.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 7,
+      "generator": "serie_simples",
+      "expression": "15*2*2*2*2*2",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d3-00008",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 3,
+    "stem": "6, 18, 54, 162, 486, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "486"
+      },
+      {
+        "id": "b",
+        "text": "1.944"
+      },
+      {
+        "id": "c",
+        "text": "1.459"
+      },
+      {
+        "id": "d",
+        "text": "1.701"
+      },
+      {
+        "id": "e",
+        "text": "1.458"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "A resposta é 1.458. Cada termo é o anterior multiplicado por 3. Sinal de série geométrica: a diferença entre termos cresce rápido demais para ser soma constante. Divida um termo pelo anterior — se der sempre o mesmo número, é essa.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 8,
+      "generator": "serie_simples",
+      "expression": "6*3*3*3*3*3",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d3-00009",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 3,
+    "stem": "3, 12, 48, 192, 768, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "768"
+      },
+      {
+        "id": "b",
+        "text": "3.072"
+      },
+      {
+        "id": "c",
+        "text": "3.840"
+      },
+      {
+        "id": "d",
+        "text": "3.071"
+      },
+      {
+        "id": "e",
+        "text": "3.073"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A resposta é 3.072. Cada termo é o anterior multiplicado por 4. Sinal de série geométrica: a diferença entre termos cresce rápido demais para ser soma constante. Divida um termo pelo anterior — se der sempre o mesmo número, é essa.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 9,
+      "generator": "serie_simples",
+      "expression": "3*4*4*4*4*4",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d3-00010",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 3,
+    "stem": "14, 15, 29, 44, 73, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "139"
+      },
+      {
+        "id": "b",
+        "text": "102"
+      },
+      {
+        "id": "c",
+        "text": "118"
+      },
+      {
+        "id": "d",
+        "text": "95"
+      },
+      {
+        "id": "e",
+        "text": "117"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "A resposta é 117. Cada termo é a soma dos dois anteriores (29 = 14 + 15, e assim por diante). Quando nem diferença nem razão são constantes, o próximo teste é somar os dois termos anteriores — é o padrão de Fibonacci.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 10,
+      "generator": "serie_simples",
+      "expression": "73+44",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d4-00001",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 4,
+    "stem": "15, 21, 33, 57, 105, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "105"
+      },
+      {
+        "id": "b",
+        "text": "297"
+      },
+      {
+        "id": "c",
+        "text": "200"
+      },
+      {
+        "id": "d",
+        "text": "249"
+      },
+      {
+        "id": "e",
+        "text": "201"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "A resposta é 201. A série é \"multiplique por 2\" com um deslocamento fixo de 9. Subtraia 9 de cada termo e a progressão geométrica pura aparece. Quando a razão entre termos é quase constante mas não fecha, procure uma constante somada.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 1,
+      "generator": "serie_simples",
+      "expression": "6*2*2*2*2*2+9",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d4-00002",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 4,
+    "stem": "5, 9, 17, 29, 45, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "55"
+      },
+      {
+        "id": "b",
+        "text": "65"
+      },
+      {
+        "id": "c",
+        "text": "45"
+      },
+      {
+        "id": "d",
+        "text": "85"
+      },
+      {
+        "id": "e",
+        "text": "61"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A resposta é 65. A diferença entre termos vizinhos não é constante — ela mesma cresce de 4 em 4 (começando em 4). Quando a primeira diferença não resolve, calcule a diferença das diferenças: se ela for constante, a série é quadrática e você já tem a regra.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 2,
+      "generator": "serie_simples",
+      "expression": "5+5*4+4*10",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d4-00003",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 4,
+    "stem": "2, 7, 14, 23, 34, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "47"
+      },
+      {
+        "id": "b",
+        "text": "48"
+      },
+      {
+        "id": "c",
+        "text": "34"
+      },
+      {
+        "id": "d",
+        "text": "45"
+      },
+      {
+        "id": "e",
+        "text": "54"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A resposta é 47. A diferença entre termos vizinhos não é constante — ela mesma cresce de 2 em 2 (começando em 5). Quando a primeira diferença não resolve, calcule a diferença das diferenças: se ela for constante, a série é quadrática e você já tem a regra.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 3,
+      "generator": "serie_simples",
+      "expression": "2+5*5+2*10",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d4-00004",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 4,
+    "stem": "5, 8, 13, 20, 29, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "40"
+      },
+      {
+        "id": "b",
+        "text": "34"
+      },
+      {
+        "id": "c",
+        "text": "29"
+      },
+      {
+        "id": "d",
+        "text": "39"
+      },
+      {
+        "id": "e",
+        "text": "80"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A resposta é 40. A diferença entre termos vizinhos não é constante — ela mesma cresce de 2 em 2 (começando em 3). Quando a primeira diferença não resolve, calcule a diferença das diferenças: se ela for constante, a série é quadrática e você já tem a regra.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 4,
+      "generator": "serie_simples",
+      "expression": "5+5*3+2*10",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d4-00005",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 4,
+    "stem": "10, 13, 20, 31, 46, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "46"
+      },
+      {
+        "id": "b",
+        "text": "130"
+      },
+      {
+        "id": "c",
+        "text": "64"
+      },
+      {
+        "id": "d",
+        "text": "65"
+      },
+      {
+        "id": "e",
+        "text": "55"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é 65. A diferença entre termos vizinhos não é constante — ela mesma cresce de 4 em 4 (começando em 3). Quando a primeira diferença não resolve, calcule a diferença das diferenças: se ela for constante, a série é quadrática e você já tem a regra.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 5,
+      "generator": "serie_simples",
+      "expression": "10+5*3+4*10",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d4-00006",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 4,
+    "stem": "9, 16, 30, 58, 114, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "227"
+      },
+      {
+        "id": "b",
+        "text": "225"
+      },
+      {
+        "id": "c",
+        "text": "114"
+      },
+      {
+        "id": "d",
+        "text": "170"
+      },
+      {
+        "id": "e",
+        "text": "226"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "A resposta é 226. A série é \"multiplique por 2\" com um deslocamento fixo de 2. Subtraia 2 de cada termo e a progressão geométrica pura aparece. Quando a razão entre termos é quase constante mas não fecha, procure uma constante somada.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 6,
+      "generator": "serie_simples",
+      "expression": "7*2*2*2*2*2+2",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d4-00007",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 4,
+    "stem": "1, 4, 9, 16, 25, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "25"
+      },
+      {
+        "id": "b",
+        "text": "47"
+      },
+      {
+        "id": "c",
+        "text": "34"
+      },
+      {
+        "id": "d",
+        "text": "36"
+      },
+      {
+        "id": "e",
+        "text": "30"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é 36. São quadrados perfeitos consecutivos: 1², 2², 3²… Quando as diferenças entre os termos crescem de 2 em 2, você está olhando para uma sequência de quadrados.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 7,
+      "generator": "serie_simples",
+      "expression": "(5+1)*(5+1)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d4-00008",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 4,
+    "stem": "64, 81, 100, 121, 144, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "194"
+      },
+      {
+        "id": "b",
+        "text": "144"
+      },
+      {
+        "id": "c",
+        "text": "338"
+      },
+      {
+        "id": "d",
+        "text": "169"
+      },
+      {
+        "id": "e",
+        "text": "168"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é 169. São quadrados perfeitos consecutivos: 8², 9², 10²… Quando as diferenças entre os termos crescem de 2 em 2, você está olhando para uma sequência de quadrados.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 8,
+      "generator": "serie_simples",
+      "expression": "(5+8)*(5+8)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d4-00009",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 4,
+    "stem": "121, 144, 169, 196, 225, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "255"
+      },
+      {
+        "id": "b",
+        "text": "257"
+      },
+      {
+        "id": "c",
+        "text": "256"
+      },
+      {
+        "id": "d",
+        "text": "512"
+      },
+      {
+        "id": "e",
+        "text": "287"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A resposta é 256. São quadrados perfeitos consecutivos: 11², 12², 13²… Quando as diferenças entre os termos crescem de 2 em 2, você está olhando para uma sequência de quadrados.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 9,
+      "generator": "serie_simples",
+      "expression": "(5+11)*(5+11)",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d4-00010",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 4,
+    "stem": "16, 32, 80, 224, 656, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "1.952"
+      },
+      {
+        "id": "b",
+        "text": "656"
+      },
+      {
+        "id": "c",
+        "text": "1.953"
+      },
+      {
+        "id": "d",
+        "text": "3.904"
+      },
+      {
+        "id": "e",
+        "text": "1.628"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A resposta é 1.952. A série é \"multiplique por 3\" com um deslocamento fixo de 8. Subtraia 8 de cada termo e a progressão geométrica pura aparece. Quando a razão entre termos é quase constante mas não fecha, procure uma constante somada.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 10,
+      "generator": "serie_simples",
+      "expression": "8*3*3*3*3*3+8",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d5-00007",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 5,
+    "stem": "3, 12, 28, 51, 81, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "137"
+      },
+      {
+        "id": "b",
+        "text": "81"
+      },
+      {
+        "id": "c",
+        "text": "118"
+      },
+      {
+        "id": "d",
+        "text": "99"
+      },
+      {
+        "id": "e",
+        "text": "155"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A resposta é 118. A diferença entre termos vizinhos não é constante — ela mesma cresce de 7 em 7 (começando em 9). Quando a primeira diferença não resolve, calcule a diferença das diferenças: se ela for constante, a série é quadrática e você já tem a regra.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 7,
+      "generator": "serie_simples",
+      "expression": "3+5*9+7*10",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d5-00008",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 5,
+    "stem": "13, 17, 28, 46, 71, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "135"
+      },
+      {
+        "id": "b",
+        "text": "96"
+      },
+      {
+        "id": "c",
+        "text": "87"
+      },
+      {
+        "id": "d",
+        "text": "103"
+      },
+      {
+        "id": "e",
+        "text": "206"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é 103. A diferença entre termos vizinhos não é constante — ela mesma cresce de 7 em 7 (começando em 4). Quando a primeira diferença não resolve, calcule a diferença das diferenças: se ela for constante, a série é quadrática e você já tem a regra.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 8,
+      "generator": "serie_simples",
+      "expression": "13+5*4+7*10",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d5-00009",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 5,
+    "stem": "18, 21, 32, 51, 78, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "78"
+      },
+      {
+        "id": "b",
+        "text": "114"
+      },
+      {
+        "id": "c",
+        "text": "113"
+      },
+      {
+        "id": "d",
+        "text": "112"
+      },
+      {
+        "id": "e",
+        "text": "105"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A resposta é 113. A diferença entre termos vizinhos não é constante — ela mesma cresce de 8 em 8 (começando em 3). Quando a primeira diferença não resolve, calcule a diferença das diferenças: se ela for constante, a série é quadrática e você já tem a regra.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 9,
+      "generator": "serie_simples",
+      "expression": "18+5*3+8*10",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d5-00011",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 5,
+    "stem": "13, 27, 69, 195, 573, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "1.423"
+      },
+      {
+        "id": "b",
+        "text": "1.707"
+      },
+      {
+        "id": "c",
+        "text": "573"
+      },
+      {
+        "id": "d",
+        "text": "1.140"
+      },
+      {
+        "id": "e",
+        "text": "1.708"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A resposta é 1.707. A série é \"multiplique por 3\" com um deslocamento fixo de 6. Subtraia 6 de cada termo e a progressão geométrica pura aparece. Quando a razão entre termos é quase constante mas não fecha, procure uma constante somada.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 11,
+      "generator": "serie_simples",
+      "expression": "7*3*3*3*3*3+6",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d5-00012",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 5,
+    "stem": "3, 9, 24, 48, 81, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "123"
+      },
+      {
+        "id": "b",
+        "text": "102"
+      },
+      {
+        "id": "c",
+        "text": "246"
+      },
+      {
+        "id": "d",
+        "text": "81"
+      },
+      {
+        "id": "e",
+        "text": "144"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A resposta é 123. A diferença entre termos vizinhos não é constante — ela mesma cresce de 9 em 9 (começando em 6). Quando a primeira diferença não resolve, calcule a diferença das diferenças: se ela for constante, a série é quadrática e você já tem a regra.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 12,
+      "generator": "serie_simples",
+      "expression": "3+5*6+9*10",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d5-00013",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 5,
+    "stem": "3, 5, 9, 17, 33, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "33"
+      },
+      {
+        "id": "b",
+        "text": "64"
+      },
+      {
+        "id": "c",
+        "text": "81"
+      },
+      {
+        "id": "d",
+        "text": "65"
+      },
+      {
+        "id": "e",
+        "text": "49"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é 65. A série é \"multiplique por 2\" com um deslocamento fixo de 1. Subtraia 1 de cada termo e a progressão geométrica pura aparece. Quando a razão entre termos é quase constante mas não fecha, procure uma constante somada.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 13,
+      "generator": "serie_simples",
+      "expression": "2*2*2*2*2*2+1",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d5-00014",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 5,
+    "stem": "10, 16, 28, 52, 100, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "197"
+      },
+      {
+        "id": "b",
+        "text": "244"
+      },
+      {
+        "id": "c",
+        "text": "392"
+      },
+      {
+        "id": "d",
+        "text": "196"
+      },
+      {
+        "id": "e",
+        "text": "100"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é 196. A série é \"multiplique por 2\" com um deslocamento fixo de 4. Subtraia 4 de cada termo e a progressão geométrica pura aparece. Quando a razão entre termos é quase constante mas não fecha, procure uma constante somada.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 14,
+      "generator": "serie_simples",
+      "expression": "6*2*2*2*2*2+4",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d5-00015",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 5,
+    "stem": "9, 14, 24, 39, 59, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "59"
+      },
+      {
+        "id": "b",
+        "text": "83"
+      },
+      {
+        "id": "c",
+        "text": "168"
+      },
+      {
+        "id": "d",
+        "text": "79"
+      },
+      {
+        "id": "e",
+        "text": "84"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "A resposta é 84. A diferença entre termos vizinhos não é constante — ela mesma cresce de 5 em 5 (começando em 5). Quando a primeira diferença não resolve, calcule a diferença das diferenças: se ela for constante, a série é quadrática e você já tem a regra.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 15,
+      "generator": "serie_simples",
+      "expression": "9+5*5+5*10",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d5-00016",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 5,
+    "stem": "12, 20, 36, 68, 132, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "260"
+      },
+      {
+        "id": "b",
+        "text": "196"
+      },
+      {
+        "id": "c",
+        "text": "132"
+      },
+      {
+        "id": "d",
+        "text": "324"
+      },
+      {
+        "id": "e",
+        "text": "261"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A resposta é 260. A série é \"multiplique por 2\" com um deslocamento fixo de 4. Subtraia 4 de cada termo e a progressão geométrica pura aparece. Quando a razão entre termos é quase constante mas não fecha, procure uma constante somada.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 16,
+      "generator": "serie_simples",
+      "expression": "8*2*2*2*2*2+4",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "serie_simples-d5-00017",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 5,
+    "stem": "3, 12, 15, 27, 42, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "68"
+      },
+      {
+        "id": "b",
+        "text": "55"
+      },
+      {
+        "id": "c",
+        "text": "57"
+      },
+      {
+        "id": "d",
+        "text": "69"
+      },
+      {
+        "id": "e",
+        "text": "138"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A resposta é 69. Cada termo é a soma dos dois anteriores (15 = 3 + 12, e assim por diante). Quando nem diferença nem razão são constantes, o próximo teste é somar os dois termos anteriores — é o padrão de Fibonacci.",
+    "theoryRef": "math_series.md#serie_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "solver",
+      "seed": 17,
+      "generator": "serie_simples",
+      "expression": "42+27",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  }
+]

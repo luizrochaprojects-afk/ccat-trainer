@@ -1,0 +1,5912 @@
+[
+  {
+    "id": "analogia-d1-00001",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 1,
+    "stem": "BIRD is to FALCON as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "instrument is to violin"
+      },
+      {
+        "id": "b",
+        "text": "stable is to horse"
+      },
+      {
+        "id": "c",
+        "text": "hive is to bee"
+      },
+      {
+        "id": "d",
+        "text": "angry is to furious"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A relação é **categoria para um membro dela**: bird → falcon. A alternativa correta (instrument → violin) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"bird é categoria para um membro dela falcon\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 1,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d1-00002",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 1,
+    "stem": "WOLF is to HOWL as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "meter is to length"
+      },
+      {
+        "id": "b",
+        "text": "lion is to roar"
+      },
+      {
+        "id": "c",
+        "text": "key is to unlock"
+      },
+      {
+        "id": "d",
+        "text": "spark is to fire"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A relação é **animal para o som que ele faz**: wolf → howl. A alternativa correta (lion → roar) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"wolf é animal para o som que ele faz howl\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 2,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d1-00003",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 1,
+    "stem": "LION is to ROAR as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "brush is to painter"
+      },
+      {
+        "id": "b",
+        "text": "wolf is to howl"
+      },
+      {
+        "id": "c",
+        "text": "eye is to sight"
+      },
+      {
+        "id": "d",
+        "text": "wrench is to mechanic"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A relação é **animal para o som que ele faz**: lion → roar. A alternativa correta (wolf → howl) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"lion é animal para o som que ele faz roar\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 3,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d1-00004",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 1,
+    "stem": "SECOND is to TIME as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "knife is to cut"
+      },
+      {
+        "id": "b",
+        "text": "cold is to freezing"
+      },
+      {
+        "id": "c",
+        "text": "meter is to length"
+      },
+      {
+        "id": "d",
+        "text": "brush is to painter"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A relação é **unidade para a grandeza que ela mede**: second → time. A alternativa correta (meter → length) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"second é unidade para a grandeza que ela mede time\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 4,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d1-00005",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 1,
+    "stem": "LOCKER is to EQUIPMENT as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "knife is to cut"
+      },
+      {
+        "id": "b",
+        "text": "wallet is to money"
+      },
+      {
+        "id": "c",
+        "text": "brush is to painter"
+      },
+      {
+        "id": "d",
+        "text": "milk is to cheese"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A relação é **recipiente para o que ele guarda**: locker → equipment. A alternativa correta (wallet → money) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"locker é recipiente para o que ele guarda equipment\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 5,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d1-00006",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 1,
+    "stem": "ANGRY is to FURIOUS as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "knife is to cut"
+      },
+      {
+        "id": "b",
+        "text": "import is to export"
+      },
+      {
+        "id": "c",
+        "text": "timber is to furniture"
+      },
+      {
+        "id": "d",
+        "text": "cold is to freezing"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A relação é **intensidade menor para intensidade maior**: angry → furious. A alternativa correta (cold → freezing) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"angry é intensidade menor para intensidade maior furious\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 6,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d1-00007",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 1,
+    "stem": "PAGE is to BOOK as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "lion is to roar"
+      },
+      {
+        "id": "b",
+        "text": "petal is to flower"
+      },
+      {
+        "id": "c",
+        "text": "tired is to exhausted"
+      },
+      {
+        "id": "d",
+        "text": "hive is to bee"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A relação é **parte para o todo**: page → book. A alternativa correta (petal → flower) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"page é parte para o todo book\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 7,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d1-00008",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 1,
+    "stem": "BAKER is to BREAD as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "cotton is to fabric"
+      },
+      {
+        "id": "b",
+        "text": "tailor is to suit"
+      },
+      {
+        "id": "c",
+        "text": "lion is to roar"
+      },
+      {
+        "id": "d",
+        "text": "cat is to kitten"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A relação é **profissional para o que ele produz**: baker → bread. A alternativa correta (tailor → suit) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"baker é profissional para o que ele produz bread\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 8,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d1-00009",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 1,
+    "stem": "COLD is to FREEZING as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "wolf is to howl"
+      },
+      {
+        "id": "b",
+        "text": "judge is to courtroom"
+      },
+      {
+        "id": "c",
+        "text": "tired is to exhausted"
+      },
+      {
+        "id": "d",
+        "text": "tongue is to taste"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A relação é **intensidade menor para intensidade maior**: cold → freezing. A alternativa correta (tired → exhausted) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"cold é intensidade menor para intensidade maior freezing\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 9,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d1-00010",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 1,
+    "stem": "SPARK is to FIRE as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "farmer is to field"
+      },
+      {
+        "id": "b",
+        "text": "ear is to hearing"
+      },
+      {
+        "id": "c",
+        "text": "fire is to smoke"
+      },
+      {
+        "id": "d",
+        "text": "locker is to equipment"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A relação é **causa para efeito**: spark → fire. A alternativa correta (fire → smoke) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"spark é causa para efeito fire\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 10,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d1-00012",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 1,
+    "stem": "DOG is to PUPPY as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "baker is to bread"
+      },
+      {
+        "id": "b",
+        "text": "cotton is to fabric"
+      },
+      {
+        "id": "c",
+        "text": "nest is to bird"
+      },
+      {
+        "id": "d",
+        "text": "cat is to kitten"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A relação é **animal adulto para seu filhote**: dog → puppy. A alternativa correta (cat → kitten) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"dog é animal adulto para seu filhote puppy\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 12,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d1-00013",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 1,
+    "stem": "TIMBER is to FURNITURE as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "brush is to painter"
+      },
+      {
+        "id": "b",
+        "text": "wheel is to car"
+      },
+      {
+        "id": "c",
+        "text": "petal is to flower"
+      },
+      {
+        "id": "d",
+        "text": "cotton is to fabric"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A relação é **matéria-prima para o produto**: timber → furniture. A alternativa correta (cotton → fabric) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"timber é matéria-prima para o produto furniture\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 13,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d1-00014",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 1,
+    "stem": "LIBRARIAN is to LIBRARY as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "knife is to cut"
+      },
+      {
+        "id": "b",
+        "text": "judge is to courtroom"
+      },
+      {
+        "id": "c",
+        "text": "ally is to enemy"
+      },
+      {
+        "id": "d",
+        "text": "tired is to exhausted"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A relação é **profissional para o local onde trabalha**: librarian → library. A alternativa correta (judge → courtroom) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"librarian é profissional para o local onde trabalha library\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 14,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d1-00015",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 1,
+    "stem": "PEN is to WRITE as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "librarian is to library"
+      },
+      {
+        "id": "b",
+        "text": "knife is to cut"
+      },
+      {
+        "id": "c",
+        "text": "dog is to puppy"
+      },
+      {
+        "id": "d",
+        "text": "tailor is to suit"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A relação é **objeto para sua função**: pen → write. A alternativa correta (knife → cut) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"pen é objeto para sua função write\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 15,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d1-00017",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 1,
+    "stem": "IMPORT is to EXPORT as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "baker is to bread"
+      },
+      {
+        "id": "b",
+        "text": "angry is to furious"
+      },
+      {
+        "id": "c",
+        "text": "ally is to enemy"
+      },
+      {
+        "id": "d",
+        "text": "hammer is to carpenter"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A relação é **palavra para seu oposto**: import → export. A alternativa correta (ally → enemy) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"import é palavra para seu oposto export\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 17,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d1-00018",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 1,
+    "stem": "FIN is to FISH as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "timber is to furniture"
+      },
+      {
+        "id": "b",
+        "text": "petal is to flower"
+      },
+      {
+        "id": "c",
+        "text": "tongue is to taste"
+      },
+      {
+        "id": "d",
+        "text": "pen is to write"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A relação é **parte para o todo**: fin → fish. A alternativa correta (petal → flower) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"fin é parte para o todo fish\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 18,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d1-00019",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 1,
+    "stem": "WHEEL is to CAR as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "page is to book"
+      },
+      {
+        "id": "b",
+        "text": "eye is to sight"
+      },
+      {
+        "id": "c",
+        "text": "stable is to horse"
+      },
+      {
+        "id": "d",
+        "text": "tailor is to suit"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A relação é **parte para o todo**: wheel → car. A alternativa correta (page → book) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"wheel é parte para o todo car\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 19,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d1-00020",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 1,
+    "stem": "SNAKE is to HISS as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "fin is to fish"
+      },
+      {
+        "id": "b",
+        "text": "tired is to exhausted"
+      },
+      {
+        "id": "c",
+        "text": "key is to unlock"
+      },
+      {
+        "id": "d",
+        "text": "lion is to roar"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A relação é **animal para o som que ele faz**: snake → hiss. A alternativa correta (lion → roar) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"snake é animal para o som que ele faz hiss\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 20,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d1-00021",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 1,
+    "stem": "WRENCH is to MECHANIC as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "cat is to kitten"
+      },
+      {
+        "id": "b",
+        "text": "brush is to painter"
+      },
+      {
+        "id": "c",
+        "text": "fin is to fish"
+      },
+      {
+        "id": "d",
+        "text": "spark is to fire"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A relação é **ferramenta para quem a usa**: wrench → mechanic. A alternativa correta (brush → painter) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"wrench é ferramenta para quem a usa mechanic\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 21,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d1-00022",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 1,
+    "stem": "MILK is to CHEESE as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "timber is to furniture"
+      },
+      {
+        "id": "b",
+        "text": "cold is to freezing"
+      },
+      {
+        "id": "c",
+        "text": "knife is to cut"
+      },
+      {
+        "id": "d",
+        "text": "fruit is to mango"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A relação é **matéria-prima para o produto**: milk → cheese. A alternativa correta (timber → furniture) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"milk é matéria-prima para o produto cheese\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 22,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d1-00023",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 1,
+    "stem": "HAMMER is to CARPENTER as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "fruit is to mango"
+      },
+      {
+        "id": "b",
+        "text": "instrument is to violin"
+      },
+      {
+        "id": "c",
+        "text": "vehicle is to tractor"
+      },
+      {
+        "id": "d",
+        "text": "brush is to painter"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A relação é **ferramenta para quem a usa**: hammer → carpenter. A alternativa correta (brush → painter) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"hammer é ferramenta para quem a usa carpenter\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 23,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d1-00024",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 1,
+    "stem": "INSTRUMENT is to VIOLIN as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "key is to unlock"
+      },
+      {
+        "id": "b",
+        "text": "brush is to painter"
+      },
+      {
+        "id": "c",
+        "text": "angry is to furious"
+      },
+      {
+        "id": "d",
+        "text": "vehicle is to tractor"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A relação é **categoria para um membro dela**: instrument → violin. A alternativa correta (vehicle → tractor) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"instrument é categoria para um membro dela violin\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 24,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d1-00025",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 1,
+    "stem": "COTTON is to FABRIC as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "snake is to hiss"
+      },
+      {
+        "id": "b",
+        "text": "key is to unlock"
+      },
+      {
+        "id": "c",
+        "text": "angry is to furious"
+      },
+      {
+        "id": "d",
+        "text": "milk is to cheese"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A relação é **matéria-prima para o produto**: cotton → fabric. A alternativa correta (milk → cheese) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"cotton é matéria-prima para o produto fabric\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 25,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d1-00029",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 1,
+    "stem": "KNIFE is to CUT as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "cat is to kitten"
+      },
+      {
+        "id": "b",
+        "text": "pen is to write"
+      },
+      {
+        "id": "c",
+        "text": "wrench is to mechanic"
+      },
+      {
+        "id": "d",
+        "text": "ally is to enemy"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A relação é **objeto para sua função**: knife → cut. A alternativa correta (pen → write) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"knife é objeto para sua função cut\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 29,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d1-00030",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 1,
+    "stem": "ASTRONOMY is to STARS as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "baker is to bread"
+      },
+      {
+        "id": "b",
+        "text": "biology is to organisms"
+      },
+      {
+        "id": "c",
+        "text": "fire is to smoke"
+      },
+      {
+        "id": "d",
+        "text": "fin is to fish"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A relação é **ciência para o que ela estuda**: astronomy → stars. A alternativa correta (biology → organisms) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"astronomy é ciência para o que ela estuda stars\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 30,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d1-00032",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 1,
+    "stem": "WALLET is to MONEY as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "astronomy is to stars"
+      },
+      {
+        "id": "b",
+        "text": "tired is to exhausted"
+      },
+      {
+        "id": "c",
+        "text": "locker is to equipment"
+      },
+      {
+        "id": "d",
+        "text": "pen is to write"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A relação é **recipiente para o que ele guarda**: wallet → money. A alternativa correta (locker → equipment) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"wallet é recipiente para o que ele guarda money\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 32,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d1-00033",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 1,
+    "stem": "TIRED is to EXHAUSTED as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "page is to book"
+      },
+      {
+        "id": "b",
+        "text": "bird is to falcon"
+      },
+      {
+        "id": "c",
+        "text": "angry is to furious"
+      },
+      {
+        "id": "d",
+        "text": "librarian is to library"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A relação é **intensidade menor para intensidade maior**: tired → exhausted. A alternativa correta (angry → furious) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"tired é intensidade menor para intensidade maior exhausted\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 33,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d1-00036",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 1,
+    "stem": "NEST is to BIRD as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "stable is to horse"
+      },
+      {
+        "id": "b",
+        "text": "baker is to bread"
+      },
+      {
+        "id": "c",
+        "text": "pen is to write"
+      },
+      {
+        "id": "d",
+        "text": "snake is to hiss"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A relação é **abrigo para o animal que o habita**: nest → bird. A alternativa correta (stable → horse) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"nest é abrigo para o animal que o habita bird\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 36,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d1-00039",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 1,
+    "stem": "BRUSH is to PAINTER as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "timber is to furniture"
+      },
+      {
+        "id": "b",
+        "text": "astronomy is to stars"
+      },
+      {
+        "id": "c",
+        "text": "wrench is to mechanic"
+      },
+      {
+        "id": "d",
+        "text": "petal is to flower"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A relação é **ferramenta para quem a usa**: brush → painter. A alternativa correta (wrench → mechanic) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"brush é ferramenta para quem a usa painter\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 39,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d1-00041",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 1,
+    "stem": "BIOLOGY is to ORGANISMS as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "tongue is to taste"
+      },
+      {
+        "id": "b",
+        "text": "astronomy is to stars"
+      },
+      {
+        "id": "c",
+        "text": "spark is to fire"
+      },
+      {
+        "id": "d",
+        "text": "milk is to cheese"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A relação é **ciência para o que ela estuda**: biology → organisms. A alternativa correta (astronomy → stars) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"biology é ciência para o que ela estuda organisms\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 41,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d2-00001",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 2,
+    "stem": "COMPASS is to NAVIGATE as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "knife is to cut"
+      },
+      {
+        "id": "b",
+        "text": "burrow is to rabbit"
+      },
+      {
+        "id": "c",
+        "text": "hive is to bee"
+      },
+      {
+        "id": "d",
+        "text": "spark is to fire"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A relação é **objeto para sua função**: compass → navigate. A alternativa correta (knife → cut) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"compass é objeto para sua função navigate\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 1,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d2-00002",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 2,
+    "stem": "SATCHEL is to BOOKS as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "geology is to rocks"
+      },
+      {
+        "id": "b",
+        "text": "wallet is to money"
+      },
+      {
+        "id": "c",
+        "text": "horse is to foal"
+      },
+      {
+        "id": "d",
+        "text": "brewer is to beer"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A relação é **recipiente para o que ele guarda**: satchel → books. A alternativa correta (wallet → money) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"satchel é recipiente para o que ele guarda books\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 2,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d2-00003",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 2,
+    "stem": "BARREL is to CIDER as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "hammer is to carpenter"
+      },
+      {
+        "id": "b",
+        "text": "wallet is to money"
+      },
+      {
+        "id": "c",
+        "text": "owl is to hoot"
+      },
+      {
+        "id": "d",
+        "text": "wrench is to mechanic"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A relação é **recipiente para o que ele guarda**: barrel → cider. A alternativa correta (wallet → money) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"barrel é recipiente para o que ele guarda cider\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 3,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d2-00004",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 2,
+    "stem": "BOTANY is to PLANTS as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "pen is to write"
+      },
+      {
+        "id": "b",
+        "text": "knife is to cut"
+      },
+      {
+        "id": "c",
+        "text": "biology is to organisms"
+      },
+      {
+        "id": "d",
+        "text": "hammer is to carpenter"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A relação é **ciência para o que ela estuda**: botany → plants. A alternativa correta (biology → organisms) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"botany é ciência para o que ela estuda plants\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 4,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d2-00005",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 2,
+    "stem": "CONCEAL is to REVEAL as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "knife is to cut"
+      },
+      {
+        "id": "b",
+        "text": "accelerate is to decelerate"
+      },
+      {
+        "id": "c",
+        "text": "chef is to kitchen"
+      },
+      {
+        "id": "d",
+        "text": "timber is to furniture"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A relação é **palavra para seu oposto**: conceal → reveal. A alternativa correta (accelerate → decelerate) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"conceal é palavra para seu oposto reveal\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 5,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d2-00006",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 2,
+    "stem": "POTTER is to VASE as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "knife is to cut"
+      },
+      {
+        "id": "b",
+        "text": "import is to export"
+      },
+      {
+        "id": "c",
+        "text": "angry is to furious"
+      },
+      {
+        "id": "d",
+        "text": "baker is to bread"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A relação é **profissional para o que ele produz**: potter → vase. A alternativa correta (baker → bread) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"potter é profissional para o que ele produz vase\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 6,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d2-00007",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 2,
+    "stem": "BRANCH is to TREE as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "satchel is to books"
+      },
+      {
+        "id": "b",
+        "text": "page is to book"
+      },
+      {
+        "id": "c",
+        "text": "frost is to damage"
+      },
+      {
+        "id": "d",
+        "text": "burrow is to rabbit"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A relação é **parte para o todo**: branch → tree. A alternativa correta (page → book) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"branch é parte para o todo tree\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 7,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d2-00008",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 2,
+    "stem": "WARM is to SCORCHING as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "timber is to furniture"
+      },
+      {
+        "id": "b",
+        "text": "angry is to furious"
+      },
+      {
+        "id": "c",
+        "text": "locker is to equipment"
+      },
+      {
+        "id": "d",
+        "text": "wool is to sweater"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A relação é **intensidade menor para intensidade maior**: warm → scorching. A alternativa correta (angry → furious) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"warm é intensidade menor para intensidade maior scorching\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 8,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d2-00009",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 2,
+    "stem": "BROOM is to SWEEP as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "wolf is to howl"
+      },
+      {
+        "id": "b",
+        "text": "baker is to bread"
+      },
+      {
+        "id": "c",
+        "text": "thermometer is to measure"
+      },
+      {
+        "id": "d",
+        "text": "nose is to smell"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A relação é **objeto para sua função**: broom → sweep. A alternativa correta (thermometer → measure) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"broom é objeto para sua função sweep\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 9,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d2-00010",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 2,
+    "stem": "CASHIER is to CHECKOUT as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "potter is to vase"
+      },
+      {
+        "id": "b",
+        "text": "ear is to hearing"
+      },
+      {
+        "id": "c",
+        "text": "farmer is to field"
+      },
+      {
+        "id": "d",
+        "text": "locker is to equipment"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A relação é **profissional para o local onde trabalha**: cashier → checkout. A alternativa correta (farmer → field) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"cashier é profissional para o local onde trabalha checkout\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 10,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d2-00012",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 2,
+    "stem": "FLOUR is to BREAD as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "author is to novel"
+      },
+      {
+        "id": "b",
+        "text": "tired is to exhausted"
+      },
+      {
+        "id": "c",
+        "text": "nest is to bird"
+      },
+      {
+        "id": "d",
+        "text": "clay is to pottery"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A relação é **matéria-prima para o produto**: flour → bread. A alternativa correta (clay → pottery) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"flour é matéria-prima para o produto bread\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 12,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d2-00013",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 2,
+    "stem": "POLLUTION is to SMOG as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "brush is to painter"
+      },
+      {
+        "id": "b",
+        "text": "scalpel is to surgeon"
+      },
+      {
+        "id": "c",
+        "text": "branch is to tree"
+      },
+      {
+        "id": "d",
+        "text": "virus is to illness"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A relação é **causa para efeito**: pollution → smog. A alternativa correta (virus → illness) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"pollution é causa para efeito smog\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 13,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d2-00014",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 2,
+    "stem": "LENS is to CAMERA as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "key is to unlock"
+      },
+      {
+        "id": "b",
+        "text": "wheel is to car"
+      },
+      {
+        "id": "c",
+        "text": "ally is to enemy"
+      },
+      {
+        "id": "d",
+        "text": "pollution is to smog"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A relação é **parte para o todo**: lens → camera. A alternativa correta (wheel → car) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"lens é parte para o todo camera\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 14,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d2-00015",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 2,
+    "stem": "HORSE is to FOAL as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "fin is to fish"
+      },
+      {
+        "id": "b",
+        "text": "cat is to kitten"
+      },
+      {
+        "id": "c",
+        "text": "knife is to cut"
+      },
+      {
+        "id": "d",
+        "text": "librarian is to library"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A relação é **animal adulto para seu filhote**: horse → foal. A alternativa correta (cat → kitten) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"horse é animal adulto para seu filhote foal\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 15,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d2-00017",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 2,
+    "stem": "ACCELERATE is to DECELERATE as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "fire is to smoke"
+      },
+      {
+        "id": "b",
+        "text": "spark is to fire"
+      },
+      {
+        "id": "c",
+        "text": "ally is to enemy"
+      },
+      {
+        "id": "d",
+        "text": "chef is to kitchen"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A relação é **palavra para seu oposto**: accelerate → decelerate. A alternativa correta (ally → enemy) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"accelerate é palavra para seu oposto decelerate\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 17,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d2-00018",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 2,
+    "stem": "ASCEND is to DESCEND as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "brewer is to beer"
+      },
+      {
+        "id": "b",
+        "text": "import is to export"
+      },
+      {
+        "id": "c",
+        "text": "ear is to hearing"
+      },
+      {
+        "id": "d",
+        "text": "cold is to freezing"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A relação é **palavra para seu oposto**: ascend → descend. A alternativa correta (import → export) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"ascend é palavra para seu oposto descend\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 18,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d2-00019",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 2,
+    "stem": "PILOT is to COCKPIT as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "judge is to courtroom"
+      },
+      {
+        "id": "b",
+        "text": "frog is to croak"
+      },
+      {
+        "id": "c",
+        "text": "burrow is to rabbit"
+      },
+      {
+        "id": "d",
+        "text": "potter is to vase"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A relação é **profissional para o local onde trabalha**: pilot → cockpit. A alternativa correta (judge → courtroom) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"pilot é profissional para o local onde trabalha cockpit\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 19,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d2-00021",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 2,
+    "stem": "EXPAND is to CONTRACT as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "cat is to kitten"
+      },
+      {
+        "id": "b",
+        "text": "accelerate is to decelerate"
+      },
+      {
+        "id": "c",
+        "text": "fruit is to mango"
+      },
+      {
+        "id": "d",
+        "text": "farmer is to field"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A relação é **palavra para seu oposto**: expand → contract. A alternativa correta (accelerate → decelerate) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"expand é palavra para seu oposto contract\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 21,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d2-00023",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 2,
+    "stem": "ACTOR is to STAGE as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "instrument is to violin"
+      },
+      {
+        "id": "b",
+        "text": "mammal is to whale"
+      },
+      {
+        "id": "c",
+        "text": "vehicle is to tractor"
+      },
+      {
+        "id": "d",
+        "text": "chef is to kitchen"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A relação é **profissional para o local onde trabalha**: actor → stage. A alternativa correta (chef → kitchen) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"actor é profissional para o local onde trabalha stage\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 23,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d2-00024",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 2,
+    "stem": "WOOL is to SWEATER as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "horse is to foal"
+      },
+      {
+        "id": "b",
+        "text": "chef is to kitchen"
+      },
+      {
+        "id": "c",
+        "text": "brewer is to beer"
+      },
+      {
+        "id": "d",
+        "text": "milk is to cheese"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A relação é **matéria-prima para o produto**: wool → sweater. A alternativa correta (milk → cheese) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"wool é matéria-prima para o produto sweater\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 24,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d2-00025",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 2,
+    "stem": "FROST is to DAMAGE as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "snake is to hiss"
+      },
+      {
+        "id": "b",
+        "text": "horse is to foal"
+      },
+      {
+        "id": "c",
+        "text": "thermometer is to measure"
+      },
+      {
+        "id": "d",
+        "text": "pollution is to smog"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A relação é **causa para efeito**: frost → damage. A alternativa correta (pollution → smog) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"frost é causa para efeito damage\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 25,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d2-00030",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 2,
+    "stem": "SKIN is to TOUCH as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "fire is to smoke"
+      },
+      {
+        "id": "b",
+        "text": "nose is to smell"
+      },
+      {
+        "id": "c",
+        "text": "warm is to scorching"
+      },
+      {
+        "id": "d",
+        "text": "wallet is to money"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A relação é **órgão para o sentido correspondente**: skin → touch. A alternativa correta (nose → smell) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"skin é órgão para o sentido correspondente touch\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 30,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d2-00032",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 2,
+    "stem": "METAL is to COPPER as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "astronomy is to stars"
+      },
+      {
+        "id": "b",
+        "text": "angry is to furious"
+      },
+      {
+        "id": "c",
+        "text": "bird is to falcon"
+      },
+      {
+        "id": "d",
+        "text": "broom is to sweep"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A relação é **categoria para um membro dela**: metal → copper. A alternativa correta (bird → falcon) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"metal é categoria para um membro dela copper\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 32,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d2-00033",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 2,
+    "stem": "BREWER is to BEER as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "petal is to flower"
+      },
+      {
+        "id": "b",
+        "text": "bird is to falcon"
+      },
+      {
+        "id": "c",
+        "text": "potter is to vase"
+      },
+      {
+        "id": "d",
+        "text": "wrench is to mechanic"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A relação é **profissional para o que ele produz**: brewer → beer. A alternativa correta (potter → vase) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"brewer é profissional para o que ele produz beer\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 33,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d2-00036",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 2,
+    "stem": "DEN is to FOX as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "stable is to horse"
+      },
+      {
+        "id": "b",
+        "text": "fire is to smoke"
+      },
+      {
+        "id": "c",
+        "text": "broom is to sweep"
+      },
+      {
+        "id": "d",
+        "text": "owl is to hoot"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A relação é **abrigo para o animal que o habita**: den → fox. A alternativa correta (stable → horse) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"den é abrigo para o animal que o habita fox\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 36,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d2-00040",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 2,
+    "stem": "THERMOMETER is to MEASURE as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "locker is to equipment"
+      },
+      {
+        "id": "b",
+        "text": "compass is to navigate"
+      },
+      {
+        "id": "c",
+        "text": "wheel is to car"
+      },
+      {
+        "id": "d",
+        "text": "metal is to copper"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A relação é **objeto para sua função**: thermometer → measure. A alternativa correta (compass → navigate) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"thermometer é objeto para sua função measure\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 40,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d2-00041",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 2,
+    "stem": "NOSE is to SMELL as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "biology is to organisms"
+      },
+      {
+        "id": "b",
+        "text": "tongue is to taste"
+      },
+      {
+        "id": "c",
+        "text": "tailor is to suit"
+      },
+      {
+        "id": "d",
+        "text": "thermometer is to measure"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A relação é **órgão para o sentido correspondente**: nose → smell. A alternativa correta (tongue → taste) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"nose é órgão para o sentido correspondente smell\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 41,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d2-00043",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 2,
+    "stem": "BURROW is to RABBIT as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "potter is to vase"
+      },
+      {
+        "id": "b",
+        "text": "brush is to painter"
+      },
+      {
+        "id": "c",
+        "text": "den is to fox"
+      },
+      {
+        "id": "d",
+        "text": "scalpel is to surgeon"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A relação é **abrigo para o animal que o habita**: burrow → rabbit. A alternativa correta (den → fox) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"burrow é abrigo para o animal que o habita rabbit\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 43,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d2-00045",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 2,
+    "stem": "SCALPEL is to SURGEON as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "ascend is to descend"
+      },
+      {
+        "id": "b",
+        "text": "cashier is to checkout"
+      },
+      {
+        "id": "c",
+        "text": "stethoscope is to doctor"
+      },
+      {
+        "id": "d",
+        "text": "eye is to sight"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A relação é **ferramenta para quem a usa**: scalpel → surgeon. A alternativa correta (stethoscope → doctor) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"scalpel é ferramenta para quem a usa surgeon\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 45,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d2-00054",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 2,
+    "stem": "SHEEP is to LAMB as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "cat is to kitten"
+      },
+      {
+        "id": "b",
+        "text": "instrument is to violin"
+      },
+      {
+        "id": "c",
+        "text": "fruit is to mango"
+      },
+      {
+        "id": "d",
+        "text": "tailor is to suit"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A relação é **animal adulto para seu filhote**: sheep → lamb. A alternativa correta (cat → kitten) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"sheep é animal adulto para seu filhote lamb\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 54,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d3-00001",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 3,
+    "stem": "SAND is to GLASS as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "flour is to bread"
+      },
+      {
+        "id": "b",
+        "text": "cat is to kitten"
+      },
+      {
+        "id": "c",
+        "text": "pollution is to smog"
+      },
+      {
+        "id": "d",
+        "text": "stable is to horse"
+      },
+      {
+        "id": "e",
+        "text": "burrow is to rabbit"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A relação é **matéria-prima para o produto**: sand → glass. A alternativa correta (flour → bread) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"sand é matéria-prima para o produto glass\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 1,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d3-00002",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 3,
+    "stem": "FINGERTIP is to TEXTURE as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "meteorology is to weather"
+      },
+      {
+        "id": "b",
+        "text": "ear is to hearing"
+      },
+      {
+        "id": "c",
+        "text": "filter is to purify"
+      },
+      {
+        "id": "d",
+        "text": "horse is to foal"
+      },
+      {
+        "id": "e",
+        "text": "brewer is to beer"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A relação é **órgão para o sentido correspondente**: fingertip → texture. A alternativa correta (ear → hearing) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"fingertip é órgão para o sentido correspondente texture\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 2,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d3-00004",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 3,
+    "stem": "DECIBEL is to LOUDNESS as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "cashier is to checkout"
+      },
+      {
+        "id": "b",
+        "text": "chisel is to sculptor"
+      },
+      {
+        "id": "c",
+        "text": "large is to colossal"
+      },
+      {
+        "id": "d",
+        "text": "knife is to cut"
+      },
+      {
+        "id": "e",
+        "text": "gram is to mass"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "A relação é **unidade para a grandeza que ela mede**: decibel → loudness. A alternativa correta (gram → mass) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"decibel é unidade para a grandeza que ela mede loudness\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 4,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d3-00005",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 3,
+    "stem": "DUCK is to QUACK as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "angry is to furious"
+      },
+      {
+        "id": "b",
+        "text": "crow is to caw"
+      },
+      {
+        "id": "c",
+        "text": "thermometer is to measure"
+      },
+      {
+        "id": "d",
+        "text": "happy is to elated"
+      },
+      {
+        "id": "e",
+        "text": "chisel is to sculptor"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A relação é **animal para o som que ele faz**: duck → quack. A alternativa correta (crow → caw) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"duck é animal para o som que ele faz quack\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 5,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d3-00006",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 3,
+    "stem": "ANCHOR is to SECURE as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "barrel is to cider"
+      },
+      {
+        "id": "b",
+        "text": "hammer is to carpenter"
+      },
+      {
+        "id": "c",
+        "text": "warm is to scorching"
+      },
+      {
+        "id": "d",
+        "text": "frost is to damage"
+      },
+      {
+        "id": "e",
+        "text": "knife is to cut"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "A relação é **objeto para sua função**: anchor → secure. A alternativa correta (knife → cut) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"anchor é objeto para sua função secure\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 6,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d3-00007",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 3,
+    "stem": "VERSE is to POEM as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "angry is to furious"
+      },
+      {
+        "id": "b",
+        "text": "stethoscope is to doctor"
+      },
+      {
+        "id": "c",
+        "text": "stable is to horse"
+      },
+      {
+        "id": "d",
+        "text": "page is to book"
+      },
+      {
+        "id": "e",
+        "text": "wolf is to howl"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A relação é **parte para o todo**: verse → poem. A alternativa correta (page → book) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"verse é parte para o todo poem\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 7,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d3-00008",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 3,
+    "stem": "COMPOSER is to SYMPHONY as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "lion is to roar"
+      },
+      {
+        "id": "b",
+        "text": "timber is to furniture"
+      },
+      {
+        "id": "c",
+        "text": "grape is to wine"
+      },
+      {
+        "id": "d",
+        "text": "potter is to vase"
+      },
+      {
+        "id": "e",
+        "text": "librarian is to library"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A relação é **profissional para o que ele produz**: composer → symphony. A alternativa correta (potter → vase) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"composer é profissional para o que ele produz symphony\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 8,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d3-00009",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 3,
+    "stem": "FRICTION is to HEAT as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "biology is to organisms"
+      },
+      {
+        "id": "b",
+        "text": "lion is to roar"
+      },
+      {
+        "id": "c",
+        "text": "pollution is to smog"
+      },
+      {
+        "id": "d",
+        "text": "frog is to croak"
+      },
+      {
+        "id": "e",
+        "text": "author is to novel"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A relação é **causa para efeito**: friction → heat. A alternativa correta (pollution → smog) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"friction é causa para efeito heat\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 9,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d3-00010",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 3,
+    "stem": "CHILLY is to FRIGID as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "skin is to touch"
+      },
+      {
+        "id": "b",
+        "text": "librarian is to library"
+      },
+      {
+        "id": "c",
+        "text": "farmer is to field"
+      },
+      {
+        "id": "d",
+        "text": "tired is to exhausted"
+      },
+      {
+        "id": "e",
+        "text": "lion is to roar"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A relação é **intensidade menor para intensidade maior**: chilly → frigid. A alternativa correta (tired → exhausted) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"chilly é intensidade menor para intensidade maior frigid\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 10,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d3-00012",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 3,
+    "stem": "GRAPE is to WINE as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "flour is to bread"
+      },
+      {
+        "id": "b",
+        "text": "petal is to flower"
+      },
+      {
+        "id": "c",
+        "text": "compass is to navigate"
+      },
+      {
+        "id": "d",
+        "text": "nest is to bird"
+      },
+      {
+        "id": "e",
+        "text": "composer is to symphony"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A relação é **matéria-prima para o produto**: grape → wine. A alternativa correta (flour → bread) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"grape é matéria-prima para o produto wine\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 12,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d3-00013",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 3,
+    "stem": "FILTER is to PURIFY as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "page is to book"
+      },
+      {
+        "id": "b",
+        "text": "scalpel is to surgeon"
+      },
+      {
+        "id": "c",
+        "text": "verse is to poem"
+      },
+      {
+        "id": "d",
+        "text": "hammer is to carpenter"
+      },
+      {
+        "id": "e",
+        "text": "key is to unlock"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "A relação é **objeto para sua função**: filter → purify. A alternativa correta (key → unlock) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"filter é objeto para sua função purify\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 13,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d3-00014",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 3,
+    "stem": "MINER is to QUARRY as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "fin is to fish"
+      },
+      {
+        "id": "b",
+        "text": "chilly is to frigid"
+      },
+      {
+        "id": "c",
+        "text": "ally is to enemy"
+      },
+      {
+        "id": "d",
+        "text": "pilot is to cockpit"
+      },
+      {
+        "id": "e",
+        "text": "large is to colossal"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A relação é **profissional para o local onde trabalha**: miner → quarry. A alternativa correta (pilot → cockpit) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"miner é profissional para o local onde trabalha quarry\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 14,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d3-00015",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 3,
+    "stem": "LARGE is to COLOSSAL as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "broom is to sweep"
+      },
+      {
+        "id": "b",
+        "text": "librarian is to library"
+      },
+      {
+        "id": "c",
+        "text": "happy is to elated"
+      },
+      {
+        "id": "d",
+        "text": "stanza is to poem"
+      },
+      {
+        "id": "e",
+        "text": "conceal is to reveal"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A relação é **intensidade menor para intensidade maior**: large → colossal. A alternativa correta (happy → elated) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"large é intensidade menor para intensidade maior colossal\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 15,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d3-00017",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 3,
+    "stem": "CROW is to CAW as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "chisel is to sculptor"
+      },
+      {
+        "id": "b",
+        "text": "eye is to sight"
+      },
+      {
+        "id": "c",
+        "text": "wolf is to howl"
+      },
+      {
+        "id": "d",
+        "text": "fire is to smoke"
+      },
+      {
+        "id": "e",
+        "text": "tailor is to suit"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A relação é **animal para o som que ele faz**: crow → caw. A alternativa correta (wolf → howl) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"crow é animal para o som que ele faz caw\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 17,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d3-00018",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 3,
+    "stem": "STANZA is to POEM as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "pen is to write"
+      },
+      {
+        "id": "b",
+        "text": "angry is to furious"
+      },
+      {
+        "id": "c",
+        "text": "tired is to exhausted"
+      },
+      {
+        "id": "d",
+        "text": "verse is to poem"
+      },
+      {
+        "id": "e",
+        "text": "fingertip is to texture"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A relação é **parte para o todo**: stanza → poem. A alternativa correta (verse → poem) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"stanza é parte para o todo poem\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 18,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d3-00019",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 3,
+    "stem": "BATON is to CONDUCTOR as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "brush is to painter"
+      },
+      {
+        "id": "b",
+        "text": "metal is to copper"
+      },
+      {
+        "id": "c",
+        "text": "potter is to vase"
+      },
+      {
+        "id": "d",
+        "text": "duck is to quack"
+      },
+      {
+        "id": "e",
+        "text": "kennel is to dog"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A relação é **ferramenta para quem a usa**: baton → conductor. A alternativa correta (brush → painter) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"baton é ferramenta para quem a usa conductor\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 19,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d3-00020",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 3,
+    "stem": "NERVE is to SENSATION as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "tongue is to taste"
+      },
+      {
+        "id": "b",
+        "text": "horse is to foal"
+      },
+      {
+        "id": "c",
+        "text": "tired is to exhausted"
+      },
+      {
+        "id": "d",
+        "text": "friction is to heat"
+      },
+      {
+        "id": "e",
+        "text": "silo is to grain"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A relação é **órgão para o sentido correspondente**: nerve → sensation. A alternativa correta (tongue → taste) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"nerve é órgão para o sentido correspondente sensation\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 20,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d3-00023",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 3,
+    "stem": "CHISEL is to SCULPTOR as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "vehicle is to tractor"
+      },
+      {
+        "id": "b",
+        "text": "scalpel is to surgeon"
+      },
+      {
+        "id": "c",
+        "text": "broom is to sweep"
+      },
+      {
+        "id": "d",
+        "text": "metal is to copper"
+      },
+      {
+        "id": "e",
+        "text": "instrument is to violin"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A relação é **ferramenta para quem a usa**: chisel → sculptor. A alternativa correta (scalpel → surgeon) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"chisel é ferramenta para quem a usa sculptor\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 23,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d3-00024",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 3,
+    "stem": "RESERVOIR is to WATER as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "satchel is to books"
+      },
+      {
+        "id": "b",
+        "text": "insomnia is to fatigue"
+      },
+      {
+        "id": "c",
+        "text": "chef is to kitchen"
+      },
+      {
+        "id": "d",
+        "text": "actor is to stage"
+      },
+      {
+        "id": "e",
+        "text": "sheep is to lamb"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A relação é **recipiente para o que ele guarda**: reservoir → water. A alternativa correta (satchel → books) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"reservoir é recipiente para o que ele guarda water\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 24,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d3-00025",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 3,
+    "stem": "GOAT is to KID as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "pilot is to cockpit"
+      },
+      {
+        "id": "b",
+        "text": "sheep is to lamb"
+      },
+      {
+        "id": "c",
+        "text": "clay is to pottery"
+      },
+      {
+        "id": "d",
+        "text": "anchor is to secure"
+      },
+      {
+        "id": "e",
+        "text": "crow is to caw"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A relação é **animal adulto para seu filhote**: goat → kid. A alternativa correta (sheep → lamb) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"goat é animal adulto para seu filhote kid\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 25,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d3-00030",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 3,
+    "stem": "ARCHAEOLOGY is to ARTIFACTS as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "composer is to symphony"
+      },
+      {
+        "id": "b",
+        "text": "meteorology is to weather"
+      },
+      {
+        "id": "c",
+        "text": "virus is to illness"
+      },
+      {
+        "id": "d",
+        "text": "silo is to grain"
+      },
+      {
+        "id": "e",
+        "text": "stanza is to poem"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A relação é **ciência para o que ela estuda**: archaeology → artifacts. A alternativa correta (meteorology → weather) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"archaeology é ciência para o que ela estuda artifacts\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 30,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d3-00036",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 3,
+    "stem": "KENNEL is to DOG as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "key is to unlock"
+      },
+      {
+        "id": "b",
+        "text": "coop is to hen"
+      },
+      {
+        "id": "c",
+        "text": "nose is to smell"
+      },
+      {
+        "id": "d",
+        "text": "duck is to quack"
+      },
+      {
+        "id": "e",
+        "text": "fire is to smoke"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A relação é **abrigo para o animal que o habita**: kennel → dog. A alternativa correta (coop → hen) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"kennel é abrigo para o animal que o habita dog\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 36,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d3-00043",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 3,
+    "stem": "COOP is to HEN as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "tailor is to suit"
+      },
+      {
+        "id": "b",
+        "text": "hammer is to carpenter"
+      },
+      {
+        "id": "c",
+        "text": "brush is to painter"
+      },
+      {
+        "id": "d",
+        "text": "satchel is to books"
+      },
+      {
+        "id": "e",
+        "text": "den is to fox"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "A relação é **abrigo para o animal que o habita**: coop → hen. A alternativa correta (den → fox) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"coop é abrigo para o animal que o habita hen\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 43,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d3-00044",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 3,
+    "stem": "METEOROLOGY is to WEATHER as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "biology is to organisms"
+      },
+      {
+        "id": "b",
+        "text": "farmer is to field"
+      },
+      {
+        "id": "c",
+        "text": "filter is to purify"
+      },
+      {
+        "id": "d",
+        "text": "chisel is to sculptor"
+      },
+      {
+        "id": "e",
+        "text": "crow is to caw"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A relação é **ciência para o que ela estuda**: meteorology → weather. A alternativa correta (biology → organisms) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"meteorology é ciência para o que ela estuda weather\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 44,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d3-00049",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 3,
+    "stem": "SILO is to GRAIN as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "ear is to hearing"
+      },
+      {
+        "id": "b",
+        "text": "cold is to freezing"
+      },
+      {
+        "id": "c",
+        "text": "locker is to equipment"
+      },
+      {
+        "id": "d",
+        "text": "spark is to fire"
+      },
+      {
+        "id": "e",
+        "text": "pilot is to cockpit"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A relação é **recipiente para o que ele guarda**: silo → grain. A alternativa correta (locker → equipment) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"silo é recipiente para o que ele guarda grain\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 49,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d3-00060",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 3,
+    "stem": "REPTILE is to IGUANA as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "instrument is to violin"
+      },
+      {
+        "id": "b",
+        "text": "pen is to write"
+      },
+      {
+        "id": "c",
+        "text": "cotton is to fabric"
+      },
+      {
+        "id": "d",
+        "text": "sand is to glass"
+      },
+      {
+        "id": "e",
+        "text": "eye is to sight"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A relação é **categoria para um membro dela**: reptile → iguana. A alternativa correta (instrument → violin) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"reptile é categoria para um membro dela iguana\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 60,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d3-00065",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 3,
+    "stem": "ARCHITECT is to BLUEPRINT as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "frog is to croak"
+      },
+      {
+        "id": "b",
+        "text": "composer is to symphony"
+      },
+      {
+        "id": "c",
+        "text": "sand is to glass"
+      },
+      {
+        "id": "d",
+        "text": "reptile is to iguana"
+      },
+      {
+        "id": "e",
+        "text": "knife is to cut"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A relação é **profissional para o que ele produz**: architect → blueprint. A alternativa correta (composer → symphony) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"architect é profissional para o que ele produz blueprint\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 65,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d3-00069",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 3,
+    "stem": "CARDIOLOGY is to HEART as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "farmer is to field"
+      },
+      {
+        "id": "b",
+        "text": "frog is to croak"
+      },
+      {
+        "id": "c",
+        "text": "eye is to sight"
+      },
+      {
+        "id": "d",
+        "text": "astronomy is to stars"
+      },
+      {
+        "id": "e",
+        "text": "nerve is to sensation"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A relação é **ciência para o que ela estuda**: cardiology → heart. A alternativa correta (astronomy → stars) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"cardiology é ciência para o que ela estuda heart\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 69,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d3-00084",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 3,
+    "stem": "INSOMNIA is to FATIGUE as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "verse is to poem"
+      },
+      {
+        "id": "b",
+        "text": "spark is to fire"
+      },
+      {
+        "id": "c",
+        "text": "nose is to smell"
+      },
+      {
+        "id": "d",
+        "text": "botany is to plants"
+      },
+      {
+        "id": "e",
+        "text": "filter is to purify"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A relação é **causa para efeito**: insomnia → fatigue. A alternativa correta (spark → fire) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"insomnia é causa para efeito fatigue\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 84,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d3-00129",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 3,
+    "stem": "DROUGHT is to FAMINE as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "farmer is to field"
+      },
+      {
+        "id": "b",
+        "text": "brewer is to beer"
+      },
+      {
+        "id": "c",
+        "text": "biology is to organisms"
+      },
+      {
+        "id": "d",
+        "text": "tired is to exhausted"
+      },
+      {
+        "id": "e",
+        "text": "virus is to illness"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "A relação é **causa para efeito**: drought → famine. A alternativa correta (virus → illness) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"drought é causa para efeito famine\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_simples",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 129,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d4-00001",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 4,
+    "stem": "VESTIBULE is to BUILDING as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "page is to book"
+      },
+      {
+        "id": "b",
+        "text": "mammal is to whale"
+      },
+      {
+        "id": "c",
+        "text": "filter is to purify"
+      },
+      {
+        "id": "d",
+        "text": "legume is to lentil"
+      },
+      {
+        "id": "e",
+        "text": "crucible is to melt"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A relação é **parte para o todo**: vestibule → building. A alternativa correta (page → book) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"vestibule é parte para o todo building\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 1,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d4-00002",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 4,
+    "stem": "AWL is to COBBLER as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "den is to fox"
+      },
+      {
+        "id": "b",
+        "text": "hammer is to carpenter"
+      },
+      {
+        "id": "c",
+        "text": "satchel is to books"
+      },
+      {
+        "id": "d",
+        "text": "instrument is to violin"
+      },
+      {
+        "id": "e",
+        "text": "deer is to fawn"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A relação é **ferramenta para quem a usa**: awl → cobbler. A alternativa correta (hammer → carpenter) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"awl é ferramenta para quem a usa cobbler\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 2,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d4-00004",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 4,
+    "stem": "LEGUME is to LENTIL as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "angry is to furious"
+      },
+      {
+        "id": "b",
+        "text": "judge is to courtroom"
+      },
+      {
+        "id": "c",
+        "text": "pen is to write"
+      },
+      {
+        "id": "d",
+        "text": "broom is to sweep"
+      },
+      {
+        "id": "e",
+        "text": "fruit is to mango"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "A relação é **categoria para um membro dela**: legume → lentil. A alternativa correta (fruit → mango) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"legume é categoria para um membro dela lentil\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 4,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d4-00005",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 4,
+    "stem": "KEEL is to SHIP as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "vehicle is to tractor"
+      },
+      {
+        "id": "b",
+        "text": "rung is to ladder"
+      },
+      {
+        "id": "c",
+        "text": "barrel is to cider"
+      },
+      {
+        "id": "d",
+        "text": "dog is to puppy"
+      },
+      {
+        "id": "e",
+        "text": "author is to novel"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A relação é **parte para o todo**: keel → ship. A alternativa correta (rung → ladder) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"keel é parte para o todo ship\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 5,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d4-00006",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 4,
+    "stem": "ORNITHOLOGY is to BIRDS as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "conceal is to reveal"
+      },
+      {
+        "id": "b",
+        "text": "chef is to kitchen"
+      },
+      {
+        "id": "c",
+        "text": "annoyed is to irate"
+      },
+      {
+        "id": "d",
+        "text": "tired is to exhausted"
+      },
+      {
+        "id": "e",
+        "text": "biology is to organisms"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "A relação é **ciência para o que ela estuda**: ornithology → birds. A alternativa correta (biology → organisms) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"ornithology é ciência para o que ela estuda birds\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 6,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d4-00007",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 4,
+    "stem": "CURATOR is to MUSEUM as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "goat is to kid"
+      },
+      {
+        "id": "b",
+        "text": "loom is to weaver"
+      },
+      {
+        "id": "c",
+        "text": "pulp is to paper"
+      },
+      {
+        "id": "d",
+        "text": "chef is to kitchen"
+      },
+      {
+        "id": "e",
+        "text": "eye is to sight"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A relação é **profissional para o local onde trabalha**: curator → museum. A alternativa correta (chef → kitchen) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"curator é profissional para o local onde trabalha museum\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 7,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d4-00008",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 4,
+    "stem": "ORE is to METAL as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "donkey is to bray"
+      },
+      {
+        "id": "b",
+        "text": "gemstone is to opal"
+      },
+      {
+        "id": "c",
+        "text": "metal is to copper"
+      },
+      {
+        "id": "d",
+        "text": "sand is to glass"
+      },
+      {
+        "id": "e",
+        "text": "potter is to vase"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A relação é **matéria-prima para o produto**: ore → metal. A alternativa correta (sand → glass) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"ore é matéria-prima para o produto metal\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 8,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d4-00009",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 4,
+    "stem": "PRAISE is to CENSURE as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "gram is to mass"
+      },
+      {
+        "id": "b",
+        "text": "duck is to quack"
+      },
+      {
+        "id": "c",
+        "text": "conceal is to reveal"
+      },
+      {
+        "id": "d",
+        "text": "nose is to smell"
+      },
+      {
+        "id": "e",
+        "text": "fire is to smoke"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A relação é **palavra para seu oposto**: praise → censure. A alternativa correta (conceal → reveal) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"praise é palavra para seu oposto censure\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 9,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d4-00012",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 4,
+    "stem": "LOOM is to WEAVER as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "scalpel is to surgeon"
+      },
+      {
+        "id": "b",
+        "text": "petal is to flower"
+      },
+      {
+        "id": "c",
+        "text": "bird is to falcon"
+      },
+      {
+        "id": "d",
+        "text": "keel is to ship"
+      },
+      {
+        "id": "e",
+        "text": "cold is to freezing"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A relação é **ferramenta para quem a usa**: loom → weaver. A alternativa correta (scalpel → surgeon) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"loom é ferramenta para quem a usa weaver\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 12,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d4-00013",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 4,
+    "stem": "HERTZ is to FREQUENCY as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "page is to book"
+      },
+      {
+        "id": "b",
+        "text": "brush is to painter"
+      },
+      {
+        "id": "c",
+        "text": "scalpel is to surgeon"
+      },
+      {
+        "id": "d",
+        "text": "chef is to kitchen"
+      },
+      {
+        "id": "e",
+        "text": "second is to time"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "A relação é **unidade para a grandeza que ela mede**: hertz → frequency. A alternativa correta (second → time) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"hertz é unidade para a grandeza que ela mede frequency\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 13,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d4-00014",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 4,
+    "stem": "DONKEY is to BRAY as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "rung is to ladder"
+      },
+      {
+        "id": "b",
+        "text": "insomnia is to fatigue"
+      },
+      {
+        "id": "c",
+        "text": "ascend is to descend"
+      },
+      {
+        "id": "d",
+        "text": "owl is to hoot"
+      },
+      {
+        "id": "e",
+        "text": "happy is to elated"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A relação é **animal para o som que ele faz**: donkey → bray. A alternativa correta (owl → hoot) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"donkey é animal para o som que ele faz bray\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 14,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d4-00015",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 4,
+    "stem": "VAULT is to BULLION as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "key is to unlock"
+      },
+      {
+        "id": "b",
+        "text": "potter is to vase"
+      },
+      {
+        "id": "c",
+        "text": "silo is to grain"
+      },
+      {
+        "id": "d",
+        "text": "loom is to weaver"
+      },
+      {
+        "id": "e",
+        "text": "owl is to hoot"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A relação é **recipiente para o que ele guarda**: vault → bullion. A alternativa correta (silo → grain) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"vault é recipiente para o que ele guarda bullion\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 15,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d4-00017",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 4,
+    "stem": "HILT is to SWORD as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "architect is to blueprint"
+      },
+      {
+        "id": "b",
+        "text": "nerve is to sensation"
+      },
+      {
+        "id": "c",
+        "text": "wheel is to car"
+      },
+      {
+        "id": "d",
+        "text": "large is to colossal"
+      },
+      {
+        "id": "e",
+        "text": "goat is to kid"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A relação é **parte para o todo**: hilt → sword. A alternativa correta (wheel → car) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"hilt é parte para o todo sword\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 17,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d4-00018",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 4,
+    "stem": "GOOSE is to GOSLING as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "large is to colossal"
+      },
+      {
+        "id": "b",
+        "text": "thermometer is to measure"
+      },
+      {
+        "id": "c",
+        "text": "anchor is to secure"
+      },
+      {
+        "id": "d",
+        "text": "sheep is to lamb"
+      },
+      {
+        "id": "e",
+        "text": "ornithology is to birds"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A relação é **animal adulto para seu filhote**: goose → gosling. A alternativa correta (sheep → lamb) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"goose é animal adulto para seu filhote gosling\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 18,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d4-00019",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 4,
+    "stem": "COBBLER is to SHOE as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "architect is to blueprint"
+      },
+      {
+        "id": "b",
+        "text": "expand is to contract"
+      },
+      {
+        "id": "c",
+        "text": "insomnia is to fatigue"
+      },
+      {
+        "id": "d",
+        "text": "astronomy is to stars"
+      },
+      {
+        "id": "e",
+        "text": "augment is to diminish"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A relação é **profissional para o que ele produz**: cobbler → shoe. A alternativa correta (architect → blueprint) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"cobbler é profissional para o que ele produz shoe\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 19,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d4-00020",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 4,
+    "stem": "APIARIST is to APIARY as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "actor is to stage"
+      },
+      {
+        "id": "b",
+        "text": "instrument is to violin"
+      },
+      {
+        "id": "c",
+        "text": "accelerate is to decelerate"
+      },
+      {
+        "id": "d",
+        "text": "key is to unlock"
+      },
+      {
+        "id": "e",
+        "text": "tailor is to suit"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A relação é **profissional para o local onde trabalha**: apiarist → apiary. A alternativa correta (actor → stage) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"apiarist é profissional para o local onde trabalha apiary\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 20,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d4-00021",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 4,
+    "stem": "GEMSTONE is to OPAL as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "metal is to copper"
+      },
+      {
+        "id": "b",
+        "text": "fin is to fish"
+      },
+      {
+        "id": "c",
+        "text": "insomnia is to fatigue"
+      },
+      {
+        "id": "d",
+        "text": "clay is to pottery"
+      },
+      {
+        "id": "e",
+        "text": "burrow is to rabbit"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A relação é **categoria para um membro dela**: gemstone → opal. A alternativa correta (metal → copper) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"gemstone é categoria para um membro dela opal\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 21,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d4-00022",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 4,
+    "stem": "WEB is to SPIDER as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "key is to unlock"
+      },
+      {
+        "id": "b",
+        "text": "den is to fox"
+      },
+      {
+        "id": "c",
+        "text": "praise is to censure"
+      },
+      {
+        "id": "d",
+        "text": "watt is to power"
+      },
+      {
+        "id": "e",
+        "text": "annoyed is to irate"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A relação é **abrigo para o animal que o habita**: web → spider. A alternativa correta (den → fox) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"web é abrigo para o animal que o habita spider\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 22,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d4-00023",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 4,
+    "stem": "NEGLECT is to DECAY as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "satchel is to books"
+      },
+      {
+        "id": "b",
+        "text": "fire is to smoke"
+      },
+      {
+        "id": "c",
+        "text": "dog is to puppy"
+      },
+      {
+        "id": "d",
+        "text": "expand is to contract"
+      },
+      {
+        "id": "e",
+        "text": "reptile is to iguana"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A relação é **causa para efeito**: neglect → decay. A alternativa correta (fire → smoke) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"neglect é causa para efeito decay\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 23,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d4-00024",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 4,
+    "stem": "PLAYWRIGHT is to DRAMA as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "brewer is to beer"
+      },
+      {
+        "id": "b",
+        "text": "deer is to fawn"
+      },
+      {
+        "id": "c",
+        "text": "pilot is to cockpit"
+      },
+      {
+        "id": "d",
+        "text": "drought is to famine"
+      },
+      {
+        "id": "e",
+        "text": "metal is to copper"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A relação é **profissional para o que ele produz**: playwright → drama. A alternativa correta (brewer → beer) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"playwright é profissional para o que ele produz drama\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 24,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d4-00030",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 4,
+    "stem": "CRUCIBLE is to MELT as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "virus is to illness"
+      },
+      {
+        "id": "b",
+        "text": "anchor is to secure"
+      },
+      {
+        "id": "c",
+        "text": "warm is to scorching"
+      },
+      {
+        "id": "d",
+        "text": "farmer is to field"
+      },
+      {
+        "id": "e",
+        "text": "miner is to quarry"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A relação é **objeto para sua função**: crucible → melt. A alternativa correta (anchor → secure) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"crucible é objeto para sua função melt\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 30,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d4-00033",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 4,
+    "stem": "AMPERE is to CURRENT as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "hertz is to frequency"
+      },
+      {
+        "id": "b",
+        "text": "astronomy is to stars"
+      },
+      {
+        "id": "c",
+        "text": "librarian is to library"
+      },
+      {
+        "id": "d",
+        "text": "wheel is to car"
+      },
+      {
+        "id": "e",
+        "text": "milk is to cheese"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A relação é **unidade para a grandeza que ela mede**: ampere → current. A alternativa correta (hertz → frequency) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"ampere é unidade para a grandeza que ela mede current\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 33,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d4-00036",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 4,
+    "stem": "AUGMENT is to DIMINISH as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "cat is to kitten"
+      },
+      {
+        "id": "b",
+        "text": "conceal is to reveal"
+      },
+      {
+        "id": "c",
+        "text": "watt is to power"
+      },
+      {
+        "id": "d",
+        "text": "meter is to length"
+      },
+      {
+        "id": "e",
+        "text": "friction is to heat"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A relação é **palavra para seu oposto**: augment → diminish. A alternativa correta (conceal → reveal) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"augment é palavra para seu oposto diminish\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 36,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d4-00043",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 4,
+    "stem": "DECANTER is to WINE as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "thermometer is to measure"
+      },
+      {
+        "id": "b",
+        "text": "chisel is to sculptor"
+      },
+      {
+        "id": "c",
+        "text": "baton is to conductor"
+      },
+      {
+        "id": "d",
+        "text": "fingertip is to texture"
+      },
+      {
+        "id": "e",
+        "text": "vault is to bullion"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "A relação é **recipiente para o que ele guarda**: decanter → wine. A alternativa correta (vault → bullion) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"decanter é recipiente para o que ele guarda wine\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 43,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d4-00044",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 4,
+    "stem": "PLEASED is to ECSTATIC as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "cold is to freezing"
+      },
+      {
+        "id": "b",
+        "text": "frost is to damage"
+      },
+      {
+        "id": "c",
+        "text": "satchel is to books"
+      },
+      {
+        "id": "d",
+        "text": "judge is to courtroom"
+      },
+      {
+        "id": "e",
+        "text": "archaeology is to artifacts"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A relação é **intensidade menor para intensidade maior**: pleased → ecstatic. A alternativa correta (cold → freezing) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"pleased é intensidade menor para intensidade maior ecstatic\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 44,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d4-00049",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 4,
+    "stem": "DEER is to FAWN as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "cardiology is to heart"
+      },
+      {
+        "id": "b",
+        "text": "knife is to cut"
+      },
+      {
+        "id": "c",
+        "text": "sheep is to lamb"
+      },
+      {
+        "id": "d",
+        "text": "angry is to furious"
+      },
+      {
+        "id": "e",
+        "text": "author is to novel"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A relação é **animal adulto para seu filhote**: deer → fawn. A alternativa correta (sheep → lamb) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"deer é animal adulto para seu filhote fawn\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 49,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d4-00051",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 4,
+    "stem": "SIEVE is to STRAIN as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "knife is to cut"
+      },
+      {
+        "id": "b",
+        "text": "grape is to wine"
+      },
+      {
+        "id": "c",
+        "text": "mammal is to whale"
+      },
+      {
+        "id": "d",
+        "text": "stethoscope is to doctor"
+      },
+      {
+        "id": "e",
+        "text": "pilot is to cockpit"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A relação é **objeto para sua função**: sieve → strain. A alternativa correta (knife → cut) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"sieve é objeto para sua função strain\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 51,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d4-00054",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 4,
+    "stem": "RUNG is to LADDER as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "ascend is to descend"
+      },
+      {
+        "id": "b",
+        "text": "fin is to fish"
+      },
+      {
+        "id": "c",
+        "text": "reptile is to iguana"
+      },
+      {
+        "id": "d",
+        "text": "duck is to quack"
+      },
+      {
+        "id": "e",
+        "text": "angry is to furious"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A relação é **parte para o todo**: rung → ladder. A alternativa correta (fin → fish) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"rung é parte para o todo ladder\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 54,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d4-00058",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 4,
+    "stem": "PALATE is to FLAVOR as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "owl is to hoot"
+      },
+      {
+        "id": "b",
+        "text": "skin is to touch"
+      },
+      {
+        "id": "c",
+        "text": "playwright is to drama"
+      },
+      {
+        "id": "d",
+        "text": "nest is to bird"
+      },
+      {
+        "id": "e",
+        "text": "page is to book"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A relação é **órgão para o sentido correspondente**: palate → flavor. A alternativa correta (skin → touch) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"palate é órgão para o sentido correspondente flavor\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 58,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d4-00065",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 4,
+    "stem": "ANNOYED is to IRATE as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "skin is to touch"
+      },
+      {
+        "id": "b",
+        "text": "large is to colossal"
+      },
+      {
+        "id": "c",
+        "text": "accelerate is to decelerate"
+      },
+      {
+        "id": "d",
+        "text": "wallet is to money"
+      },
+      {
+        "id": "e",
+        "text": "broom is to sweep"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A relação é **intensidade menor para intensidade maior**: annoyed → irate. A alternativa correta (large → colossal) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"annoyed é intensidade menor para intensidade maior irate\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 65,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d5-00001",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 5,
+    "stem": "MILLINER is to HAT as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "baker is to bread"
+      },
+      {
+        "id": "b",
+        "text": "bolster is to undermine"
+      },
+      {
+        "id": "c",
+        "text": "import is to export"
+      },
+      {
+        "id": "d",
+        "text": "exculpate is to incriminate"
+      },
+      {
+        "id": "e",
+        "text": "tallow is to soap"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A relação é **profissional para o que ele produz**: milliner → hat. A alternativa correta (baker → bread) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"milliner é profissional para o que ele produz hat\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 1,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d5-00002",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 5,
+    "stem": "PIQUED is to INCENSED as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "decanter is to wine"
+      },
+      {
+        "id": "b",
+        "text": "large is to colossal"
+      },
+      {
+        "id": "c",
+        "text": "nose is to smell"
+      },
+      {
+        "id": "d",
+        "text": "wallet is to money"
+      },
+      {
+        "id": "e",
+        "text": "squander is to conserve"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A relação é **intensidade menor para intensidade maior**: piqued → incensed. A alternativa correta (large → colossal) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"piqued é intensidade menor para intensidade maior incensed\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 2,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d5-00004",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 5,
+    "stem": "COALESCE is to DISPERSE as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "sand is to glass"
+      },
+      {
+        "id": "b",
+        "text": "curator is to museum"
+      },
+      {
+        "id": "c",
+        "text": "sheep is to lamb"
+      },
+      {
+        "id": "d",
+        "text": "flour is to bread"
+      },
+      {
+        "id": "e",
+        "text": "praise is to censure"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "A relação é **palavra para seu oposto**: coalesce → disperse. A alternativa correta (praise → censure) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"coalesce é palavra para seu oposto disperse\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 4,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d5-00005",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 5,
+    "stem": "DESICCATION is to BRITTLENESS as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "frog is to croak"
+      },
+      {
+        "id": "b",
+        "text": "frost is to damage"
+      },
+      {
+        "id": "c",
+        "text": "ear is to hearing"
+      },
+      {
+        "id": "d",
+        "text": "grape is to wine"
+      },
+      {
+        "id": "e",
+        "text": "curator is to museum"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A relação é **causa para efeito**: desiccation → brittleness. A alternativa correta (frost → damage) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"desiccation é causa para efeito brittleness\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 5,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d5-00006",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 5,
+    "stem": "VINTNER is to VINEYARD as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "nerve is to sensation"
+      },
+      {
+        "id": "b",
+        "text": "architect is to blueprint"
+      },
+      {
+        "id": "c",
+        "text": "flour is to bread"
+      },
+      {
+        "id": "d",
+        "text": "squander is to conserve"
+      },
+      {
+        "id": "e",
+        "text": "chef is to kitchen"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "A relação é **profissional para o local onde trabalha**: vintner → vineyard. A alternativa correta (chef → kitchen) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"vintner é profissional para o local onde trabalha vineyard\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 6,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d5-00007",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 5,
+    "stem": "SWAN is to CYGNET as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "import is to export"
+      },
+      {
+        "id": "b",
+        "text": "insomnia is to fatigue"
+      },
+      {
+        "id": "c",
+        "text": "raptor is to osprey"
+      },
+      {
+        "id": "d",
+        "text": "dog is to puppy"
+      },
+      {
+        "id": "e",
+        "text": "archaeology is to artifacts"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A relação é **animal adulto para seu filhote**: swan → cygnet. A alternativa correta (dog → puppy) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"swan é animal adulto para seu filhote cygnet\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 7,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d5-00008",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 5,
+    "stem": "EAGLE is to EAGLET as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "meteorology is to weather"
+      },
+      {
+        "id": "b",
+        "text": "crow is to caw"
+      },
+      {
+        "id": "c",
+        "text": "silo is to grain"
+      },
+      {
+        "id": "d",
+        "text": "goat is to kid"
+      },
+      {
+        "id": "e",
+        "text": "compass is to navigate"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A relação é **animal adulto para seu filhote**: eagle → eaglet. A alternativa correta (goat → kid) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"eagle é animal adulto para seu filhote eaglet\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 8,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d5-00009",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 5,
+    "stem": "SPICE is to CARDAMOM as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "vestibule is to building"
+      },
+      {
+        "id": "b",
+        "text": "entomology is to insects"
+      },
+      {
+        "id": "c",
+        "text": "legume is to lentil"
+      },
+      {
+        "id": "d",
+        "text": "gram is to mass"
+      },
+      {
+        "id": "e",
+        "text": "neglect is to decay"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A relação é **categoria para um membro dela**: spice → cardamom. A alternativa correta (legume → lentil) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"spice é categoria para um membro dela cardamom\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 9,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d5-00010",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 5,
+    "stem": "BURIN is to ENGRAVER as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "kennel is to dog"
+      },
+      {
+        "id": "b",
+        "text": "filter is to purify"
+      },
+      {
+        "id": "c",
+        "text": "deer is to fawn"
+      },
+      {
+        "id": "d",
+        "text": "adze is to shipwright"
+      },
+      {
+        "id": "e",
+        "text": "cardiology is to heart"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A relação é **ferramenta para quem a usa**: burin → engraver. A alternativa correta (adze → shipwright) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"burin é ferramenta para quem a usa engraver\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 10,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d5-00012",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 5,
+    "stem": "ENTOMOLOGY is to INSECTS as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "biology is to organisms"
+      },
+      {
+        "id": "b",
+        "text": "wheel is to car"
+      },
+      {
+        "id": "c",
+        "text": "squander is to conserve"
+      },
+      {
+        "id": "d",
+        "text": "desiccation is to brittleness"
+      },
+      {
+        "id": "e",
+        "text": "happy is to elated"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A relação é **ciência para o que ela estuda**: entomology → insects. A alternativa correta (biology → organisms) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"entomology é ciência para o que ela estuda insects\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 12,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d5-00013",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 5,
+    "stem": "FARRIER is to FORGE as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "petal is to flower"
+      },
+      {
+        "id": "b",
+        "text": "baton is to conductor"
+      },
+      {
+        "id": "c",
+        "text": "brush is to painter"
+      },
+      {
+        "id": "d",
+        "text": "architect is to blueprint"
+      },
+      {
+        "id": "e",
+        "text": "actor is to stage"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "A relação é **profissional para o local onde trabalha**: farrier → forge. A alternativa correta (actor → stage) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"farrier é profissional para o local onde trabalha forge\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 13,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d5-00014",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 5,
+    "stem": "STAMEN is to BLOSSOM as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "angry is to furious"
+      },
+      {
+        "id": "b",
+        "text": "bird is to falcon"
+      },
+      {
+        "id": "c",
+        "text": "farmer is to field"
+      },
+      {
+        "id": "d",
+        "text": "stanza is to poem"
+      },
+      {
+        "id": "e",
+        "text": "sheep is to lamb"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A relação é **parte para o todo**: stamen → blossom. A alternativa correta (stanza → poem) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"stamen é parte para o todo blossom\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 14,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d5-00015",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 5,
+    "stem": "URN is to ASHES as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "sheep is to lamb"
+      },
+      {
+        "id": "b",
+        "text": "tired is to exhausted"
+      },
+      {
+        "id": "c",
+        "text": "quiver is to arrows"
+      },
+      {
+        "id": "d",
+        "text": "playwright is to drama"
+      },
+      {
+        "id": "e",
+        "text": "fingertip is to texture"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A relação é **recipiente para o que ele guarda**: urn → ashes. A alternativa correta (quiver → arrows) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"urn é recipiente para o que ele guarda ashes\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 15,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d5-00016",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 5,
+    "stem": "CHANDLER is to CANDLE as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "wrench is to mechanic"
+      },
+      {
+        "id": "b",
+        "text": "watt is to power"
+      },
+      {
+        "id": "c",
+        "text": "author is to novel"
+      },
+      {
+        "id": "d",
+        "text": "spark is to fire"
+      },
+      {
+        "id": "e",
+        "text": "branch is to tree"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A relação é **profissional para o que ele produz**: chandler → candle. A alternativa correta (author → novel) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"chandler é profissional para o que ele produz candle\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 16,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d5-00017",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 5,
+    "stem": "SEDITION is to UPHEAVAL as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "baker is to bread"
+      },
+      {
+        "id": "b",
+        "text": "decibel is to loudness"
+      },
+      {
+        "id": "c",
+        "text": "virus is to illness"
+      },
+      {
+        "id": "d",
+        "text": "broom is to sweep"
+      },
+      {
+        "id": "e",
+        "text": "import is to export"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A relação é **causa para efeito**: sedition → upheaval. A alternativa correta (virus → illness) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"sedition é causa para efeito upheaval\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 17,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d5-00018",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 5,
+    "stem": "ARCHITRAVE is to ENTABLATURE as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "swan is to cygnet"
+      },
+      {
+        "id": "b",
+        "text": "spice is to cardamom"
+      },
+      {
+        "id": "c",
+        "text": "accelerate is to decelerate"
+      },
+      {
+        "id": "d",
+        "text": "rung is to ladder"
+      },
+      {
+        "id": "e",
+        "text": "burrow is to rabbit"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A relação é **parte para o todo**: architrave → entablature. A alternativa correta (rung → ladder) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"architrave é parte para o todo entablature\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 18,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d5-00019",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 5,
+    "stem": "QUIVER is to ARROWS as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "silo is to grain"
+      },
+      {
+        "id": "b",
+        "text": "lens is to camera"
+      },
+      {
+        "id": "c",
+        "text": "compass is to navigate"
+      },
+      {
+        "id": "d",
+        "text": "hertz is to frequency"
+      },
+      {
+        "id": "e",
+        "text": "raptor is to osprey"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A relação é **recipiente para o que ele guarda**: quiver → arrows. A alternativa correta (silo → grain) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"quiver é recipiente para o que ele guarda arrows\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 19,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d5-00020",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 5,
+    "stem": "BELLOWS is to AERATE as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "sieve is to strain"
+      },
+      {
+        "id": "b",
+        "text": "wallet is to money"
+      },
+      {
+        "id": "c",
+        "text": "crow is to caw"
+      },
+      {
+        "id": "d",
+        "text": "sheep is to lamb"
+      },
+      {
+        "id": "e",
+        "text": "frost is to damage"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A relação é **objeto para sua função**: bellows → aerate. A alternativa correta (sieve → strain) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"bellows é objeto para sua função aerate\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 20,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d5-00023",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 5,
+    "stem": "GAVEL is to AUCTIONEER as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "tongue is to taste"
+      },
+      {
+        "id": "b",
+        "text": "scalpel is to surgeon"
+      },
+      {
+        "id": "c",
+        "text": "wool is to sweater"
+      },
+      {
+        "id": "d",
+        "text": "lens is to camera"
+      },
+      {
+        "id": "e",
+        "text": "silo is to grain"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A relação é **ferramenta para quem a usa**: gavel → auctioneer. A alternativa correta (scalpel → surgeon) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"gavel é ferramenta para quem a usa auctioneer\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 23,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d5-00024",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 5,
+    "stem": "KNOT is to SPEED as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "decibel is to loudness"
+      },
+      {
+        "id": "b",
+        "text": "sand is to glass"
+      },
+      {
+        "id": "c",
+        "text": "baker is to bread"
+      },
+      {
+        "id": "d",
+        "text": "fire is to smoke"
+      },
+      {
+        "id": "e",
+        "text": "expand is to contract"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A relação é **unidade para a grandeza que ela mede**: knot → speed. A alternativa correta (decibel → loudness) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"knot é unidade para a grandeza que ela mede speed\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 24,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d5-00025",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 5,
+    "stem": "LUTHIER is to VIOLIN as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "friction is to heat"
+      },
+      {
+        "id": "b",
+        "text": "milliner is to hat"
+      },
+      {
+        "id": "c",
+        "text": "expand is to contract"
+      },
+      {
+        "id": "d",
+        "text": "wolf is to howl"
+      },
+      {
+        "id": "e",
+        "text": "ampere is to current"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A relação é **profissional para o que ele produz**: luthier → violin. A alternativa correta (milliner → hat) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"luthier é profissional para o que ele produz violin\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 25,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d5-00027",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 5,
+    "stem": "POMMEL is to SADDLE as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "lodge is to beaver"
+      },
+      {
+        "id": "b",
+        "text": "sieve is to strain"
+      },
+      {
+        "id": "c",
+        "text": "instrument is to violin"
+      },
+      {
+        "id": "d",
+        "text": "page is to book"
+      },
+      {
+        "id": "e",
+        "text": "baton is to conductor"
+      }
+    ],
+    "answerId": "d",
+    "explanation": "A relação é **parte para o todo**: pommel → saddle. A alternativa correta (page → book) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"pommel é parte para o todo saddle\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 27,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d5-00029",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 5,
+    "stem": "SQUANDER is to CONSERVE as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "potter is to vase"
+      },
+      {
+        "id": "b",
+        "text": "grape is to wine"
+      },
+      {
+        "id": "c",
+        "text": "ascend is to descend"
+      },
+      {
+        "id": "d",
+        "text": "loom is to weaver"
+      },
+      {
+        "id": "e",
+        "text": "quiver is to arrows"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A relação é **palavra para seu oposto**: squander → conserve. A alternativa correta (ascend → descend) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"squander é palavra para seu oposto conserve\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 29,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d5-00030",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 5,
+    "stem": "RAPTOR is to OSPREY as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "happy is to elated"
+      },
+      {
+        "id": "b",
+        "text": "spice is to cardamom"
+      },
+      {
+        "id": "c",
+        "text": "pen is to write"
+      },
+      {
+        "id": "d",
+        "text": "chilly is to frigid"
+      },
+      {
+        "id": "e",
+        "text": "fond is to devoted"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A relação é **categoria para um membro dela**: raptor → osprey. A alternativa correta (spice → cardamom) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"raptor é categoria para um membro dela osprey\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 30,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d5-00036",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 5,
+    "stem": "RELIQUARY is to RELICS as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "ore is to metal"
+      },
+      {
+        "id": "b",
+        "text": "amphora is to oil"
+      },
+      {
+        "id": "c",
+        "text": "attrition is to decline"
+      },
+      {
+        "id": "d",
+        "text": "lodge is to beaver"
+      },
+      {
+        "id": "e",
+        "text": "large is to colossal"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A relação é **recipiente para o que ele guarda**: reliquary → relics. A alternativa correta (amphora → oil) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"reliquary é recipiente para o que ele guarda relics\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 36,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d5-00041",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 5,
+    "stem": "TALLOW is to SOAP as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "squander is to conserve"
+      },
+      {
+        "id": "b",
+        "text": "attrition is to decline"
+      },
+      {
+        "id": "c",
+        "text": "timber is to furniture"
+      },
+      {
+        "id": "d",
+        "text": "nose is to smell"
+      },
+      {
+        "id": "e",
+        "text": "eagle is to eaglet"
+      }
+    ],
+    "answerId": "c",
+    "explanation": "A relação é **matéria-prima para o produto**: tallow → soap. A alternativa correta (timber → furniture) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"tallow é matéria-prima para o produto soap\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 41,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d5-00043",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 5,
+    "stem": "AMPHORA is to OIL as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "vehicle is to tractor"
+      },
+      {
+        "id": "b",
+        "text": "judge is to courtroom"
+      },
+      {
+        "id": "c",
+        "text": "chef is to kitchen"
+      },
+      {
+        "id": "d",
+        "text": "ampere is to current"
+      },
+      {
+        "id": "e",
+        "text": "silo is to grain"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "A relação é **recipiente para o que ele guarda**: amphora → oil. A alternativa correta (silo → grain) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"amphora é recipiente para o que ele guarda oil\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 43,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d5-00045",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 5,
+    "stem": "BOLSTER is to UNDERMINE as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "deer is to fawn"
+      },
+      {
+        "id": "b",
+        "text": "thermometer is to measure"
+      },
+      {
+        "id": "c",
+        "text": "hive is to bee"
+      },
+      {
+        "id": "d",
+        "text": "miner is to quarry"
+      },
+      {
+        "id": "e",
+        "text": "coalesce is to disperse"
+      }
+    ],
+    "answerId": "e",
+    "explanation": "A relação é **palavra para seu oposto**: bolster → undermine. A alternativa correta (coalesce → disperse) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"bolster é palavra para seu oposto undermine\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 45,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d5-00054",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 5,
+    "stem": "COCHLEA is to SOUND as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "reservoir is to water"
+      },
+      {
+        "id": "b",
+        "text": "palate is to flavor"
+      },
+      {
+        "id": "c",
+        "text": "wallet is to money"
+      },
+      {
+        "id": "d",
+        "text": "meteorology is to weather"
+      },
+      {
+        "id": "e",
+        "text": "filter is to purify"
+      }
+    ],
+    "answerId": "b",
+    "explanation": "A relação é **órgão para o sentido correspondente**: cochlea → sound. A alternativa correta (palate → flavor) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"cochlea é órgão para o sentido correspondente sound\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 54,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  },
+  {
+    "id": "analogia-d5-00068",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_dupla",
+    "difficulty": 5,
+    "stem": "LODGE is to BEAVER as:",
+    "options": [
+      {
+        "id": "a",
+        "text": "hive is to bee"
+      },
+      {
+        "id": "b",
+        "text": "neglect is to decay"
+      },
+      {
+        "id": "c",
+        "text": "sand is to glass"
+      },
+      {
+        "id": "d",
+        "text": "virus is to illness"
+      },
+      {
+        "id": "e",
+        "text": "raptor is to osprey"
+      }
+    ],
+    "answerId": "a",
+    "explanation": "A relação é **abrigo para o animal que o habita**: lodge → beaver. A alternativa correta (hive → bee) é a única que repete essa mesma relação. O método é sempre o mesmo: monte uma frase que ligue as duas palavras do enunciado (\"lodge é abrigo para o animal que o habita beaver\") e teste essa frase em cada alternativa. Se a frase não encaixa, elimine.",
+    "theoryRef": "verbal_analogy.md#analogia_dupla",
+    "origin": "claude-code",
+    "status": "approved",
+    "verification": {
+      "method": "rule",
+      "seed": 68,
+      "generator": "analogia",
+      "checkedAt": "2026-09-21T12:43:36.099Z"
+    },
+    "createdAt": "2026-09-21T12:43:36.099Z"
+  }
+]
