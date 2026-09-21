@@ -5,7 +5,7 @@ import { CCAT_NORMS, EXAM_QUESTION_COUNT, TIPO_LABEL } from '../../core/taxonomy
 import { rawNeededForPercentile } from '../../core/norms'
 import { DistributionCurve } from '../components/DistributionCurve'
 import { useLocale } from '../LocaleContext'
-import { formatClock, formatPercent, formatSeconds } from '../format'
+import { formatClock, formatPercent, formatPercentile, formatSeconds } from '../format'
 
 /**
  * Tela de resultado (PRD §4.17–4.19).
@@ -89,7 +89,12 @@ export function ResultScreen() {
         </div>
       </div>
 
-      {exam && score.percentile !== null && (
+      {/*
+        Percentil so aparece como MEDICAO quando a prova foi inteira. Comparar
+        12 acertos em 4 minutos com uma norma construida sobre provas de 15
+        minutos nao mede nada: o score bruto da CCAT ja embute a velocidade.
+      */}
+      {exam && score.completeRun && score.percentile !== null && (
         <>
           <h2>{t('result.placement')}</h2>
           <DistributionCurve raw={score.raw} percentile={score.percentile} />
@@ -103,6 +108,76 @@ export function ResultScreen() {
           <div className="nota-bloco">
             <span className="micro">{t('result.estimate.label')}</span>
             <p>{t('result.estimate.body', { mean: CCAT_NORMS.mean, sd: CCAT_NORMS.sd })}</p>
+          </div>
+        </>
+      )}
+
+      {exam && !score.completeRun && score.projection && (
+        <>
+          <h2>{t('result.projection')}</h2>
+          <p className="legenda" style={{ marginBottom: 14 }}>
+            {t('result.projection.lead', {
+              reached: score.reached,
+              total: score.total,
+            })}
+          </p>
+
+          <DistributionCurve
+            raw={score.projection.projectedRaw}
+            percentile={score.projection.percentile}
+            faixa={{
+              low: score.projection.projectedRawLow,
+              high: score.projection.projectedRawHigh,
+            }}
+            rotulo={`${score.projection.projectedRawLow}\u2013${score.projection.projectedRawHigh}`}
+          />
+
+          <div className="linhas">
+            <div className="linha-dado">
+              <span className="rotulo">{t('result.projection.score')}</span>
+              <span className="valor">
+                {score.projection.projectedRaw}
+                <span className="nota">
+                  {t('result.projection.range', {
+                    low: score.projection.projectedRawLow,
+                    high: score.projection.projectedRawHigh,
+                  })}
+                </span>
+              </span>
+            </div>
+            <div className="linha-dado">
+              <span className="rotulo">{t('result.projection.percentile')}</span>
+              <span className="valor">
+                {formatPercentile(score.projection.percentile)}
+                <span className="nota">
+                  {t('result.projection.range', {
+                    low: formatPercentile(score.projection.percentileLow),
+                    high: formatPercentile(score.projection.percentileHigh),
+                  })}
+                </span>
+              </span>
+            </div>
+            <div className="linha-dado">
+              <span className="rotulo">{t('result.projection.reached')}</span>
+              <span className="valor">
+                {score.projection.projectedReached}
+                <span className="nota">
+                  {t('result.projection.reached.note', { time: formatSeconds(score.avgMs) })}
+                </span>
+              </span>
+            </div>
+          </div>
+
+          <div className="nota-bloco">
+            <span className="micro">{t('result.projection.caveat.label')}</span>
+            <p>
+              {t('result.projection.caveat.body', {
+                reached: score.reached,
+                accuracy: formatPercent(score.accuracy),
+                low: formatPercent(score.projection.accuracyLow),
+                high: formatPercent(score.projection.accuracyHigh),
+              })}
+            </p>
           </div>
         </>
       )}

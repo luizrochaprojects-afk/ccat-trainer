@@ -1,5 +1,5 @@
-import { rawToPercentile } from '../norms'
-import { EXAM_QUESTION_COUNT, TIPOS, type Tipo } from '../taxonomy'
+import { rawToPercentile, wilsonInterval } from '../norms'
+import { EXAM_DURATION_MS, EXAM_QUESTION_COUNT, TIPOS, type Tipo } from '../taxonomy'
 import type { AnswerRecord, SessionState } from './engine'
 
 /**
@@ -18,6 +18,33 @@ export interface TipoBreakdown {
   /** null quando não chegou a nenhuma questão do tipo */
   accuracy: number | null
   avgMs: number | null
+}
+
+/**
+ * Projeção para uma simulação interrompida.
+ *
+ * O score bruto da CCAT é "quantas você acertou em 15 minutos" — velocidade faz
+ * parte do que a prova mede, não é ruído. Por isso, quem PAROU antes não tem um
+ * score de CCAT: comparar 12 acertos em 4 minutos com uma norma construída
+ * sobre provas de 15 minutos não mede nada e só desanima.
+ *
+ * A projeção responde a pergunta certa: mantido este ritmo e esta acurácia,
+ * onde a prova inteira teria terminado? Vem como FAIXA, não como ponto, porque
+ * acurácia medida em poucas questões tem incerteza grande — e vem com a
+ * ressalva de que a faixa é otimista, já que as questões não alcançadas são as
+ * mais difíceis.
+ */
+export interface Projection {
+  /** quantas questões este ritmo alcançaria nos 15 minutos */
+  projectedReached: number
+  accuracyLow: number
+  accuracyHigh: number
+  projectedRaw: number
+  projectedRawLow: number
+  projectedRawHigh: number
+  percentile: number
+  percentileLow: number
+  percentileHigh: number
 }
 
 export interface SessionScore {
@@ -44,6 +71,14 @@ export interface SessionScore {
    * resultado precisa dizer a coisa certa.
    */
   endedByTimeout: boolean
+  /**
+   * A sessão valeu como medição de CCAT? Só quando o relógio foi até o fim ou
+   * as 50 questões foram alcançadas. Fora disso o score bruto não é comparável
+   * à norma.
+   */
+  completeRun: boolean
+  /** presente só quando a simulação foi interrompida e há amostra suficiente */
+  projection: Projection | null
   byTipo: TipoBreakdown[]
   /** tipo com menor acurácia entre os que tiveram ao menos 3 questões */
   weakestTipo: Tipo | null
@@ -58,6 +93,10 @@ export function scoreSession(state: SessionState, now: number): SessionScore {
   const skipped = answers.filter((a) => !a.timedOut && a.chosenId === null).length
 
   const byTipo = TIPOS.map((tipo) => breakdown(tipo, answers)).filter((b) => b.reached > 0)
+  const completa =
+    config.mode !== 'exam' ||
+    reached >= config.questions.length ||
+    esgotouTempo(state, durationMs)
 
   return {
     mode: config.mode,
@@ -73,8 +112,50 @@ export function scoreSession(state: SessionState, now: number): SessionScore {
     percentile: config.mode === 'exam' ? rawToPercentile(raw) : null,
     durationMs,
     endedByTimeout: esgotouTempo(state, durationMs),
+    completeRun: completa,
+    projection: completa ? null : projetar(config.mode, reached, raw, media(answers.map((a) => a.elapsedMs))),
     byTipo,
     weakestTipo: maisFraco(byTipo),
+  }
+}
+
+/** Abaixo disto, a acurácia observada é ruído e projetar seria inventar. */
+const MINIMO_PARA_PROJETAR = 5
+
+/**
+ * Projeta o resultado de uma prova inteira a partir do ritmo e da acurácia
+ * observados no pedaço que foi feito.
+ */
+function projetar(
+  mode: 'exam' | 'drill',
+  reached: number,
+  raw: number,
+  avgMs: number | null,
+): Projection | null {
+  if (mode !== 'exam') return null
+  if (reached < MINIMO_PARA_PROJETAR || avgMs === null || avgMs <= 0) return null
+
+  // Quantas questões este ritmo alcançaria no orçamento da prova.
+  const projectedReached = Math.max(
+    1,
+    Math.min(EXAM_QUESTION_COUNT, Math.floor(EXAM_DURATION_MS / avgMs)),
+  )
+
+  const { low, high } = wilsonInterval(raw, reached)
+  const acuracia = raw / reached
+
+  const bruto = (p: number) => Math.round(projectedReached * p)
+
+  return {
+    projectedReached,
+    accuracyLow: low,
+    accuracyHigh: high,
+    projectedRaw: bruto(acuracia),
+    projectedRawLow: bruto(low),
+    projectedRawHigh: bruto(high),
+    percentile: rawToPercentile(bruto(acuracia)),
+    percentileLow: rawToPercentile(bruto(low)),
+    percentileHigh: rawToPercentile(bruto(high)),
   }
 }
 

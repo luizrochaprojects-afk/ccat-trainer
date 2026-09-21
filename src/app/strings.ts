@@ -89,7 +89,27 @@ const en = {
   'result.avgTime': 'Average time per question',
   'result.pace.ok': 'on pace',
   'result.pace.target': 'target {time}',
+  'chart.mean': 'MEAN',
+  'chart.alt.point':
+    'Your score of {raw} correct on the CCAT distribution, estimated percentile {percentile}. The mean is {mean}.',
+  'chart.alt.range':
+    'Projection between {low} and {high} correct on the CCAT distribution. The mean is {mean}.',
+  'chart.alt.trend': 'Correct answers per mock test, oldest to most recent: {valores}. CCAT mean: {mean}.',
+  'chart.you': 'YOU',
+  'chart.first': '1st',
+  'chart.nth': '{n}th',
   'result.placement': 'Where that puts you',
+  'result.projection': 'Where this pace would put you',
+  'result.projection.lead':
+    'You stopped after {reached} of {total} questions, so this is not a CCAT score yet \u2014 the raw score counts how many you get right in the full 15 minutes. At this pace and accuracy, a full run would land here.',
+  'result.projection.score': 'Projected score',
+  'result.projection.range': 'between {low} and {high}',
+  'result.projection.reached': 'Questions this pace reaches',
+  'result.projection.reached.note': 'in 15 minutes, at {time} each',
+  'result.projection.percentile': 'Projected percentile',
+  'result.projection.caveat.label': 'Read the range, not the midpoint',
+  'result.projection.caveat.body':
+    'Two things widen it. {reached} questions is a small sample: the true accuracy behind {accuracy} sits anywhere between {low} and {high}. And the questions you did not reach are the harder ones \u2014 difficulty rises through the test \u2014 so the real figure tends toward the low end. Finish a full 15 minutes to replace this with a measurement.',
   'result.placement.legend':
     'The shaded area is the slice of candidates you are ahead of: percentile {percentile}.',
   'result.placement.toP80': ' {count} more correct answers would reach the 80th percentile.',
@@ -112,7 +132,7 @@ const en = {
     'The test stopped at {reached} questions. That is common on the CCAT — but every question you did not reach is a correct answer you never had the chance to mark. The target is {time} per question.',
   'result.abandoned.label': 'You ended early',
   'result.abandoned.body':
-    'That was {reached} of {total} questions. The score and percentile apply to what you answered — to measure where you really stand, take the whole test.',
+    'That was {reached} of {total} questions. Accuracy and pace above are real; the projection is not a measurement. Run the full 15 minutes to get a score you can compare.',
   'result.empty.title': 'Nothing to show',
   'result.empty.lead':
     'This screen appears when you finish a session. Reloading the page clears the result from memory — but it is still saved in your progress.',
@@ -134,7 +154,10 @@ const en = {
   'progress.headline.delta.down': ' Down {count} since the first.',
   'progress.chart': 'Score per mock test',
   'progress.chart.legend':
-    'Oldest to most recent. Percentiles are estimated by normal approximation — see the caveat on the result screen.',
+    'Oldest to most recent, complete runs only. A test you ended early is not a score that compares to the norm, so it is left out of the trend.',
+  'progress.partial': 'partial',
+  'progress.partial.note':
+    'Left out of the chart: {count} run(s) you ended early. A partial run has no score that compares to the norm.',
   'progress.table.when': 'When',
   'progress.table.correct': 'Correct',
   'progress.table.reached': 'Reached',
@@ -246,7 +269,27 @@ const pt: Record<StringKey, string> = {
   'result.avgTime': 'Tempo médio por questão',
   'result.pace.ok': 'dentro do ritmo',
   'result.pace.target': 'alvo {time}',
+  'chart.mean': 'MÉDIA',
+  'chart.alt.point':
+    'Sua pontuação de {raw} acertos na distribuição da CCAT, percentil estimado {percentile}. A média é {mean}.',
+  'chart.alt.range':
+    'Projeção entre {low} e {high} acertos na distribuição da CCAT. A média é {mean}.',
+  'chart.alt.trend': 'Acertos por simulação, da mais antiga à mais recente: {valores}. Média da CCAT: {mean}.',
+  'chart.you': 'VOCÊ',
+  'chart.first': '1ª',
+  'chart.nth': '{n}ª',
   'result.placement': 'Onde isso te coloca',
+  'result.projection': 'Onde este ritmo te colocaria',
+  'result.projection.lead':
+    'Voc\u00ea parou em {reached} de {total} quest\u00f5es, ent\u00e3o isto ainda n\u00e3o \u00e9 um score de CCAT \u2014 o score bruto conta quantas voc\u00ea acerta nos 15 minutos inteiros. Mantido este ritmo e esta acur\u00e1cia, a prova completa cairia aqui.',
+  'result.projection.score': 'Score projetado',
+  'result.projection.range': 'entre {low} e {high}',
+  'result.projection.reached': 'Quest\u00f5es que este ritmo alcan\u00e7a',
+  'result.projection.reached.note': 'em 15 minutos, a {time} cada',
+  'result.projection.percentile': 'Percentil projetado',
+  'result.projection.caveat.label': 'Leia a faixa, n\u00e3o o meio',
+  'result.projection.caveat.body':
+    'Duas coisas alargam a faixa. {reached} quest\u00f5es s\u00e3o uma amostra pequena: a acur\u00e1cia real por tr\u00e1s dos {accuracy} pode estar em qualquer lugar entre {low} e {high}. E as quest\u00f5es que voc\u00ea n\u00e3o alcan\u00e7ou s\u00e3o as mais dif\u00edceis \u2014 a dificuldade sobe ao longo da prova \u2014 ent\u00e3o o n\u00famero real tende ao p\u00e9 da faixa. Fa\u00e7a os 15 minutos inteiros para trocar isto por uma medi\u00e7\u00e3o.',
   'result.placement.legend':
     'A área escura é a fatia de candidatos que você ultrapassou: percentil {percentile}.',
   'result.placement.toP80': ' Faltam {count} acertos para chegar ao percentil 80.',
@@ -270,7 +313,7 @@ const pt: Record<StringKey, string> = {
     'A prova parou em {reached} questões. Na CCAT isso é comum — mas cada questão não alcançada é um acerto que você não teve chance de marcar. O alvo é {time} por questão.',
   'result.abandoned.label': 'Você encerrou antes',
   'result.abandoned.body':
-    'Foram {reached} de {total} questões. O score e o percentil valem para o que foi respondido — para medir onde você está de verdade, vale fazer a prova inteira.',
+    'Foram {reached} de {total} questões. A acurácia e o ritmo acima são reais; a projeção não é medição. Faça os 15 minutos inteiros para ter um score comparável.',
   'result.empty.title': 'Nenhum resultado para mostrar',
   'result.empty.lead':
     'Esta tela aparece ao terminar uma sessão. Recarregar a página apaga o resultado da memória — mas ele continua salvo na sua evolução.',
@@ -291,7 +334,10 @@ const pt: Record<StringKey, string> = {
   'progress.headline.delta.down': ' Caiu {count} desde a primeira.',
   'progress.chart': 'Score por simulação',
   'progress.chart.legend':
-    'Da simulação mais antiga à mais recente. Percentis são estimados por aproximação normal — veja a ressalva na tela de resultado.',
+    'Da mais antiga à mais recente, só simulações completas. Prova encerrada no meio não tem score comparável à norma, então fica fora da tendência.',
+  'progress.partial': 'parcial',
+  'progress.partial.note':
+    '{count} simulação interrompida ficou fora do gráfico: prova encerrada no meio não tem score comparável.',
   'progress.table.when': 'Quando',
   'progress.table.correct': 'Acertos',
   'progress.table.reached': 'Alcançadas',

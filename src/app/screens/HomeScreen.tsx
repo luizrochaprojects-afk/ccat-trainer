@@ -144,7 +144,10 @@ export function HomeScreen({ onStart }: { onStart: (s: SessionState) => void }) 
                   <td className="n">
                     {s.score.raw}/{s.score.reached}
                   </td>
-                  <td className="n">{formatPercentile(s.score.percentile)}</td>
+                  <td className="n">
+                    {/* Percentil de prova interrompida nao compara com a norma. */}
+                    {(s.score.completeRun ?? true) ? formatPercentile(s.score.percentile) : '—'}
+                  </td>
                 </tr>
               ))}
             </tbody>

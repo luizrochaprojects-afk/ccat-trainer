@@ -1,4 +1,5 @@
 import { CCAT_NORMS, EXAM_QUESTION_COUNT } from '../../core/taxonomy'
+import { useLocale } from '../LocaleContext'
 
 /**
  * A distribuição da CCAT com a sua posição marcada.
@@ -7,10 +8,23 @@ import { CCAT_NORMS, EXAM_QUESTION_COUNT } from '../../core/taxonomy'
  * número sozinho é abstrato; ver que a sua marca está à direita da média, e
  * quanto da área fica atrás dela, explica o percentil sem uma linha de texto.
  *
- * Também torna visível por que os extremos são imprecisos — a cauda é rasa, e
- * lá alguns acertos deslocam muito o percentil.
+ * Numa simulação interrompida a marca vira uma FAIXA. Um traço fino ali
+ * afirmaria uma precisão que 15 questões não sustentam — a largura da faixa é
+ * a incerteza, e mostrá-la é parte de dizer a verdade.
  */
-export function DistributionCurve({ raw, percentile }: { raw: number; percentile: number }) {
+export function DistributionCurve({
+  raw,
+  percentile,
+  faixa,
+  rotulo,
+}: {
+  raw: number
+  percentile: number
+  /** faixa de incerteza, em acertos brutos */
+  faixa?: { low: number; high: number }
+  rotulo?: string
+}) {
+  const { t } = useLocale()
   const w = 600
   const h = 150
   const base = h - 26
@@ -22,28 +36,49 @@ export function DistributionCurve({ raw, percentile }: { raw: number; percentile
 
   const passos = Array.from({ length: EXAM_QUESTION_COUNT * 2 + 1 }, (_, i) => i / 2)
   const curva = passos.map((s) => `${x(s).toFixed(1)},${y(s).toFixed(1)}`).join(' ')
+
+  const preso = (v: number) => Math.max(0, Math.min(EXAM_QUESTION_COUNT, v))
+  const marcaX = x(preso(raw))
+  const ancora = marcaX < 52 ? 'start' : marcaX > w - 52 ? 'end' : 'middle'
+  const texto = rotulo ?? `${t('chart.you')} · ${raw}`
+
   const areaAte = passos
     .filter((s) => s <= raw)
     .map((s) => `${x(s).toFixed(1)},${y(s).toFixed(1)}`)
     .join(' ')
 
-  const marcaX = x(Math.max(0, Math.min(EXAM_QUESTION_COUNT, raw)))
-  // Mantém o rótulo dentro do quadro quando o score está nas pontas.
-  const ancora = marcaX < 52 ? 'start' : marcaX > w - 52 ? 'end' : 'middle'
+  const faixaPassos = faixa
+    ? passos.filter((s) => s >= preso(faixa.low) && s <= preso(faixa.high))
+    : []
 
   return (
     <svg
       className="grafico"
       viewBox={`0 0 ${w} ${h}`}
       role="img"
-      aria-label={`Sua pontuação de ${raw} acertos na distribuição da CCAT, percentil estimado ${percentile}. A média é ${mean} acertos.`}
+      aria-label={
+        faixa
+          ? t('chart.alt.range', { low: faixa.low, high: faixa.high, mean })
+          : t('chart.alt.point', { raw, percentile, mean })
+      }
     >
       {/* área acumulada até o seu score: é literalmente o percentil */}
-      {raw > 0 && (
+      {!faixa && raw > 0 && (
         <polygon
           points={`0,${base} ${areaAte} ${marcaX.toFixed(1)},${base}`}
           fill="#0d0d0c"
           opacity="0.09"
+        />
+      )}
+
+      {/* faixa de incerteza da projeção */}
+      {faixa && faixaPassos.length > 0 && (
+        <polygon
+          points={`${x(preso(faixa.low)).toFixed(1)},${base} ${faixaPassos
+            .map((s) => `${x(s).toFixed(1)},${y(s).toFixed(1)}`)
+            .join(' ')} ${x(preso(faixa.high)).toFixed(1)},${base}`}
+          fill="#0d0d0c"
+          opacity="0.14"
         />
       )}
 
@@ -69,8 +104,23 @@ export function DistributionCurve({ raw, percentile }: { raw: number; percentile
         fontFamily="'IBM Plex Mono', monospace"
         letterSpacing="0.06em"
       >
-        MÉDIA {mean}
+        {t('chart.mean')} {mean}
       </text>
+
+      {/* limites da faixa */}
+      {faixa &&
+        [faixa.low, faixa.high].map((v) => (
+          <line
+            key={v}
+            x1={x(preso(v))}
+            y1={y(preso(v))}
+            x2={x(preso(v))}
+            y2={base}
+            stroke="#0d0d0c"
+            strokeWidth="1"
+            strokeDasharray="2 2"
+          />
+        ))}
 
       {/* sua marca */}
       <line x1={marcaX} y1={10} x2={marcaX} y2={base} stroke="#0d0d0c" strokeWidth="2" />
@@ -85,7 +135,7 @@ export function DistributionCurve({ raw, percentile }: { raw: number; percentile
         fontFamily="'IBM Plex Mono', monospace"
         letterSpacing="0.02em"
       >
-        VOCÊ · {raw}
+        {texto}
       </text>
 
       {[0, 10, 20, 30, 40, 50].map((s) => (

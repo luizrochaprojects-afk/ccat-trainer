@@ -66,3 +66,34 @@ export function rawNeededForPercentile(targetPercentile: number): number {
   }
   return EXAM_QUESTION_COUNT
 }
+
+/**
+ * Intervalo de confiança de Wilson para uma proporção.
+ *
+ * Usado para dizer o quanto a acurácia observada em poucas questões pode ser
+ * confiada. Com 12 acertos em 15, a acurácia pontual é 80% — mas o intervalo
+ * real vai de ~55% a ~93%, e projetar a prova inteira a partir do ponto médio
+ * esconde exatamente essa incerteza.
+ *
+ * Wilson e não a aproximação normal: com n pequeno ou p perto de 0 ou 1, a
+ * normal produz intervalos que saem de [0,1] e mentem sobre a precisão.
+ */
+export function wilsonInterval(
+  acertos: number,
+  total: number,
+  z = 1.96,
+): { low: number; high: number } {
+  if (total <= 0) return { low: 0, high: 1 }
+
+  const p = acertos / total
+  const z2 = z * z
+  const denominador = 1 + z2 / total
+  const centro = (p + z2 / (2 * total)) / denominador
+  const margem =
+    (z / denominador) * Math.sqrt((p * (1 - p)) / total + z2 / (4 * total * total))
+
+  return {
+    low: Math.max(0, centro - margem),
+    high: Math.min(1, centro + margem),
+  }
+}

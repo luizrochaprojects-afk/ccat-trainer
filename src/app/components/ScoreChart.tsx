@@ -1,4 +1,5 @@
 import { CCAT_NORMS, EXAM_QUESTION_COUNT } from '../../core/taxonomy'
+import { useLocale } from '../LocaleContext'
 
 /**
  * Score por simulação ao longo do tempo.
@@ -8,6 +9,7 @@ import { CCAT_NORMS, EXAM_QUESTION_COUNT } from '../../core/taxonomy'
  * passei da média?", e sem escala nem referência nenhum traço responde isso.
  */
 export function ScoreChart({ valores }: { valores: number[] }) {
+  const { t } = useLocale()
   if (valores.length === 0) return null
 
   const w = 600
@@ -32,7 +34,7 @@ export function ScoreChart({ valores }: { valores: number[] }) {
       className="grafico"
       viewBox={`0 0 ${w} ${h}`}
       role="img"
-      aria-label={`Acertos por simulação, da mais antiga à mais recente: ${valores.join(', ')}. Média oficial da CCAT: ${CCAT_NORMS.mean}.`}
+      aria-label={t('chart.alt.trend', { valores: valores.join(', '), mean: CCAT_NORMS.mean })}
     >
       {marcas.map((m) => (
         <g key={m}>
@@ -69,7 +71,7 @@ export function ScoreChart({ valores }: { valores: number[] }) {
         fontFamily="'IBM Plex Mono', monospace"
         letterSpacing="0.06em"
       >
-        MÉDIA CCAT {CCAT_NORMS.mean}
+        {t('chart.mean')} {CCAT_NORMS.mean}
       </text>
 
       {valores.length > 1 && (
@@ -97,7 +99,7 @@ export function ScoreChart({ valores }: { valores: number[] }) {
 
       <line x1={padE} y1={base} x2={w - padD} y2={base} stroke="#0d0d0c" strokeWidth="1.5" />
       <text x={padE} y={h - 8} fontSize="10" fill="#6e6960" fontFamily="'IBM Plex Mono', monospace">
-        1ª
+        {t('chart.first')}
       </text>
       {valores.length > 1 && (
         <text
@@ -108,7 +110,7 @@ export function ScoreChart({ valores }: { valores: number[] }) {
           fill="#6e6960"
           fontFamily="'IBM Plex Mono', monospace"
         >
-          {valores.length}ª
+          {t('chart.nth', { n: valores.length })}
         </text>
       )}
     </svg>

@@ -26,6 +26,19 @@ export function ProgressScreen() {
     [sessoes],
   )
 
+  /**
+   * Só simulações completas entram na tendência. Uma prova encerrada no meio
+   * não tem score comparável à norma — plotá-la junto criaria uma queda que
+   * não corresponde a piora nenhuma.
+   *
+   * `?? true` cobre sessões gravadas antes deste campo existir.
+   */
+  const completas = useMemo(
+    () => simulacoes.filter((s) => s.score.completeRun ?? true),
+    [simulacoes],
+  )
+  const parciais = simulacoes.length - completas.length
+
   const porTipo = useMemo(() => agregarPorTipo(sessoes ?? []), [sessoes])
 
   if (!sessoes) return <p className="legenda">{t('progress.loading')}</p>
@@ -46,10 +59,10 @@ export function ProgressScreen() {
     )
   }
 
-  const ultima = simulacoes.at(-1)
-  const primeira = simulacoes[0]
+  const ultima = completas.at(-1)
+  const primeira = completas[0]
   const delta =
-    ultima && primeira && simulacoes.length > 1 ? ultima.score.raw - primeira.score.raw : null
+    ultima && primeira && completas.length > 1 ? ultima.score.raw - primeira.score.raw : null
   const treinos = sessoes.length - simulacoes.length
 
   return (
@@ -67,7 +80,7 @@ export function ProgressScreen() {
         })}
       </p>
 
-      {simulacoes.length > 0 && (
+      {completas.length > 0 && (
         <>
           <div className="manchete">
             <span className="score">{ultima!.score.raw}</span>
@@ -83,8 +96,11 @@ export function ProgressScreen() {
           </div>
 
           <h2>{t('progress.chart')}</h2>
-          <ScoreChart valores={simulacoes.map((s) => s.score.raw)} />
-          <p className="legenda">{t('progress.chart.legend')}</p>
+          <ScoreChart valores={completas.map((s) => s.score.raw)} />
+          <p className="legenda">
+            {t('progress.chart.legend')}
+            {parciais > 0 && ` ${t('progress.partial.note', { count: parciais })}`}
+          </p>
 
           <table>
             <thead>
@@ -99,12 +115,19 @@ export function ProgressScreen() {
             <tbody>
               {[...simulacoes].reverse().map((s) => (
                 <tr key={s.id}>
-                  <td>{formatDate(s.finishedAt, locale)}</td>
+                  <td>
+                    {formatDate(s.finishedAt, locale)}
+                    {(s.score.completeRun ?? true) ? null : (
+                      <span className="marca-parcial"> {t('progress.partial')}</span>
+                    )}
+                  </td>
                   <td className="n">{s.score.raw}</td>
                   <td className="n">
                     {s.score.reached}/{s.score.total}
                   </td>
-                  <td className="n">{formatPercentile(s.score.percentile)}</td>
+                  <td className="n">
+                    {(s.score.completeRun ?? true) ? formatPercentile(s.score.percentile) : '—'}
+                  </td>
                   <td className="n">{formatSeconds(s.score.avgMs)}</td>
                 </tr>
               ))}
