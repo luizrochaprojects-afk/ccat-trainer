@@ -159,15 +159,23 @@ class Parser {
   }
 }
 
-// --- Formatação e leitura de números em pt-BR --------------------------------
+// --- Formatacao e leitura de numeros ----------------------------------------
 
-export type NumberFormat = 'plain' | 'brl' | 'percent'
+/**
+ * Formatacao en-US, nao pt-BR.
+ *
+ * O conteudo das questoes e sempre ingles (ver core/i18n.ts), e numero faz
+ * parte do conteudo: uma alternativa "R$ 1.234,50" numa prova em ingles esta
+ * no idioma errado tanto quanto um enunciado traduzido pela metade. A separacao
+ * e milhar por virgula e decimal por ponto, como a CCAT apresenta.
+ */
+export type NumberFormat = 'plain' | 'currency' | 'percent'
 
-/** Formata para exibição. Precisa ser determinístico: o gate compara strings. */
+/** Formata para exibicao. Precisa ser deterministico: o gate compara strings. */
 export function formatNumber(value: number, format: NumberFormat = 'plain'): string {
   switch (format) {
-    case 'brl':
-      return `R$ ${fixed(value, 2)}`
+    case 'currency':
+      return `$${fixed(value, 2)}`
     case 'percent':
       return `${fixed(value, temDecimal(value) ? 1 : 0)}%`
     case 'plain':
@@ -175,17 +183,16 @@ export function formatNumber(value: number, format: NumberFormat = 'plain'): str
   }
 }
 
-/** Lê de volta um número exibido em pt-BR ("R$ 1.234,50" → 1234.5). */
-export function parseNumberPt(texto: string): number {
+/** Le de volta um numero exibido ("$1,234.50" -> 1234.5). */
+export function parseNumber(texto: string): number {
   const limpo = texto
-    .replace(/R\$/g, '')
+    .replace(/\$/g, '')
     .replace(/%/g, '')
-    .replace(/\s| /g, '')
-    .replace(/\./g, '')
-    .replace(/,/g, '.')
+    .replace(/\s|\u00a0/g, '')
+    .replace(/,/g, '')
   const valor = Number(limpo)
   if (!Number.isFinite(valor)) {
-    throw new SolverError(`não consegui ler um número em "${texto}"`)
+    throw new SolverError(`nao consegui ler um numero em "${texto}"`)
   }
   return valor
 }
@@ -193,8 +200,11 @@ export function parseNumberPt(texto: string): number {
 function fixed(value: number, casas: number): string {
   const arredondado = value.toFixed(casas)
   const [inteiro = '0', decimal] = arredondado.split('.')
-  const comMilhar = inteiro.replace(/\B(?=(\d{3})+(?!\d))/g, '.')
-  return decimal ? `${comMilhar},${decimal}` : comMilhar
+  const negativo = inteiro.startsWith('-')
+  const digitos = negativo ? inteiro.slice(1) : inteiro
+  const comMilhar = digitos.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+  const corpo = negativo ? `-${comMilhar}` : comMilhar
+  return decimal ? `${corpo}.${decimal}` : corpo
 }
 
 function temDecimal(value: number): boolean {

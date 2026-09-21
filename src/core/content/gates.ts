@@ -1,5 +1,5 @@
 import { normalizeText, questionSchema, type Question } from '../schema'
-import { evaluateExpression, parseNumberPt } from '../math/solver'
+import { evaluateExpression, parseNumber } from '../math/solver'
 import { runGenerator } from '../generators'
 import { acceptsVerification, VERIFICATION_METHODS, type Tipo } from '../taxonomy'
 
@@ -216,7 +216,7 @@ function gateGabarito(q: Question): Violation[] {
     }
     let exibido: number
     try {
-      exibido = parseNumberPt(texto)
+      exibido = parseNumber(texto)
     } catch {
       add(`alternativa marcada "${texto}" não é um número legível`)
       return v
@@ -341,7 +341,7 @@ function idDe(bruto: unknown): string {
 
 function podeSerNumero(texto: string): boolean {
   try {
-    parseNumberPt(texto)
+    parseNumber(texto)
     return true
   } catch {
     return false

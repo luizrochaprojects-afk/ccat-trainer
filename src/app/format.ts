@@ -1,3 +1,5 @@
+import type { Locale } from '../core/i18n'
+
 /** Formatação compartilhada pelas telas. */
 
 /** mm:ss — o formato do cronômetro da prova. */
@@ -19,8 +21,8 @@ export function formatPercent(fracao: number | null): string {
   return `${Math.round(fracao * 100)}%`
 }
 
-export function formatDate(epoch: number): string {
-  return new Date(epoch).toLocaleDateString('pt-BR', {
+export function formatDate(epoch: number, locale: Locale): string {
+  return new Date(epoch).toLocaleDateString(locale === 'pt' ? 'pt-BR' : 'en-US', {
     day: '2-digit',
     month: 'short',
     year: 'numeric',

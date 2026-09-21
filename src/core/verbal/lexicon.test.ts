@@ -179,7 +179,8 @@ describe('SENTENCE_FRAMES — integridade', () => {
 
   it('toda frase tem justificativa em português', () => {
     for (const f of SENTENCE_FRAMES) {
-      expect(f.rationale.length, f.frame).toBeGreaterThan(40)
+      expect(f.rationale.pt.length, f.frame).toBeGreaterThan(40)
+      expect(f.rationale.en.length, f.frame).toBeGreaterThan(40)
     }
   })
 

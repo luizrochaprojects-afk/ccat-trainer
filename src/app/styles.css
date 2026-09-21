@@ -1,39 +1,63 @@
 /*
  * Sistema visual do CCAT Trainer.
  *
- * Tema claro fixo: fundo branco, letra preta, alto contraste (PRD §6). Sem
- * variante escura — a tela de questão precisa ser legível em 18 segundos, e
- * contraste máximo é o que sustenta isso.
+ * O produto tem um antagonista: o relógio. Tudo aqui serve a isso — o
+ * cronômetro é o maior elemento da tela de sessão, os números vivem em
+ * monoespaçada tabular porque são medição, e o resto sai do caminho.
  *
- * Tipografia: texto em serifada (leitura de enunciado longo) e todo NÚMERO em
- * monoespaçada. Cronômetro, contador e score mudam o tempo todo; com fonte
- * proporcional o layout treme a cada dígito e o olho precisa reancorar.
+ * Tema claro fixo, alto contraste. A cena de uso é alguém treinando
+ * concentrado, de dia, olhando a tela por 15 minutos seguidos.
+ *
+ * Tipografia: Fraunces (display editorial, eixo óptico no máximo para dar
+ * contraste de traço), Inter Tight (texto de interface), IBM Plex Mono
+ * (tudo que é número). Todas auto-hospedadas via @fontsource.
  */
 
 :root {
   color-scheme: light;
 
-  --tinta: #111111;
-  --tinta-fraca: #5a5a5a;
-  --tinta-tenue: #8a8a8a;
+  /* --- tinta e papel --- */
+  --tinta: #0d0d0c;
+  --tinta-fraca: #55524c;
+  /* Escurecido de #8c877e: aquele valor dava 3,4:1 em texto pequeno, abaixo
+     do mínimo de 4,5:1, e ele carrega legenda, tecla, trilha e rótulo de
+     gráfico. Este dá 5,5:1 sobre papel e 5,0:1 sobre o papel de fundo. */
+  --tinta-tenue: #6e6960;
   --papel: #ffffff;
-  --papel-suave: #f6f5f3;
-  --linha: #d9d7d3;
-  --linha-forte: #111111;
+  --papel-fundo: #f4f2ed;
+  --linha: #ddd9d1;
+  --linha-media: #b8b2a7;
 
-  --certo: #1a6b3c;
-  --certo-fundo: #e8f3ec;
-  --errado: #a4242b;
-  --errado-fundo: #fbebec;
-  --alerta: #8a5a00;
+  --certo: #14603a;
+  --certo-fundo: #e6f1e9;
+  --errado: #a01c22;
+  --errado-fundo: #fbeaea;
 
-  --serif: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
-  --sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, 'SF Mono', 'Cascadia Mono', Menlo, Consolas, monospace;
+  /* --- famílias --- */
+  --display: 'Fraunces Variable', 'Iowan Old Style', Georgia, serif;
+  --texto: 'Inter Tight Variable', ui-sans-serif, system-ui, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
 
-  --gutter: 20px;
-  --max: 720px;
-  --raio: 10px;
+  /* Eixos do Fraunces: opsz alto = contraste de traço maior (voz de display);
+     WONK liga as formas idiossincráticas que dão caráter ao título. */
+  --display-axes: 'opsz' 144, 'SOFT' 0, 'WONK' 1;
+  --display-axes-quieto: 'opsz' 48, 'SOFT' 12, 'WONK' 0;
+
+  /* --- escala --- */
+  --t-display: clamp(2.6rem, 7vw, 4.25rem);
+  --t-score: clamp(4rem, 15vw, 6rem);
+  --t-timer: clamp(2.6rem, 9vw, 3.6rem);
+  --t-stem: clamp(1.35rem, 3.2vw, 1.85rem);
+  --t-h2: clamp(1.3rem, 2.6vw, 1.65rem);
+  --t-corpo: 1.0625rem;
+  --t-micro: 0.75rem;
+
+  --gutter: clamp(20px, 5vw, 40px);
+  --max: 760px;
+  --raio: 4px;
+
+  /* Saída exponencial: rápido no começo, assentando no fim. */
+  --saida: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 * {
@@ -49,10 +73,64 @@ body {
 body {
   background: var(--papel);
   color: var(--tinta);
-  font-family: var(--sans);
-  font-size: 17px;
+  font-family: var(--texto);
+  font-size: var(--t-corpo);
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* --- superfícies do navegador ------------------------------------------- */
+/* O que não desenhamos também carrega o design. Sem isto, seleção, cursor,
+   scrollbar e anel de foco entram com o default do navegador, que não
+   pertence a sistema nenhum. */
+
+::selection {
+  background: var(--tinta);
+  color: var(--papel);
+}
+
+:root {
+  scrollbar-color: var(--linha-media) transparent;
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--linha-media);
+  border: 3px solid var(--papel);
+  border-radius: 99px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--tinta-fraca);
+}
+
+input,
+select,
+textarea {
+  caret-color: var(--tinta);
+}
+
+:focus-visible {
+  outline: 2px solid var(--tinta);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+a {
+  color: var(--tinta);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  text-decoration-color: var(--linha-media);
+}
+
+a:hover {
+  text-decoration-color: var(--tinta);
 }
 
 /* --- estrutura ----------------------------------------------------------- */
@@ -60,39 +138,45 @@ body {
 .shell {
   max-width: var(--max);
   margin: 0 auto;
-  padding: 0 var(--gutter) 80px;
+  padding: 0 var(--gutter) 96px;
 }
 
 .topo {
   display: flex;
-  align-items: baseline;
+  align-items: flex-end;
   justify-content: space-between;
-  gap: 16px;
-  padding: 20px 0 28px;
-  border-bottom: 1px solid var(--linha);
-  margin-bottom: 32px;
+  gap: 20px;
+  padding: 28px 0 14px;
+  border-bottom: 2px solid var(--tinta);
+  margin-bottom: 44px;
+  flex-wrap: wrap;
 }
 
 .marca {
-  font-family: var(--serif);
-  font-size: 19px;
+  font-family: var(--display);
+  font-variation-settings: var(--display-axes);
+  font-size: 1.5rem;
   font-weight: 600;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.025em;
+  line-height: 1;
   text-decoration: none;
-  color: var(--tinta);
 }
 
 .nav {
   display: flex;
-  gap: 18px;
-  font-size: 14px;
+  gap: 20px;
+  font-size: var(--t-micro);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
 }
 
 .nav a {
   color: var(--tinta-fraca);
   text-decoration: none;
-  border-bottom: 1px solid transparent;
-  padding-bottom: 2px;
+  padding-bottom: 3px;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -3px;
 }
 
 .nav a:hover,
@@ -104,127 +188,224 @@ body {
 /* --- tipografia ---------------------------------------------------------- */
 
 h1 {
-  font-family: var(--serif);
-  font-size: 34px;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  margin: 0 0 10px;
+  font-family: var(--display);
+  font-variation-settings: var(--display-axes);
+  font-size: var(--t-display);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  margin: 0 0 16px;
   font-weight: 600;
+  text-wrap: balance;
 }
 
 h2 {
-  font-family: var(--serif);
-  font-size: 23px;
-  margin: 40px 0 12px;
+  font-family: var(--display);
+  font-variation-settings: var(--display-axes-quieto);
+  font-size: var(--t-h2);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 56px 0 14px;
   font-weight: 600;
+  text-wrap: balance;
 }
 
 h3 {
-  font-size: 15px;
-  margin: 28px 0 8px;
+  font-size: var(--t-micro);
+  margin: 30px 0 8px;
   text-transform: uppercase;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.11em;
   color: var(--tinta-fraca);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .lead {
   color: var(--tinta-fraca);
-  margin: 0 0 32px;
-  font-size: 17px;
+  margin: 0 0 40px;
+  font-size: 1.1875rem;
+  line-height: 1.5;
+  max-width: 62ch;
+}
+
+p {
+  max-width: 70ch;
 }
 
 .num {
   font-family: var(--mono);
   font-variant-numeric: tabular-nums;
+  font-feature-settings: 'zero' 1;
+}
+
+.micro {
+  font-size: var(--t-micro);
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+  font-weight: 700;
+  color: var(--tinta-fraca);
 }
 
 /* --- botões -------------------------------------------------------------- */
 
 .btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   font: inherit;
-  font-size: 16px;
-  padding: 13px 22px;
-  border: 1.5px solid var(--linha-forte);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 14px 26px;
+  border: 2px solid var(--tinta);
   border-radius: var(--raio);
   background: var(--tinta);
   color: var(--papel);
   cursor: pointer;
   text-decoration: none;
   text-align: center;
+  transition: background 0.12s ease, color 0.12s ease;
 }
 
 .btn:hover {
-  opacity: 0.85;
+  background: var(--tinta-fraca);
+  border-color: var(--tinta-fraca);
 }
 
 .btn.secundario {
-  background: var(--papel);
+  background: transparent;
   color: var(--tinta);
 }
 
+.btn.secundario:hover {
+  background: var(--tinta);
+  color: var(--papel);
+  border-color: var(--tinta);
+}
+
 .btn:disabled {
-  opacity: 0.4;
+  opacity: 0.35;
   cursor: not-allowed;
+  background: transparent;
+  color: var(--tinta);
 }
 
 .btn-linha {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
-  margin-top: 24px;
+  margin-top: 32px;
 }
 
-/* --- cartões ------------------------------------------------------------- */
+/* --- ação principal da home ---------------------------------------------- */
 
-.cartao {
-  border: 1px solid var(--linha);
-  border-radius: var(--raio);
-  padding: 22px;
-  margin-bottom: 16px;
+.ato {
   display: block;
-  text-decoration: none;
+  width: 100%;
+  text-align: left;
+  font: inherit;
   color: inherit;
-  background: var(--papel);
+  background: none;
+  border: 0;
+  border-top: 2px solid var(--tinta);
+  padding: 30px 0 34px;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
 }
 
-a.cartao:hover {
-  border-color: var(--linha-forte);
+.ato + .ato {
+  border-top-width: 1px;
+  border-top-color: var(--linha);
 }
 
-.cartao h2 {
-  margin: 0 0 6px;
-  font-size: 21px;
+.ato:last-of-type {
+  border-bottom: 1px solid var(--linha);
 }
 
-.cartao p {
+.ato h2 {
+  font-variation-settings: var(--display-axes);
+  margin: 0 0 8px;
+  font-size: clamp(1.75rem, 4.4vw, 2.5rem);
+  letter-spacing: -0.03em;
+  transition: transform 0.18s var(--saida);
+  transform-origin: left center;
+}
+
+.ato:hover h2 {
+  transform: translateX(7px);
+}
+
+.ato p {
   margin: 0;
   color: var(--tinta-fraca);
-  font-size: 15px;
+  max-width: 54ch;
+}
+
+.ato .seta {
+  position: absolute;
+  right: 0;
+  top: 34px;
+  font-family: var(--mono);
+  color: var(--tinta-tenue);
+  transition: transform 0.18s var(--saida), color 0.18s ease;
+}
+
+.ato:hover .seta {
+  transform: translateX(6px);
+  color: var(--tinta);
+}
+
+.ato:disabled {
+  cursor: progress;
+}
+
+/* A forma da prova como frase, não como painel de números. */
+.formato {
+  font-family: var(--mono);
+  font-size: clamp(0.85rem, 2.4vw, 1.0625rem);
+  letter-spacing: -0.01em;
+  color: var(--tinta);
+  margin: 0 0 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  align-items: baseline;
+}
+
+.formato b {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.formato span {
+  color: var(--tinta-fraca);
+  font-family: var(--texto);
+  font-size: 0.9375rem;
 }
 
 /* --- sessão -------------------------------------------------------------- */
 
 .barra-sessao {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: space-between;
   gap: 16px;
-  padding: 14px 0;
-  border-bottom: 1px solid var(--linha);
+  padding: 18px 0 12px;
   position: sticky;
   top: 0;
   background: var(--papel);
   z-index: 10;
 }
 
+/* O cronômetro é o elemento mais importante da tela: é contra ele que a
+   pessoa está jogando. */
 .relogio {
   font-family: var(--mono);
   font-variant-numeric: tabular-nums;
-  font-size: 30px;
+  font-size: var(--t-timer);
   font-weight: 600;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.045em;
+  line-height: 1;
+  font-feature-settings: 'zero' 1;
 }
 
 .relogio.urgente {
@@ -233,13 +414,39 @@ a.cartao:hover {
 
 .contador {
   font-family: var(--mono);
-  font-size: 15px;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.9375rem;
   color: var(--tinta-fraca);
+  letter-spacing: -0.01em;
+  margin-left: auto;
+  margin-right: 18px;
 }
 
+.encerrar {
+  font: inherit;
+  font-size: var(--t-micro);
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+  font-weight: 700;
+  color: var(--tinta-tenue);
+  background: none;
+  border: 0;
+  padding: 4px 0;
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+}
+
+.encerrar:hover {
+  color: var(--tinta);
+  border-bottom-color: var(--tinta);
+}
+
+/* Régua de sangria total que drena — a passagem do tempo como fato
+   físico, não como enfeite. */
 .progresso {
   height: 3px;
   background: var(--linha);
+  margin: 0 calc(var(--gutter) * -1) 0;
   overflow: hidden;
 }
 
@@ -247,30 +454,54 @@ a.cartao:hover {
   display: block;
   height: 100%;
   background: var(--tinta);
+  transform-origin: left center;
+}
+
+.progresso.urgente > i {
+  background: var(--errado);
+}
+
+.questao {
+  animation: entrada 0.34s var(--saida) both;
+}
+
+@keyframes entrada {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+    filter: blur(3px);
+  }
 }
 
 .enunciado {
-  font-family: var(--serif);
-  font-size: 25px;
-  line-height: 1.4;
-  margin: 36px 0 28px;
+  font-family: var(--display);
+  font-variation-settings: var(--display-axes-quieto);
+  font-size: var(--t-stem);
+  line-height: 1.32;
+  letter-spacing: -0.015em;
+  margin: 40px 0 32px;
   white-space: pre-line;
+  max-width: 34ch;
+  text-wrap: pretty;
 }
 
 .enunciado.serie {
   font-family: var(--mono);
-  font-size: 27px;
-  letter-spacing: 0.04em;
+  font-variation-settings: normal;
+  font-size: clamp(1.4rem, 4.4vw, 2.1rem);
+  letter-spacing: 0.02em;
+  font-weight: 500;
+  max-width: none;
 }
 
 .figura-enunciado {
-  margin: 28px 0;
+  margin: 36px 0 8px;
 }
 
 .figura-enunciado svg {
   max-width: 100%;
   height: auto;
-  max-height: 260px;
+  max-height: 240px;
   display: block;
 }
 
@@ -278,59 +509,86 @@ a.cartao:hover {
 
 .opcoes {
   display: grid;
-  gap: 10px;
+  gap: 8px;
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
 .opcoes.graficas {
-  grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(122px, 1fr));
+  gap: 10px;
 }
 
 .opcao {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
   width: 100%;
   font: inherit;
+  font-size: 1.0625rem;
   text-align: left;
-  padding: 15px 18px;
-  border: 1.5px solid var(--linha);
+  padding: 0 20px 0 0;
+  border: 1px solid var(--linha);
   border-radius: var(--raio);
   background: var(--papel);
   color: var(--tinta);
   cursor: pointer;
+  overflow: hidden;
+  transition: border-color 0.12s ease;
 }
 
 .opcao:hover:not(:disabled) {
-  border-color: var(--linha-forte);
+  border-color: var(--tinta);
 }
 
 .opcoes.graficas .opcao {
   flex-direction: column;
-  gap: 8px;
-  padding: 12px;
+  gap: 0;
+  padding: 0 0 12px;
+  align-items: stretch;
 }
 
 .opcao svg {
   width: 100%;
-  max-width: 104px;
+  max-width: 108px;
   height: auto;
+  margin: 12px auto 0;
 }
 
+.opcao .rotulo {
+  padding: 16px 0;
+  flex: 1;
+}
+
+/* A tecla é elemento de design, não legenda: é assim que se responde rápido. */
 .tecla {
   font-family: var(--mono);
-  font-size: 13px;
-  min-width: 26px;
-  height: 26px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  width: 46px;
+  align-self: stretch;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--linha);
-  border-radius: 6px;
+  border-right: 1px solid var(--linha);
   color: var(--tinta-fraca);
   flex-shrink: 0;
+  background: var(--papel-fundo);
+  transition: background 0.12s ease, color 0.12s ease;
+}
+
+.opcoes.graficas .tecla {
+  width: 100%;
+  align-self: auto;
+  border-right: 0;
+  border-bottom: 1px solid var(--linha);
+  padding: 7px 0;
+}
+
+.opcao:hover:not(:disabled) .tecla {
+  background: var(--tinta);
+  color: var(--papel);
 }
 
 .opcao.certa {
@@ -338,29 +596,61 @@ a.cartao:hover {
   background: var(--certo-fundo);
 }
 
+.opcao.certa .tecla {
+  background: var(--certo);
+  color: var(--papel);
+  border-color: var(--certo);
+}
+
 .opcao.errada {
   border-color: var(--errado);
   background: var(--errado-fundo);
+}
+
+.opcao.errada .tecla {
+  background: var(--errado);
+  color: var(--papel);
+  border-color: var(--errado);
 }
 
 .opcao:disabled {
   cursor: default;
 }
 
+.pular {
+  font: inherit;
+  font-size: 0.9375rem;
+  background: none;
+  border: 0;
+  color: var(--tinta-tenue);
+  cursor: pointer;
+  padding: 18px 0 0;
+  text-decoration: underline;
+  text-decoration-color: var(--linha-media);
+  text-underline-offset: 0.2em;
+}
+
+.pular:hover {
+  color: var(--tinta);
+  text-decoration-color: var(--tinta);
+}
+
 /* --- feedback ------------------------------------------------------------ */
 
 .feedback {
-  margin-top: 22px;
-  padding: 18px;
-  border-radius: var(--raio);
-  border: 1px solid var(--linha);
-  background: var(--papel-suave);
-  font-size: 15.5px;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 2px solid var(--tinta);
+  animation: entrada 0.28s var(--saida) both;
 }
 
 .feedback .veredito {
-  font-weight: 700;
-  margin: 0 0 8px;
+  font-family: var(--display);
+  font-variation-settings: var(--display-axes);
+  font-size: 1.5rem;
+  letter-spacing: -0.025em;
+  margin: 0 0 10px;
+  line-height: 1;
 }
 
 .feedback .veredito.acerto {
@@ -372,90 +662,132 @@ a.cartao:hover {
 }
 
 .feedback p {
-  margin: 0 0 10px;
+  margin: 0 0 12px;
+  color: var(--tinta-fraca);
 }
 
 /* --- resultado ----------------------------------------------------------- */
 
-.placar {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-  gap: 1px;
-  background: var(--linha);
-  border: 1px solid var(--linha);
-  border-radius: var(--raio);
-  overflow: hidden;
-  margin: 28px 0;
+/* O score é a manchete, não um cartão de métrica. */
+.manchete {
+  display: flex;
+  align-items: baseline;
+  gap: clamp(16px, 4vw, 28px);
+  flex-wrap: wrap;
+  margin: 8px 0 12px;
+  padding-bottom: 28px;
+  border-bottom: 2px solid var(--tinta);
 }
 
-.stat {
-  background: var(--papel);
-  padding: 18px;
-}
-
-.stat .valor {
+.manchete .score {
   font-family: var(--mono);
   font-variant-numeric: tabular-nums;
-  font-size: 30px;
+  font-size: var(--t-score);
   font-weight: 600;
-  line-height: 1.1;
-  display: block;
+  line-height: 0.82;
+  letter-spacing: -0.06em;
+  font-feature-settings: 'zero' 1;
 }
 
-.stat .rotulo {
-  font-size: 12.5px;
+.manchete .frase {
+  font-family: var(--display);
+  font-variation-settings: var(--display-axes-quieto);
+  font-size: clamp(1.1rem, 2.8vw, 1.45rem);
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  max-width: 26ch;
+  flex: 1 1 220px;
+  margin: 0;
+}
+
+.linhas {
+  border-bottom: 1px solid var(--linha);
+  margin: 0 0 8px;
+}
+
+.linha-dado {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 0;
+  border-top: 1px solid var(--linha);
+}
+
+.linha-dado:first-child {
+  border-top: 0;
+}
+
+.linha-dado .rotulo {
+  font-size: 0.9375rem;
   color: var(--tinta-fraca);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-top: 6px;
-  display: block;
 }
 
-.stat .nota {
-  font-size: 12.5px;
-  color: var(--tinta-tenue);
-  margin-top: 4px;
-  display: block;
+.linha-dado .valor {
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 1.0625rem;
+  font-weight: 500;
+  white-space: nowrap;
 }
+
+.linha-dado .nota {
+  font-size: 0.8125rem;
+  color: var(--tinta-tenue);
+  margin-left: 8px;
+  font-family: var(--texto);
+  font-weight: 400;
+}
+
+/* --- tabelas ------------------------------------------------------------- */
 
 table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 15px;
-  margin: 12px 0 8px;
+  font-size: 0.9375rem;
+  margin: 14px 0 10px;
 }
 
 th,
 td {
   text-align: left;
-  padding: 10px 8px;
+  padding: 12px 10px 12px 0;
   border-bottom: 1px solid var(--linha);
+  vertical-align: baseline;
 }
 
-th {
-  font-size: 12.5px;
+thead th {
+  font-size: var(--t-micro);
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.1em;
   color: var(--tinta-fraca);
-  font-weight: 600;
+  font-weight: 700;
+  border-bottom: 1.5px solid var(--tinta);
+  padding-bottom: 8px;
 }
 
-td.n {
-  font-family: var(--mora, var(--mono));
+td.n,
+th.n {
+  font-family: var(--mono);
   font-variant-numeric: tabular-nums;
   text-align: right;
+  padding-right: 0;
+  white-space: nowrap;
 }
 
 th.n {
-  text-align: right;
+  font-family: var(--texto);
+}
+
+tbody tr:last-child td {
+  border-bottom: 0;
 }
 
 .medidor {
-  height: 6px;
+  display: block;
+  height: 2px;
   background: var(--linha);
-  border-radius: 3px;
-  overflow: hidden;
-  min-width: 56px;
+  min-width: 64px;
 }
 
 .medidor > i {
@@ -464,49 +796,58 @@ th.n {
   background: var(--tinta);
 }
 
-/* --- diversos ------------------------------------------------------------ */
+/* --- nota / ressalva ----------------------------------------------------- */
 
-.aviso {
-  border-left: 3px solid var(--alerta);
-  padding: 12px 16px;
-  background: var(--papel-suave);
-  font-size: 15px;
-  margin: 20px 0;
-  border-radius: 0 var(--raio) var(--raio) 0;
-}
-
-.vazio {
+.nota-bloco {
+  border-top: 2px solid var(--tinta);
+  padding: 14px 0 0;
+  margin: 32px 0;
+  font-size: 0.9375rem;
   color: var(--tinta-fraca);
-  padding: 40px 0;
-  text-align: center;
+  max-width: 68ch;
 }
+
+.nota-bloco > .micro {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--tinta);
+}
+
+.nota-bloco p {
+  margin: 0;
+}
+
+/* --- formulários --------------------------------------------------------- */
 
 .campo {
   display: block;
-  margin-bottom: 18px;
+  margin-bottom: 28px;
 }
 
 .campo > span {
   display: block;
-  font-size: 13px;
+  font-size: var(--t-micro);
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.11em;
   color: var(--tinta-fraca);
-  margin-bottom: 6px;
-  font-weight: 600;
+  margin-bottom: 10px;
+  font-weight: 700;
 }
 
-select,
-input[type='number'] {
+select {
   font: inherit;
-  font-size: 16px;
-  padding: 11px 13px;
-  border: 1.5px solid var(--linha);
+  font-size: 1.0625rem;
+  padding: 12px 14px;
+  border: 1px solid var(--linha-media);
   border-radius: var(--raio);
   background: var(--papel);
   color: var(--tinta);
   width: 100%;
-  max-width: 340px;
+  max-width: 360px;
+}
+
+select:hover {
+  border-color: var(--tinta);
 }
 
 .chips {
@@ -517,13 +858,19 @@ input[type='number'] {
 
 .chip {
   font: inherit;
-  font-size: 14px;
-  padding: 8px 14px;
-  border: 1.5px solid var(--linha);
-  border-radius: 999px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  padding: 9px 16px;
+  border: 1px solid var(--linha-media);
+  border-radius: 99px;
   background: var(--papel);
   color: var(--tinta);
   cursor: pointer;
+  transition: background 0.12s ease, color 0.12s ease, border-color 0.12s ease;
+}
+
+.chip:hover {
+  border-color: var(--tinta);
 }
 
 .chip[aria-pressed='true'] {
@@ -532,47 +879,162 @@ input[type='number'] {
   border-color: var(--tinta);
 }
 
-.rodape-teoria {
-  font-size: 14px;
+/* --- diversos ------------------------------------------------------------ */
+
+.vazio {
+  padding: 56px 0;
+  border-top: 2px solid var(--tinta);
+  border-bottom: 1px solid var(--linha);
+  margin: 32px 0;
+}
+
+.vazio p {
   color: var(--tinta-fraca);
-  margin-top: 10px;
+  margin: 0;
 }
 
-.rodape-teoria a {
-  color: var(--tinta);
-}
-
-ul.metodo {
-  padding-left: 20px;
-}
-
-ul.metodo li {
-  margin-bottom: 7px;
-}
-
-.sparkline {
-  display: block;
-  width: 100%;
-  height: 90px;
-  margin: 8px 0 4px;
+.rodape-teoria {
+  font-size: 0.9375rem;
+  color: var(--tinta-fraca);
+  margin-top: 14px;
+  max-width: 68ch;
 }
 
 .legenda {
-  font-size: 13px;
+  font-size: 0.875rem;
   color: var(--tinta-tenue);
+  max-width: 68ch;
+}
+
+ul.metodo {
+  padding-left: 0;
+  list-style: none;
+  counter-reset: passo;
+  max-width: 66ch;
+}
+
+ul.metodo li {
+  margin-bottom: 10px;
+  padding-left: 34px;
+  position: relative;
+  counter-increment: passo;
+}
+
+ul.metodo li::before {
+  content: counter(passo);
+  position: absolute;
+  left: 0;
+  top: 0.1em;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--tinta-tenue);
+  border: 1px solid var(--linha);
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 99px;
+}
+
+.grafico {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 10px 0 6px;
+  overflow: visible;
+}
+
+.trilha {
+  font-size: var(--t-micro);
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+  font-weight: 700;
+  color: var(--tinta-tenue);
+  margin: 0 0 14px;
+}
+
+.trilha a {
+  color: var(--tinta-fraca);
+  text-decoration: none;
+  border-bottom: 1px solid var(--linha);
+}
+
+.trilha a:hover {
+  color: var(--tinta);
+  border-bottom-color: var(--tinta);
 }
 
 @media (max-width: 560px) {
-  :root {
-    --gutter: 16px;
-  }
-  h1 {
-    font-size: 27px;
+  .manchete .score {
+    line-height: 0.9;
   }
   .enunciado {
-    font-size: 21px;
+    max-width: none;
   }
-  .relogio {
-    font-size: 25px;
+  .barra-sessao {
+    padding-top: 14px;
   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* --- seletor de idioma --------------------------------------------------- */
+
+.topo-direita {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+.idioma {
+  display: flex;
+  border: 1px solid var(--linha-media);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.idioma-opcao {
+  font: inherit;
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 5px 11px;
+  border: 0;
+  background: transparent;
+  color: var(--tinta-fraca);
+  cursor: pointer;
+  transition: background 0.12s ease, color 0.12s ease;
+}
+
+.idioma-opcao:hover {
+  color: var(--tinta);
+}
+
+.idioma-opcao[aria-pressed='true'] {
+  background: var(--tinta);
+  color: var(--papel);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
 }

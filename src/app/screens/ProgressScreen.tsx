@@ -1,7 +1,9 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { CCAT_NORMS, TIPOS, TIPO_LABEL, type Tipo } from '../../core/taxonomy'
+import { TIPOS, TIPO_LABEL, type Tipo } from '../../core/taxonomy'
 import { listSessions, type StoredSession } from '../../data/db'
+import { ScoreChart } from '../components/ScoreChart'
+import { useLocale } from '../LocaleContext'
 import { formatDate, formatPercent, formatPercentile, formatSeconds } from '../format'
 
 /**
@@ -11,6 +13,7 @@ import { formatDate, formatPercent, formatPercentile, formatSeconds } from '../f
  * estranhos não informa nada sobre estar ou não pronto para a prova.
  */
 export function ProgressScreen() {
+  const { t, tx, locale } = useLocale()
   const [sessoes, setSessoes] = useState<StoredSession[] | null>(null)
 
   useEffect(() => {
@@ -18,23 +21,24 @@ export function ProgressScreen() {
   }, [])
 
   const simulacoes = useMemo(
-    () => (sessoes ?? []).filter((s) => s.mode === 'exam').sort((a, b) => a.finishedAt - b.finishedAt),
+    () =>
+      (sessoes ?? []).filter((s) => s.mode === 'exam').sort((a, b) => a.finishedAt - b.finishedAt),
     [sessoes],
   )
 
   const porTipo = useMemo(() => agregarPorTipo(sessoes ?? []), [sessoes])
 
-  if (!sessoes) return <p className="legenda">Carregando histórico…</p>
+  if (!sessoes) return <p className="legenda">{t('progress.loading')}</p>
 
   if (sessoes.length === 0) {
     return (
       <>
-        <h1>Evolução</h1>
+        <h1>{t('progress.title')}</h1>
         <div className="vazio">
-          <p>Nenhuma sessão registrada ainda.</p>
-          <div className="btn-linha" style={{ justifyContent: 'center' }}>
+          <p>{t('progress.empty')}</p>
+          <div className="btn-linha">
             <Link className="btn" to="/">
-              Fazer a primeira simulação
+              {t('progress.empty.action')}
             </Link>
           </div>
         </div>
@@ -46,64 +50,56 @@ export function ProgressScreen() {
   const primeira = simulacoes[0]
   const delta =
     ultima && primeira && simulacoes.length > 1 ? ultima.score.raw - primeira.score.raw : null
+  const treinos = sessoes.length - simulacoes.length
 
   return (
     <>
-      <h1>Evolução</h1>
+      <h1>{t('progress.title')}</h1>
       <p className="lead">
-        {simulacoes.length === 0
-          ? 'Você ainda não fez uma simulação completa — só ela produz percentil.'
-          : `${simulacoes.length} ${simulacoes.length === 1 ? 'simulação' : 'simulações'} e ${
-              sessoes.length - simulacoes.length
-            } treinos registrados.`}
+        {t('progress.lead', {
+          exams: t(
+            simulacoes.length === 1 ? 'progress.lead.exams.one' : 'progress.lead.exams.other',
+            { count: simulacoes.length },
+          ),
+          drills: t(treinos === 1 ? 'progress.lead.drills.one' : 'progress.lead.drills.other', {
+            count: treinos,
+          }),
+        })}
       </p>
 
       {simulacoes.length > 0 && (
         <>
-          <div className="placar">
-            <div className="stat">
-              <span className="valor">{ultima!.score.raw}</span>
-              <span className="rotulo">Último score</span>
-              <span className="nota">média da CCAT: {CCAT_NORMS.mean}</span>
-            </div>
-            <div className="stat">
-              <span className="valor">{formatPercentile(ultima!.score.percentile)}</span>
-              <span className="rotulo">Percentil estimado</span>
-            </div>
-            <div className="stat">
-              <span className="valor">
-                {delta === null ? '—' : `${delta >= 0 ? '+' : ''}${delta}`}
-              </span>
-              <span className="rotulo">Desde a primeira</span>
-              <span className="nota">em acertos</span>
-            </div>
+          <div className="manchete">
+            <span className="score">{ultima!.score.raw}</span>
+            <p className="frase">
+              {t('progress.headline', {
+                percentile: formatPercentile(ultima!.score.percentile),
+              })}
+              {delta !== null &&
+                t(delta >= 0 ? 'progress.headline.delta.up' : 'progress.headline.delta.down', {
+                  count: Math.abs(delta),
+                })}
+            </p>
           </div>
 
-          <h2>Score por simulação</h2>
-          <Sparkline
-            valores={simulacoes.map((s) => s.score.raw)}
-            referencia={CCAT_NORMS.mean}
-            maximo={50}
-          />
-          <p className="legenda">
-            A linha tracejada é a média oficial da CCAT ({CCAT_NORMS.mean} acertos). Percentis são
-            estimados por aproximação normal — veja a ressalva na tela de resultado.
-          </p>
+          <h2>{t('progress.chart')}</h2>
+          <ScoreChart valores={simulacoes.map((s) => s.score.raw)} />
+          <p className="legenda">{t('progress.chart.legend')}</p>
 
           <table>
             <thead>
               <tr>
-                <th>Quando</th>
-                <th className="n">Acertos</th>
-                <th className="n">Alcançadas</th>
-                <th className="n">Percentil</th>
-                <th className="n">Por questão</th>
+                <th>{t('progress.table.when')}</th>
+                <th className="n">{t('progress.table.correct')}</th>
+                <th className="n">{t('progress.table.reached')}</th>
+                <th className="n">{t('progress.table.percentile')}</th>
+                <th className="n">{t('progress.table.perQuestion')}</th>
               </tr>
             </thead>
             <tbody>
               {[...simulacoes].reverse().map((s) => (
                 <tr key={s.id}>
-                  <td>{formatDate(s.finishedAt)}</td>
+                  <td>{formatDate(s.finishedAt, locale)}</td>
                   <td className="n">{s.score.raw}</td>
                   <td className="n">
                     {s.score.reached}/{s.score.total}
@@ -117,32 +113,32 @@ export function ProgressScreen() {
         </>
       )}
 
-      <h2>Acurácia por tipo</h2>
+      <h2>{t('progress.byType')}</h2>
       <p className="legenda" style={{ marginBottom: 12 }}>
-        Acumulado de todas as sessões — simulações e treinos.
+        {t('progress.byType.legend')}
       </p>
       <table>
         <thead>
           <tr>
-            <th>Tipo</th>
-            <th className="n">Questões</th>
-            <th className="n">Acurácia</th>
-            <th className="n">Tempo</th>
-            <th style={{ width: 90 }} />
+            <th>{t('result.table.type')}</th>
+            <th className="n">{t('progress.table.questions')}</th>
+            <th className="n">{t('result.table.accuracy')}</th>
+            <th className="n">{t('result.table.time')}</th>
+            <th style={{ width: 72 }} aria-label={t('result.table.bar')} />
           </tr>
         </thead>
         <tbody>
-          {porTipo.map((t) => (
-            <tr key={t.tipo}>
+          {porTipo.map((item) => (
+            <tr key={item.tipo}>
               <td>
-                <Link to={`/teoria/${t.tipo}`}>{TIPO_LABEL[t.tipo]}</Link>
+                <Link to={`/teoria/${item.tipo}`}>{tx(TIPO_LABEL[item.tipo])}</Link>
               </td>
-              <td className="n">{t.reached}</td>
-              <td className="n">{formatPercent(t.accuracy)}</td>
-              <td className="n">{formatSeconds(t.avgMs)}</td>
+              <td className="n">{item.reached}</td>
+              <td className="n">{formatPercent(item.accuracy)}</td>
+              <td className="n">{formatSeconds(item.avgMs)}</td>
               <td>
                 <span className="medidor">
-                  <i style={{ width: `${(t.accuracy ?? 0) * 100}%` }} />
+                  <i style={{ width: `${(item.accuracy ?? 0) * 100}%` }} />
                 </span>
               </td>
             </tr>
@@ -194,87 +190,31 @@ function agregarPorTipo(sessoes: StoredSession[]): AgregadoTipo[] {
 const MINIMO_PARA_DIAGNOSTICO = 8
 
 function PontoFraco({ porTipo }: { porTipo: AgregadoTipo[] }) {
-  const elegiveis = porTipo.filter((t) => t.reached >= MINIMO_PARA_DIAGNOSTICO)
+  const { t, tx } = useLocale()
+  const elegiveis = porTipo.filter((item) => item.reached >= MINIMO_PARA_DIAGNOSTICO)
+
   if (elegiveis.length < 2) {
-    return (
-      <p className="rodape-teoria">
-        Faça mais algumas sessões para o diagnóstico por tipo ficar confiável — com poucas
-        questões, uma acurácia baixa é ruído.
-      </p>
-    )
+    return <p className="rodape-teoria">{t('progress.weak.notEnough')}</p>
   }
 
-  const pior = elegiveis.reduce((p, t) => ((t.accuracy ?? 1) < (p.accuracy ?? 1) ? t : p))
-  const melhor = elegiveis.reduce((m, t) => ((t.accuracy ?? 0) > (m.accuracy ?? 0) ? t : m))
+  const pior = elegiveis.reduce((p, item) => ((item.accuracy ?? 1) < (p.accuracy ?? 1) ? item : p))
+  const melhor = elegiveis.reduce((m, item) => ((item.accuracy ?? 0) > (m.accuracy ?? 0) ? item : m))
   if (pior.accuracy === melhor.accuracy) {
-    return <p className="rodape-teoria">Desempenho parelho entre os tipos.</p>
+    return <p className="rodape-teoria">{t('progress.weak.even')}</p>
   }
 
   return (
     <p className="rodape-teoria">
-      Seu tipo mais fraco é <strong>{TIPO_LABEL[pior.tipo]}</strong> (
-      {formatPercent(pior.accuracy)} em {pior.reached} questões).{' '}
-      <Link to={`/treinar?tipo=${pior.tipo}`}>Treinar só esse tipo</Link> ou{' '}
-      <Link to={`/teoria/${pior.tipo}`}>rever a teoria</Link>.
+      {t('progress.weak.body', {
+        tipo: tx(TIPO_LABEL[pior.tipo]),
+        accuracy: formatPercent(pior.accuracy),
+        count: pior.reached,
+      })}{' '}
+      <Link to={`/treinar?tipo=${pior.tipo}`}>{t('progress.weak.drill')}</Link>
+      {' · '}
+      <Link to={`/teoria/${pior.tipo}`}>{t('progress.weak.theory')}</Link>.
     </p>
   )
 }
 
 // --- gráfico -----------------------------------------------------------------
-
-function Sparkline({
-  valores,
-  referencia,
-  maximo,
-}: {
-  valores: number[]
-  referencia: number
-  maximo: number
-}) {
-  if (valores.length === 0) return null
-
-  const w = 100
-  const h = 34
-  const pad = 2
-  const x = (i: number) =>
-    valores.length === 1 ? w / 2 : pad + (i / (valores.length - 1)) * (w - pad * 2)
-  const y = (v: number) => h - pad - (v / maximo) * (h - pad * 2)
-
-  const linha = valores.map((v, i) => `${i === 0 ? 'M' : 'L'} ${x(i).toFixed(2)} ${y(v).toFixed(2)}`).join(' ')
-
-  // `vectorEffect="non-scaling-stroke"` mede a espessura em pixels de tela, não
-  // em unidades do viewBox: com 0,4 a linha da média da CCAT sumia no
-  // antialiasing e o gráfico ficava sem referência nenhuma.
-
-  return (
-    <svg
-      className="sparkline"
-      viewBox={`0 0 ${w} ${h}`}
-      preserveAspectRatio="none"
-      role="img"
-      aria-label={`Score das simulações: ${valores.join(', ')}`}
-    >
-      <line
-        x1={0}
-        x2={w}
-        y1={y(referencia)}
-        y2={y(referencia)}
-        stroke="#8a8a8a"
-        strokeWidth={1}
-        strokeDasharray="4 4"
-        vectorEffect="non-scaling-stroke"
-      />
-      <path
-        d={linha}
-        fill="none"
-        stroke="#111111"
-        strokeWidth={1.6}
-        vectorEffect="non-scaling-stroke"
-        strokeLinejoin="round"
-      />
-      {valores.map((v, i) => (
-        <circle key={i} cx={x(i)} cy={y(v)} r={0.9} fill="#111111" />
-      ))}
-    </svg>
-  )
-}

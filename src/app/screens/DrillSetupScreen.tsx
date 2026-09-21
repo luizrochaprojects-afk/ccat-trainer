@@ -13,12 +13,18 @@ import {
 } from '../../core/taxonomy'
 import { loadFullBank, subtiposDisponiveis } from '../../data/bank'
 import { seenQuestionIds } from '../../data/db'
+import { useLocale } from '../LocaleContext'
 
 const QUANTIDADES = [10, 15, 20, 30]
 
-export function DrillSetupScreen({ onStart }: { onStart: (s: SessionState, meta: { tipo: string; subtipo?: string }) => void }) {
+export function DrillSetupScreen({
+  onStart,
+}: {
+  onStart: (s: SessionState, meta: { tipo: string; subtipo?: string }) => void
+}) {
   const navigate = useNavigate()
   const [params] = useSearchParams()
+  const { t, tx } = useLocale()
 
   const [banco, setBanco] = useState<Question[] | null>(null)
   const [tipo, setTipo] = useState<Tipo>((params.get('tipo') as Tipo) ?? 'spatial')
@@ -35,8 +41,15 @@ export function DrillSetupScreen({ onStart }: { onStart: (s: SessionState, meta:
   // Trocar de tipo invalida o subtipo escolhido.
   useEffect(() => setSubtipo(''), [tipo])
 
-  if (erro) return <div className="aviso">Não consegui carregar o banco: {erro}</div>
-  if (!banco) return <p className="legenda">Carregando o banco de questões…</p>
+  if (erro) {
+    return (
+      <div className="nota-bloco">
+        <span className="micro">{t('home.error.label')}</span>
+        <p>{t('drill.error', { message: erro })}</p>
+      </div>
+    )
+  }
+  if (!banco) return <p className="legenda">{t('drill.loading')}</p>
 
   const subtipos = subtiposDisponiveis(banco, tipo)
   const disponiveis = banco.filter(
@@ -52,7 +65,7 @@ export function DrillSetupScreen({ onStart }: { onStart: (s: SessionState, meta:
       seen: vistas,
     })
     if (fila.length === 0) {
-      setErro('Não há questões suficientes para essa combinação.')
+      setErro(t('drill.notEnough'))
       return
     }
     onStart(createDrill(fila, Date.now()), { tipo, ...(subtipo ? { subtipo } : {}) })
@@ -61,26 +74,23 @@ export function DrillSetupScreen({ onStart }: { onStart: (s: SessionState, meta:
 
   return (
     <>
-      <h1>Prática por tipo</h1>
-      <p className="lead">
-        Cronômetro de {DRILL_PER_QUESTION_MS / 1000} segundos por questão — o ritmo real da prova.
-        Estourou, a questão conta como não respondida e o treino segue. Feedback e explicação
-        logo após cada resposta.
-      </p>
+      <p className="trilha">{t('drill.crumb')}</p>
+      <h1>{t('drill.title')}</h1>
+      <p className="lead">{t('drill.lead', { seconds: DRILL_PER_QUESTION_MS / 1000 })}</p>
 
       <label className="campo">
-        <span>Tipo</span>
+        <span>{t('drill.type')}</span>
         <select value={tipo} onChange={(e) => setTipo(e.target.value as Tipo)}>
-          {TIPOS.map((t) => (
-            <option key={t} value={t}>
-              {TIPO_LABEL[t]}
+          {TIPOS.map((item) => (
+            <option key={item} value={item}>
+              {tx(TIPO_LABEL[item])}
             </option>
           ))}
         </select>
       </label>
 
       <div className="campo">
-        <span>Subtipo</span>
+        <span>{t('drill.subtype')}</span>
         <div className="chips">
           <button
             type="button"
@@ -88,7 +98,7 @@ export function DrillSetupScreen({ onStart }: { onStart: (s: SessionState, meta:
             aria-pressed={subtipo === ''}
             onClick={() => setSubtipo('')}
           >
-            Todos
+            {t('drill.subtype.all')}
           </button>
           {subtipos.map((s) => (
             <button
@@ -98,14 +108,14 @@ export function DrillSetupScreen({ onStart }: { onStart: (s: SessionState, meta:
               aria-pressed={subtipo === s}
               onClick={() => setSubtipo(s)}
             >
-              {SUBTIPO_LABEL[s as AnySubtipo] ?? s}
+              {tx(SUBTIPO_LABEL[s as AnySubtipo])}
             </button>
           ))}
         </div>
       </div>
 
       <div className="campo">
-        <span>Quantas questões</span>
+        <span>{t('drill.count')}</span>
         <div className="chips">
           {QUANTIDADES.map((n) => (
             <button
@@ -122,13 +132,18 @@ export function DrillSetupScreen({ onStart }: { onStart: (s: SessionState, meta:
       </div>
 
       <p className="legenda">
-        {disponiveis} questões disponíveis nessa combinação
-        {disponiveis < quantidade && ` — o treino terá ${disponiveis}`}.
+        {t('drill.available', { count: disponiveis })}
+        {disponiveis < quantidade && t('drill.availableShort', { count: disponiveis })}.
       </p>
 
       <div className="btn-linha">
-        <button className="btn" type="button" onClick={() => void comecar()} disabled={disponiveis === 0}>
-          Começar treino
+        <button
+          className="btn"
+          type="button"
+          onClick={() => void comecar()}
+          disabled={disponiveis === 0}
+        >
+          {t('drill.start')}
         </button>
       </div>
     </>

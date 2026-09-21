@@ -1,3 +1,5 @@
+import type { LocalizedText } from './i18n'
+
 /**
  * Fonte única da taxonomia do CCAT Trainer.
  *
@@ -112,36 +114,43 @@ export const EXAM_BLUEPRINT = {
   spatial: 16,
 } as const satisfies Record<Tipo, number>
 
-// --- Rótulos de UI (pt-BR) ---------------------------------------------------
+// --- Rótulos de UI ---------------------------------------------------------
 
-export const TIPO_LABEL: Record<Tipo, string> = {
-  verbal_analogy: 'Analogias',
-  verbal_vocab: 'Vocabulário',
-  verbal_logic: 'Lógica verbal',
-  math_series: 'Séries numéricas',
-  math_word: 'Problemas matemáticos',
-  spatial: 'Raciocínio espacial',
+/**
+ * Nomes de tipo e subtipo nos dois idiomas.
+ *
+ * Ficam aqui, e não no catálogo de strings da interface, porque são parte da
+ * taxonomia: quem adiciona um subtipo tem de dar nome a ele nos dois idiomas no
+ * mesmo arquivo, e o `Record` completo torna isso erro de compilação.
+ */
+export const TIPO_LABEL: Record<Tipo, LocalizedText> = {
+  verbal_analogy: { pt: 'Analogias', en: 'Analogies' },
+  verbal_vocab: { pt: 'Vocabulário', en: 'Vocabulary' },
+  verbal_logic: { pt: 'Lógica verbal', en: 'Verbal logic' },
+  math_series: { pt: 'Séries numéricas', en: 'Number series' },
+  math_word: { pt: 'Problemas matemáticos', en: 'Word problems' },
+  spatial: { pt: 'Raciocínio espacial', en: 'Spatial reasoning' },
 }
 
-export const SUBTIPO_LABEL: Record<AnySubtipo, string> = {
-  analogia_simples: 'Analogia simples',
-  analogia_dupla: 'Analogia dupla',
-  antonimo: 'Antônimo',
-  sinonimo: 'Sinônimo',
-  completar_frase: 'Completar frase',
-  deducao: 'Dedução',
-  serie_simples: 'Série simples',
-  serie_alternada: 'Série alternada',
-  serie_dois_passos: 'Série de dois passos',
-  aritmetica: 'Aritmética',
-  razao_proporcao: 'Razão e proporção',
-  porcentagem: 'Porcentagem',
-  taxa: 'Taxa e velocidade',
-  rotacao: 'Rotação',
-  reflexao: 'Reflexão',
-  odd_one_out: 'Qual não pertence',
-  serie_formas: 'Série de formas',
-  matriz: 'Matriz',
+export const SUBTIPO_LABEL: Record<AnySubtipo, LocalizedText> = {
+  analogia_simples: { pt: 'Analogia simples', en: 'Simple analogy' },
+  analogia_dupla: { pt: 'Analogia dupla', en: 'Double analogy' },
+  antonimo: { pt: 'Antônimo', en: 'Antonym' },
+  sinonimo: { pt: 'Sinônimo', en: 'Synonym' },
+  completar_frase: { pt: 'Completar frase', en: 'Sentence completion' },
+  deducao: { pt: 'Dedução', en: 'Deduction' },
+  serie_simples: { pt: 'Série simples', en: 'Simple series' },
+  serie_alternada: { pt: 'Série alternada', en: 'Interleaved series' },
+  serie_dois_passos: { pt: 'Série de dois passos', en: 'Two-step series' },
+  aritmetica: { pt: 'Aritmética', en: 'Arithmetic' },
+  razao_proporcao: { pt: 'Razão e proporção', en: 'Ratio and proportion' },
+  porcentagem: { pt: 'Porcentagem', en: 'Percentage' },
+  taxa: { pt: 'Taxa e velocidade', en: 'Rate and speed' },
+  rotacao: { pt: 'Rotação', en: 'Rotation' },
+  reflexao: { pt: 'Reflexão', en: 'Reflection' },
+  odd_one_out: { pt: 'Qual não pertence', en: 'Odd one out' },
+  serie_formas: { pt: 'Série de formas', en: 'Figure series' },
+  matriz: { pt: 'Matriz', en: 'Matrix' },
 }
 
 // --- Helpers -----------------------------------------------------------------

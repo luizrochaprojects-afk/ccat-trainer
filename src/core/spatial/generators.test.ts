@@ -18,7 +18,7 @@ describe('geradores espaciais', () => {
             const b = gerar(seed, d)
             expect(b.answerId).toBe(a.answerId)
             expect(b.stem).toBe(a.stem)
-            expect(b.explanation).toBe(a.explanation)
+            expect(b.explanation).toEqual(a.explanation)
             expect(b.options).toEqual(a.options)
             expect(b.stemSpatial).toEqual(a.stemSpatial)
           }

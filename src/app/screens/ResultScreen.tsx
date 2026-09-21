@@ -3,126 +3,126 @@ import type { SessionScore } from '../../core/session/score'
 import { paceTargetMs } from '../../core/session/score'
 import { CCAT_NORMS, EXAM_QUESTION_COUNT, TIPO_LABEL } from '../../core/taxonomy'
 import { rawNeededForPercentile } from '../../core/norms'
-import { formatClock, formatPercent, formatPercentile, formatSeconds } from '../format'
+import { DistributionCurve } from '../components/DistributionCurve'
+import { useLocale } from '../LocaleContext'
+import { formatClock, formatPercent, formatSeconds } from '../format'
 
 /**
  * Tela de resultado (PRD §4.17–4.19).
  *
- * A hierarquia é deliberada: acertos primeiro, percentil depois, ritmo em
- * seguida. "Alcançadas" ganha destaque próprio porque na CCAT a maioria não
- * termina as 50 — e não separar "errei" de "nem cheguei lá" esconde se o
- * problema é precisão ou velocidade.
+ * O score é manchete, não cartão de métrica: é o número pelo qual a pessoa
+ * abriu esta tela. O percentil vem logo abaixo com a curva que o explica —
+ * "p62" sozinho é abstrato; ver a própria marca contra a distribuição não é.
+ *
+ * "Alcançadas" ganha linha própria porque na CCAT a maioria não termina as 50,
+ * e não separar "errei" de "nem cheguei lá" esconde se o problema é precisão
+ * ou ritmo.
  */
 export function ResultScreen() {
   const navigate = useNavigate()
+  const { t, tx } = useLocale()
   const { state } = useLocation() as { state: { score?: SessionScore } | null }
   const score = state?.score
 
   if (!score) {
     return (
-      <div className="vazio">
-        <p>Nenhum resultado para mostrar.</p>
-        <div className="btn-linha" style={{ justifyContent: 'center' }}>
+      <>
+        <h1>{t('result.empty.title')}</h1>
+        <p className="lead">{t('result.empty.lead')}</p>
+        <div className="btn-linha">
           <Link className="btn" to="/">
-            Início
+            {t('result.home')}
+          </Link>
+          <Link className="btn secundario" to="/progresso">
+            {t('result.progress')}
           </Link>
         </div>
-      </div>
+      </>
     )
   }
 
   const exam = score.mode === 'exam'
   const ritmoAlvo = paceTargetMs()
   const ritmoOk = score.avgMs !== null && score.avgMs <= ritmoAlvo
+  const faltamP80 = rawNeededForPercentile(80) - score.raw
 
   return (
     <>
-      <h1>{exam ? 'Simulação concluída' : 'Treino concluído'}</h1>
-      <p className="lead">
-        {exam
-          ? `Você respondeu ${score.reached} das ${score.total} questões em ${formatClock(score.durationMs)}.`
-          : `${score.reached} questões em ${formatClock(score.durationMs)}.`}
-      </p>
+      <p className="trilha">{exam ? t('result.crumb.exam') : t('result.crumb.drill')}</p>
 
-      <div className="placar">
-        <div className="stat">
-          <span className="valor">{score.raw}</span>
-          <span className="rotulo">Acertos</span>
-          {exam && <span className="nota">média da CCAT: {CCAT_NORMS.mean}</span>}
-        </div>
+      <div className="manchete">
+        <span className="score">{score.raw}</span>
+        <p className="frase">
+          {t(exam ? 'result.headline.exam' : 'result.headline.drill', {
+            reached: score.reached,
+            duration: formatClock(score.durationMs),
+          })}
+        </p>
+      </div>
 
-        <div className="stat">
+      <div className="linhas">
+        <div className="linha-dado">
+          <span className="rotulo">{t('result.reached')}</span>
           <span className="valor">
-            {score.reached}
-            <span style={{ color: 'var(--tinta-tenue)' }}>/{score.total}</span>
+            {score.reached}/{score.total}
+            {score.timedOut > 0 && (
+              <span className="nota">
+                {t('result.reached.timedOut', { count: score.timedOut })}
+              </span>
+            )}
           </span>
-          <span className="rotulo">Alcançadas</span>
-          {score.timedOut > 0 && <span className="nota">{score.timedOut} por tempo</span>}
         </div>
-
-        <div className="stat">
+        <div className="linha-dado">
+          <span className="rotulo">{t('result.accuracy')}</span>
           <span className="valor">{formatPercent(score.accuracy)}</span>
-          <span className="rotulo">Acurácia</span>
-          <span className="nota">sobre as alcançadas</span>
         </div>
-
-        <div className="stat">
-          <span className="valor">{formatSeconds(score.avgMs)}</span>
-          <span className="rotulo">Por questão</span>
-          <span className="nota">
-            {ritmoOk ? 'dentro do ritmo' : `alvo ${formatSeconds(ritmoAlvo)}`}
+        <div className="linha-dado">
+          <span className="rotulo">{t('result.avgTime')}</span>
+          <span className="valor">
+            {formatSeconds(score.avgMs)}
+            <span className="nota">
+              {ritmoOk
+                ? t('result.pace.ok')
+                : t('result.pace.target', { time: formatSeconds(ritmoAlvo) })}
+            </span>
           </span>
         </div>
       </div>
 
       {exam && score.percentile !== null && (
         <>
-          <h2>Contra a norma da CCAT</h2>
-          <div className="placar">
-            <div className="stat">
-              <span className="valor">{formatPercentile(score.percentile)}</span>
-              <span className="rotulo">Percentil estimado</span>
-              <span className="nota">
-                acima de ~{score.percentile}% dos candidatos
-              </span>
-            </div>
-            <div className="stat">
-              <span className="valor">{rawNeededForPercentile(80)}</span>
-              <span className="rotulo">Acertos para o p80</span>
-              <span className="nota">
-                {score.raw >= rawNeededForPercentile(80)
-                  ? 'já alcançado'
-                  : `faltam ${rawNeededForPercentile(80) - score.raw}`}
-              </span>
-            </div>
-          </div>
+          <h2>{t('result.placement')}</h2>
+          <DistributionCurve raw={score.raw} percentile={score.percentile} />
+          <p className="legenda">
+            {t('result.placement.legend', { percentile: score.percentile })}
+            {faltamP80 > 0
+              ? t('result.placement.toP80', { count: faltamP80 })
+              : t('result.placement.atP80')}
+          </p>
 
-          <div className="aviso">
-            <strong>O percentil é uma estimativa.</strong> Ele vem da norma oficial da CCAT
-            (média {CCAT_NORMS.mean}, desvio-padrão {CCAT_NORMS.sd}) convertida por aproximação
-            normal — a Criteria não publica a tabela de percentis. Perto dos extremos o número
-            desvia do percentil oficial. Use como orientação de trajetória, não como
-            nota de corte.
+          <div className="nota-bloco">
+            <span className="micro">{t('result.estimate.label')}</span>
+            <p>{t('result.estimate.body', { mean: CCAT_NORMS.mean, sd: CCAT_NORMS.sd })}</p>
           </div>
         </>
       )}
 
-      <h2>Por tipo</h2>
+      <h2>{t('result.byType')}</h2>
       <table>
         <thead>
           <tr>
-            <th>Tipo</th>
-            <th className="n">Acertos</th>
-            <th className="n">Acurácia</th>
-            <th className="n">Tempo</th>
-            <th style={{ width: 90 }} />
+            <th>{t('result.table.type')}</th>
+            <th className="n">{t('result.table.correct')}</th>
+            <th className="n">{t('result.table.accuracy')}</th>
+            <th className="n">{t('result.table.time')}</th>
+            <th style={{ width: 72 }} aria-label={t('result.table.bar')} />
           </tr>
         </thead>
         <tbody>
           {score.byTipo.map((b) => (
             <tr key={b.tipo}>
               <td>
-                <Link to={`/teoria/${b.tipo}`}>{TIPO_LABEL[b.tipo]}</Link>
+                <Link to={`/teoria/${b.tipo}`}>{tx(TIPO_LABEL[b.tipo])}</Link>
               </td>
               <td className="n">
                 {b.correct}/{b.reached}
@@ -141,40 +141,40 @@ export function ResultScreen() {
 
       {score.weakestTipo ? (
         <p className="rodape-teoria">
-          Ponto mais fraco desta sessão: <strong>{TIPO_LABEL[score.weakestTipo]}</strong>.{' '}
-          <Link to={`/teoria/${score.weakestTipo}`}>Rever a teoria</Link> ou{' '}
-          <Link to={`/treinar?tipo=${score.weakestTipo}`}>treinar só esse tipo</Link>.
+          {t('result.weakest', { tipo: tx(TIPO_LABEL[score.weakestTipo]) })}{' '}
+          <Link to={`/teoria/${score.weakestTipo}`}>{t('result.weakest.theory')}</Link>
+          {' · '}
+          <Link to={`/treinar?tipo=${score.weakestTipo}`}>{t('result.weakest.drill')}</Link>.
         </p>
       ) : (
-        <p className="rodape-teoria">
-          Desempenho parelho entre os tipos — não dá para eleger um ponto fraco nesta sessão.
-        </p>
+        <p className="rodape-teoria">{t('result.even')}</p>
       )}
 
       {exam && score.reached < EXAM_QUESTION_COUNT && (
-        <div className="aviso">
-          {score.endedByTimeout ? (
-            <>
-              O relógio cortou a prova em {score.reached} questões. Na CCAT isso é comum — mas
-              cada questão não alcançada é um acerto que você não teve chance de marcar. Treine
-              o ritmo: o alvo é {formatSeconds(ritmoAlvo)} por questão.
-            </>
-          ) : (
-            <>
-              Você encerrou antes do tempo, em {score.reached} de {EXAM_QUESTION_COUNT} questões.
-              O score e o percentil acima valem para o que foi respondido — para medir onde você
-              está de verdade, vale fazer a prova inteira.
-            </>
-          )}
+        <div className="nota-bloco">
+          <span className="micro">
+            {t(score.endedByTimeout ? 'result.timeout.label' : 'result.abandoned.label')}
+          </span>
+          <p>
+            {score.endedByTimeout
+              ? t('result.timeout.body', {
+                  reached: score.reached,
+                  time: formatSeconds(ritmoAlvo),
+                })
+              : t('result.abandoned.body', {
+                  reached: score.reached,
+                  total: EXAM_QUESTION_COUNT,
+                })}
+          </p>
         </div>
       )}
 
       <div className="btn-linha">
         <button className="btn" type="button" onClick={() => navigate('/')}>
-          Início
+          {t('result.home')}
         </button>
         <Link className="btn secundario" to="/progresso">
-          Ver evolução
+          {t('result.progress')}
         </Link>
       </div>
     </>

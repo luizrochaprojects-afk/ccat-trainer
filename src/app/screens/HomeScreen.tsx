@@ -2,14 +2,23 @@ import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { composeExam } from '../../core/session/compose'
 import { createExam, remainingMs, type SessionState } from '../../core/session/engine'
-import { EXAM_QUESTION_COUNT, TIPO_LABEL } from '../../core/taxonomy'
+import { EXAM_QUESTION_COUNT, TIPO_LABEL, type Tipo } from '../../core/taxonomy'
 import { loadFullBank } from '../../data/bank'
 import { clearActiveSession, listSessions, loadActiveSession, seenQuestionIds } from '../../data/db'
 import type { StoredSession } from '../../data/db'
+import { useLocale } from '../LocaleContext'
 import { formatClock, formatDate, formatPercentile } from '../format'
 
+/**
+ * Home.
+ *
+ * Hierarquia deliberada: quem abre este app veio fazer uma prova. A simulação
+ * é uma ação dominante, não um cartão entre iguais — treino e teoria vivem
+ * abaixo dela, subordinados, na mesma lista de regras.
+ */
 export function HomeScreen({ onStart }: { onStart: (s: SessionState) => void }) {
   const navigate = useNavigate()
+  const { t, tx, locale } = useLocale()
   const [carregando, setCarregando] = useState(false)
   const [erro, setErro] = useState<string | null>(null)
   const [emAndamento, setEmAndamento] = useState<SessionState | null>(null)
@@ -31,8 +40,7 @@ export function HomeScreen({ onStart }: { onStart: (s: SessionState) => void }) 
     setErro(null)
     try {
       const [banco, vistas] = await Promise.all([loadFullBank(), seenQuestionIds()])
-      const fila = composeExam(banco, { seen: vistas })
-      onStart(createExam(fila, Date.now()))
+      onStart(createExam(composeExam(banco, { seen: vistas }), Date.now()))
       navigate('/sessao')
     } catch (e) {
       setErro((e as Error).message)
@@ -48,20 +56,22 @@ export function HomeScreen({ onStart }: { onStart: (s: SessionState) => void }) 
 
   return (
     <>
-      <h1>Treino para a CCAT</h1>
-      <p className="lead">
-        50 questões em 15 minutos. Cerca de 18 segundos por questão, e a maioria dos candidatos
-        não termina — por isso todo treino aqui é cronometrado.
+      <h1>{t('home.title')}</h1>
+      <p className="lead">{t('home.lead')}</p>
+
+      <p className="formato">
+        <b>50</b> <span>{t('home.format.questions')}</span>
+        <b>15:00</b> <span>{t('home.format.total')}</span>
+        <b>18s</b> <span>{t('home.format.each')}</span>
       </p>
 
       {emAndamento && (
-        <div className="aviso">
-          <strong>Você tem uma simulação em andamento.</strong> Restam{' '}
-          <span className="num">{formatClock(remainingMs(emAndamento, Date.now()))}</span> — o
-          relógio não parou enquanto o app esteve fechado.
-          <div className="btn-linha">
+        <div className="nota-bloco">
+          <span className="micro">{t('home.resume.label')}</span>
+          <p>{t('home.resume.body', { time: formatClock(remainingMs(emAndamento, Date.now())) })}</p>
+          <div className="btn-linha" style={{ marginTop: 18 }}>
             <button className="btn" type="button" onClick={retomar}>
-              Retomar
+              {t('home.resume.action')}
             </button>
             <button
               className="btn secundario"
@@ -71,63 +81,65 @@ export function HomeScreen({ onStart }: { onStart: (s: SessionState) => void }) 
                 setEmAndamento(null)
               }}
             >
-              Descartar
+              {t('home.resume.discard')}
             </button>
           </div>
         </div>
       )}
 
-      <button
-        className="cartao"
-        type="button"
-        onClick={iniciarSimulacao}
-        disabled={carregando}
-        style={{ width: '100%', textAlign: 'left', cursor: 'pointer' }}
-      >
-        <h2>Simulação completa</h2>
-        <p>
-          {EXAM_QUESTION_COUNT} questões em 15 minutos, tipos intercalados, dificuldade crescente.
-          Sem feedback e sem voltar, como na prova. No fim, score e percentil contra a norma
-          oficial.
-        </p>
+      <button className="ato" type="button" onClick={iniciarSimulacao} disabled={carregando}>
+        <span className="seta" aria-hidden="true">
+          →
+        </span>
+        <h2>{carregando ? t('home.exam.loading') : t('home.exam.title')}</h2>
+        <p>{t('home.exam.body', { count: EXAM_QUESTION_COUNT })}</p>
       </button>
 
-      <Link className="cartao" to="/treinar">
-        <h2>Prática por tipo</h2>
-        <p>
-          Escolha um tipo e martele só ele, no ritmo de 18 segundos por questão, com explicação
-          logo após cada resposta.
-        </p>
+      <Link className="ato" to="/treinar">
+        <span className="seta" aria-hidden="true">
+          →
+        </span>
+        <h2>{t('home.drill.title')}</h2>
+        <p>{t('home.drill.body')}</p>
       </Link>
 
-      <Link className="cartao" to="/teoria">
-        <h2>Teoria e macetes</h2>
-        <p>O método de cada tipo e a armadilha que a prova usa para derrubar você.</p>
+      <Link className="ato" to="/teoria">
+        <span className="seta" aria-hidden="true">
+          →
+        </span>
+        <h2>{t('home.theory.title')}</h2>
+        <p>{t('home.theory.body')}</p>
       </Link>
 
-      {carregando && <p className="legenda">Montando a prova…</p>}
-      {erro && <div className="aviso">Não consegui carregar o banco de questões: {erro}</div>}
+      {erro && (
+        <div className="nota-bloco">
+          <span className="micro">{t('home.error.label')}</span>
+          <p>{t('home.error.body', { message: erro })}</p>
+        </div>
+      )}
 
       {historico.length > 0 && (
         <>
-          <h2>Últimas sessões</h2>
+          <h2>{t('home.recent')}</h2>
           <table>
             <thead>
               <tr>
-                <th>Quando</th>
-                <th>Tipo</th>
-                <th className="n">Acertos</th>
-                <th className="n">Percentil</th>
+                <th>{t('home.recent.when')}</th>
+                <th>{t('home.recent.what')}</th>
+                <th className="n">{t('home.recent.correct')}</th>
+                <th className="n">{t('home.recent.percentile')}</th>
               </tr>
             </thead>
             <tbody>
               {historico.map((s) => (
                 <tr key={s.id}>
-                  <td>{formatDate(s.finishedAt)}</td>
+                  <td>{formatDate(s.finishedAt, locale)}</td>
                   <td>
                     {s.mode === 'exam'
-                      ? 'Simulação'
-                      : `Treino · ${TIPO_LABEL[s.tipo as keyof typeof TIPO_LABEL] ?? s.tipo}`}
+                      ? t('home.recent.exam')
+                      : t('home.recent.drill', {
+                          tipo: s.tipo ? tx(TIPO_LABEL[s.tipo as Tipo]) : '—',
+                        })}
                   </td>
                   <td className="n">
                     {s.score.raw}/{s.score.reached}
@@ -138,7 +150,7 @@ export function HomeScreen({ onStart }: { onStart: (s: SessionState) => void }) 
             </tbody>
           </table>
           <p className="rodape-teoria">
-            <Link to="/progresso">Ver a evolução completa</Link>
+            <Link to="/progresso">{t('home.recent.all')}</Link>
           </p>
         </>
       )}

@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { DIFFICULTIES } from '../taxonomy'
 import { WORD_GENERATORS, WORD_GENERATOR_IDS } from './word'
-import { evaluateExpression, parseNumberPt } from './solver'
+import { evaluateExpression, parseNumber } from './solver'
 
 const RUNS = 200
 
@@ -27,7 +27,7 @@ describe('geradores de problemas matemáticos', () => {
               q.answerValue,
               6,
             )
-            expect(parseNumberPt(marcada.text)).toBeCloseTo(q.answerValue, 2)
+            expect(parseNumber(marcada.text)).toBeCloseTo(q.answerValue, 2)
           }
         }
       })
@@ -37,7 +37,7 @@ describe('geradores de problemas matemáticos', () => {
           for (let seed = 1; seed <= RUNS; seed++) {
             const q = gerar(seed, d)
             const iguais = q.options.filter(
-              (o) => Math.abs(parseNumberPt(o.text) - q.answerValue) < 0.005,
+              (o) => Math.abs(parseNumber(o.text) - q.answerValue) < 0.005,
             )
             expect(iguais, `${id} nível ${d} seed ${seed}`).toHaveLength(1)
           }
@@ -57,7 +57,7 @@ describe('geradores de problemas matemáticos', () => {
         for (const d of DIFFICULTIES) {
           for (let seed = 1; seed <= RUNS; seed++) {
             for (const o of gerar(seed, d).options) {
-              expect(parseNumberPt(o.text)).toBeGreaterThanOrEqual(0)
+              expect(parseNumber(o.text)).toBeGreaterThanOrEqual(0)
             }
           }
         }
@@ -82,7 +82,7 @@ describe('geradores de problemas matemáticos', () => {
             const q = gerar(seed, d)
             const numerosNoEnunciado = (q.stem.match(/[\d.]+(?:,\d+)?/g) ?? []).map((t) => {
               try {
-                return parseNumberPt(t)
+                return parseNumber(t)
               } catch {
                 return Number.NaN
               }
@@ -105,7 +105,8 @@ describe('geradores de problemas matemáticos', () => {
         for (let seed = 1; seed <= 50; seed++) {
           const q = gerar(seed, 3)
           expect(q.stem.length).toBeGreaterThan(20)
-          expect(q.explanation.length).toBeGreaterThan(40)
+          expect(q.explanation.pt.length).toBeGreaterThan(40)
+          expect(q.explanation.en.length).toBeGreaterThan(40)
         }
       })
 
@@ -127,7 +128,7 @@ describe('porcentagem: os distratores são os erros clássicos', () => {
     let comArmadilha = 0
     for (let seed = 1; seed <= RUNS; seed++) {
       const q = WORD_GENERATORS.porcentagem(seed, 3)
-      const valores = q.options.map((o) => parseNumberPt(o.text))
+      const valores = q.options.map((o) => parseNumber(o.text))
       // alguma alternativa maior que a resposta (o erro de somar em vez de descontar)
       if (valores.some((v) => v > q.answerValue)) comArmadilha++
     }

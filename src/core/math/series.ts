@@ -2,6 +2,7 @@ import { mulberry32, type Rng } from '../rng'
 import type { Difficulty } from '../taxonomy'
 import { optionIdAt } from '../optionIds'
 import { formatNumber } from './solver'
+import type { LocalizedText } from '../i18n'
 
 /**
  * Séries numéricas geradas por regra (PRD §4.10 estendido a math_series).
@@ -17,7 +18,7 @@ export interface MathGenerated {
   stem: string
   options: { id: string; text: string }[]
   answerId: string
-  explanation: string
+  explanation: LocalizedText
   /** forma fechada do valor correto, avaliada pelo gate (gate G2, método 'solver') */
   expression: string
   answerValue: number
@@ -30,7 +31,7 @@ interface Regra {
   terms: number[]
   next: number
   expression: string
-  explanation: string
+  explanation: LocalizedText
   /** passo típico, usado para gerar distratores plausíveis */
   passo: number
 }
@@ -71,11 +72,18 @@ const aritmetica =
       next: a0 + 5 * passo,
       expression: `${a0}+5*(${passo})`,
       passo: Math.abs(passo),
-      explanation:
-        `A série ${passo > 0 ? 'soma' : 'subtrai'} ${Math.abs(passo)} a cada passo ` +
-        `(${terms[0]} → ${terms[1]} → ${terms[2]}…). Confira sempre a diferença entre ` +
-        `termos vizinhos antes de procurar regra mais complicada: a maioria das séries ` +
-        `da CCAT é aritmética simples.`,
+      explanation: {
+        pt:
+          `A série ${passo > 0 ? 'soma' : 'subtrai'} ${Math.abs(passo)} a cada passo ` +
+          `(${terms[0]} → ${terms[1]} → ${terms[2]}…). Confira sempre a diferença entre ` +
+          `termos vizinhos antes de procurar regra mais complicada: a maioria das séries ` +
+          `da CCAT é aritmética simples.`,
+        en:
+          `The series ${passo > 0 ? 'adds' : 'subtracts'} ${Math.abs(passo)} at each step ` +
+          `(${terms[0]} → ${terms[1]} → ${terms[2]}…). Always check the difference between ` +
+          `neighbouring terms before looking for a fancier rule: most CCAT series are plain ` +
+          `arithmetic.`,
+      },
     }
   }
 
@@ -90,10 +98,16 @@ const geometrica =
       next: a0 * razao ** 5,
       expression: `${a0}*${razao}*${razao}*${razao}*${razao}*${razao}`,
       passo: a0 * razao ** 4,
-      explanation:
-        `Cada termo é o anterior multiplicado por ${razao}. Sinal de série ` +
-        `geométrica: a diferença entre termos cresce rápido demais para ser soma ` +
-        `constante. Divida um termo pelo anterior — se der sempre o mesmo número, é essa.`,
+      explanation: {
+        pt:
+          `Cada termo é o anterior multiplicado por ${razao}. Sinal de série ` +
+          `geométrica: a diferença entre termos cresce rápido demais para ser soma ` +
+          `constante. Divida um termo pelo anterior — se der sempre o mesmo número, é essa.`,
+        en:
+          `Each term is the previous one multiplied by ${razao}. The tell for a geometric ` +
+          `series: the gaps grow far too fast to be a constant sum. Divide one term by the ` +
+          `previous one — if you always get the same number, that is the rule.`,
+      },
     }
   }
 
@@ -107,11 +121,17 @@ const geometricaComConstante: Familia = (rng) => {
     next: a0 * razao ** 5 + c,
     expression: `${a0}*${razao}*${razao}*${razao}*${razao}*${razao}+${c}`,
     passo: a0 * razao ** 4,
-    explanation:
-      `A série é "multiplique por ${razao}" com um deslocamento fixo de ${c}. ` +
-      `Subtraia ${c} de cada termo e a progressão geométrica pura aparece. ` +
-      `Quando a razão entre termos é quase constante mas não fecha, procure uma ` +
-      `constante somada.`,
+    explanation: {
+      pt:
+        `A série é "multiplique por ${razao}" com um deslocamento fixo de ${c}. ` +
+        `Subtraia ${c} de cada termo e a progressão geométrica pura aparece. ` +
+        `Quando a razão entre termos é quase constante mas não fecha, procure uma ` +
+        `constante somada.`,
+      en:
+        `The series is "multiply by ${razao}" with a fixed offset of ${c}. Subtract ${c} ` +
+        `from every term and the pure geometric progression appears. When the ratio between ` +
+        `terms is almost constant but never quite closes, look for an added constant.`,
+    },
   }
 }
 
@@ -128,10 +148,16 @@ const fibonacci: Familia = (rng) => {
     next,
     expression: `${terms[4]}+${terms[3]}`,
     passo: terms[3] as number,
-    explanation:
-      `Cada termo é a soma dos dois anteriores (${terms[2]} = ${terms[0]} + ${terms[1]}, ` +
-      `e assim por diante). Quando nem diferença nem razão são constantes, o próximo ` +
-      `teste é somar os dois termos anteriores — é o padrão de Fibonacci.`,
+    explanation: {
+      pt:
+        `Cada termo é a soma dos dois anteriores (${terms[2]} = ${terms[0]} + ${terms[1]}, ` +
+        `e assim por diante). Quando nem diferença nem razão são constantes, o próximo ` +
+        `teste é somar os dois termos anteriores — é o padrão de Fibonacci.`,
+      en:
+        `Each term is the sum of the two before it (${terms[2]} = ${terms[0]} + ${terms[1]}, ` +
+        `and so on). When neither the difference nor the ratio is constant, the next test is ` +
+        `adding the two previous terms — that is the Fibonacci pattern.`,
+    },
   }
 }
 
@@ -143,10 +169,15 @@ const quadrados: Familia = (rng) => {
     next: (5 + k) ** 2,
     expression: `(5+${k})*(5+${k})`,
     passo: 2 * (4 + k) + 1,
-    explanation:
-      `São quadrados perfeitos consecutivos: ${k}², ${k + 1}², ${k + 2}²… ` +
-      `Quando as diferenças entre os termos crescem de 2 em 2, você está ` +
-      `olhando para uma sequência de quadrados.`,
+    explanation: {
+      pt:
+        `São quadrados perfeitos consecutivos: ${k}², ${k + 1}², ${k + 2}²… ` +
+        `Quando as diferenças entre os termos crescem de 2 em 2, você está ` +
+        `olhando para uma sequência de quadrados.`,
+      en:
+        `These are consecutive perfect squares: ${k}², ${k + 1}², ${k + 2}²… When the gaps ` +
+        `between terms grow by 2 each time, you are looking at a sequence of squares.`,
+    },
   }
 }
 
@@ -162,11 +193,18 @@ const quadratica =
       next: a0 + 5 * d0 + inc * 10,
       expression: `${a0}+5*${d0}+${inc}*10`,
       passo: d0 + 4 * inc,
-      explanation:
-        `A diferença entre termos vizinhos não é constante — ela mesma cresce de ` +
-        `${inc} em ${inc} (começando em ${d0}). Quando a primeira diferença não ` +
-        `resolve, calcule a diferença das diferenças: se ela for constante, a série ` +
-        `é quadrática e você já tem a regra.`,
+      explanation: {
+        pt:
+          `A diferença entre termos vizinhos não é constante — ela mesma cresce de ` +
+          `${inc} em ${inc} (começando em ${d0}). Quando a primeira diferença não ` +
+          `resolve, calcule a diferença das diferenças: se ela for constante, a série ` +
+          `é quadrática e você já tem a regra.`,
+        en:
+          `The gap between neighbouring terms is not constant — it grows by ${inc} each ` +
+          `time, starting at ${d0}. When the first difference does not settle it, take the ` +
+          `difference of the differences: if that is constant, the series is quadratic and ` +
+          `you have the rule.`,
+      },
     }
   }
 
@@ -215,12 +253,20 @@ function regraAlternada(rng: Rng): Regra {
     next,
     expression: `${a0}+3*(${passoA})`,
     passo: Math.abs(passoA),
-    explanation:
-      `São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de ` +
-      `${passoA} em ${passoA}; nas posições 2ª, 4ª, 6ª… variam de ${passoB} em ` +
-      `${passoB}. A vaga que falta é de posição ímpar, então ela continua a ` +
-      `primeira série. O sinal de série alternada é a sequência subir e descer ` +
-      `sem padrão — olhe um termo sim, um termo não.`,
+    explanation: {
+      pt:
+        `São duas séries trançadas. Nas posições 1ª, 3ª, 5ª… os termos sobem de ` +
+        `${passoA} em ${passoA}; nas posições 2ª, 4ª, 6ª… variam de ${passoB} em ` +
+        `${passoB}. A vaga que falta é de posição ímpar, então ela continua a ` +
+        `primeira série. O sinal de série alternada é a sequência subir e descer ` +
+        `sem padrão — olhe um termo sim, um termo não.`,
+      en:
+        `Two series are interleaved. In positions 1st, 3rd, 5th… the terms rise by ` +
+        `${passoA}; in positions 2nd, 4th, 6th… they change by ${passoB}. The missing slot ` +
+        `is in an odd position, so it continues the first series. The tell for an ` +
+        `interleaved series is a sequence that rises and falls with no pattern — read every ` +
+        `other term.`,
+    },
   }
 }
 
@@ -251,11 +297,18 @@ function regraDoisPassos(rng: Rng): Regra {
     next,
     expression: `${quarto}+${soma}`,
     passo: soma,
-    explanation:
-      `A regra alterna duas operações: soma ${soma}, depois multiplica por ` +
-      `${fator}, e repete. O termo que falta vem logo após uma multiplicação, ` +
-      `então é uma soma: ${quarto} + ${soma}. Quando nem a diferença nem a razão ` +
-      `são constantes, teste se elas se alternam.`,
+    explanation: {
+      pt:
+        `A regra alterna duas operações: soma ${soma}, depois multiplica por ` +
+        `${fator}, e repete. O termo que falta vem logo após uma multiplicação, ` +
+        `então é uma soma: ${quarto} + ${soma}. Quando nem a diferença nem a razão ` +
+        `são constantes, teste se elas se alternam.`,
+      en:
+        `The rule alternates two operations: add ${soma}, then multiply by ${fator}, and ` +
+        `repeat. The missing term comes right after a multiplication, so it is an addition: ` +
+        `${quarto} + ${soma}. When neither the difference nor the ratio is constant, test ` +
+        `whether they alternate.`,
+    },
   }
 }
 
@@ -290,7 +343,10 @@ function montar(
     stem: `${regra.terms.join(', ')}, ?`,
     options,
     answerId: optionIdAt(answerIndex) as string,
-    explanation: `A resposta é ${formatNumber(regra.next)}. ${regra.explanation}`,
+    explanation: {
+      pt: `A resposta é ${formatNumber(regra.next)}. ${regra.explanation.pt}`,
+      en: `The answer is ${formatNumber(regra.next)}. ${regra.explanation.en}`,
+    },
     expression: regra.expression,
     answerValue: regra.next,
   }

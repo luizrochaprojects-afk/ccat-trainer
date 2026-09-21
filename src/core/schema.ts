@@ -1,5 +1,20 @@
 import { z } from 'zod'
 import { ALL_SUBTIPOS, DIFFICULTIES, TIPOS } from './taxonomy'
+import { LOCALES } from './i18n'
+
+/**
+ * Texto que existe nos dois idiomas.
+ *
+ * O ENUNCIADO é string simples e sempre em inglês (a prova é em inglês); o que
+ * EXPLICA é traduzido, porque entender o erro é mais rápido na própria língua
+ * e isso não interfere na medição.
+ */
+export const localizedTextSchema = z.object(
+  Object.fromEntries(LOCALES.map((l) => [l, z.string().min(1)])) as {
+    en: z.ZodString
+    pt: z.ZodString
+  },
+)
 
 /**
  * Schema do banco de questões (PRD §4.8).
@@ -93,7 +108,7 @@ export const questionSchema = z
     stemSpatial: spatialSpecSchema.optional(),
     options: z.array(optionSchema).min(4).max(5),
     answerId: z.string().min(1),
-    explanation: z.string().min(1),
+    explanation: localizedTextSchema,
     /** aponta para content/theory/<tipo>.md#<ancora> */
     theoryRef: z.string().min(1),
     origin: z.enum(['claude-code', 'official-sample']),

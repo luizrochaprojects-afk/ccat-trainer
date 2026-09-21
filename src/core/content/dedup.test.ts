@@ -75,7 +75,10 @@ describe('G4 — o que é duplicata e o que não é', () => {
         { id: 'e', text: 'timid' },
       ],
       answerId: 'a',
-      explanation: 'Explicação suficientemente longa para o schema aceitar.',
+      explanation: {
+        pt: 'Explicação suficientemente longa para o schema aceitar.',
+        en: 'An explanation long enough for the schema to accept it.',
+      },
       theoryRef: 'verbal_vocab.md#antonimo',
       origin: 'claude-code',
       status: 'draft',

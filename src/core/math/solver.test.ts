@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import {
   evaluateExpression,
   formatNumber,
-  parseNumberPt,
+  parseNumber,
   SolverError,
 } from './solver'
 
@@ -73,45 +73,50 @@ describe('evaluateExpression', () => {
 })
 
 describe('formatNumber', () => {
-  it('formata inteiros sem casas decimais', () => {
+  it('formata inteiros com separador de milhar en-US', () => {
     expect(formatNumber(42)).toBe('42')
-    expect(formatNumber(1234)).toBe('1.234')
-    expect(formatNumber(1234567)).toBe('1.234.567')
+    expect(formatNumber(1234)).toBe('1,234')
+    expect(formatNumber(1234567)).toBe('1,234,567')
   })
 
-  it('formata decimais com duas casas', () => {
-    expect(formatNumber(3.5)).toBe('3,50')
-    expect(formatNumber(0.125)).toBe('0,13')
+  it('formata decimais com duas casas e ponto decimal', () => {
+    expect(formatNumber(3.5)).toBe('3.50')
+    expect(formatNumber(0.125)).toBe('0.13')
   })
 
-  it('formata reais e porcentagem', () => {
-    expect(formatNumber(1234.5, 'brl')).toBe('R$ 1.234,50')
+  it('formata moeda e porcentagem', () => {
+    expect(formatNumber(1234.5, 'currency')).toBe('$1,234.50')
     expect(formatNumber(20, 'percent')).toBe('20%')
-    expect(formatNumber(12.5, 'percent')).toBe('12,5%')
+    expect(formatNumber(12.5, 'percent')).toBe('12.5%')
+  })
+
+  it('formata negativo com o sinal antes do separador', () => {
+    expect(formatNumber(-1234)).toBe('-1,234')
   })
 
   it('é determinístico (o gate compara string com string)', () => {
     for (const v of [0, 7, 99.99, 1e6]) {
-      expect(formatNumber(v, 'brl')).toBe(formatNumber(v, 'brl'))
+      expect(formatNumber(v, 'currency')).toBe(formatNumber(v, 'currency'))
     }
   })
 })
 
-describe('parseNumberPt', () => {
+describe('parseNumber', () => {
   it('faz o caminho de volta do formatNumber', () => {
     for (const v of [0, 42, 1234, 1234.5, 999999.99]) {
-      expect(parseNumberPt(formatNumber(v, 'brl'))).toBeCloseTo(v, 2)
-      expect(parseNumberPt(formatNumber(v))).toBeCloseTo(Math.round(v * 100) / 100, 2)
+      expect(parseNumber(formatNumber(v, 'currency'))).toBeCloseTo(v, 2)
+      expect(parseNumber(formatNumber(v))).toBeCloseTo(Math.round(v * 100) / 100, 2)
     }
   })
 
   it('lê números soltos', () => {
-    expect(parseNumberPt('81')).toBe(81)
-    expect(parseNumberPt('R$ 102,00')).toBe(102)
-    expect(parseNumberPt('15%')).toBe(15)
+    expect(parseNumber('81')).toBe(81)
+    expect(parseNumber('$102.00')).toBe(102)
+    expect(parseNumber('1,234.50')).toBe(1234.5)
+    expect(parseNumber('15%')).toBe(15)
   })
 
   it('rejeita texto que não é número', () => {
-    expect(() => parseNumberPt('nenhuma das anteriores')).toThrow(SolverError)
+    expect(() => parseNumber('nenhuma das anteriores')).toThrow(SolverError)
   })
 })

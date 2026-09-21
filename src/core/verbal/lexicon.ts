@@ -1,4 +1,5 @@
 import type { Difficulty } from '../taxonomy'
+import type { LocalizedText } from '../i18n'
 
 /**
  * Léxico curado — a fonte de verdade do conteúdo verbal.
@@ -104,25 +105,25 @@ export interface AnalogyPair {
   level: Difficulty
 }
 
-/** Descrição em português de cada relação, usada na explicação da questão. */
-export const RELATION_LABEL: Record<string, string> = {
-  part_whole: 'parte para o todo',
-  tool_user: 'ferramenta para quem a usa',
-  worker_place: 'profissional para o local onde trabalha',
-  worker_product: 'profissional para o que ele produz',
-  cause_effect: 'causa para efeito',
-  degree: 'intensidade menor para intensidade maior',
-  object_function: 'objeto para sua função',
-  animal_young: 'animal adulto para seu filhote',
-  material_product: 'matéria-prima para o produto',
-  category_member: 'categoria para um membro dela',
-  opposite: 'palavra para seu oposto',
-  container_content: 'recipiente para o que ele guarda',
-  animal_sound: 'animal para o som que ele faz',
-  body_sense: 'órgão para o sentido correspondente',
-  study_subject: 'ciência para o que ela estuda',
-  unit_measure: 'unidade para a grandeza que ela mede',
-  shelter_animal: 'abrigo para o animal que o habita',
+/** Nome de cada relação, usado na explicação da questão. */
+export const RELATION_LABEL: Record<string, LocalizedText> = {
+  part_whole: { pt: 'parte para o todo', en: 'part to whole' },
+  tool_user: { pt: 'ferramenta para quem a usa', en: 'tool to its user' },
+  worker_place: { pt: 'profissional para o local onde trabalha', en: 'worker to workplace' },
+  worker_product: { pt: 'profissional para o que ele produz', en: 'worker to what they make' },
+  cause_effect: { pt: 'causa para efeito', en: 'cause to effect' },
+  degree: { pt: 'intensidade menor para intensidade maior', en: 'lesser to greater degree' },
+  object_function: { pt: 'objeto para sua função', en: 'object to its function' },
+  animal_young: { pt: 'animal adulto para seu filhote', en: 'adult animal to its young' },
+  material_product: { pt: 'matéria-prima para o produto', en: 'raw material to product' },
+  category_member: { pt: 'categoria para um membro dela', en: 'category to a member' },
+  opposite: { pt: 'palavra para seu oposto', en: 'word to its opposite' },
+  container_content: { pt: 'recipiente para o que ele guarda', en: 'container to its contents' },
+  animal_sound: { pt: 'animal para o som que ele faz', en: 'animal to the sound it makes' },
+  body_sense: { pt: 'órgão para o sentido correspondente', en: 'organ to its sense' },
+  study_subject: { pt: 'ciência para o que ela estuda', en: 'field of study to its subject' },
+  unit_measure: { pt: 'unidade para a grandeza que ela mede', en: 'unit to what it measures' },
+  shelter_animal: { pt: 'abrigo para o animal que o habita', en: 'shelter to its animal' },
 }
 
 export const ANALOGY_PAIRS: AnalogyPair[] = [
@@ -361,7 +362,7 @@ export interface SentenceFrame {
   distractors: string[]
   level: Difficulty
   /** por que a resposta cabe e as outras não */
-  rationale: string
+  rationale: LocalizedText
 }
 
 export const SENTENCE_FRAMES: SentenceFrame[] = [
@@ -370,240 +371,330 @@ export const SENTENCE_FRAMES: SentenceFrame[] = [
     answer: 'compelling',
     distractors: ['tedious', 'ambiguous', 'reluctant', 'ornate'],
     level: 1,
-    rationale:
-      'Um veredito rápido indica prova FORTE. "compelling" (convincente) é o único que explica a pressa; "ambiguous" diria o contrário.',
+    rationale: {
+      pt: 'Um veredito rápido indica prova FORTE. "compelling" (convincente) é o único que explica a pressa; "ambiguous" diria o contrário.',
+      en:
+        'A verdict that fast points to STRONG evidence. "compelling" is the only choice that explains the speed; "ambiguous" would say the opposite.',
+    },
   },
   {
     frame: 'Although the road looked short on the map, the climb proved ___.',
     answer: 'arduous',
     distractors: ['effortless', 'brief', 'scenic', 'punctual'],
     level: 2,
-    rationale:
-      '"Although" anuncia contraste: o esperado era fácil, o real foi difícil. "arduous" é o contraste; "effortless" repetiria a expectativa.',
+    rationale: {
+      pt: '"Although" anuncia contraste: o esperado era fácil, o real foi difícil. "arduous" é o contraste; "effortless" repetiria a expectativa.',
+      en:
+        '"Although" announces a contrast: the map promised easy, the reality was hard. "arduous" supplies the contrast; "effortless" would just repeat the expectation.',
+    },
   },
   {
     frame: 'Her ___ replies gave the impression that she wanted the meeting to end.',
     answer: 'curt',
     distractors: ['rambling', 'cordial', 'detailed', 'hesitant'],
     level: 3,
-    rationale:
-      'Querer encerrar produz respostas CURTAS e secas. "curt" casa; "rambling" e "detailed" alongariam a reunião.',
+    rationale: {
+      pt: 'Querer encerrar produz respostas CURTAS e secas. "curt" casa; "rambling" e "detailed" alongariam a reunião.',
+      en:
+        'Wanting the meeting over produces SHORT, clipped replies. "curt" fits; "rambling" and "detailed" would drag the meeting out.',
+    },
   },
   {
     frame: 'The committee was ___: not one member was willing to change position.',
     answer: 'intransigent',
     distractors: ['conciliatory', 'indecisive', 'enthusiastic', 'disorganized'],
     level: 5,
-    rationale:
-      'Depois dos dois-pontos vem a definição: ninguém cede. "intransigent" é exatamente isso; "conciliatory" é o oposto.',
+    rationale: {
+      pt: 'Depois dos dois-pontos vem a definição: ninguém cede. "intransigent" é exatamente isso; "conciliatory" é o oposto.',
+      en:
+        'The colon introduces the definition: nobody will budge. "intransigent" is exactly that; "conciliatory" is its opposite.',
+    },
   },
   {
     frame: 'What began as a ___ interest in photography became his life’s work.',
     answer: 'casual',
     distractors: ['obsessive', 'professional', 'lucrative', 'reluctant'],
     level: 2,
-    rationale:
-      '"What began as X became Y" pede contraste entre início e fim. O fim é "life’s work", então o início tem de ser leve: "casual".',
+    rationale: {
+      pt: '"What began as X became Y" pede contraste entre início e fim. O fim é "life’s work", então o início tem de ser leve: "casual".',
+      en:
+        '"What began as X became Y" asks for a contrast between start and end. The end is his life\'s work, so the start has to be light: "casual".',
+    },
   },
   {
     frame: 'The old bridge was ___ by decades of neglect and finally closed to traffic.',
     answer: 'weakened',
     distractors: ['reinforced', 'celebrated', 'widened', 'inaugurated'],
     level: 1,
-    rationale:
-      'Negligência por décadas + fechamento = deterioração. "weakened" é a única consequência coerente.',
+    rationale: {
+      pt: 'Negligência por décadas + fechamento = deterioração. "weakened" é a única consequência coerente.',
+      en:
+        'Decades of neglect plus a closure add up to decay. "weakened" is the only consequence that holds together.',
+    },
   },
   {
     frame: 'He offered a ___ apology, delivered in a monotone as he checked his watch.',
     answer: 'perfunctory',
     distractors: ['heartfelt', 'elaborate', 'tearful', 'public'],
     level: 5,
-    rationale:
-      'Monotonia + olhar o relógio revelam desculpa feita por obrigação. "perfunctory" nomeia isso; "heartfelt" contradiz a cena.',
+    rationale: {
+      pt: 'Monotonia + olhar o relógio revelam desculpa feita por obrigação. "perfunctory" nomeia isso; "heartfelt" contradiz a cena.',
+      en:
+        'The monotone and the glance at the watch reveal an apology given out of obligation. "perfunctory" names it; "heartfelt" contradicts the scene.',
+    },
   },
   {
     frame: 'The new policy was deliberately ___, leaving each department free to interpret it.',
     answer: 'vague',
     distractors: ['precise', 'mandatory', 'punitive', 'retroactive'],
     level: 3,
-    rationale:
-      'Liberdade de interpretação decorre de texto impreciso. "vague" explica a liberdade; "precise" a eliminaria.',
+    rationale: {
+      pt: 'Liberdade de interpretação decorre de texto impreciso. "vague" explica a liberdade; "precise" a eliminaria.',
+      en:
+        'Freedom to interpret follows from imprecise wording. "vague" explains the freedom; "precise" would remove it.',
+    },
   },
   {
     frame: 'Supplies were ___ after the harvest, so the village stored what it could not use.',
     answer: 'abundant',
     distractors: ['scarce', 'perishable', 'expensive', 'rationed'],
     level: 1,
-    rationale:
-      'Só se guarda o que sobra. "abundant" explica a sobra; "scarce" tornaria a frase incoerente.',
+    rationale: {
+      pt: 'Só se guarda o que sobra. "abundant" explica a sobra; "scarce" tornaria a frase incoerente.',
+      en:
+        'You only store what is left over. "abundant" explains the surplus; "scarce" would make the sentence incoherent.',
+    },
   },
   {
     frame: 'The critic’s praise was ___ compared with the harsh reviews of the other papers.',
     answer: 'effusive',
     distractors: ['scathing', 'restrained', 'belated', 'anonymous'],
     level: 4,
-    rationale:
-      '"compared with harsh reviews" pede contraste: elogio caloroso. "effusive" contrasta; "scathing" seria mais do mesmo.',
+    rationale: {
+      pt: '"compared with harsh reviews" pede contraste: elogio caloroso. "effusive" contrasta; "scathing" seria mais do mesmo.',
+      en:
+        '"compared with harsh reviews" demands a contrast: warm praise. "effusive" contrasts; "scathing" would be more of the same.',
+    },
   },
   {
     frame: 'Despite the storm warning, the captain remained ___ and kept the crew calm.',
     answer: 'composed',
     distractors: ['frantic', 'oblivious', 'seasick', 'indecisive'],
     level: 2,
-    rationale:
-      'Manter a tripulação calma exige estar calmo. "composed" sustenta a segunda metade da frase.',
+    rationale: {
+      pt: 'Manter a tripulação calma exige estar calmo. "composed" sustenta a segunda metade da frase.',
+      en:
+        'Keeping the crew calm requires being calm. "composed" is what holds up the second half of the sentence.',
+    },
   },
   {
     frame: 'The manuscript was ___: three separate scribes had copied it over two centuries.',
     answer: 'composite',
     distractors: ['forged', 'pristine', 'illegible', 'anonymous'],
     level: 4,
-    rationale:
-      'Os dois-pontos explicam: feito de partes de origens diferentes. "composite" nomeia isso.',
+    rationale: {
+      pt: 'Os dois-pontos explicam: feito de partes de origens diferentes. "composite" nomeia isso.',
+      en:
+        'The colon explains it: made of parts from different sources. "composite" names that.',
+    },
   },
   {
     frame: 'Funding was ___, so the team cut the study from three years to one.',
     answer: 'meager',
     distractors: ['generous', 'renewable', 'anonymous', 'taxable'],
     level: 3,
-    rationale:
-      'Cortar o estudo é consequência de pouco dinheiro. "meager" é a causa; "generous" inverteria o resultado.',
+    rationale: {
+      pt: 'Cortar o estudo é consequência de pouco dinheiro. "meager" é a causa; "generous" inverteria o resultado.',
+      en:
+        'Cutting the study short is the consequence of thin funding. "meager" is the cause; "generous" would invert the result.',
+    },
   },
   {
     frame: 'His argument was ___, moving from evidence to conclusion without a gap.',
     answer: 'cogent',
     distractors: ['rambling', 'emotional', 'lengthy', 'rehearsed'],
     level: 5,
-    rationale:
-      '"sem lacuna entre prova e conclusão" descreve raciocínio rigoroso. "cogent" nomeia; "rambling" é o oposto.',
+    rationale: {
+      pt: '"sem lacuna entre prova e conclusão" descreve raciocínio rigoroso. "cogent" nomeia; "rambling" é o oposto.',
+      en:
+        '"from evidence to conclusion without a gap" describes rigorous reasoning. "cogent" names it; "rambling" is the opposite.',
+    },
   },
   {
     frame: 'The drought made once-___ farmland useless within a single season.',
     answer: 'fertile',
     distractors: ['barren', 'distant', 'expensive', 'forested'],
     level: 2,
-    rationale:
-      '"once-___ ... useless" exige que antes fosse o contrário de inútil. "fertile" cria o contraste; "barren" o destruiria.',
+    rationale: {
+      pt: '"once-___ ... useless" exige que antes fosse o contrário de inútil. "fertile" cria o contraste; "barren" o destruiria.',
+      en:
+        '"once-___ ... useless" requires the land to have been the opposite of useless before. "fertile" creates the contrast; "barren" would destroy it.',
+    },
   },
   {
     frame: 'Because the instructions were ___, half the class assembled the kit incorrectly.',
     answer: 'confusing',
     distractors: ['detailed', 'illustrated', 'bilingual', 'laminated'],
     level: 1,
-    rationale:
-      '"Because" liga causa e efeito: metade errou, logo a instrução era ruim. "confusing" é a única causa que produz o erro.',
+    rationale: {
+      pt: '"Because" liga causa e efeito: metade errou, logo a instrução era ruim. "confusing" é a única causa que produz o erro.',
+      en:
+        '"Because" links cause and effect: half the class got it wrong, so the instructions were bad. "confusing" is the only cause that produces the error.',
+    },
   },
   {
     frame: 'Years of ___ left the machinery rusted beyond repair.',
     answer: 'neglect',
     distractors: ['maintenance', 'innovation', 'inspection', 'investment'],
     level: 1,
-    rationale:
-      'Ferrugem irreparável é consequência de abandono. "neglect" é a única causa coerente; "maintenance" produziria o oposto.',
+    rationale: {
+      pt: 'Ferrugem irreparável é consequência de abandono. "neglect" é a única causa coerente; "maintenance" produziria o oposto.',
+      en:
+        'Irreparable rust is the consequence of abandonment. "neglect" is the only coherent cause; "maintenance" would produce the opposite.',
+    },
   },
   {
     frame: 'Attendance was ___ this year, with barely a third of the usual crowd.',
     answer: 'sparse',
     distractors: ['record-breaking', 'mandatory', 'ticketed', 'staggered'],
     level: 1,
-    rationale:
-      'Um terço do público habitual é pouca gente. "sparse" descreve a escassez; os outros não dialogam com o número.',
+    rationale: {
+      pt: 'Um terço do público habitual é pouca gente. "sparse" descreve a escassez; os outros não dialogam com o número.',
+      en:
+        'A third of the usual crowd is very few people. "sparse" describes the shortfall; the others do not engage with the number.',
+    },
   },
   {
     frame: 'Unlike her predecessor, who micromanaged every task, the new director was ___.',
     answer: 'hands-off',
     distractors: ['meticulous', 'controlling', 'intrusive', 'demanding'],
     level: 2,
-    rationale:
-      '"Unlike" exige o oposto de microgerenciar. "hands-off" inverte; os outros três são sinônimos de microgerenciar.',
+    rationale: {
+      pt: '"Unlike" exige o oposto de microgerenciar. "hands-off" inverte; os outros três são sinônimos de microgerenciar.',
+      en:
+        '"Unlike" demands the opposite of micromanaging. "hands-off" inverts it; the other three are synonyms for micromanaging.',
+    },
   },
   {
     frame: 'The lecture was ___, covering four centuries of history in ninety minutes.',
     answer: 'sweeping',
     distractors: ['narrow', 'inaudible', 'cancelled', 'repetitive'],
     level: 2,
-    rationale:
-      'Quatro séculos em noventa minutos é escopo amplo. "sweeping" descreve a amplitude; "narrow" contradiz o dado.',
+    rationale: {
+      pt: 'Quatro séculos em noventa minutos é escopo amplo. "sweeping" descreve a amplitude; "narrow" contradiz o dado.',
+      en:
+        'Four centuries in ninety minutes is broad scope. "sweeping" describes the breadth; "narrow" contradicts the figure.',
+    },
   },
   {
     frame: 'Rather than confront the problem, the board chose to ___ the decision to next quarter.',
     answer: 'defer',
     distractors: ['announce', 'reverse', 'enforce', 'publish'],
     level: 2,
-    rationale:
-      '"Rather than confront" anuncia fuga. Empurrar para o próximo trimestre é adiar: "defer".',
+    rationale: {
+      pt: '"Rather than confront" anuncia fuga. Empurrar para o próximo trimestre é adiar: "defer".',
+      en:
+        '"Rather than confront" announces avoidance. Pushing the decision to next quarter is postponing it: "defer".',
+    },
   },
   {
     frame: 'The startup burned through its funding in months, a ___ that its investors had predicted.',
     answer: 'collapse',
     distractors: ['triumph', 'merger', 'expansion', 'rebate'],
     level: 3,
-    rationale:
-      'Queimar o caixa em meses é fracasso. "collapse" nomeia o desfecho; "triumph" contradiz a primeira metade.',
+    rationale: {
+      pt: 'Queimar o caixa em meses é fracasso. "collapse" nomeia o desfecho; "triumph" contradiz a primeira metade.',
+      en:
+        'Burning through funding in months is failure. "collapse" names the outcome; "triumph" contradicts the first half.',
+    },
   },
   {
     frame: 'The treaty was ___ only after eleven rounds of talks spread over four years.',
     answer: 'ratified',
     distractors: ['drafted', 'rejected', 'leaked', 'translated'],
     level: 3,
-    rationale:
-      '"only after" tantas rodadas indica o passo FINAL do processo. "ratified" é o desfecho; "drafted" seria o começo.',
+    rationale: {
+      pt: '"only after" tantas rodadas indica o passo FINAL do processo. "ratified" é o desfecho; "drafted" seria o começo.',
+      en:
+        '"only after" that many rounds marks the FINAL step of the process. "ratified" is the outcome; "drafted" would be the beginning.',
+    },
   },
   {
     frame: 'The audit found no errors at all, a result the accountants called ___.',
     answer: 'unprecedented',
     distractors: ['routine', 'alarming', 'preliminary', 'confidential'],
     level: 3,
-    rationale:
-      '"no errors at all" é resultado extraordinário. "unprecedented" reage à raridade; "routine" anularia o "at all".',
+    rationale: {
+      pt: '"no errors at all" é resultado extraordinário. "unprecedented" reage à raridade; "routine" anularia o "at all".',
+      en:
+        '"no errors at all" is an extraordinary result. "unprecedented" reacts to the rarity; "routine" would cancel out the "at all".',
+    },
   },
   {
     frame: 'The negotiator stayed ___ even as both sides raised their voices.',
     answer: 'impassive',
     distractors: ['agitated', 'triumphant', 'apologetic', 'bewildered'],
     level: 4,
-    rationale:
-      '"even as" marca contraste com o clima da sala: todos exaltados, ele imperturbável. "agitated" repetiria a cena em vez de contrastar.',
+    rationale: {
+      pt: '"even as" marca contraste com o clima da sala: todos exaltados, ele imperturbável. "agitated" repetiria a cena em vez de contrastar.',
+      en:
+        '"even as" marks a contrast with the mood of the room: everyone else raised, he unmoved. "agitated" would repeat the scene instead of contrasting with it.',
+    },
   },
   {
     frame: 'His memory of the accident was ___, limited to a sound and a flash of light.',
     answer: 'fragmentary',
     distractors: ['vivid', 'photographic', 'fabricated', 'traumatic'],
     level: 4,
-    rationale:
-      'A vírgula explica a lacuna: só restaram pedaços soltos. "fragmentary" nomeia isso; "vivid" contradiz o que vem depois.',
+    rationale: {
+      pt: 'A vírgula explica a lacuna: só restaram pedaços soltos. "fragmentary" nomeia isso; "vivid" contradiz o que vem depois.',
+      en:
+        'The comma explains the gap: only loose pieces remain. "fragmentary" names that; "vivid" contradicts what follows.',
+    },
   },
   {
     frame: 'She was ___ about the deadline, refusing every request for an extension.',
     answer: 'adamant',
     distractors: ['flexible', 'uncertain', 'apologetic', 'forgetful'],
     level: 4,
-    rationale:
-      'Recusar cada um dos pedidos revela firmeza inabalável. "adamant" casa; "flexible" tornaria a segunda metade impossível.',
+    rationale: {
+      pt: 'Recusar cada um dos pedidos revela firmeza inabalável. "adamant" casa; "flexible" tornaria a segunda metade impossível.',
+      en:
+        'Refusing every single request reveals unshakeable firmness. "adamant" fits; "flexible" would make the second half impossible.',
+    },
   },
   {
     frame: 'The reforms were ___: they changed the letter of the law but not a single practice.',
     answer: 'cosmetic',
     distractors: ['sweeping', 'overdue', 'unpopular', 'expensive'],
     level: 5,
-    rationale:
-      'Os dois-pontos definem: mudança de fachada. "cosmetic" é exatamente isso; "sweeping" diria o contrário.',
+    rationale: {
+      pt: 'Os dois-pontos definem: mudança de fachada. "cosmetic" é exatamente isso; "sweeping" diria o contrário.',
+      en:
+        'The colon defines it: a change of facade only. "cosmetic" is exactly that; "sweeping" would say the opposite.',
+    },
   },
   {
     frame: 'The witness gave an ___ account, adding details that no one else had mentioned.',
     answer: 'embellished',
     distractors: ['terse', 'sworn', 'recorded', 'translated'],
     level: 5,
-    rationale:
-      'Acrescentar detalhes que ninguém mais viu sugere enfeite. "embellished" nomeia; "terse" contradiz o acréscimo.',
+    rationale: {
+      pt: 'Acrescentar detalhes que ninguém mais viu sugere enfeite. "embellished" nomeia; "terse" contradiz o acréscimo.',
+      en:
+        'Adding details nobody else saw suggests embroidery. "embellished" names it; "terse" contradicts the addition.',
+    },
   },
   {
     frame: 'The proposal was ___ enough to satisfy both factions without committing to either.',
     answer: 'ambiguous',
     distractors: ['explicit', 'binding', 'itemized', 'notarized'],
     level: 5,
-    rationale:
-      'Agradar dois lados sem se comprometer exige texto que admite duas leituras. "ambiguous" é o mecanismo; "explicit" o impediria.',
+    rationale: {
+      pt: 'Agradar dois lados sem se comprometer exige texto que admite duas leituras. "ambiguous" é o mecanismo; "explicit" o impediria.',
+      en:
+        'Pleasing both sides without committing requires wording that allows two readings. "ambiguous" is the mechanism; "explicit" would prevent it.',
+    },
   },
 ]
 

@@ -38,7 +38,8 @@ describe('léxico — sem resíduo de autoria', () => {
     const rascunho = /\b(TODO|FIXME|XXX)\b|\?\?\?|lorem ipsum/
     for (const f of SENTENCE_FRAMES) {
       expect(f.frame, f.frame).not.toMatch(rascunho)
-      expect(f.rationale, f.frame).not.toMatch(rascunho)
+      expect(f.rationale.pt, f.frame).not.toMatch(rascunho)
+      expect(f.rationale.en, f.frame).not.toMatch(rascunho)
     }
   })
 })

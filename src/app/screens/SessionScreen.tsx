@@ -2,7 +2,6 @@ import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import {
   currentQuestion,
-  elapsedTotalMs,
   feedbackAvailable,
   isFinished,
   remainingMs,
@@ -12,14 +11,17 @@ import { subtipoTheory } from '../../core/theory'
 import { DRILL_PER_QUESTION_MS, SUBTIPO_LABEL, type AnySubtipo } from '../../core/taxonomy'
 import { SpatialFigure } from '../components/SpatialFigure'
 import { useOptionHotkeys, useSession } from '../useSession'
+import { useLocale } from '../LocaleContext'
 import { formatClock } from '../format'
 
 /**
- * Tela de questão.
+ * Tela de questão — o pico do app.
  *
- * Restrição de projeto: precisa ser lida e respondida em ~18 segundos. Por isso
- * só existem quatro coisas na tela — relógio, contador, enunciado e
- * alternativas. Qualquer elemento a mais compete com o cronômetro.
+ * Restrição de projeto: ler e responder em ~18 segundos. Por isso existem
+ * quatro coisas na tela e nada mais — cronômetro, contador, enunciado,
+ * alternativas. O cabeçalho some durante a sessão e a régua de tempo sangra de
+ * borda a borda: a passagem do tempo é o fato mais importante aqui, e é o
+ * único elemento que se move sozinho.
  */
 export function SessionScreen({
   inicial,
@@ -29,6 +31,7 @@ export function SessionScreen({
   meta?: { tipo?: string; subtipo?: string }
 }) {
   const navigate = useNavigate()
+  const { t, tx } = useLocale()
   const { state, now, score, savedId, answer, abandon } = useSession(inicial, meta ?? {})
   const [escolhida, setEscolhida] = useState<string | null>(null)
 
@@ -76,9 +79,10 @@ export function SessionScreen({
 
   if (!q || isFinished(state)) {
     return (
-      <div className="vazio">
-        <p>Apurando o resultado…</p>
-      </div>
+      <>
+        <p className="trilha">{t('session.ended')}</p>
+        <h1>{t('session.scoring')}</h1>
+      </>
     )
   }
 
@@ -91,108 +95,97 @@ export function SessionScreen({
   const total = state.config.questions.length
   const graficas = q.options.some((o) => o.spatial)
   const teoria = subtipoTheory(q.tipo, q.subtipo)
+  const decorrido = Math.min(100, ((orcamento - restante) / orcamento) * 100)
 
   return (
     <>
       <div className="barra-sessao">
-        <span className={`relogio${urgente ? ' urgente' : ''}`}>
+        <span
+          className={`relogio${urgente ? ' urgente' : ''}`}
+          role="timer"
+          aria-label={t('session.timeLeft', { time: formatClock(restante) })}
+        >
           {formatClock(restante)}
         </span>
         <span className="contador">
-          {state.index + 1} / {total}
+          {state.index + 1}/{total}
         </span>
-        <button className="btn secundario" onClick={abandon} type="button">
-          Encerrar
+        <button className="encerrar" onClick={abandon} type="button">
+          {t('session.finish')}
         </button>
       </div>
 
-      <div className="progresso" aria-hidden="true">
-        <i
-          style={{
-            width: `${Math.min(100, ((orcamento - restante) / orcamento) * 100)}%`,
-          }}
-        />
+      <div className={`progresso${urgente ? ' urgente' : ''}`} aria-hidden="true">
+        <i style={{ width: `${decorrido}%` }} />
       </div>
 
-      {q.stemSpatial && (
-        <div className="figura-enunciado">
-          <SpatialFigure spec={q.stemSpatial} label="Figura do enunciado" />
-        </div>
-      )}
-
-      <p className={`enunciado${q.tipo === 'math_series' ? ' serie' : ''}`}>{q.stem}</p>
-
-      <ul className={`opcoes${graficas ? ' graficas' : ''}`}>
-        {q.options.map((o, i) => {
-          const certa = o.id === q.answerId
-          const marcada = o.id === escolhida
-          const classe = revelado
-            ? certa
-              ? ' certa'
-              : marcada
-                ? ' errada'
-                : ''
-            : ''
-
-          return (
-            <li key={o.id}>
-              <button
-                type="button"
-                className={`opcao${classe}`}
-                onClick={() => escolher(o.id)}
-                disabled={revelado}
-                aria-pressed={marcada}
-              >
-                <span className="tecla" aria-hidden="true">
-                  {'ABCDE'[i]}
-                </span>
-                {o.spatial ? (
-                  <SpatialFigure spec={o.spatial} label={`Alternativa ${'ABCDE'[i]}`} />
-                ) : (
-                  <span>{o.text}</span>
-                )}
-              </button>
-            </li>
-          )
-        })}
-      </ul>
-
-      {!revelado && (
-        <div className="btn-linha">
-          <button className="btn secundario" type="button" onClick={() => answer(null)}>
-            Pular
-          </button>
-        </div>
-      )}
-
-      {revelado && (
-        <div className="feedback">
-          <p className={`veredito ${escolhida === q.answerId ? 'acerto' : 'erro'}`}>
-            {escolhida === q.answerId ? 'Correto' : 'Incorreto'}
-          </p>
-          <p>{q.explanation}</p>
-          {teoria && (
-            <p className="rodape-teoria">
-              Revisar a teoria:{' '}
-              <Link to={`/teoria/${q.tipo}#${q.subtipo}`}>
-                {SUBTIPO_LABEL[q.subtipo as AnySubtipo]}
-              </Link>
-            </p>
-          )}
-          <div className="btn-linha">
-            <button className="btn" type="button" onClick={() => answer(escolhida)} autoFocus>
-              Próxima
-            </button>
+      <div className="questao" key={q.id}>
+        {q.stemSpatial && (
+          <div className="figura-enunciado">
+            <SpatialFigure spec={q.stemSpatial} label="Figura do enunciado" />
           </div>
-        </div>
-      )}
+        )}
 
-      {state.config.mode === 'exam' && (
-        <p className="legenda" style={{ marginTop: 28 }}>
-          Simulação fiel: sem feedback e sem voltar até o fim.{' '}
-          <span className="num">{formatClock(elapsedTotalMs(state, now))}</span> decorridos.
-        </p>
-      )}
+        <p className={`enunciado${q.tipo === 'math_series' ? ' serie' : ''}`}>{q.stem}</p>
+
+        <ul className={`opcoes${graficas ? ' graficas' : ''}`}>
+          {q.options.map((o, i) => {
+            const certa = o.id === q.answerId
+            const marcada = o.id === escolhida
+            const classe = revelado ? (certa ? ' certa' : marcada ? ' errada' : '') : ''
+
+            return (
+              <li key={o.id}>
+                <button
+                  type="button"
+                  className={`opcao${classe}`}
+                  onClick={() => escolher(o.id)}
+                  disabled={revelado}
+                  aria-pressed={marcada}
+                >
+                  <span className="tecla" aria-hidden="true">
+                    {'ABCDE'[i]}
+                  </span>
+                  {o.spatial ? (
+                    <SpatialFigure spec={o.spatial} label={`Alternativa ${'ABCDE'[i]}`} />
+                  ) : (
+                    <span className="rotulo">{o.text}</span>
+                  )}
+                </button>
+              </li>
+            )
+          })}
+        </ul>
+
+        {!revelado && (
+          <button className="pular" type="button" onClick={() => answer(null)}>
+            {t('session.skip')}
+          </button>
+        )}
+
+        {revelado && (
+          <div className="feedback">
+            <p className={`veredito ${escolhida === q.answerId ? 'acerto' : 'erro'}`}>
+              {escolhida === q.answerId ? t('session.correct') : t('session.incorrect')}
+            </p>
+            <p>{tx(q.explanation)}</p>
+            {teoria && (
+              <p className="rodape-teoria">
+                <Link to={`/teoria/${q.tipo}#${q.subtipo}`}>
+                  {t('session.reviewTheory', {
+                    subtipo: tx(SUBTIPO_LABEL[q.subtipo as AnySubtipo]),
+                  })}
+                </Link>
+              </p>
+            )}
+            <div className="btn-linha" style={{ marginTop: 20 }}>
+              <button className="btn" type="button" onClick={() => answer(escolhida)} autoFocus>
+                {t('session.next')}
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
     </>
   )
 }

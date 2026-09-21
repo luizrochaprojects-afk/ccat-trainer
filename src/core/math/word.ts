@@ -1,5 +1,6 @@
 import { mulberry32, type Rng } from '../rng'
 import type { Difficulty } from '../taxonomy'
+import type { LocalizedText } from '../i18n'
 import { optionIdAt } from '../optionIds'
 import { formatNumber, type NumberFormat } from './solver'
 import type { MathGenerated, MathGenerator } from './series'
@@ -7,8 +8,13 @@ import type { MathGenerated, MathGenerator } from './series'
 /**
  * Problemas matemáticos por template (PRD §4.10 estendido a math_word).
  *
+ * Enunciado e alternativas em **inglês** — inclusive os números, que usam
+ * separador en-US. A CCAT é aplicada em inglês e ler o problema faz parte do
+ * que ela mede; um enunciado em português treinaria outra coisa. As explicações
+ * vêm nos dois idiomas (ver core/i18n.ts).
+ *
  * Cada template preenche slots numéricos escolhidos para que a resposta seja
- * exata — nada de dízima, porque na CCAT você resolve de cabeça em 18s e
+ * exata — nada de dízima, porque na prova você resolve de cabeça em 18s e
  * alternativa com arredondamento vira loteria.
  *
  * Os distratores são os **erros reais** do problema (esquecer de subtrair,
@@ -25,7 +31,7 @@ interface Problema {
   format: NumberFormat
   /** erros clássicos, na ordem de plausibilidade */
   armadilhas: number[]
-  explanation: string
+  explanation: LocalizedText
 }
 
 type Template = (rng: Rng, d: Difficulty) => Problema
@@ -36,26 +42,34 @@ const estoque: Template = (rng) => {
   const porCaixa = rng.int(6, 24)
   const caixas = rng.int(5, 30)
   const despachadas = rng.int(10, porCaixa * caixas - 10)
-  const valor = porCaixa * caixas - despachadas
+  const recebido = porCaixa * caixas
+  const valor = recebido - despachadas
 
   return {
     stem:
-      `Um depósito recebeu ${caixas} caixas com ${porCaixa} unidades cada e ` +
-      `despachou ${despachadas} unidades. Quantas unidades restaram?`,
+      `A warehouse received ${caixas} boxes of ${porCaixa} units each and shipped out ` +
+      `${despachadas} units. How many units are left?`,
     valor,
     expression: `${caixas}*${porCaixa}-${despachadas}`,
     format: 'plain',
     armadilhas: [
-      porCaixa * caixas, // esqueceu de subtrair
-      porCaixa * caixas + despachadas, // somou em vez de subtrair
+      recebido, // esqueceu de subtrair
+      recebido + despachadas, // somou em vez de subtrair
       valor - porCaixa, // errou uma caixa
-      caixas * porCaixa - despachadas * 2,
+      recebido - despachadas * 2,
     ],
-    explanation:
-      `Primeiro o total recebido: ${caixas} × ${porCaixa} = ${formatNumber(caixas * porCaixa)}. ` +
-      `Depois tire o que saiu: ${formatNumber(caixas * porCaixa)} − ${formatNumber(despachadas)} = ` +
-      `${formatNumber(valor)}. A pegadinha é parar na multiplicação — o enunciado ` +
-      `pergunta o que RESTOU, não o que entrou.`,
+    explanation: {
+      pt:
+        `Primeiro o total recebido: ${caixas} × ${porCaixa} = ${formatNumber(recebido)}. ` +
+        `Depois tire o que saiu: ${formatNumber(recebido)} − ${formatNumber(despachadas)} = ` +
+        `${formatNumber(valor)}. A pegadinha é parar na multiplicação — o enunciado ` +
+        `pergunta o que RESTOU, não o que entrou.`,
+      en:
+        `First the total received: ${caixas} × ${porCaixa} = ${formatNumber(recebido)}. ` +
+        `Then subtract what left: ${formatNumber(recebido)} − ${formatNumber(despachadas)} = ` +
+        `${formatNumber(valor)}. The trap is stopping at the multiplication — the question ` +
+        `asks what is LEFT, not what came in.`,
+    },
   }
 }
 
@@ -67,17 +81,22 @@ const divisaoIgual: Template = (rng) => {
 
   return {
     stem:
-      `${formatNumber(total + sobra)} itens serão divididos igualmente entre ` +
-      `${pessoas} pessoas. Quantos itens cada pessoa recebe, e quantos sobram? ` +
-      `(informe quantos cada um recebe)`,
+      `${formatNumber(total + sobra)} items are divided equally among ${pessoas} people. ` +
+      `How many items does each person receive?`,
     valor: porPessoa,
     expression: `(${total + sobra}-${sobra})/${pessoas}`,
     format: 'plain',
     armadilhas: [porPessoa + 1, porPessoa - 1, sobra, total],
-    explanation:
-      `${formatNumber(total + sobra)} ÷ ${pessoas} = ${porPessoa} com resto ${sobra}. ` +
-      `Cada pessoa fica com ${porPessoa} e sobram ${sobra}. Quando a divisão não é ` +
-      `exata, confira o que a pergunta quer: o quociente ou o resto.`,
+    explanation: {
+      pt:
+        `${formatNumber(total + sobra)} ÷ ${pessoas} = ${porPessoa} com resto ${sobra}. ` +
+        `Cada pessoa fica com ${porPessoa} e sobram ${sobra}. Quando a divisão não é ` +
+        `exata, confira o que a pergunta quer: o quociente ou o resto.`,
+      en:
+        `${formatNumber(total + sobra)} ÷ ${pessoas} = ${porPessoa} remainder ${sobra}. ` +
+        `Each person receives ${porPessoa} and ${sobra} are left over. When the division is ` +
+        `not exact, check which one the question wants: the quotient or the remainder.`,
+    },
   }
 }
 
@@ -92,22 +111,24 @@ const razaoSimples: Template = (rng) => {
 
   return {
     stem:
-      `A razão entre o número de camisas e o de calças num estoque é ${a}:${b}. ` +
-      `Se há ${formatNumber(x)} camisas, quantas calças há?`,
+      `The ratio of shirts to trousers in a stockroom is ${a}:${b}. If there are ` +
+      `${formatNumber(x)} shirts, how many trousers are there?`,
     valor,
     expression: `${x}/${a}*${b}`,
     format: 'plain',
-    armadilhas: [
-      Math.round((x * a) / b), // inverteu a razão
-      x + (b - a) * k,
-      valor + b,
-      valor - b,
-    ],
-    explanation:
-      `A razão ${a}:${b} significa que para cada ${a} camisas há ${b} calças. ` +
-      `${formatNumber(x)} ÷ ${a} = ${k} grupos, e ${k} × ${b} = ${formatNumber(valor)} calças. ` +
-      `O erro clássico é inverter e multiplicar por ${a}/${b} — leia qual grandeza ` +
-      `vem primeiro na razão.`,
+    armadilhas: [Math.round((x * a) / b), x + (b - a) * k, valor + b, valor - b],
+    explanation: {
+      pt:
+        `A razão ${a}:${b} significa que para cada ${a} camisas há ${b} calças. ` +
+        `${formatNumber(x)} ÷ ${a} = ${k} grupos, e ${k} × ${b} = ${formatNumber(valor)}. ` +
+        `O erro clássico é inverter e multiplicar por ${a}/${b} — leia qual grandeza ` +
+        `vem primeiro na razão.`,
+      en:
+        `A ratio of ${a}:${b} means that for every ${a} shirts there are ${b} trousers. ` +
+        `${formatNumber(x)} ÷ ${a} = ${k} groups, and ${k} × ${b} = ${formatNumber(valor)}. ` +
+        `The classic mistake is flipping it and multiplying by ${a}/${b} — read which ` +
+        `quantity comes first in the ratio.`,
+    },
   }
 }
 
@@ -115,26 +136,34 @@ const proporcaoDireta: Template = (rng) => {
   const unidades = rng.int(2, 12)
   const custoUnit = rng.pick([3, 4, 5, 6, 8, 10, 12, 15, 20, 25])
   const alvo = rng.int(unidades + 2, unidades + 30)
+  const precoBase = unidades * custoUnit
   const valor = alvo * custoUnit
 
   return {
     stem:
-      `${unidades} peças custam R$ ${formatNumber(unidades * custoUnit)}. ` +
-      `Mantendo o mesmo preço unitário, quanto custam ${alvo} peças?`,
+      `${unidades} parts cost ${formatNumber(precoBase, 'currency')}. At the same unit ` +
+      `price, how much do ${alvo} parts cost?`,
     valor,
-    expression: `${unidades * custoUnit}/${unidades}*${alvo}`,
-    format: 'brl',
+    expression: `${precoBase}/${unidades}*${alvo}`,
+    format: 'currency',
     armadilhas: [
-      unidades * custoUnit + alvo, // somou em vez de escalar
+      precoBase + alvo, // somou em vez de escalar
       valor - custoUnit,
       valor + custoUnit,
-      Math.round((unidades * custoUnit * unidades) / alvo),
+      Math.round((precoBase * unidades) / alvo),
     ],
-    explanation:
-      `Preço unitário: R$ ${formatNumber(unidades * custoUnit)} ÷ ${unidades} = ` +
-      `R$ ${formatNumber(custoUnit, 'brl').replace('R$ ', '')}. Multiplique por ${alvo}: ` +
-      `${formatNumber(valor, 'brl')}. Em proporção direta, sempre ache o valor de UMA ` +
-      `unidade antes de escalar.`,
+    explanation: {
+      pt:
+        `Preço unitário: ${formatNumber(precoBase, 'currency')} ÷ ${unidades} = ` +
+        `${formatNumber(custoUnit, 'currency')}. Multiplique por ${alvo}: ` +
+        `${formatNumber(valor, 'currency')}. Em proporção direta, sempre ache o valor de ` +
+        `UMA unidade antes de escalar.`,
+      en:
+        `Unit price: ${formatNumber(precoBase, 'currency')} ÷ ${unidades} = ` +
+        `${formatNumber(custoUnit, 'currency')}. Multiply by ${alvo}: ` +
+        `${formatNumber(valor, 'currency')}. In direct proportion, always find the price of ` +
+        `ONE unit before scaling.`,
+    },
   }
 }
 
@@ -143,44 +172,61 @@ const proporcaoDireta: Template = (rng) => {
 const desconto: Template = (rng) => {
   const pct = rng.pick([5, 10, 15, 20, 25, 30, 40, 50])
   const preco = rng.int(2, 40) * 20 // múltiplo de 20 → desconto exato
-  const valor = preco * (1 - pct / 100)
+  const corte = (preco * pct) / 100
+  const valor = preco - corte
 
   return {
-    stem: `Um produto de R$ ${formatNumber(preco)} recebeu ${pct}% de desconto. Qual o preço final?`,
+    stem:
+      `An item priced at ${formatNumber(preco, 'currency')} is discounted by ${pct}%. ` +
+      `What is the final price?`,
     valor,
     expression: `${preco}-${preco}*${pct}/100`,
-    format: 'brl',
+    format: 'currency',
     armadilhas: [
-      preco * (1 + pct / 100), // somou o desconto
-      (preco * pct) / 100, // devolveu só o desconto
+      preco + corte, // somou o desconto
+      corte, // devolveu só o desconto
       preco - pct, // tratou % como valor absoluto
       valor - 10,
     ],
-    explanation:
-      `${pct}% de ${formatNumber(preco)} é ${formatNumber((preco * pct) / 100)}. ` +
-      `O preço final é ${formatNumber(preco)} − ${formatNumber((preco * pct) / 100)} = ` +
-      `${formatNumber(valor, 'brl')}. Atalho: desconto de ${pct}% é pagar ${100 - pct}% — ` +
-      `multiplique direto por 0,${String(100 - pct).padStart(2, '0')} e pule uma etapa.`,
+    explanation: {
+      pt:
+        `${pct}% de ${formatNumber(preco)} é ${formatNumber(corte)}. O preço final é ` +
+        `${formatNumber(preco)} − ${formatNumber(corte)} = ${formatNumber(valor, 'currency')}. ` +
+        `Atalho: desconto de ${pct}% é pagar ${100 - pct}% — multiplique direto por ` +
+        `0.${String(100 - pct).padStart(2, '0')} e pule uma etapa.`,
+      en:
+        `${pct}% of ${formatNumber(preco)} is ${formatNumber(corte)}. The final price is ` +
+        `${formatNumber(preco)} − ${formatNumber(corte)} = ${formatNumber(valor, 'currency')}. ` +
+        `Shortcut: a ${pct}% discount means paying ${100 - pct}% — multiply straight by ` +
+        `0.${String(100 - pct).padStart(2, '0')} and skip a step.`,
+    },
   }
 }
 
 const aumentoPercentual: Template = (rng) => {
   const pct = rng.pick([10, 20, 25, 50])
   const base = rng.int(2, 50) * 20
-  const valor = base * (1 + pct / 100)
+  const acrescimo = (base * pct) / 100
+  const valor = base + acrescimo
 
   return {
     stem:
-      `Uma equipe de ${formatNumber(base)} pessoas cresceu ${pct}%. ` +
-      `Quantas pessoas passou a ter?`,
+      `A team of ${formatNumber(base)} people grew by ${pct}%. How many people does it ` +
+      `have now?`,
     valor,
     expression: `${base}+${base}*${pct}/100`,
     format: 'plain',
-    armadilhas: [base * (1 - pct / 100), (base * pct) / 100, base + pct, valor + base * 0.1],
-    explanation:
-      `O aumento é ${formatNumber((base * pct) / 100)} pessoas, então o total vira ` +
-      `${formatNumber(base)} + ${formatNumber((base * pct) / 100)} = ${formatNumber(valor)}. ` +
-      `Crescer ${pct}% é multiplicar por 1,${String(pct).padStart(2, '0')}.`,
+    armadilhas: [base - acrescimo, acrescimo, base + pct, valor + base * 0.1],
+    explanation: {
+      pt:
+        `O aumento é de ${formatNumber(acrescimo)} pessoas, então o total vira ` +
+        `${formatNumber(base)} + ${formatNumber(acrescimo)} = ${formatNumber(valor)}. ` +
+        `Crescer ${pct}% é multiplicar por 1.${String(pct).padStart(2, '0')}.`,
+      en:
+        `The increase is ${formatNumber(acrescimo)} people, so the total becomes ` +
+        `${formatNumber(base)} + ${formatNumber(acrescimo)} = ${formatNumber(valor)}. ` +
+        `Growing by ${pct}% means multiplying by 1.${String(pct).padStart(2, '0')}.`,
+    },
   }
 }
 
@@ -192,25 +238,32 @@ const velocidade: Template = (rng) => {
   // horasAlvo === horas tornaria a pergunta degenerada: a resposta estaria
   // literalmente escrita no enunciado.
   const horasAlvo = rng.pick(range(2, 12).filter((h) => h !== horas))
+  const percorrido = kmPorHora * horas
   const valor = kmPorHora * horasAlvo
 
   return {
     stem:
-      `Um carro percorre ${formatNumber(kmPorHora * horas)} km em ${horas} horas. ` +
-      `Mantendo a mesma velocidade, quantos km percorre em ${horasAlvo} horas?`,
+      `A car travels ${formatNumber(percorrido)} km in ${horas} hours. At the same speed, ` +
+      `how many km does it travel in ${horasAlvo} hours?`,
     valor,
-    expression: `${kmPorHora * horas}/${horas}*${horasAlvo}`,
+    expression: `${percorrido}/${horas}*${horasAlvo}`,
     format: 'plain',
     armadilhas: [
-      kmPorHora * horas + horasAlvo,
-      Math.round((kmPorHora * horas * horas) / horasAlvo),
+      percorrido + horasAlvo,
+      Math.round((percorrido * horas) / horasAlvo),
       valor + kmPorHora,
       valor - kmPorHora,
     ],
-    explanation:
-      `Velocidade: ${formatNumber(kmPorHora * horas)} ÷ ${horas} = ${kmPorHora} km/h. ` +
-      `Em ${horasAlvo} horas: ${kmPorHora} × ${horasAlvo} = ${formatNumber(valor)} km. ` +
-      `Problema de taxa sempre passa pela mesma ponte: reduza a uma unidade, depois escale.`,
+    explanation: {
+      pt:
+        `Velocidade: ${formatNumber(percorrido)} ÷ ${horas} = ${kmPorHora} km/h. Em ` +
+        `${horasAlvo} horas: ${kmPorHora} × ${horasAlvo} = ${formatNumber(valor)} km. ` +
+        `Problema de taxa sempre passa pela mesma ponte: reduza a uma unidade, depois escale.`,
+      en:
+        `Speed: ${formatNumber(percorrido)} ÷ ${horas} = ${kmPorHora} km/h. In ${horasAlvo} ` +
+        `hours: ${kmPorHora} × ${horasAlvo} = ${formatNumber(valor)} km. Every rate problem ` +
+        `crosses the same bridge: reduce to one unit, then scale up.`,
+    },
   }
 }
 
@@ -218,26 +271,33 @@ const produtividade: Template = (rng) => {
   const porHora = rng.int(3, 25)
   const trabalhadores = rng.int(2, 10)
   const horas = rng.int(2, 10)
-  const valor = porHora * trabalhadores * horas
+  const porHoraTotal = porHora * trabalhadores
+  const valor = porHoraTotal * horas
 
   return {
     stem:
-      `Um operário produz ${porHora} peças por hora. Quantas peças ` +
-      `${trabalhadores} operários produzem em ${horas} horas?`,
+      `One worker makes ${porHora} parts per hour. How many parts do ${trabalhadores} ` +
+      `workers make in ${horas} hours?`,
     valor,
     expression: `${porHora}*${trabalhadores}*${horas}`,
     format: 'plain',
     armadilhas: [
-      porHora * trabalhadores, // esqueceu as horas
-      porHora * horas, // esqueceu os operários
+      porHoraTotal, // esqueceu as horas
+      porHora * horas, // esqueceu os trabalhadores
       porHora + trabalhadores + horas,
       valor - porHora,
     ],
-    explanation:
-      `${porHora} peças/hora × ${trabalhadores} operários = ` +
-      `${formatNumber(porHora * trabalhadores)} peças por hora no total. ` +
-      `Em ${horas} horas: ${formatNumber(valor)}. O erro comum é multiplicar só por um ` +
-      `dos dois fatores — conte quantas grandezas o enunciado empilha.`,
+    explanation: {
+      pt:
+        `${porHora} peças/hora × ${trabalhadores} operários = ${formatNumber(porHoraTotal)} ` +
+        `peças por hora no total. Em ${horas} horas: ${formatNumber(valor)}. O erro comum é ` +
+        `multiplicar só por um dos dois fatores — conte quantas grandezas o enunciado empilha.`,
+      en:
+        `${porHora} parts/hour × ${trabalhadores} workers = ${formatNumber(porHoraTotal)} ` +
+        `parts per hour in total. Over ${horas} hours: ${formatNumber(valor)}. The common ` +
+        `mistake is multiplying by only one of the two factors — count how many quantities ` +
+        `the problem stacks up.`,
+    },
   }
 }
 
@@ -261,8 +321,8 @@ function criar(subtipo: string): MathGenerator {
 
 /**
  * Descarta o problema se o valor da resposta aparece entre os números do
- * enunciado. Acontece por coincidência de slots ("R$ 100 com 50% de desconto"
- * → resposta 50) e faz o candidato acertar de vista, sem resolver nada.
+ * enunciado. Acontece por coincidência de slots ("$100 discounted by 50%" →
+ * resposta 50) e faz o candidato acertar de vista, sem resolver nada.
  */
 function semVazamento(build: () => Problema, subtipo: string): Problema {
   for (let tentativa = 0; tentativa < 80; tentativa++) {
@@ -274,10 +334,10 @@ function semVazamento(build: () => Problema, subtipo: string): Problema {
   throw new Error(`não consegui montar ${subtipo} sem vazar a resposta no enunciado`)
 }
 
-/** Números citados num enunciado, já normalizados de pt-BR. */
+/** Números citados num enunciado, no formato en-US (1,234.50). */
 function numerosDe(stem: string): number[] {
-  return (stem.match(/\d[\d.]*(?:,\d+)?/g) ?? []).flatMap((bruto) => {
-    const v = Number(bruto.replace(/\./g, '').replace(',', '.'))
+  return (stem.match(/\d[\d,]*(?:\.\d+)?/g) ?? []).flatMap((bruto) => {
+    const v = Number(bruto.replace(/,/g, ''))
     return Number.isFinite(v) ? [v] : []
   })
 }

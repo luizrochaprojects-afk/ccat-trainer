@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest'
+import { LOCALES } from './i18n'
 import { ALL_THEORY, subtipoTheory, subtiposSemTeoria, THEORY, theoryFor } from './theory'
 import { SUBTIPOS, SUBTIPO_LABEL, TIPOS } from './taxonomy'
 
@@ -6,6 +7,10 @@ import { SUBTIPOS, SUBTIPO_LABEL, TIPOS } from './taxonomy'
  * A teoria é linkada da explicação de cada questão e da tela de resultado.
  * Um verbete faltando vira link quebrado exatamente quando a pessoa errou e
  * quer entender por quê — que é o pior momento possível.
+ *
+ * Desde o i18n, cada verificação roda nos DOIS idiomas: uma tradução faltando
+ * é tão quebrada quanto um verbete faltando, e sem varrer os dois só apareceria
+ * para quem trocasse o idioma.
  */
 describe('cobertura da teoria', () => {
   it('todo tipo tem verbete', () => {
@@ -38,44 +43,68 @@ describe('cobertura da teoria', () => {
   })
 })
 
-describe('qualidade do conteúdo', () => {
-  it('todo tipo tem resumo e dica de ritmo substantivos', () => {
-    for (const t of ALL_THEORY) {
-      expect(t.titulo.length, t.tipo).toBeGreaterThan(3)
-      expect(t.resumo.length, t.tipo).toBeGreaterThan(80)
-      expect(t.ritmo.length, t.tipo).toBeGreaterThan(50)
-    }
-  })
+describe('qualidade do conteúdo, nos dois idiomas', () => {
+  for (const locale of LOCALES) {
+    describe(locale, () => {
+      it('todo tipo tem título, resumo e dica de ritmo substantivos', () => {
+        for (const t of ALL_THEORY) {
+          expect(t.titulo[locale].length, `${t.tipo} título`).toBeGreaterThan(3)
+          expect(t.resumo[locale].length, `${t.tipo} resumo`).toBeGreaterThan(80)
+          expect(t.ritmo[locale].length, `${t.tipo} ritmo`).toBeGreaterThan(50)
+        }
+      })
 
-  it('todo subtipo tem método com pelo menos 3 passos', () => {
-    for (const t of ALL_THEORY) {
-      for (const s of t.subtipos) {
-        expect(s.metodo.length, `${t.tipo}/${s.subtipo}`).toBeGreaterThanOrEqual(3)
-        for (const passo of s.metodo) expect(passo.length).toBeGreaterThan(15)
-      }
-    }
-  })
+      it('todo subtipo tem método com pelo menos 3 passos', () => {
+        for (const t of ALL_THEORY) {
+          for (const s of t.subtipos) {
+            expect(s.metodo[locale].length, `${t.tipo}/${s.subtipo}`).toBeGreaterThanOrEqual(3)
+            for (const passo of s.metodo[locale]) expect(passo.length).toBeGreaterThan(15)
+          }
+        }
+      })
 
-  it('todo subtipo descreve o que a questão pede e a armadilha', () => {
-    for (const t of ALL_THEORY) {
-      for (const s of t.subtipos) {
-        expect(s.oQuePede.length, `${t.tipo}/${s.subtipo}`).toBeGreaterThan(20)
-        expect(s.armadilha.length, `${t.tipo}/${s.subtipo}`).toBeGreaterThan(40)
-      }
-    }
-  })
+      it('os dois idiomas têm o MESMO número de passos', () => {
+        for (const t of ALL_THEORY) {
+          for (const s of t.subtipos) {
+            expect(
+              s.metodo.en.length,
+              `${t.tipo}/${s.subtipo}: método com contagem diferente entre idiomas`,
+            ).toBe(s.metodo.pt.length)
+          }
+        }
+      })
+
+      it('todo subtipo descreve o que a questão pede e a armadilha', () => {
+        for (const t of ALL_THEORY) {
+          for (const s of t.subtipos) {
+            expect(s.oQuePede[locale].length, `${t.tipo}/${s.subtipo}`).toBeGreaterThan(20)
+            expect(s.armadilha[locale].length, `${t.tipo}/${s.subtipo}`).toBeGreaterThan(40)
+          }
+        }
+      })
+
+      it('não sobrou marcação de rascunho', () => {
+        const rascunho = /\b(TODO|FIXME|XXX)\b|lorem ipsum/
+        for (const t of ALL_THEORY) {
+          const texto = [
+            t.resumo[locale],
+            t.ritmo[locale],
+            ...t.subtipos.flatMap((s) => [
+              s.oQuePede[locale],
+              s.armadilha[locale],
+              ...s.metodo[locale],
+            ]),
+          ]
+          for (const bloco of texto) expect(bloco, t.tipo).not.toMatch(rascunho)
+        }
+      })
+    })
+  }
 
   it('a dica de ritmo cita um alvo de tempo — a prova é cronometrada', () => {
     for (const t of ALL_THEORY) {
-      expect(t.ritmo, `${t.tipo}: dica de ritmo sem alvo em segundos`).toMatch(/segundos?/)
-    }
-  })
-
-  it('não sobrou marcação de rascunho', () => {
-    const rascunho = /\b(TODO|FIXME|XXX)\b|lorem ipsum/
-    for (const t of ALL_THEORY) {
-      const texto = [t.resumo, t.ritmo, ...t.subtipos.flatMap((s) => [s.oQuePede, s.armadilha, ...s.metodo])]
-      for (const bloco of texto) expect(bloco, t.tipo).not.toMatch(rascunho)
+      expect(t.ritmo.pt, `${t.tipo} pt`).toMatch(/segundos?/)
+      expect(t.ritmo.en, `${t.tipo} en`).toMatch(/seconds?/)
     }
   })
 })

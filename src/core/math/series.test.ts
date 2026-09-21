@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { DIFFICULTIES } from '../taxonomy'
 import { SERIES_GENERATORS, SERIES_GENERATOR_IDS } from './series'
-import { evaluateExpression, parseNumberPt } from './solver'
+import { evaluateExpression, parseNumber } from './solver'
 
 const RUNS = 200
 
@@ -29,7 +29,7 @@ describe('geradores de séries numéricas', () => {
             // caminho 2: a expressão avaliada pelo solver, independente
             expect(evaluateExpression(q.expression)).toBeCloseTo(q.answerValue, 9)
             // e o que está escrito na alternativa bate com os dois
-            expect(parseNumberPt(marcada!.text)).toBeCloseTo(q.answerValue, 9)
+            expect(parseNumber(marcada!.text)).toBeCloseTo(q.answerValue, 9)
           }
         }
       })
@@ -38,7 +38,7 @@ describe('geradores de séries numéricas', () => {
         for (const d of DIFFICULTIES) {
           for (let seed = 1; seed <= RUNS; seed++) {
             const q = gerar(seed, d)
-            const valores = q.options.map((o) => parseNumberPt(o.text))
+            const valores = q.options.map((o) => parseNumber(o.text))
             const iguais = valores.filter((v) => Math.abs(v - q.answerValue) < 1e-9)
             expect(iguais, `${id} nível ${d} seed ${seed}`).toHaveLength(1)
           }
@@ -78,7 +78,7 @@ describe('geradores de séries numéricas', () => {
             const mostrados = q.stem
               .replace(', ?', '')
               .split(',')
-              .map((t) => parseNumberPt(t.trim()))
+              .map((t) => parseNumber(t.trim()))
             expect(mostrados).not.toContain(q.answerValue)
           }
         }
@@ -88,7 +88,7 @@ describe('geradores de séries numéricas', () => {
         for (const d of DIFFICULTIES) {
           for (let seed = 1; seed <= RUNS; seed++) {
             for (const o of gerar(seed, d).options) {
-              expect(Number.isInteger(parseNumberPt(o.text))).toBe(true)
+              expect(Number.isInteger(parseNumber(o.text))).toBe(true)
             }
           }
         }
@@ -119,7 +119,7 @@ describe('serie_simples: a regra é recuperável dos termos mostrados', () => {
     for (const d of [1, 2] as const) {
       for (let seed = 1; seed <= RUNS; seed++) {
         const q = SERIES_GENERATORS.serie_simples(seed, d)
-        const termos = q.stem.replace(', ?', '').split(',').map((t) => parseNumberPt(t.trim()))
+        const termos = q.stem.replace(', ?', '').split(',').map((t) => parseNumber(t.trim()))
         const difs = termos.slice(1).map((t, i) => t - (termos[i] as number))
         expect(new Set(difs).size).toBe(1)
         // e o próximo termo continua a mesma diferença
@@ -134,7 +134,7 @@ describe('serie_simples: a regra é recuperável dos termos mostrados', () => {
 
     for (let seed = 1; seed <= RUNS; seed++) {
       const q = SERIES_GENERATORS.serie_simples(seed, 3)
-      const termos = q.stem.replace(', ?', '').split(',').map((t) => parseNumberPt(t.trim()))
+      const termos = q.stem.replace(', ?', '').split(',').map((t) => parseNumber(t.trim()))
       const ultimo = termos.at(-1) as number
       const penultimo = termos.at(-2) as number
 
@@ -168,7 +168,7 @@ describe('serie_dois_passos: alterna soma e multiplicação', () => {
   it('a resposta é a soma aplicada ao último termo mostrado', () => {
     for (let seed = 1; seed <= RUNS; seed++) {
       const q = SERIES_GENERATORS.serie_dois_passos(seed, 3)
-      const termos = q.stem.replace(', ?', '').split(',').map((t) => parseNumberPt(t.trim()))
+      const termos = q.stem.replace(', ?', '').split(',').map((t) => parseNumber(t.trim()))
       const ultimo = termos.at(-1) as number
       expect(q.answerValue).toBeGreaterThan(ultimo)
       // a diferença da resposta para o último termo é a mesma soma usada no 2º termo

@@ -19,7 +19,7 @@ describe('geradores verbais', () => {
             expect(b.stem).toBe(a.stem)
             expect(b.options).toEqual(a.options)
             expect(b.answerId).toBe(a.answerId)
-            expect(b.explanation).toBe(a.explanation)
+            expect(b.explanation).toEqual(a.explanation)
           }
         }
       })
@@ -84,7 +84,8 @@ describe('geradores verbais', () => {
       it('tem explicação substantiva em português', () => {
         for (let seed = 1; seed <= 30; seed++) {
           const q = gerar(seed, 3)
-          expect(q.explanation.length).toBeGreaterThan(80)
+          expect(q.explanation.pt.length).toBeGreaterThan(80)
+          expect(q.explanation.en.length).toBeGreaterThan(80)
         }
       })
 

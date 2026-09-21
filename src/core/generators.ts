@@ -1,5 +1,6 @@
 import type { Question, SpatialSpec } from './schema'
 import { TIPOS, type Difficulty, type Tipo } from './taxonomy'
+import type { LocalizedText } from './i18n'
 import { SPATIAL_GENERATORS } from './spatial/generators'
 import { SERIES_GENERATORS } from './math/series'
 import { WORD_GENERATORS } from './math/word'
@@ -21,7 +22,7 @@ export interface Generated {
   stemSpatial?: SpatialSpec
   options: { id: string; text?: string; spatial?: SpatialSpec }[]
   answerId: string
-  explanation: string
+  explanation: LocalizedText
   /** presente apenas nos tipos com verificação por solver */
   expression?: string
   answerValue?: number

@@ -14,6 +14,7 @@ import {
   sameUpToRotation,
 } from './glyph'
 import { glyphToSpec, matrixToSpec, sequenceToSpec } from './render'
+import type { LocalizedText } from '../i18n'
 import { optionIdAt } from '../optionIds'
 
 /**
@@ -31,11 +32,12 @@ import { optionIdAt } from '../optionIds'
 
 export interface SpatialGenerated {
   subtipo: string
+  /** sempre em ingles: a CCAT e aplicada em ingles */
   stem: string
   stemSpatial?: SpatialSpec
   options: { id: string; spatial: SpatialSpec }[]
   answerId: string
-  explanation: string
+  explanation: LocalizedText
   /** a regra, para o gate auditar as alternativas uma a uma */
   satisfiesRule: (glyph: Glyph) => boolean
   /** figuras das alternativas, na ordem em que aparecem */
@@ -97,16 +99,24 @@ export const gerarRotacao: SpatialGenerator = (seed, difficulty) => {
 
   return {
     subtipo: 'rotacao',
-    stem: 'Qual das alternativas é a mesma figura acima, apenas girada?',
+    stem: 'Which of the following is the same figure above, only rotated?',
     stemSpatial: glyphToSpec(base),
     options,
     answerId,
-    explanation:
-      `A figura correta é a original girada ${giro * 30}°. As demais são a imagem ` +
-      `espelhada: por mais que você gire uma delas no papel, ela nunca se sobrepõe ` +
-      `à figura do enunciado. O atalho é fixar um vértice de referência (o ponto ` +
-      `preenchido) e conferir se a ordem dos outros vértices ao redor dele se mantém — ` +
-      `girar preserva essa ordem, espelhar inverte.`,
+    explanation: {
+      pt:
+        `A figura correta é a original girada ${giro * 30}°. As demais são a imagem ` +
+        `espelhada: por mais que você gire uma delas no papel, ela nunca se sobrepõe ` +
+        `à figura do enunciado. O atalho é fixar um vértice de referência (o ponto ` +
+        `preenchido) e conferir se a ordem dos outros vértices ao redor dele se mantém — ` +
+        `girar preserva essa ordem, espelhar inverte.`,
+      en:
+        `The correct figure is the original rotated by ${giro * 30}°. The others are its ` +
+        `mirror image: however far you turn one of them on the page, it never lines up ` +
+        `with the figure in the prompt. The shortcut is to fix one reference vertex (the ` +
+        `filled dot) and check whether the order of the remaining vertices around it ` +
+        `holds — rotation preserves that order, reflection reverses it.`,
+    },
     satisfiesRule,
     optionGlyphs,
   }
@@ -137,15 +147,22 @@ export const gerarReflexao: SpatialGenerator = (seed, difficulty) => {
 
   return {
     subtipo: 'reflexao',
-    stem: 'Qual das alternativas é a imagem espelhada da figura acima?',
+    stem: 'Which of the following is the mirror image of the figure above?',
     stemSpatial: glyphToSpec(base),
     options,
     answerId,
-    explanation:
-      `A alternativa correta é o espelho da figura do enunciado (podendo estar ` +
-      `girada). As outras são apenas rotações da figura original. Teste rápido: ` +
-      `percorra os vértices a partir do ponto preenchido. Se no enunciado a ordem ` +
-      `é horária e na alternativa é anti-horária, é espelho.`,
+    explanation: {
+      pt:
+        `A alternativa correta é o espelho da figura do enunciado (podendo estar ` +
+        `girada). As outras são apenas rotações da figura original. Teste rápido: ` +
+        `percorra os vértices a partir do ponto preenchido. Se no enunciado a ordem ` +
+        `é horária e na alternativa é anti-horária, é espelho.`,
+      en:
+        `The correct option is the mirror of the figure in the prompt (it may also be ` +
+        `rotated). The others are plain rotations of the original. Quick test: walk the ` +
+        `vertices starting from the filled dot. If the prompt runs clockwise and the ` +
+        `option runs counter-clockwise, that option is the mirror.`,
+    },
     satisfiesRule,
     optionGlyphs,
   }
@@ -172,14 +189,21 @@ export const gerarOddOneOut: SpatialGenerator = (seed, difficulty) => {
 
   return {
     subtipo: 'odd_one_out',
-    stem: `${p.optionCount - 1} das figuras abaixo são a mesma, apenas giradas. Qual delas não pertence ao grupo?`,
+    stem: `${p.optionCount - 1} of the figures below are the same figure, only rotated. Which one does not belong?`,
     options,
     answerId,
-    explanation:
-      `Todas as figuras do grupo são a mesma, em rotações diferentes — exceto uma, ` +
-      `que é a imagem espelhada. Rotação nunca troca a "mão" da figura; espelho sim. ` +
-      `Em vez de comparar as figuras duas a duas, escolha um detalhe assimétrico e ` +
-      `veja em qual alternativa ele aparece do lado oposto.`,
+    explanation: {
+      pt:
+        `Todas as figuras do grupo são a mesma, em rotações diferentes — exceto uma, ` +
+        `que é a imagem espelhada. Rotação nunca troca a "mão" da figura; espelho sim. ` +
+        `Em vez de comparar as figuras duas a duas, escolha um detalhe assimétrico e ` +
+        `veja em qual alternativa ele aparece do lado oposto.`,
+      en:
+        `Every figure in the group is the same shape at a different rotation — except ` +
+        `one, which is the mirror image. Rotation never changes the handedness of a ` +
+        `figure; reflection does. Instead of comparing figures pairwise, pick one ` +
+        `asymmetric detail and find the option where it sits on the opposite side.`,
+    },
     satisfiesRule,
     optionGlyphs,
   }
@@ -216,15 +240,22 @@ export const gerarSerieFormas: SpatialGenerator = (seed, difficulty) => {
 
   return {
     subtipo: 'serie_formas',
-    stem: 'Qual figura completa a sequência?',
+    stem: 'Which figure completes the sequence?',
     stemSpatial: sequenceToSpec([...mostradas, null]),
     options,
     answerId,
-    explanation:
-      `A cada passo a figura gira ${passo * 30}° no sentido horário. Da quarta para ` +
-      `a quinta posição o giro acumulado chega a ${((4 * passo * 30) % 360)}° em ` +
-      `relação à primeira. Não tente enxergar a figura inteira girando: acompanhe ` +
-      `um único vértice e conte de quantos passos ele anda a cada quadro.`,
+    explanation: {
+      pt:
+        `A cada passo a figura gira ${passo * 30}° no sentido horário. Da quarta para ` +
+        `a quinta posição o giro acumulado chega a ${(4 * passo * 30) % 360}° em ` +
+        `relação à primeira. Não tente enxergar a figura inteira girando: acompanhe ` +
+        `um único vértice e conte de quantos passos ele anda a cada quadro.`,
+      en:
+        `Each step turns the figure ${passo * 30}° clockwise. By the fifth position the ` +
+        `accumulated rotation reaches ${(4 * passo * 30) % 360}° relative to the first. ` +
+        `Do not try to rotate the whole figure in your head: track a single vertex and ` +
+        `count how many steps it moves between frames.`,
+    },
     satisfiesRule,
     optionGlyphs,
   }
@@ -261,15 +292,22 @@ export const gerarMatriz: SpatialGenerator = (seed, difficulty) => {
 
   return {
     subtipo: 'matriz',
-    stem: 'Qual figura completa a matriz?',
+    stem: 'Which figure completes the matrix?',
     stemSpatial: matrixToSpec(grade),
     options,
     answerId,
-    explanation:
-      `A matriz é lida da esquerda para a direita, linha a linha: cada casa gira ` +
-      `${passo * 30}° em relação à anterior. A casa que falta é a nona, ou seja, ` +
-      `${passo * 8} passos depois da primeira. Confira pela coluna também — se o ` +
-      `padrão fecha nos dois sentidos, você achou a regra certa.`,
+    explanation: {
+      pt:
+        `A matriz é lida da esquerda para a direita, linha a linha: cada casa gira ` +
+        `${passo * 30}° em relação à anterior. A casa que falta é a nona, ou seja, ` +
+        `${passo * 8} passos depois da primeira. Confira pela coluna também — se o ` +
+        `padrão fecha nos dois sentidos, você achou a regra certa.`,
+      en:
+        `Read the matrix left to right, row by row: each cell turns ${passo * 30}° ` +
+        `relative to the previous one. The missing cell is the ninth, that is, ` +
+        `${passo * 8} steps after the first. Check down the columns too — if the pattern ` +
+        `holds both ways, you have the right rule.`,
+    },
     satisfiesRule,
     optionGlyphs,
   }
