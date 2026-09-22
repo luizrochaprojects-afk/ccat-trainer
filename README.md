@@ -1,142 +1,158 @@
 # CCAT Trainer
 
-Treino cronometrado para a **Criteria Cognitive Aptitude Test** — 50 questões em 15 minutos.
+Timed practice for the **Criteria Cognitive Aptitude Test** — 50 questions in 15 minutes.
 
-A prova é curta e o relógio é o adversário: o candidato tem cerca de 18 segundos por
-questão e quase ninguém termina. O app treina exatamente isso, com simulado completo e
-treino por tipo, e compara o resultado com as normas oficiais da prova.
+**[ccat-trainer.vercel.app](https://ccat-trainer.vercel.app)**
 
-## O que tem dentro
+The test is short and the clock is the opponent: you get roughly 18 seconds per question
+and almost nobody finishes. This app trains exactly that, with full mock tests and
+practice by type, and scores you against the test's published norms.
 
-- **Simulado completo** — 50 questões, 15 minutos, na mesma composição da prova real.
-- **Treino por tipo** — sessões curtas focadas num tipo ou subtipo, com o mesmo orçamento
-  de tempo por questão.
-- **Progresso contra as normas oficiais** — pontuação bruta convertida em percentil. Numa
-  sessão parcial, o resultado vira uma *projeção* com intervalo de confiança, em vez de
-  comparar quem respondeu 12 questões com quem respondeu 50.
-- **Teoria por subtipo** — o que a questão pede, o método e a armadilha típica.
-- **Português e inglês** na interface. O conteúdo das questões é sempre em inglês, porque
-  a prova é aplicada em inglês.
+## What's in it
 
-Os dados ficam no navegador (IndexedDB). Não há servidor nem conta.
+- **Full mock test** — 50 questions, 15 minutes, composed the way the real test is.
+- **Practice by type** — short sessions on one type or subtype, at the same per-question
+  time budget.
+- **Progress against the official norms** — raw score converted to a percentile. A partial
+  session becomes a *projection* with a confidence interval instead of comparing someone
+  who answered 12 questions with someone who answered 50.
+- **Theory per subtype** — what the question asks, the method, and the trap it sets.
+- **English and Portuguese** interface. Question content is always English, because the
+  test is administered in English.
 
-## Rodando
+Data stays in the browser (IndexedDB). No server, no account.
+
+## Running it
 
 ```bash
 npm install
 npm run dev        # http://localhost:5173
-npm test           # a suíte inteira
-npm run build      # a trava de conteúdo roda antes do bundle
+npm test           # the whole suite
+npm run build      # the content gate runs before the bundle
 ```
 
-## Como o conteúdo é feito
+## How the content is made
 
-Nenhuma questão é escrita à mão, e nenhuma é escrita por um modelo sem conferência. Todas
-saem de **geradores determinísticos**: uma função que, dada uma seed e um nível, devolve a
-questão **e o gabarito derivado da regra que a construiu**. O banco guarda só
-`(gerador, seed, nível)`, então o gate re-executa o gerador e compara — "verificar o
-gabarito" nunca vira confiar no JSON que o próprio gerador escreveu.
+No question is hand-written, and none is written by a model without verification. Every
+question comes from a **deterministic generator**: a function that, given a seed and a
+level, returns the question **and the answer key derived from the rule that built it**.
+The bank stores only `(generator, seed, level)`, so the gate re-runs the generator and
+compares — "verifying the answer key" never degrades into trusting the JSON the generator
+wrote about itself.
 
 ```bash
-npm run content:generate -- --provas 20   # gera rascunhos dimensionados por N simulados
-npm run content:gate                      # os cinco portões
-npm run content:promote                   # promove os aprovados ao banco
-npm run content:assert                    # trava de CI: nada no banco fora dos portões
+npm run content:generate -- --provas 20   # drafts sized for N mock tests
+npm run content:gate                      # the five gates
+npm run content:promote                   # promotes what passed into the bank
+npm run content:assert                    # CI lock: nothing in the bank skipped a gate
 ```
 
-Os cinco portões: esquema (G1), gabarito re-executado (G2), nível declarado (G3),
-duplicata (G4) e integridade das alternativas (G5).
+The five gates: schema (G1), re-executed answer key (G2), declared level (G3), duplicates
+(G4), and option integrity (G5).
 
-## Os seis tipos
+## The six types
 
-| Tipo | Na prova | Como o gabarito é provado |
+| Type | On the test | How the answer key is proven |
 | --- | --- | --- |
-| Analogia verbal | 7 | relação extraída do léxico |
-| Vocabulário | 6 | sinônimo/antônimo do léxico |
-| Lógica verbal | 4 | silogismo validado por **verificação de modelos** — 512 modelos finitos sobre 3 predicados, sem importação existencial |
-| Séries numéricas | 7 | a própria regra da série |
-| Problemas de matemática | 10 | solver simbólico |
-| Raciocínio espacial | 16 | a transformação que construiu a figura |
+| Verbal analogy | 7 | relation extracted from the lexicon |
+| Vocabulary | 6 | synonym/antonym from the lexicon |
+| Verbal logic | 4 | syllogism validated by **model checking** — 512 finite models over 3 predicates, no existential import |
+| Number series | 7 | the series rule itself |
+| Math word problems | 10 | symbolic solver |
+| Spatial reasoning | 16 | the transformation that built the figure |
 
-## Raciocínio espacial
+## Spatial reasoning
 
-É um terço da prova e tem o módulo mais elaborado, em `src/core/spatial/`. A decisão que o
-organiza é separar **vocabulário visual** de **forma de pergunta**:
+It is a third of the test and has the most elaborate module, in `src/core/spatial/`. The
+decision that organizes it is separating **visual vocabulary** from **question form**:
 
-- **Famílias** (`figuras/`) são o vocabulário — arcos nos cantos de um quadrado, ponteiros
-  num mostrador, forma × preenchimento × direção, formas concêntricas, moldura com X e
-  marcadores. Cada uma implementa o mesmo contrato: girar, espelhar, assinar, desenhar.
-- **Formas** (`formas.ts`) são a pergunta — rotação, reflexão, qual não pertence, série,
-  matriz 3×3, comparação visual. Toda forma é genérica sobre o contrato e não sabe que
-  figura está olhando.
+- **Families** (`figuras/`) are the vocabulary — arcs in the corners of a square, hands on
+  a dial, shape × fill × direction, concentric shapes, a frame with an X and markers. Each
+  implements the same contract: rotate, mirror, sign, draw.
+- **Forms** (`formas.ts`) are the question — rotation, reflection, odd one out, series,
+  3×3 matrix, visual comparison. Every form is generic over the contract and does not know
+  which figure it is looking at.
 
-Do produto das duas saem 28 geradores. Uma tabela de compatibilidade barra as combinações
-inválidas: a família `atributos` é aquiral, então não alimenta rotação nem reflexão — ali o
-espelho sempre coincide com alguma rotação e a questão teria duas respostas certas.
+The product of the two yields 28 generators. A compatibility table blocks the invalid
+combinations: the `atributos` family is achiral, so it feeds neither rotation nor
+reflection — there, the mirror always coincides with some rotation and the question would
+have two correct answers.
 
-As figuras são **discretas** de propósito, em espaços pequenos e enumeráveis. É o que
-permite provar por enumeração, e não por amostragem em pixels, que configurações diferentes
-produzem desenhos diferentes — a garantia de que a alternativa certa não é só correta, mas
-distinguível a olho em 18 segundos.
+The figures are **discrete** on purpose, in small enumerable spaces. That is what makes it
+possible to prove by enumeration, rather than by pixel sampling, that different
+configurations produce different drawings — the guarantee that the correct option is not
+merely correct but distinguishable by eye in 18 seconds.
 
 ```bash
-npx tsx scripts/preview-spatial.ts 2 matriz   # auditoria visual, filtrada por gerador
+npx tsx scripts/preview-spatial.ts 2 matriz   # visual audit, filtered by generator
 ```
 
-## Estrutura
+## Layout
 
 ```
-src/core/      regra pura, sem DOM — geradores, gates, SRS de sessão, normas
-src/app/       telas React
+src/core/      pure rules, no DOM — generators, gates, session engine, norms
+src/app/       React screens
 src/data/      IndexedDB
-scripts/       pipeline de conteúdo (geração, gate, promoção, preview)
-content/       banco aprovado, versionado
-tasks/         PRD
+scripts/       content pipeline (generate, gate, promote, preview)
+content/       approved bank, versioned
+tasks/         PRD and backlog
 ```
 
-`src/core` não importa nada de `src/app`: a mesma regra roda nos testes, nos scripts de
-auditoria e no app, e um preview que desenhasse diferente do app não provaria nada.
+`src/core` imports nothing from `src/app`: the same rules run in the tests, in the audit
+scripts, and in the app — and a preview that drew differently from the app would prove
+nothing.
 
-## Mobile e Android
+> Code comments are in Portuguese, the language the project is developed in. The naming
+> follows suit: CSS classes, components and hooks use Portuguese identifiers
+> (`.questao`, `<Confirmacao>`, `useBotaoVoltar`). They are referenced verbatim below.
 
-A prova é desenhada contra a dobra: em `/sessao` o `.shell` vira uma grade de altura de
-viewport (`100dvh`) com quatro faixas — cronômetro, régua, questão, ação — e **só a
-faixa da questão rola**. Medido em 375×667 (iPhone SE), o pior caso (matriz 3×3 com
-cinco alternativas gráficas) cabe sem rolagem. Se você mexer no layout da sessão, meça
-de novo: `document.querySelector('.questao')` não pode ter `scrollHeight > clientHeight`
-antes de responder.
+## Mobile and Android
 
-Duas saídas acidentais estão fechadas por confirmação, ambas pela mesma `<Confirmacao>`:
-o botão Encerrar e o Voltar (do navegador e o físico do Android). O `useBlocker` do
-react-router cobre só a navegação interna — o Voltar do navegador é interceptado por uma
-entrada-sentinela no histórico, ver `src/app/useBotaoVoltar.ts`.
+The test screen is designed against the fold: on `/sessao` the `.shell` becomes a
+viewport-height grid (`100dvh`) with four bands — clock, rule, question, action — and
+**only the question band scrolls**. Measured at 375×667 (iPhone SE), the worst case (a 3×3
+matrix with five graphic options) fits without scrolling. If you touch the session layout,
+measure again: `document.querySelector('.questao')` must not have
+`scrollHeight > clientHeight` before the question is answered.
 
-O roteador é de **hash**. Dentro da WebView do Capacitor, uma recarga em rota profunda
-daria 404 do servidor local — tela branca no meio de uma prova.
+Two accidental exits are behind a confirmation, both through the same `<Confirmacao>`: the
+End button and Back (browser and the Android hardware key). React Router's `useBlocker`
+only covers in-app navigation — the browser's Back is intercepted with a sentinel history
+entry, see `src/app/useBotaoVoltar.ts`.
+
+The router is **hash-based**. Inside the Capacitor WebView, reloading on a deep route would
+be a 404 from the local server — a blank screen in the middle of a test.
 
 ```bash
-npm run icons            # regenera ícones e splash a partir de scripts/icons.ts
-npm run android:sync     # build web + cap sync
-npm run android:open     # abre no Android Studio
-npm run android:bundle   # gera o AAB de release
+npm run icons            # regenerates icons and splash from scripts/icons.ts
+npm run android:sync     # web build + cap sync
+npm run android:open     # opens in Android Studio
+npm run android:bundle   # produces the release AAB
 ```
 
-O `android/` é versionado (manifesto e gradle têm edições nossas); artefatos de build e
-**a chave** não são. Para assinar, crie `android/keystore.properties` — gitignorado — com
-`storeFile`, `storePassword`, `keyAlias` e `keyPassword`. Sem esse arquivo o build de
-release sai sem assinatura em vez de quebrar.
+`android/` is versioned (the manifest and gradle carry our edits); build artifacts and
+**the signing key** are not. To sign, create `android/keystore.properties` — gitignored —
+with `storeFile`, `storePassword`, `keyAlias` and `keyPassword`. Without that file the
+release build comes out unsigned instead of failing.
 
-Exige JDK 21 e o Android SDK instalados.
+Requires JDK 21 and the Android SDK.
 
-### Hospedagem
+### Hosting
 
-`vercel.json` faz duas coisas, e as duas são por causa de defeito observado em produção:
+`vercel.json` does two things, and both exist because of a defect observed in production:
 
-1. **Rewrite de tudo para `index.html`.** O roteador é de hash, então o app não precisa
-   disso para funcionar — mas links de rota antiga (`/progresso`, `/teoria`) circularam
-   enquanto a `main` usava `BrowserRouter`, e sem o rewrite eles devolvem **404**. Com
-   ele, caem na Home em vez de numa página de erro. O rewrite roda DEPOIS da checagem de
-   arquivos, então `sw.js`, `manifest.webmanifest`, `privacidade.html` e `assets/`
-   continuam sendo servidos como arquivos.
-2. **`sw.js` sem cache.** Um service worker cacheado prende o usuário numa versão
-   antiga do app, e o sintoma — "atualizei e não mudou nada" — é difícil de diagnosticar.
+1. **Rewrite everything to `index.html`.** The router is hash-based, so the app does not
+   need this to work — but path-style links (`/progresso`, `/teoria`) were in circulation
+   while `main` still used `BrowserRouter`, and without the rewrite they return **404**.
+   With it, they land on the Home screen instead of an error page. The rewrite runs
+   *after* the filesystem check, so `sw.js`, `manifest.webmanifest`, `privacidade.html`
+   and `assets/` are still served as files.
+2. **`sw.js` served uncached.** A cached service worker pins users to an old build, and
+   the symptom — "I updated and nothing changed" — is expensive to diagnose.
+
+---
+
+CCAT Trainer is an independent study aid and is not affiliated with, endorsed by, or
+connected to Criteria Corp. "CCAT" and "Criteria Cognitive Aptitude Test" are trademarks
+of their respective owners, used here only to describe what this app helps you practise
+for.
