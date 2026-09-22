@@ -127,3 +127,16 @@ O `android/` é versionado (manifesto e gradle têm edições nossas); artefatos
 release sai sem assinatura em vez de quebrar.
 
 Exige JDK 21 e o Android SDK instalados.
+
+### Hospedagem
+
+`vercel.json` faz duas coisas, e as duas são por causa de defeito observado em produção:
+
+1. **Rewrite de tudo para `index.html`.** O roteador é de hash, então o app não precisa
+   disso para funcionar — mas links de rota antiga (`/progresso`, `/teoria`) circularam
+   enquanto a `main` usava `BrowserRouter`, e sem o rewrite eles devolvem **404**. Com
+   ele, caem na Home em vez de numa página de erro. O rewrite roda DEPOIS da checagem de
+   arquivos, então `sw.js`, `manifest.webmanifest`, `privacidade.html` e `assets/`
+   continuam sendo servidos como arquivos.
+2. **`sw.js` sem cache.** Um service worker cacheado prende o usuário numa versão
+   antiga do app, e o sintoma — "atualizei e não mudou nada" — é difícil de diagnosticar.
