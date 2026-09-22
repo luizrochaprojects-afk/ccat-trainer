@@ -1,8 +1,14 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- viewport-fit=cover: sem isto o conteúdo não alcança a área do notch e
+         env(safe-area-inset-*) devolve 0. Nada de user-scalable=no — bloquear
+         zoom viola WCAG 1.4.4; o double-tap é morto por touch-action. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
     <title>CCAT Trainer</title>
     <meta name="description" content="Treino cronometrado para a Criteria Cognitive Aptitude Test." />
   </head>

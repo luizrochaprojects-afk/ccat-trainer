@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { TIPOS, TIPO_LABEL, type Tipo } from '../../core/taxonomy'
-import { listSessions, type StoredSession } from '../../data/db'
+import { armazenamentoIndisponivel, listSessions, type StoredSession } from '../../data/db'
+import { Esqueleto } from '../components/Esqueleto'
 import { ScoreChart } from '../components/ScoreChart'
 import { useLocale } from '../LocaleContext'
 import { formatDate, formatPercent, formatPercentile, formatSeconds } from '../format'
@@ -41,12 +42,29 @@ export function ProgressScreen() {
 
   const porTipo = useMemo(() => agregarPorTipo(sessoes ?? []), [sessoes])
 
-  if (!sessoes) return <p className="legenda">{t('progress.loading')}</p>
+  if (!sessoes) {
+    return (
+      <>
+        <h1>{t('progress.title')}</h1>
+        <Esqueleto variante="manchete" />
+        <Esqueleto variante="tabela" />
+      </>
+    )
+  }
 
   if (sessoes.length === 0) {
     return (
       <>
         <h1>{t('progress.title')}</h1>
+        {/* Vazio e indisponível são estados diferentes que pareciam o mesmo:
+            com IndexedDB bloqueado, `listSessions` devolve [] e esta tela
+            dizia "nenhuma prova ainda" para quem tinha acabado de fazer cinco. */}
+        {armazenamentoIndisponivel() && (
+          <div className="nota-bloco">
+            <span className="micro">{t('storage.blocked.label')}</span>
+            <p>{t('storage.blocked.body')}</p>
+          </div>
+        )}
         <div className="vazio">
           <p>{t('progress.empty')}</p>
           <div className="btn-linha">

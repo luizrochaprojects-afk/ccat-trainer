@@ -29,6 +29,8 @@ export interface UseSession {
   savedId: string | null
   answer: (optionId: string | null) => void
   abandon: () => void
+  /** força a gravação da sessão em andamento — ver `useSalvarAoSair` */
+  salvarAgora: () => void
 }
 
 /**
@@ -125,11 +127,21 @@ export function useSession(
     setState((atual) => (isFinished(atual) ? atual : responder(atual, optionId, Date.now())))
   }, [])
 
+  // O estado mais recente, para quem precisa lê-lo fora do ciclo de render
+  // (o SO avisando que vai matar o app não espera um re-render).
+  const stateRef = useRef(state)
+  stateRef.current = state
+
+  const salvarAgora = useCallback(() => {
+    const atual = stateRef.current
+    if (!isFinished(atual)) void saveActiveSession(atual)
+  }, [])
+
   const abandon = useCallback(() => {
     setState((atual) => finish(atual, Date.now()))
   }, [])
 
-  return { state, now, score, savedId, answer, abandon }
+  return { state, now, score, savedId, answer, abandon, salvarAgora }
 }
 
 /** Atalhos de teclado A–E e 1–5 (PRD §6). */

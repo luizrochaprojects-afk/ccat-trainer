@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">CCAT Trainer</string>
+    <string name="title_activity_main">CCAT Trainer</string>
+    <string name="package_name">com.ccattrainer.app</string>
+    <string name="custom_url_scheme">com.ccattrainer.app</string>
+</resources>

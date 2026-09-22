@@ -27,6 +27,10 @@ function shapeToSvg(shape: SpatialSpec['shapes'][number]): string {
     ` stroke="${escapeXml(shape.stroke ?? '#111111')}"` +
     ` stroke-width="${num(shape.strokeWidth ?? 2)}"` +
     ' stroke-linejoin="round" stroke-linecap="round"' +
+    // Miniatura de alternativa desenha a figura de 100px em ~63px no celular.
+    // Sem isto o traço escala junto e some; com isto ele mantém a espessura
+    // desenhada. Não toca a geometria, então os gates de conteúdo não mudam.
+    ' vector-effect="non-scaling-stroke"' +
     (shape.dx || shape.dy ? ` transform="translate(${num(shape.dx ?? 0)} ${num(shape.dy ?? 0)})"` : '')
 
   switch (shape.kind) {

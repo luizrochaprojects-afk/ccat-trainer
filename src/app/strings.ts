@@ -65,6 +65,8 @@ const en = {
   'drill.start': 'Start practice',
   'drill.loading': 'Loading the question bank…',
   'drill.error': 'Could not load the bank: {message}',
+  'drill.empty.title': 'Nothing to practise here',
+  'drill.empty.body': 'No question in the bank matches this type and subtype yet. Pick another combination.',
   'drill.notEnough': 'There are not enough questions for that combination.',
 
   // sessão
@@ -76,6 +78,10 @@ const en = {
   'session.reviewTheory': 'Review the theory: {subtipo}',
   'session.ended': 'Session ended',
   'session.scoring': 'Working out your result…',
+  'session.figure.stem': 'Figure in the question',
+  'session.figure.option': 'Option {letter}',
+  'session.announce.time': '{time} left',
+  'session.options.label': 'Options',
   'session.timeLeft': 'Time left: {time}',
 
   // resultado
@@ -136,12 +142,14 @@ const en = {
   'result.empty.title': 'Nothing to show',
   'result.empty.lead':
     'This screen appears when you finish a session. Reloading the page clears the result from memory — but it is still saved in your progress.',
+  'result.again': 'New mock test',
   'result.home': 'Home',
   'result.progress': 'See progress',
 
   // progresso
   'progress.title': 'Progress',
   'progress.loading': 'Loading history…',
+  'progress.error': 'Could not read your history: {message}',
   'progress.empty': 'No sessions recorded yet.',
   'progress.empty.action': 'Take your first mock test',
   'progress.lead': '{exams} and {drills} recorded.',
@@ -188,6 +196,32 @@ const en = {
   'theory.seeAll': 'See all types',
 
   // 404
+  // comuns
+  'common.retry': 'Try again',
+  'common.cancel': 'Cancel',
+
+  // confirmações destrutivas
+  'confirm.abandon.title': 'End the test now?',
+  'confirm.abandon.body':
+    'You will be scored on what you answered so far. The clock keeps running while this message is open.',
+  'confirm.abandon.yes': 'End the test',
+  'confirm.abandon.no': 'Keep going',
+  'confirm.discard.title': 'Discard the test in progress?',
+  'confirm.discard.body':
+    'The questions you already answered are lost and the clock is not recoverable.',
+  'confirm.discard.yes': 'Discard',
+  'confirm.discard.no': 'Keep it',
+
+  // armazenamento indisponível
+  'storage.blocked.label': 'Nothing is being saved',
+  'storage.blocked.body':
+    'Your browser is blocking local storage — private window or blocked site data. The test works, but the result will not be recorded and questions may repeat.',
+
+  // falha de render
+  'crash.title': 'Something broke',
+  'crash.lead': 'The app hit an error it could not recover from on its own.',
+  'crash.action': 'Reload the app',
+
   'notFound.title': 'Page not found',
   'notFound.lead': 'The address you opened does not exist in this app.',
   'notFound.action': 'Back to home',
@@ -247,6 +281,8 @@ const pt: Record<StringKey, string> = {
   'drill.start': 'Começar treino',
   'drill.loading': 'Carregando o banco de questões…',
   'drill.error': 'Não consegui carregar o banco: {message}',
+  'drill.empty.title': 'Nada para treinar aqui',
+  'drill.empty.body': 'Nenhuma questão do banco combina com este tipo e subtipo ainda. Escolha outra combinação.',
   'drill.notEnough': 'Não há questões suficientes para essa combinação.',
 
   'session.finish': 'Encerrar',
@@ -257,6 +293,10 @@ const pt: Record<StringKey, string> = {
   'session.reviewTheory': 'Revisar a teoria: {subtipo}',
   'session.ended': 'Sessão encerrada',
   'session.scoring': 'Apurando o resultado…',
+  'session.figure.stem': 'Figura do enunciado',
+  'session.figure.option': 'Alternativa {letter}',
+  'session.announce.time': 'faltam {time}',
+  'session.options.label': 'Alternativas',
   'session.timeLeft': 'Tempo restante: {time}',
 
   'result.crumb.exam': 'Simulação completa',
@@ -317,11 +357,13 @@ const pt: Record<StringKey, string> = {
   'result.empty.title': 'Nenhum resultado para mostrar',
   'result.empty.lead':
     'Esta tela aparece ao terminar uma sessão. Recarregar a página apaga o resultado da memória — mas ele continua salvo na sua evolução.',
+  'result.again': 'Novo simulado',
   'result.home': 'Início',
   'result.progress': 'Ver evolução',
 
   'progress.title': 'Evolução',
   'progress.loading': 'Carregando histórico…',
+  'progress.error': 'Não foi possível ler seu histórico: {message}',
   'progress.empty': 'Nenhuma sessão registrada ainda.',
   'progress.empty.action': 'Fazer a primeira simulação',
   'progress.lead': '{exams} e {drills} registrados.',
@@ -365,6 +407,32 @@ const pt: Record<StringKey, string> = {
   'theory.notFound': 'Tipo não encontrado',
   'theory.notFound.lead': 'O endereço aponta para um tipo que não existe.',
   'theory.seeAll': 'Ver todos os tipos',
+
+  // comuns
+  'common.retry': 'Tentar de novo',
+  'common.cancel': 'Cancelar',
+
+  // confirmações destrutivas
+  'confirm.abandon.title': 'Encerrar a prova agora?',
+  'confirm.abandon.body':
+    'Você será pontuado pelo que respondeu até aqui. O relógio continua correndo enquanto esta mensagem estiver aberta.',
+  'confirm.abandon.yes': 'Encerrar a prova',
+  'confirm.abandon.no': 'Continuar',
+  'confirm.discard.title': 'Descartar a prova em andamento?',
+  'confirm.discard.body':
+    'As questões já respondidas se perdem e o relógio não é recuperável.',
+  'confirm.discard.yes': 'Descartar',
+  'confirm.discard.no': 'Manter',
+
+  // armazenamento indisponível
+  'storage.blocked.label': 'Nada está sendo salvo',
+  'storage.blocked.body':
+    'Seu navegador está bloqueando o armazenamento local — aba anônima ou dados do site bloqueados. A prova funciona, mas o resultado não será gravado e questões podem repetir.',
+
+  // falha de render
+  'crash.title': 'Algo quebrou',
+  'crash.lead': 'O app encontrou um erro do qual não conseguiu se recuperar sozinho.',
+  'crash.action': 'Recarregar o app',
 
   'notFound.title': 'Página não encontrada',
   'notFound.lead': 'O endereço que você abriu não existe neste app.',

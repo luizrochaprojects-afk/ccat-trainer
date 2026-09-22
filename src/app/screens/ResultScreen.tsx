@@ -1,10 +1,11 @@
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import type { SessionScore } from '../../core/session/score'
 import { paceTargetMs } from '../../core/session/score'
 import { CCAT_NORMS, EXAM_QUESTION_COUNT, TIPO_LABEL } from '../../core/taxonomy'
 import { rawNeededForPercentile } from '../../core/norms'
 import { DistributionCurve } from '../components/DistributionCurve'
 import { useLocale } from '../LocaleContext'
+import { useIniciarSimulado } from '../useIniciarSimulado'
 import { formatClock, formatPercent, formatPercentile, formatSeconds } from '../format'
 
 /**
@@ -19,7 +20,7 @@ import { formatClock, formatPercent, formatPercentile, formatSeconds } from '../
  * ou ritmo.
  */
 export function ResultScreen() {
-  const navigate = useNavigate()
+  const simulado = useIniciarSimulado()
   const { t, tx } = useLocale()
   const { state } = useLocation() as { state: { score?: SessionScore } | null }
   const score = state?.score
@@ -244,14 +245,27 @@ export function ResultScreen() {
         </div>
       )}
 
-      <div className="btn-linha">
-        <button className="btn" type="button" onClick={() => navigate('/')}>
-          {t('result.home')}
+      <div className="barra-acao">
+        <button
+          className="btn bloco"
+          type="button"
+          onClick={simulado.comecar}
+          disabled={simulado.iniciando}
+          aria-busy={simulado.iniciando}
+        >
+          {simulado.iniciando ? t('home.exam.loading') : t('result.again')}
         </button>
-        <Link className="btn secundario" to="/progresso">
+        <Link className="btn secundario bloco" to="/progresso">
           {t('result.progress')}
         </Link>
       </div>
+
+      {simulado.erro && (
+        <div className="nota-bloco">
+          <span className="micro">{t('home.error.label')}</span>
+          <p>{t('home.error.body', { message: simulado.erro })}</p>
+        </div>
+      )}
     </>
   )
 }

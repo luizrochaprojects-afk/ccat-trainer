@@ -96,3 +96,34 @@ tasks/         PRD
 
 `src/core` não importa nada de `src/app`: a mesma regra roda nos testes, nos scripts de
 auditoria e no app, e um preview que desenhasse diferente do app não provaria nada.
+
+## Mobile e Android
+
+A prova é desenhada contra a dobra: em `/sessao` o `.shell` vira uma grade de altura de
+viewport (`100dvh`) com quatro faixas — cronômetro, régua, questão, ação — e **só a
+faixa da questão rola**. Medido em 375×667 (iPhone SE), o pior caso (matriz 3×3 com
+cinco alternativas gráficas) cabe sem rolagem. Se você mexer no layout da sessão, meça
+de novo: `document.querySelector('.questao')` não pode ter `scrollHeight > clientHeight`
+antes de responder.
+
+Duas saídas acidentais estão fechadas por confirmação, ambas pela mesma `<Confirmacao>`:
+o botão Encerrar e o Voltar (do navegador e o físico do Android). O `useBlocker` do
+react-router cobre só a navegação interna — o Voltar do navegador é interceptado por uma
+entrada-sentinela no histórico, ver `src/app/useBotaoVoltar.ts`.
+
+O roteador é de **hash**. Dentro da WebView do Capacitor, uma recarga em rota profunda
+daria 404 do servidor local — tela branca no meio de uma prova.
+
+```bash
+npm run icons            # regenera ícones e splash a partir de scripts/icons.ts
+npm run android:sync     # build web + cap sync
+npm run android:open     # abre no Android Studio
+npm run android:bundle   # gera o AAB de release
+```
+
+O `android/` é versionado (manifesto e gradle têm edições nossas); artefatos de build e
+**a chave** não são. Para assinar, crie `android/keystore.properties` — gitignorado — com
+`storeFile`, `storePassword`, `keyAlias` e `keyPassword`. Sem esse arquivo o build de
+release sai sem assinatura em vez de quebrar.
+
+Exige JDK 21 e o Android SDK instalados.

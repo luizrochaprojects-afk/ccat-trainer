@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import type { Question } from '../../core/schema'
 import { composeDrill } from '../../core/session/compose'
-import { createDrill, type SessionState } from '../../core/session/engine'
+import { createDrill } from '../../core/session/engine'
 import {
   DRILL_PER_QUESTION_MS,
   SUBTIPO_LABEL,
@@ -13,48 +13,70 @@ import {
 } from '../../core/taxonomy'
 import { loadFullBank, subtiposDisponiveis } from '../../data/bank'
 import { seenQuestionIds } from '../../data/db'
+import { Esqueleto } from '../components/Esqueleto'
 import { useLocale } from '../LocaleContext'
+import { useSessaoPendente } from '../SessionContext'
+import { useRecurso } from '../useRecurso'
 
 const QUANTIDADES = [10, 15, 20, 30]
 
-export function DrillSetupScreen({
-  onStart,
-}: {
-  onStart: (s: SessionState, meta: { tipo: string; subtipo?: string }) => void
-}) {
+export function DrillSetupScreen() {
   const navigate = useNavigate()
   const [params] = useSearchParams()
   const { t, tx } = useLocale()
+  const { iniciar } = useSessaoPendente()
 
-  const [banco, setBanco] = useState<Question[] | null>(null)
   const [tipo, setTipo] = useState<Tipo>((params.get('tipo') as Tipo) ?? 'spatial')
   const [subtipo, setSubtipo] = useState<string>('')
   const [quantidade, setQuantidade] = useState(15)
-  const [erro, setErro] = useState<string | null>(null)
+  const [erroInicio, setErroInicio] = useState<string | null>(null)
 
-  useEffect(() => {
-    void loadFullBank()
-      .then(setBanco)
-      .catch((e: Error) => setErro(e.message))
-  }, [])
+  const carregar = useCallback((): Promise<Question[]> => loadFullBank(), [])
+  const { estado, recarregar } = useRecurso(carregar)
 
-  // Trocar de tipo invalida o subtipo escolhido.
-  useEffect(() => setSubtipo(''), [tipo])
-
-  if (erro) {
+  if (estado.fase === 'carregando') {
     return (
-      <div className="nota-bloco">
-        <span className="micro">{t('home.error.label')}</span>
-        <p>{t('drill.error', { message: erro })}</p>
-      </div>
+      <>
+        <p className="trilha">{t('drill.crumb')}</p>
+        <h1>{t('drill.title')}</h1>
+        <Esqueleto variante="chips" linhas={6} />
+        <Esqueleto variante="chips" linhas={4} />
+      </>
     )
   }
-  if (!banco) return <p className="legenda">{t('drill.loading')}</p>
 
+  if (estado.fase === 'erro' || estado.fase === 'vazio') {
+    const mensagem =
+      estado.fase === 'erro' ? t('drill.error', { message: estado.erro.message }) : t('drill.empty.body')
+    return (
+      <>
+        <p className="trilha">{t('drill.crumb')}</p>
+        <h1>{t('drill.empty.title')}</h1>
+        <div className="nota-bloco">
+          <span className="micro">{t('home.error.label')}</span>
+          <p>{mensagem}</p>
+          <div className="btn-linha">
+            <button className="btn" type="button" onClick={recarregar}>
+              {t('common.retry')}
+            </button>
+          </div>
+        </div>
+      </>
+    )
+  }
+
+  const banco = estado.dado
   const subtipos = subtiposDisponiveis(banco, tipo)
   const disponiveis = banco.filter(
     (q) => q.tipo === tipo && (!subtipo || q.subtipo === subtipo),
   ).length
+
+  // Trocar de tipo invalida o subtipo escolhido.
+  const trocarTipo = (novo: Tipo) => {
+    setTipo(novo)
+    setSubtipo('')
+    setErroInicio(null)
+  }
 
   const comecar = async () => {
     const vistas = await seenQuestionIds()
@@ -65,10 +87,10 @@ export function DrillSetupScreen({
       seen: vistas,
     })
     if (fila.length === 0) {
-      setErro(t('drill.notEnough'))
+      setErroInicio(t('drill.notEnough'))
       return
     }
-    onStart(createDrill(fila, Date.now()), { tipo, ...(subtipo ? { subtipo } : {}) })
+    iniciar(createDrill(fila, Date.now()), { tipo, ...(subtipo ? { subtipo } : {}) })
     navigate('/sessao')
   }
 
@@ -80,7 +102,7 @@ export function DrillSetupScreen({
 
       <label className="campo">
         <span>{t('drill.type')}</span>
-        <select value={tipo} onChange={(e) => setTipo(e.target.value as Tipo)}>
+        <select value={tipo} onChange={(e) => trocarTipo(e.target.value as Tipo)}>
           {TIPOS.map((item) => (
             <option key={item} value={item}>
               {tx(TIPO_LABEL[item])}
@@ -131,14 +153,30 @@ export function DrillSetupScreen({
         </div>
       </div>
 
-      <p className="legenda">
-        {t('drill.available', { count: disponiveis })}
-        {disponiveis < quantidade && t('drill.availableShort', { count: disponiveis })}.
-      </p>
+      {disponiveis === 0 && (
+        <div className="nota-bloco">
+          <span className="micro">{t('drill.empty.title')}</span>
+          <p>{t('drill.empty.body')}</p>
+        </div>
+      )}
 
-      <div className="btn-linha">
+      {erroInicio && (
+        <div className="nota-bloco">
+          <span className="micro">{t('home.error.label')}</span>
+          <p>{erroInicio}</p>
+        </div>
+      )}
+
+      {/* A disponibilidade mora DENTRO da barra de ação: é a informação que
+          decide o clique, e no celular ela ficava acima da dobra enquanto o
+          botão ficava abaixo. */}
+      <div className="barra-acao">
+        <p className="legenda">
+          {t('drill.available', { count: disponiveis })}
+          {disponiveis < quantidade && t('drill.availableShort', { count: disponiveis })}.
+        </p>
         <button
-          className="btn"
+          className="btn bloco"
           type="button"
           onClick={() => void comecar()}
           disabled={disponiveis === 0}

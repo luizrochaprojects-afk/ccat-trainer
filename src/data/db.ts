@@ -85,6 +85,19 @@ function db(): Promise<IDBPDatabase<CcatDB>> {
   return conexao
 }
 
+let indisponivel = false
+
+/**
+ * Se o armazenamento falhou alguma vez nesta sessão.
+ *
+ * Sem isto, `comFallback` transforma "IndexedDB bloqueado" em lista vazia — e
+ * a tela de progresso diz "você ainda não fez nenhuma prova" para quem acabou
+ * de fazer cinco. A UI precisa poder distinguir vazio de indisponível.
+ */
+export function armazenamentoIndisponivel(): boolean {
+  return indisponivel
+}
+
 /**
  * IndexedDB falha em aba anônima, com site data bloqueado e em alguns
  * navegadores embarcados. Nada disso pode derrubar uma prova em andamento:
@@ -94,6 +107,7 @@ async function comFallback<T>(fn: (d: IDBPDatabase<CcatDB>) => Promise<T>, padra
   try {
     return await fn(await db())
   } catch (erro) {
+    indisponivel = true
     console.warn('[ccat] armazenamento local indisponível:', erro)
     return padrao
   }

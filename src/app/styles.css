@@ -138,7 +138,17 @@ a:hover {
 .shell {
   max-width: var(--max);
   margin: 0 auto;
-  padding: 0 var(--gutter) 96px;
+  padding: 0 var(--gutter);
+  /* dvh, não vh: no celular a barra do navegador encolhe a viewport, e com
+     vh a última linha fica sempre escondida atrás dela. */
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+}
+
+.conteudo {
+  min-width: 0;
+  padding-bottom: calc(72px + env(safe-area-inset-bottom));
 }
 
 .topo {
@@ -390,10 +400,7 @@ p {
   justify-content: space-between;
   gap: 16px;
   padding: 18px 0 12px;
-  position: sticky;
-  top: 0;
   background: var(--papel);
-  z-index: 10;
 }
 
 /* O cronômetro é o elemento mais importante da tela: é contra ele que a
@@ -496,12 +503,16 @@ p {
 
 .figura-enunciado {
   margin: 36px 0 8px;
+  /* Centrada: a figura é o objeto da pergunta, não uma ilustração ao lado
+     do texto — encostada à esquerda ela deixava um terço da tela vazio. */
+  display: flex;
+  justify-content: center;
 }
 
 .figura-enunciado svg {
   max-width: 100%;
   height: auto;
-  max-height: 240px;
+  max-height: min(44dvh, 320px);
   display: block;
 }
 
@@ -516,7 +527,7 @@ p {
 }
 
 .opcoes.graficas {
-  grid-template-columns: repeat(auto-fit, minmax(122px, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 10px;
 }
 
@@ -966,17 +977,6 @@ ul.metodo li::before {
   border-bottom-color: var(--tinta);
 }
 
-@media (max-width: 560px) {
-  .manchete .score {
-    line-height: 0.9;
-  }
-  .enunciado {
-    max-width: none;
-  }
-  .barra-sessao {
-    padding-top: 14px;
-  }
-}
 
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -1052,4 +1052,495 @@ ul.metodo li::before {
   padding: 1px 5px;
   margin-left: 6px;
   white-space: nowrap;
+}
+
+/* =========================================================================
+   MOBILE — a dobra como restrição de projeto
+   =========================================================================
+
+   Este bloco vem por último de propósito: ele fecha decisões que as regras
+   acima abrem. O produto tem uma restrição física — ler e responder em ~18
+   segundos — e num celular a rolagem é o imposto mais caro que existe sobre
+   esse orçamento. Tudo aqui serve a uma frase: durante a prova, nada essencial
+   fica fora da tela.
+
+   Tema claro fixo continua valendo. Nenhuma regra abaixo introduz dark mode.
+   ========================================================================= */
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  /* Sem isto o pull-to-refresh do Chrome Android recarrega a página quando a
+     pessoa arrasta para cima no meio de uma questão. */
+  overscroll-behavior-y: none;
+}
+
+/* --- a prova, travada na altura da viewport ------------------------------ */
+/* Só esta tela é travada. As demais rolam no corpo do documento como sempre —
+   prender o scroll onde não é preciso só cria barra de rolagem interna feia no
+   desktop. */
+
+.shell.em-sessao {
+  height: 100dvh;
+  overflow: hidden;
+  grid-template-rows: minmax(0, 1fr);
+  padding-top: env(safe-area-inset-top);
+}
+
+.shell.em-sessao .conteudo {
+  display: grid;
+  /* cronômetro | régua | questão | ação */
+  grid-template-rows: auto auto minmax(0, 1fr) auto;
+  height: 100%;
+  min-height: 0;
+  padding-bottom: 0;
+}
+
+/* A ÚNICA área rolável da prova. `minmax(0, 1fr)` acima é o que permite que
+   ela encolha: com `1fr` puro o filho não cede e a grade transborda. */
+.shell.em-sessao .questao {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  min-height: 0;
+  padding-bottom: 10px;
+}
+
+.apurando {
+  align-self: center;
+}
+
+/* --- barra de ação ------------------------------------------------------- */
+/* O contrato: uma ação primária por tela, sempre no mesmo lugar, sempre ao
+   alcance do polegar. Antes o botão que decide a tela ficava depois de todo o
+   conteúdo — no celular, fora da dobra. */
+
+.barra-acao {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+  padding: 14px 0 max(14px, env(safe-area-inset-bottom));
+  border-top: 2px solid var(--tinta);
+  background: var(--papel);
+}
+
+.barra-acao .legenda {
+  margin: 0;
+  flex: 1 1 12ch;
+}
+
+.shell.em-sessao .barra-acao {
+  margin-top: 0;
+}
+
+/* --- variantes de botão -------------------------------------------------- */
+
+.btn.fantasma {
+  background: transparent;
+  border-color: transparent;
+  color: var(--tinta-tenue);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: var(--linha-media);
+  text-underline-offset: 0.2em;
+}
+
+.btn.fantasma:hover {
+  background: transparent;
+  border-color: transparent;
+  color: var(--tinta);
+  text-decoration-color: var(--tinta);
+}
+
+.btn.perigo {
+  background: var(--errado);
+  border-color: var(--errado);
+  color: var(--papel);
+}
+
+.btn.perigo:hover {
+  background: #7d1519;
+  border-color: #7d1519;
+}
+
+.btn.compacto {
+  padding: 9px 16px;
+  font-size: 0.9375rem;
+}
+
+/* --- alvos de toque (WCAG 2.5.5) ---------------------------------------- */
+
+.btn,
+.chip,
+.opcao {
+  min-height: 44px;
+}
+
+.chip {
+  padding: 12px 18px;
+}
+
+.idioma-opcao {
+  /* 14px de cada lado sobre 17px de altura de linha: 45px de alvo real. */
+  padding: 14px;
+}
+
+/* O cronômetro e o pill de idioma não podem crescer sem deformar a barra em
+   que vivem. A área tocável cresce por pseudo-elemento: 44px reais de alvo,
+   zero pixel de mudança visual. */
+/* O seletor de idioma NÃO entra aqui: o contêiner .idioma tem overflow
+   hidden e recorta o pseudo-elemento. Ali o alvo cresce de verdade, logo
+   abaixo — e um pill de 44px fica melhor do que o de 27 que havia. */
+.encerrar,
+.pular,
+.nav a,
+.marca {
+  position: relative;
+}
+
+/* Links inline dentro de parágrafo ficam de fora de propósito: a WCAG 2.5.5
+   os isenta, e esticar a área deles faria blocos de texto se sobreporem. */
+.encerrar::after,
+.pular::after,
+.nav a::after,
+.marca::after {
+  content: '';
+  position: absolute;
+  inset: -12px -10px;
+}
+
+.btn,
+.chip,
+.opcao,
+.ato,
+.encerrar,
+.pular,
+.idioma-opcao,
+.nav a {
+  /* mata o atraso de 300ms do double-tap-to-zoom sem tirar o pinch da pessoa
+     — `user-scalable=no` seria violação de acessibilidade */
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* O toque longo que seleciona texto e abre o menu de cópia é o gesto
+   acidental número um numa tela onde se toca rápido cinco vezes por questão.
+   A explicação do feedback continua selecionável: ali copiar é útil. */
+.barra-sessao,
+.enunciado,
+.opcao,
+.tecla {
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+.feedback {
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+/* --- confirmação destrutiva --------------------------------------------- */
+
+.confirmacao {
+  max-width: 28rem;
+  width: calc(100vw - var(--gutter) * 2);
+  border: 2px solid var(--tinta);
+  border-radius: var(--raio);
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: var(--texto);
+  font-size: var(--t-corpo);
+  line-height: 1.55;
+  padding: 26px 24px 22px;
+}
+
+.confirmacao::backdrop {
+  background: rgb(13 13 12 / 44%);
+}
+
+.confirmacao h2 {
+  font-family: var(--display);
+  font-variation-settings: var(--display-axes-quieto);
+  font-size: var(--t-h2);
+  letter-spacing: -0.02em;
+  margin: 0 0 10px;
+}
+
+.confirmacao p {
+  margin: 0;
+  color: var(--tinta-fraca);
+}
+
+.confirmacao .btn-linha {
+  margin-top: 22px;
+}
+
+/* --- esqueletos de carregamento ----------------------------------------- */
+/* Esqueleto, não spinner: o banco de questões é um chunk de alguns megabytes,
+   e o que a pessoa precisa saber não é "algo acontece", é o que vem aí — e o
+   layout não pode saltar quando vier. */
+
+.esqueleto {
+  display: block;
+  background: var(--linha);
+  border-radius: var(--raio);
+  animation: pulso 1.4s ease-in-out infinite;
+}
+
+.esqueleto.linha {
+  height: 14px;
+}
+
+.esqueleto.manchete {
+  height: 74px;
+  margin: 18px 0;
+}
+
+.esqueleto.pilula {
+  height: 44px;
+  width: 104px;
+  border-radius: 99px;
+}
+
+.esqueleto-grupo {
+  display: grid;
+  gap: 10px;
+  margin: 16px 0 10px;
+}
+
+.esqueleto-grupo.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+@keyframes pulso {
+  50% {
+    opacity: 0.45;
+  }
+}
+
+/* --- hierarquia da home -------------------------------------------------- */
+
+/* Ordem e peso de borda bastavam no desktop; num celular a diferença some.
+   A ação dominante ganha superfície. */
+.ato.primario {
+  background: var(--papel-fundo);
+  padding-inline: 18px;
+  margin-inline: -18px;
+}
+
+/* Uma prova correndo é a coisa mais urgente que esta tela pode conter. */
+.nota-bloco.urgente {
+  border-top-color: var(--errado);
+  margin-top: 20px;
+}
+
+.nota-bloco.urgente > .micro {
+  color: var(--errado);
+}
+
+.nota-bloco .btn-linha {
+  margin-top: 16px;
+}
+
+/* =========================================================================
+   Pontos de corte
+   =========================================================================
+   Três, onde antes havia um. O terceiro usa ALTURA, e isso é deliberado: a
+   restrição real desta tela é vertical, não horizontal.
+   ========================================================================= */
+
+@media (max-width: 720px) {
+  /* Medido em 375×667: o cabeçalho quebrava em três linhas e comia 145px —
+     26% da dobra gastos em cromo antes de qualquer conteúdo. Marca numa
+     linha, navegação e idioma na seguinte. */
+  .topo {
+    /* 18px no topo, e não 14: é a folga de que o alvo tocável da marca
+       precisa para chegar aos 44px sem sair da página. */
+    padding: 18px 0 10px;
+    margin-bottom: 18px;
+    gap: 10px;
+  }
+
+  /* display:contents dissolve o agrupamento de desktop: no celular a marca
+     e o idioma dividem a primeira linha, a navegação fica na segunda. Com o
+     agrupamento intacto eram TRÊS linhas — 270px de cromo antes do conteúdo. */
+  .topo-direita {
+    display: contents;
+  }
+
+  .idioma {
+    order: 1;
+    margin-left: auto;
+  }
+
+  .nav {
+    order: 2;
+    flex-basis: 100%;
+  }
+
+  .nav {
+    gap: 16px;
+    font-size: 0.875rem;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 8vw, 2.6rem);
+    margin-bottom: 14px;
+  }
+
+  .lead {
+    font-size: 1rem;
+    margin-bottom: 18px;
+  }
+
+  .formato {
+    margin-bottom: 20px;
+  }
+
+  .ato {
+    padding: 20px 0 22px;
+  }
+
+  .ato h2 {
+    font-size: clamp(1.5rem, 6.4vw, 2rem);
+  }
+
+  .ato .seta {
+    top: 24px;
+  }
+
+  /* A ação primária cola no rodapé e ocupa a largura toda: no celular o
+     polegar alcança a base da tela, não o meio de uma coluna. */
+  .barra-acao {
+    position: sticky;
+    bottom: 0;
+    z-index: 20;
+    margin-inline: calc(var(--gutter) * -1);
+    padding-inline: var(--gutter);
+  }
+
+  .barra-acao .btn.bloco {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+
+  .btn-linha .btn {
+    flex: 1 1 auto;
+  }
+
+  /* Quatro colunas não cabem em 375px, e rolagem horizontal dentro da página
+     é pior do que reempilhar. Os rótulos vêm de `data-rotulo` no TSX. */
+  .lista-mobile thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
+  .lista-mobile tr {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2px 14px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--linha);
+  }
+
+  .lista-mobile td {
+    display: block;
+    border: 0;
+    padding: 0;
+  }
+
+  .lista-mobile td[data-rotulo]::before {
+    content: attr(data-rotulo);
+    display: block;
+    font-size: var(--t-micro);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--tinta-tenue);
+  }
+}
+
+@media (max-width: 480px) {
+  .enunciado {
+    max-width: none;
+  }
+
+  .manchete .score {
+    line-height: 0.9;
+  }
+
+  /* Cinco figuras em fila num celular: cada alternativa fica com ~63px. O
+     traço se mantém legível porque o SVG usa `non-scaling-stroke`. */
+  .opcoes.graficas {
+    gap: 5px;
+  }
+
+  .opcoes.graficas .tecla {
+    padding: 3px 0;
+    font-size: 0.7rem;
+  }
+
+  .opcoes.graficas .opcao {
+    min-height: 0;
+    padding-bottom: 8px;
+  }
+
+  .opcao svg {
+    max-width: 100%;
+    margin-top: 6px;
+  }
+}
+
+/* O caso que decide tudo: iPhone SE e afins, 667px de altura. */
+@media (max-height: 700px) and (max-width: 480px) {
+  :root {
+    --t-timer: 2.1rem;
+  }
+
+  .enunciado {
+    margin: 18px 0 14px;
+  }
+
+  .figura-enunciado {
+    margin: 14px 0 6px;
+  }
+
+  .figura-enunciado svg {
+    /* Medido no SE: com as cinco alternativas em fila sobram ~180px. A
+       figura é o que a pessoa precisa enxergar, então a folga vai para ela. */
+    max-height: 46dvh;
+  }
+
+  .barra-sessao {
+    padding: 10px 0 8px;
+  }
+
+  .barra-acao {
+    padding-top: 10px;
+  }
+}
+
+/* --- barra de rolagem em tela de toque ---------------------------------- */
+/* O sistema já desenha uma barra flutuante no celular. A nossa, estilizada
+   para o desktop, ocupa 11px de LAYOUT dentro da área da questão e cortava a
+   borda direita das alternativas. */
+
+@media (pointer: coarse) {
+  :root {
+    scrollbar-width: none;
+  }
+
+  ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
 }

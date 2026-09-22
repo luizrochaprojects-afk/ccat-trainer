@@ -4,3 +4,17 @@ dist/
 *.local
 .DS_Store
 tsconfig.tsbuildinfo
+
+# Android / Capacitor
+# O diretório android/ VAI versionado: é onde vivem as edições de manifesto e
+# de gradle. O que não vai é artefato de build e, acima de tudo, a chave.
+android/app/build/
+android/build/
+android/.gradle/
+android/app/src/main/assets/public/
+android/app/src/main/assets/capacitor.config.json
+android/app/release/
+android/keystore.properties
+android/local.properties
+*.jks
+*.keystore
