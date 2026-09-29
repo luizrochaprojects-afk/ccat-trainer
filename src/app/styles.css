@@ -509,8 +509,16 @@ p {
   justify-content: center;
 }
 
+/* Largura explícita no invólucro E no svg. O svg só tem viewBox, sem tamanho
+   intrínseco; como item flex o <span> encolhe ao conteúdo, e o svg resolvia
+   para 0×0 — a figura sumia sem erro nenhum. Com 100% a altura vem do
+   viewBox, o max-height corta, e o `meet` centraliza o desenho. */
+.figura-enunciado > [role='img'] {
+  width: 100%;
+}
+
 .figura-enunciado svg {
-  max-width: 100%;
+  width: 100%;
   height: auto;
   max-height: min(44dvh, 320px);
   display: block;
@@ -1106,6 +1114,31 @@ body {
   overscroll-behavior: contain;
   min-height: 0;
   padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* A figura do enunciado é a única parte elástica: ela fica com o que sobra
+   depois do enunciado e das alternativas. Um max-height fixo não serve — no
+   desktop os cartões das alternativas são altos e uma figura de 320px
+   empurrava a fileira para fora da dobra. Ao revelar a resposta ela cede
+   espaço à explicação pelo mesmo mecanismo. */
+.shell.em-sessao .questao > * {
+  flex-shrink: 0;
+}
+
+.shell.em-sessao .figura-enunciado {
+  flex: 0 1 min(44dvh, 320px);
+  min-height: 120px;
+  /* Em flex a margem não colapsa mais com a do enunciado; zerar mantém o
+     espaçamento que a figura tinha. */
+  margin-bottom: 0;
+}
+
+.shell.em-sessao .figura-enunciado > [role='img'],
+.shell.em-sessao .figura-enunciado svg {
+  height: 100%;
+  max-height: none;
 }
 
 .apurando {
@@ -1514,10 +1547,10 @@ body {
     margin: 14px 0 6px;
   }
 
-  .figura-enunciado svg {
-    /* Medido no SE: com as cinco alternativas em fila sobram ~180px. A
-       figura é o que a pessoa precisa enxergar, então a folga vai para ela. */
-    max-height: 46dvh;
+  .shell.em-sessao .figura-enunciado {
+    /* A figura é o que a pessoa precisa enxergar, então a folga vai para
+       ela; o flex-shrink acima garante que ela nunca empurre as alternativas. */
+    flex-basis: 46dvh;
   }
 
   .barra-sessao {
