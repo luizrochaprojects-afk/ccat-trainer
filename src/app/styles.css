@@ -156,9 +156,13 @@ a:hover {
   align-items: flex-end;
   justify-content: space-between;
   gap: 20px;
-  padding: 28px 0 14px;
+  /* Os espaços verticais do topo e da abertura da home encolhem com a ALTURA
+     da janela: o simulado tem de aparecer na primeira dobra, e notebook com
+     escala de 150% no Windows entrega só ~545px de viewport. Em tela alta os
+     valores batem no teto e nada muda. */
+  padding: clamp(16px, 3.4dvh, 28px) 0 14px;
   border-bottom: 2px solid var(--tinta);
-  margin-bottom: 44px;
+  margin-bottom: clamp(20px, 5.4dvh, 44px);
   flex-wrap: wrap;
 }
 
@@ -200,7 +204,7 @@ a:hover {
 h1 {
   font-family: var(--display);
   font-variation-settings: var(--display-axes);
-  font-size: var(--t-display);
+  font-size: min(var(--t-display), 9dvh);
   line-height: 0.98;
   letter-spacing: -0.035em;
   margin: 0 0 16px;
@@ -230,7 +234,7 @@ h3 {
 
 .lead {
   color: var(--tinta-fraca);
-  margin: 0 0 40px;
+  margin: 0 0 clamp(16px, 4.9dvh, 40px);
   font-size: 1.1875rem;
   line-height: 1.5;
   max-width: 62ch;
@@ -316,7 +320,8 @@ p {
   background: none;
   border: 0;
   border-top: 2px solid var(--tinta);
-  padding: 30px 0 34px;
+  --ato-topo: clamp(18px, 3.7dvh, 30px);
+  padding: var(--ato-topo) 0 clamp(20px, 4.2dvh, 34px);
   cursor: pointer;
   text-decoration: none;
   position: relative;
@@ -353,7 +358,7 @@ p {
 .ato .seta {
   position: absolute;
   right: 0;
-  top: 34px;
+  top: calc(var(--ato-topo) + 4px);
   font-family: var(--mono);
   color: var(--tinta-tenue);
   transition: transform 0.18s var(--saida), color 0.18s ease;
@@ -374,7 +379,7 @@ p {
   font-size: clamp(0.85rem, 2.4vw, 1.0625rem);
   letter-spacing: -0.01em;
   color: var(--tinta);
-  margin: 0 0 40px;
+  margin: 0 0 clamp(16px, 4.9dvh, 40px);
   display: flex;
   flex-wrap: wrap;
   gap: 6px 18px;
@@ -399,7 +404,11 @@ p {
   align-items: baseline;
   justify-content: space-between;
   gap: 16px;
-  padding: 18px 0 12px;
+  /* Na prova, todo tamanho vertical fixo encolhe com a ALTURA da janela. O
+     caso que manda é o notebook com escala de 150% no Windows: ~545px de
+     viewport, onde os valores pensados para tela alta faziam a questão rolar.
+     Em tela alta os clamps batem no teto e nada muda. */
+  padding: clamp(10px, 2.4dvh, 18px) 0 clamp(8px, 1.8dvh, 12px);
   background: var(--papel);
 }
 
@@ -408,7 +417,7 @@ p {
 .relogio {
   font-family: var(--mono);
   font-variant-numeric: tabular-nums;
-  font-size: var(--t-timer);
+  font-size: min(var(--t-timer), 8.4dvh);
   font-weight: 600;
   letter-spacing: -0.045em;
   line-height: 1;
@@ -483,10 +492,10 @@ p {
 .enunciado {
   font-family: var(--display);
   font-variation-settings: var(--display-axes-quieto);
-  font-size: var(--t-stem);
+  font-size: min(var(--t-stem), 4.6dvh);
   line-height: 1.32;
   letter-spacing: -0.015em;
-  margin: 40px 0 32px;
+  margin: clamp(14px, 4dvh, 40px) 0 clamp(12px, 4dvh, 32px);
   white-space: pre-line;
   max-width: 34ch;
   text-wrap: pretty;
@@ -502,7 +511,7 @@ p {
 }
 
 .figura-enunciado {
-  margin: 36px 0 8px;
+  margin: clamp(10px, 4.4dvh, 36px) 0 8px;
   /* Centrada: a figura é o objeto da pergunta, não uma ilustração ao lado
      do texto — encostada à esquerda ela deixava um terço da tela vazio. */
   display: flex;
@@ -528,7 +537,7 @@ p {
 
 .opcoes {
   display: grid;
-  gap: 8px;
+  gap: clamp(5px, 1.2dvh, 8px);
   list-style: none;
   padding: 0;
   margin: 0;
@@ -569,14 +578,17 @@ p {
 }
 
 .opcao svg {
+  /* block: inline, o margin auto não centraliza, e com o teto em dvh a
+     figura ficava encostada à esquerda do cartão. */
+  display: block;
   width: 100%;
-  max-width: 108px;
+  max-width: min(108px, 14dvh);
   height: auto;
   margin: 12px auto 0;
 }
 
 .opcao .rotulo {
-  padding: 16px 0;
+  padding: clamp(7px, 1.6dvh, 16px) 0;
   flex: 1;
 }
 
@@ -1129,7 +1141,7 @@ body {
 
 .shell.em-sessao .figura-enunciado {
   flex: 0 1 min(44dvh, 320px);
-  min-height: 120px;
+  min-height: min(120px, 17dvh);
   /* Em flex a margem não colapsa mais com a do enunciado; zerar mantém o
      espaçamento que a figura tinha. */
   margin-bottom: 0;
@@ -1156,7 +1168,7 @@ body {
   gap: 12px;
   flex-wrap: wrap;
   margin-top: 28px;
-  padding: 14px 0 max(14px, env(safe-area-inset-bottom));
+  padding: clamp(8px, 2dvh, 14px) 0 max(clamp(8px, 2dvh, 14px), env(safe-area-inset-bottom));
   border-top: 2px solid var(--tinta);
   background: var(--papel);
 }
@@ -1168,6 +1180,20 @@ body {
 
 .shell.em-sessao .barra-acao {
   margin-top: 0;
+}
+
+/* O min-height de 44px continua garantindo o alvo de toque. */
+.shell.em-sessao .barra-acao .btn {
+  padding-block: clamp(8px, 1.8dvh, 14px);
+}
+
+/* Desktop baixo: com 34ch o enunciado das questões de texto quebrava em
+   quatro, cinco linhas numa coluna que tinha largura sobrando — e era isso
+   que fazia a lógica verbal rolar. 46ch ainda é medida confortável. */
+@media (min-width: 721px) and (max-height: 760px) {
+  .shell.em-sessao .enunciado {
+    max-width: 46ch;
+  }
 }
 
 /* --- variantes de botão -------------------------------------------------- */
@@ -1366,6 +1392,9 @@ body {
   background: var(--papel-fundo);
   padding-inline: 18px;
   margin-inline: -18px;
+  /* Com width:100% a margem negativa só DESLOCAVA o cartão 18px para a
+     esquerda — a borda direita ficava antes do fim da coluna. */
+  width: calc(100% + 36px);
 }
 
 /* Uma prova correndo é a coisa mais urgente que esta tela pode conter. */
@@ -1424,7 +1453,7 @@ body {
   }
 
   h1 {
-    font-size: clamp(2rem, 8vw, 2.6rem);
+    font-size: min(clamp(2rem, 8vw, 2.6rem), 6.4dvh);
     margin-bottom: 14px;
   }
 
@@ -1433,21 +1462,32 @@ body {
     margin-bottom: 18px;
   }
 
+  /* Em 375px a frase quebrava em duas linhas e empurrava o simulado para
+     fora da dobra do iPhone SE. Espaço menor e rótulos um pouco menores a
+     mantêm numa linha só. */
   .formato {
     margin-bottom: 20px;
+    column-gap: 9px;
+  }
+
+  .formato span {
+    font-size: 0.8125rem;
+    margin-right: 5px;
+  }
+
+  .formato span:last-child {
+    margin-right: 0;
   }
 
   .ato {
-    padding: 20px 0 22px;
+    --ato-topo: clamp(14px, 3dvh, 20px);
+    padding: var(--ato-topo) 0 clamp(16px, 3.3dvh, 22px);
   }
 
   .ato h2 {
     font-size: clamp(1.5rem, 6.4vw, 2rem);
   }
 
-  .ato .seta {
-    top: 24px;
-  }
 
   /* A ação primária cola no rodapé e ocupa a largura toda: no celular o
      polegar alcança a base da tela, não o meio de uma coluna. */
