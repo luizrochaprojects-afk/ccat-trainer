@@ -1,6 +1,6 @@
 import { mulberry32, type Rng } from '../rng'
 import { optionIdAt } from '../optionIds'
-import type { Difficulty } from '../taxonomy'
+import { OPCOES_POR_QUESTAO, type Difficulty } from '../taxonomy'
 import { pick, type LocalizedText } from '../i18n'
 import {
   ANALOGY_PAIRS,
@@ -48,7 +48,6 @@ export interface VerbalGenerated {
 
 export type VerbalGenerator = (seed: number, difficulty: Difficulty) => VerbalGenerated
 
-const optionCountFor = (d: Difficulty): number => (d <= 2 ? 4 : 5)
 
 // --- Analogias ---------------------------------------------------------------
 
@@ -123,7 +122,7 @@ export const gerarAnalogia: VerbalGenerator = (seed, difficulty) => {
   const relacoesUsadas = new Set([base.relation])
   const palavrasRepetidas = new Set<string>()
   for (const cand of fila) {
-    if (escolhidas.length >= optionCountFor(difficulty)) break
+    if (escolhidas.length >= OPCOES_POR_QUESTAO) break
     const chave = formatPar(cand)
     if (usadas.has(chave) || relacoesUsadas.has(cand.relation)) continue
     const repetidas = [cand.a, cand.b].filter((w) => w === base.a || w === base.b)
@@ -133,7 +132,7 @@ export const gerarAnalogia: VerbalGenerator = (seed, difficulty) => {
     relacoesUsadas.add(cand.relation)
     escolhidas.push(cand)
   }
-  if (escolhidas.length < optionCountFor(difficulty)) {
+  if (escolhidas.length < OPCOES_POR_QUESTAO) {
     throw new Error('não consegui montar distratores de analogia')
   }
 
@@ -223,7 +222,7 @@ function gerarVocabOposicao(
   //    para o preenchimento (verbos têm três): duas armadilhas sinônimas entre
   //    si ajudam a adivinhar o sentido do enunciado, então é o último recurso.
   const clustersLivres = new Set(donos.map((o) => o.cluster)).size
-  const nArmadilhas = Math.max(1, optionCountFor(difficulty) - 1 - clustersLivres)
+  const nArmadilhas = Math.max(1, OPCOES_POR_QUESTAO - 1 - clustersLivres)
   const armadilhasUsadas = rng.shuffle(armadilhas).slice(0, nArmadilhas)
   for (const armadilha of armadilhasUsadas) {
     usadas.add(armadilha)
@@ -234,7 +233,7 @@ function gerarVocabOposicao(
   //    formam um par de sinônimos que o candidato descarta em bloco.
   const clustersUsados = new Set<string>()
   let guard = 0
-  while (escolhidas.length < optionCountFor(difficulty)) {
+  while (escolhidas.length < OPCOES_POR_QUESTAO) {
     if (guard++ > 800) throw new Error(`não consegui montar distratores para "${entry.word}"`)
     const dono = rng.pick(donos)
     if (clustersUsados.has(dono.cluster)) continue
@@ -308,7 +307,7 @@ export const gerarCompletarFrase: VerbalGenerator = (seed, difficulty) => {
 
   const escolhidas = [frame.answer, ...rng.shuffle(frame.distractors)].slice(
     0,
-    optionCountFor(difficulty),
+    OPCOES_POR_QUESTAO,
   )
   const { options, answerId } = embaralhar(rng, escolhidas)
 
@@ -376,7 +375,7 @@ export const gerarDeducao: VerbalGenerator = (seed, difficulty) => {
   const ligaExtremos = (s: Statement) => s.subject !== 1 && s.predicate !== 1
   const tentadores = rng.shuffle(naoSeguem.filter(ligaExtremos))
   const demais = rng.shuffle(naoSeguem.filter((s) => !ligaExtremos(s)))
-  const nDistratores = optionCountFor(difficulty) - 1
+  const nDistratores = OPCOES_POR_QUESTAO - 1
   const quantosTentadores = Math.min(tentadores.length, difficulty <= 2 ? 2 : nDistratores)
   const fila = [
     ...tentadores.slice(0, quantosTentadores),
@@ -385,7 +384,7 @@ export const gerarDeducao: VerbalGenerator = (seed, difficulty) => {
   ]
 
   const escolhidas: Statement[] = [forma.conclusion, ...fila.slice(0, nDistratores)]
-  if (escolhidas.length < optionCountFor(difficulty)) {
+  if (escolhidas.length < OPCOES_POR_QUESTAO) {
     throw new Error('não consegui montar distratores de silogismo')
   }
 

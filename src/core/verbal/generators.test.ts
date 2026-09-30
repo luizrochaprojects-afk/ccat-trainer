@@ -78,7 +78,7 @@ describe('geradores verbais', () => {
       it('4 alternativas nos níveis 1-2, 5 nos níveis 3-5', () => {
         for (const d of DIFFICULTIES) {
           for (let seed = 1; seed <= 30; seed++) {
-            expect(gerar(seed, d).options).toHaveLength(d <= 2 ? 4 : 5)
+            expect(gerar(seed, d).options).toHaveLength(5)
           }
         }
       })

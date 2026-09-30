@@ -264,12 +264,14 @@ export const THEORY: Record<Tipo, TipoTheory> = {
         armadilha: {
           pt:
             'Duas, e ambas caem muito: (1) inverter — "All X are Y" NÃO dá "All Y are X"; ' +
-            '(2) concluir "Some" a partir de "All" — dizer que todos os X são Y não garante ' +
-            'que exista algum X.',
+            '(2) trocar a ordem numa particular negativa — "Some X are not Y" NÃO dá "Some Y ' +
+            'are not X". A prova assume que os grupos citados existem; o que ela cobra é o que ' +
+            'é obrigatório mesmo assim.',
           en:
             'Two, and both show up constantly: (1) flipping — "All X are Y" does NOT give ' +
-            '"All Y are X"; (2) concluding "Some" from "All" — saying every X is a Y does not ' +
-            'guarantee that any X exists.',
+            '"All Y are X"; (2) flipping a particular negative — "Some X are not Y" does NOT ' +
+            'give "Some Y are not X". The test assumes the groups mentioned exist; what it asks ' +
+            'is what must hold even so.',
         },
       },
     ],
