@@ -148,21 +148,22 @@ export const CCAT_NORMS = {
 /**
  * Distribuição de tipos numa simulação de 50 questões.
  *
- * A Criteria não publica o mix exato da prova; este blueprint é uma aproximação
- * baseada na divisão aproximadamente igual entre verbal, matemática/lógica e
- * espacial. É config, não verdade — ajustar aqui muda a simulação inteira.
- *
- * A comparação de colunas entra com 3 (é o que aparece numa prova real) e sai
- * do espacial, para a soma continuar 50.
+ * A Criteria não publica o mix exato da prova. Este segue as contagens por tipo
+ * da JobTestPrep, a fonte mais detalhada que existe: matemática e lógica são o
+ * maior bloco (~22), verbal vem em seguida (~16) e espacial é o menor (~12).
+ * Dentro do verbal, completar frase é o formato mais comum, por isso
+ * vocabulário pesa mais que analogia; na matemática, problemas de texto
+ * (com cálculo básico e tabela) dominam e série é só 1–2 por prova real.
+ * É config, não verdade — ajustar aqui muda a simulação inteira.
  */
 export const EXAM_BLUEPRINT = {
-  verbal_analogy: 7,
-  verbal_vocab: 6,
-  verbal_logic: 4,
+  verbal_analogy: 5,
+  verbal_vocab: 8,
+  verbal_logic: 5,
   verbal_detail: 3,
-  math_series: 7,
-  math_word: 10,
-  spatial: 13,
+  math_series: 3,
+  math_word: 14,
+  spatial: 12,
 } as const satisfies Record<Tipo, number>
 
 // --- Rótulos de UI ---------------------------------------------------------
