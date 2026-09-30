@@ -3,7 +3,9 @@ import { TIPOS, type Difficulty, type Tipo } from './taxonomy'
 import type { LocalizedText } from './i18n'
 import { SPATIAL_GENERATORS } from './spatial/generators'
 import { SERIES_GENERATORS } from './math/series'
+import { LETRAS_GENERATORS } from './math/letras'
 import { WORD_GENERATORS } from './math/word'
+import { CALCULO_GENERATORS } from './math/calculo'
 import { VERBAL_GENERATORS } from './verbal/generators'
 import { seedFromString } from './rng'
 
@@ -81,9 +83,28 @@ export const GENERATORS: Record<string, GeneratorFn> = {
     ]),
   ),
 
-  // math_word — verificação por solver
+  // math_series de letras — verificação por regra + leitor de letras no gate.
+  // Sem `expression`: a resposta é texto, e buildQuestion grava o método 'rule'.
   ...Object.fromEntries(
-    Object.entries(WORD_GENERATORS).map(([id, fn]) => [
+    Object.entries(LETRAS_GENERATORS).map(([id, fn]) => [
+      id,
+      comTipo('math_series', (seed, d) => {
+        const q = fn(seed, d)
+        return {
+          subtipo: q.subtipo,
+          stem: q.stem,
+          options: q.options,
+          answerId: q.answerId,
+          explanation: q.explanation,
+        }
+      }),
+    ]),
+  ),
+
+  // math_word — verificação por solver (cálculo básico inclusive: comparação
+  // vira min/max/nearest na expressão)
+  ...Object.fromEntries(
+    Object.entries({ ...WORD_GENERATORS, ...CALCULO_GENERATORS }).map(([id, fn]) => [
       id,
       comTipo('math_word', (seed, d) => {
         const q = fn(seed, d)

@@ -22,8 +22,8 @@ export const SUBTIPOS = {
   verbal_analogy: ['analogia_simples', 'analogia_dupla'],
   verbal_vocab: ['antonimo', 'sinonimo', 'completar_frase'],
   verbal_logic: ['deducao'],
-  math_series: ['serie_simples', 'serie_alternada', 'serie_dois_passos'],
-  math_word: ['aritmetica', 'razao_proporcao', 'porcentagem', 'taxa'],
+  math_series: ['serie_simples', 'serie_alternada', 'serie_dois_passos', 'serie_letras'],
+  math_word: ['aritmetica', 'razao_proporcao', 'porcentagem', 'taxa', 'calculo_basico'],
   spatial: ['rotacao', 'reflexao', 'odd_one_out', 'serie_formas', 'matriz', 'identical_pair'],
 } as const satisfies Record<Tipo, readonly string[]>
 
@@ -63,8 +63,37 @@ export const VERIFICATION_METHODS = {
   spatial: ['rule'],
 } as const satisfies Record<Tipo, readonly VerificationMethod[]>
 
-export function acceptsVerification(tipo: Tipo, method: VerificationMethod): boolean {
-  return (VERIFICATION_METHODS[tipo] as readonly VerificationMethod[]).includes(method)
+/**
+ * Exceções por subtipo, quando o método do tipo não cabe nele.
+ *
+ * Série de letras é math_series, mas letra não vira número: não há expressão
+ * para o solver avaliar. Ela é provada pela regra re-executada MAIS o leitor de
+ * séries de letras do gate (core/math/alfabeto.ts), que reconstrói a regra só a
+ * partir do enunciado — os mesmos dois caminhos do 'solver', com outro
+ * avaliador. A exceção é por subtipo, e não no tipo inteiro, para que uma série
+ * numérica nunca passe só pela regra.
+ */
+export const VERIFICATION_METHODS_POR_SUBTIPO: Partial<
+  Record<AnySubtipo, readonly VerificationMethod[]>
+> = {
+  serie_letras: ['rule'],
+}
+
+/** Métodos aceitos para um tipo, já com a exceção do subtipo quando houver. */
+export function verificationMethodsOf(
+  tipo: Tipo,
+  subtipo?: string,
+): readonly VerificationMethod[] {
+  const excecao = subtipo ? VERIFICATION_METHODS_POR_SUBTIPO[subtipo as AnySubtipo] : undefined
+  return excecao ?? (VERIFICATION_METHODS[tipo] as readonly VerificationMethod[])
+}
+
+export function acceptsVerification(
+  tipo: Tipo,
+  method: VerificationMethod,
+  subtipo?: string,
+): boolean {
+  return verificationMethodsOf(tipo, subtipo).includes(method)
 }
 
 /** Tipos cujo gabarito é provado por programa — nunca dependem de julgamento de modelo. */
@@ -149,10 +178,12 @@ export const SUBTIPO_LABEL: Record<AnySubtipo, LocalizedText> = {
   serie_simples: { pt: 'Série simples', en: 'Simple series' },
   serie_alternada: { pt: 'Série alternada', en: 'Interleaved series' },
   serie_dois_passos: { pt: 'Série de dois passos', en: 'Two-step series' },
+  serie_letras: { pt: 'Série de letras', en: 'Letter series' },
   aritmetica: { pt: 'Aritmética', en: 'Arithmetic' },
   razao_proporcao: { pt: 'Razão e proporção', en: 'Ratio and proportion' },
   porcentagem: { pt: 'Porcentagem', en: 'Percentage' },
   taxa: { pt: 'Taxa e velocidade', en: 'Rate and speed' },
+  calculo_basico: { pt: 'Cálculo e comparação', en: 'Calculation and comparison' },
   rotacao: { pt: 'Rotação', en: 'Rotation' },
   reflexao: { pt: 'Reflexão', en: 'Reflection' },
   odd_one_out: { pt: 'Qual não pertence', en: 'Odd one out' },
