@@ -1,0 +1,792 @@
+[
+  {
+    "slug": "criteria-antonimo-lengthen",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 2,
+    "origin": "official-sample",
+    "source": {
+      "name": "Criteria Corp — CCAT prep",
+      "url": "https://www.criteriacorp.com/candidates/ccat-prep"
+    },
+    "stem": "Choose the word that is most nearly OPPOSITE to the word in capital letters.\nLENGTHEN",
+    "options": [
+      "abdicate",
+      "truncate",
+      "elongate",
+      "stifle",
+      "resist"
+    ],
+    "answer": 1,
+    "explanation": {
+      "en": "To truncate is to shorten by cutting off. \"Elongate\" is a synonym, the classic trap; abdicate, stifle and resist are about stopping something, not about length.",
+      "pt": "Truncate é encurtar cortando. \"Elongate\" é sinônimo, a armadilha clássica; abdicate, stifle e resist falam de interromper algo, não de comprimento."
+    }
+  },
+  {
+    "slug": "criteria-media-terceiro-numero",
+    "tipo": "math_word",
+    "subtipo": "aritmetica",
+    "difficulty": 2,
+    "origin": "official-sample",
+    "source": {
+      "name": "Criteria Corp — CCAT prep",
+      "url": "https://www.criteriacorp.com/candidates/ccat-prep"
+    },
+    "stem": "A group of 3 numbers has an average of 17. The first two numbers are 12 and 19. What is the third number?",
+    "options": [
+      "17",
+      "19",
+      "20",
+      "23",
+      "30"
+    ],
+    "answer": 2,
+    "expression": "17*3-12-19",
+    "explanation": {
+      "en": "An average of 17 over 3 numbers means a total of 51. 51 − 12 − 19 = 20.",
+      "pt": "Média 17 em 3 números significa soma 51. 51 − 12 − 19 = 20."
+    }
+  },
+  {
+    "slug": "criteria-aviao-horas",
+    "tipo": "math_word",
+    "subtipo": "taxa",
+    "difficulty": 1,
+    "origin": "official-sample",
+    "source": {
+      "name": "Criteria Corp — CCAT",
+      "url": "https://www.criteriacorp.com/assess/cognitive-aptitude/criteria-cognitive-aptitude-test-ccat"
+    },
+    "stem": "If a plane travels at a speed of 400 miles per hour, how many hours will it take to travel 3000 miles?",
+    "options": [
+      "5",
+      "6",
+      "6.5",
+      "7",
+      "7.5"
+    ],
+    "answer": 4,
+    "expression": "3000/400",
+    "explanation": {
+      "en": "Time = distance ÷ speed = 3000 ÷ 400 = 7.5 hours.",
+      "pt": "Tempo = distância ÷ velocidade = 3000 ÷ 400 = 7,5 horas."
+    }
+  },
+  {
+    "slug": "criteria-nao-pertence-formas-aninhadas",
+    "tipo": "spatial",
+    "subtipo": "odd_one_out",
+    "difficulty": 2,
+    "origin": "official-sample",
+    "source": {
+      "name": "Criteria Corp — CCAT prep",
+      "url": "https://www.criteriacorp.com/candidates/ccat-prep"
+    },
+    "stem": "Which of the following does not belong?",
+    "options": [
+      {
+        "width": 100,
+        "height": 100,
+        "shapes": [
+          {
+            "strokeWidth": 2.5,
+            "kind": "rect",
+            "x": 10,
+            "y": 10,
+            "w": 80,
+            "h": 80
+          },
+          {
+            "strokeWidth": 2.5,
+            "kind": "circle",
+            "cx": 50,
+            "cy": 50,
+            "r": 28
+          },
+          {
+            "strokeWidth": 2.5,
+            "kind": "polygon",
+            "points": [
+              50,
+              40,
+              60,
+              58,
+              40,
+              58
+            ]
+          }
+        ]
+      },
+      {
+        "width": 100,
+        "height": 100,
+        "shapes": [
+          {
+            "strokeWidth": 2.5,
+            "kind": "circle",
+            "cx": 50,
+            "cy": 50,
+            "r": 42
+          },
+          {
+            "strokeWidth": 2.5,
+            "kind": "rect",
+            "x": 28,
+            "y": 28,
+            "w": 44,
+            "h": 44
+          },
+          {
+            "strokeWidth": 2.5,
+            "kind": "rect",
+            "x": 42,
+            "y": 42,
+            "w": 16,
+            "h": 16
+          }
+        ]
+      },
+      {
+        "width": 100,
+        "height": 100,
+        "shapes": [
+          {
+            "strokeWidth": 2.5,
+            "kind": "circle",
+            "cx": 50,
+            "cy": 50,
+            "r": 42
+          },
+          {
+            "strokeWidth": 2.5,
+            "kind": "polygon",
+            "points": [
+              50,
+              24,
+              76,
+              70,
+              24,
+              70
+            ]
+          },
+          {
+            "strokeWidth": 2.5,
+            "kind": "rect",
+            "x": 43,
+            "y": 47,
+            "w": 14,
+            "h": 14
+          }
+        ]
+      },
+      {
+        "width": 100,
+        "height": 100,
+        "shapes": [
+          {
+            "strokeWidth": 2.5,
+            "kind": "rect",
+            "x": 10,
+            "y": 10,
+            "w": 80,
+            "h": 80
+          },
+          {
+            "strokeWidth": 2.5,
+            "kind": "polygon",
+            "points": [
+              50,
+              24,
+              76,
+              70,
+              24,
+              70
+            ]
+          },
+          {
+            "strokeWidth": 2.5,
+            "kind": "circle",
+            "cx": 50,
+            "cy": 56,
+            "r": 7
+          }
+        ]
+      },
+      {
+        "width": 100,
+        "height": 100,
+        "shapes": [
+          {
+            "strokeWidth": 2.5,
+            "kind": "rect",
+            "x": 10,
+            "y": 10,
+            "w": 80,
+            "h": 80
+          },
+          {
+            "strokeWidth": 2.5,
+            "kind": "circle",
+            "cx": 50,
+            "cy": 50,
+            "r": 28
+          },
+          {
+            "strokeWidth": 2.5,
+            "kind": "polygon",
+            "points": [
+              50,
+              34,
+              64,
+              60,
+              36,
+              60
+            ]
+          }
+        ]
+      }
+    ],
+    "answer": 1,
+    "explanation": {
+      "en": "Every figure combines a circle, a triangle and a square, nested in some order — except B, which has two squares and no triangle.",
+      "pt": "Toda figura combina um círculo, um triângulo e um quadrado, aninhados em alguma ordem — menos a B, que tem dois quadrados e nenhum triângulo."
+    }
+  },
+  {
+    "slug": "jtp-antonimo-concise",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 2,
+    "origin": "imported",
+    "source": {
+      "name": "JobTestPrep — free CCAT practice test",
+      "url": "https://www.jobtestprep.com/free-ccat-practice-test"
+    },
+    "stem": "Choose the word that is most nearly OPPOSITE to the word in capital letters.\nCONCISE",
+    "options": [
+      "brief",
+      "precise",
+      "vague",
+      "abrupt",
+      "wordy"
+    ],
+    "answer": 4,
+    "explanation": {
+      "en": "Concise means saying much in few words; the opposite is wordy. \"Vague\" is the trap — it is the opposite of precise, not of concise.",
+      "pt": "Concise é dizer muito em poucas palavras; o oposto é wordy (prolixo). \"Vague\" é a armadilha — é o oposto de precise, não de concise."
+    }
+  },
+  {
+    "slug": "jtp-antonimo-deplete",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 1,
+    "origin": "imported",
+    "source": {
+      "name": "JobTestPrep — CCAT verbal questions",
+      "url": "https://www.jobtestprep.com/ccat-verbal-reasoning-questions"
+    },
+    "stem": "Choose the word that is most nearly OPPOSITE to the word in capital letters.\nDEPLETE",
+    "options": [
+      "destroy",
+      "provide",
+      "encourage",
+      "increase",
+      "remove"
+    ],
+    "answer": 3,
+    "explanation": {
+      "en": "To deplete is to use up or reduce a supply; the opposite is to increase it. \"Remove\" and \"destroy\" point the same way as deplete.",
+      "pt": "Deplete é esgotar ou reduzir um estoque; o oposto é aumentar. \"Remove\" e \"destroy\" vão na mesma direção de deplete."
+    }
+  },
+  {
+    "slug": "iprep-antonimo-sanction",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 4,
+    "origin": "imported",
+    "source": {
+      "name": "iPrep — CCAT free course",
+      "url": "https://www.iprep.online/courses/criteria-cognitive-aptitude-test-ccat-free/"
+    },
+    "stem": "Choose the word that is most nearly OPPOSITE to the word in capital letters.\nSANCTION",
+    "options": [
+      "award",
+      "stiffen",
+      "alleviate",
+      "soothe",
+      "calm"
+    ],
+    "answer": 0,
+    "explanation": {
+      "en": "SANCTION has two opposite senses: \"approve\" and \"penalty\". Only the penalty sense has an opposite among the options: an award.",
+      "pt": "SANCTION tem dois sentidos opostos: \"aprovar\" e \"penalidade\". Só o sentido de penalidade tem oposto entre as alternativas: award (prêmio)."
+    }
+  },
+  {
+    "slug": "p4m-antonimo-manifest",
+    "tipo": "verbal_vocab",
+    "subtipo": "antonimo",
+    "difficulty": 3,
+    "origin": "imported",
+    "source": {
+      "name": "Practice4Me — free CCAT practice",
+      "url": "https://www.practice4me.com/wp-content/uploads/2019/02/Free-Criteria-Cognitive-Aptitude-Test-Practice-CCAT.pdf"
+    },
+    "stem": "Choose the word that is most nearly OPPOSITE to the word in capital letters.\nMANIFEST",
+    "options": [
+      "obscure",
+      "conspicuous",
+      "demonstrate",
+      "capacious"
+    ],
+    "answer": 0,
+    "explanation": {
+      "en": "As an adjective, manifest means clear or obvious; the opposite is obscure. \"Conspicuous\" is a synonym and \"demonstrate\" matches the verb sense.",
+      "pt": "Como adjetivo, manifest é claro, evidente; o oposto é obscure. \"Conspicuous\" é sinônimo e \"demonstrate\" corresponde ao sentido de verbo."
+    }
+  },
+  {
+    "slug": "jtp-analogia-agua-ilha",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 3,
+    "origin": "imported",
+    "source": {
+      "name": "JobTestPrep — free CCAT practice test",
+      "url": "https://www.jobtestprep.com/free-ccat-practice-test"
+    },
+    "stem": "WATER is to ISLAND as:",
+    "options": [
+      "oasis is to desert",
+      "desert is to oasis",
+      "sand is to beach",
+      "bridge is to river",
+      "forest is to tree"
+    ],
+    "answer": 1,
+    "explanation": {
+      "en": "Water surrounds an island; a desert surrounds an oasis. \"Oasis is to desert\" has the right pair in the wrong direction — the trap.",
+      "pt": "A água cerca a ilha; o deserto cerca o oásis. \"Oasis is to desert\" tem o par certo na direção errada — a armadilha."
+    }
+  },
+  {
+    "slug": "jtp-analogia-talon",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 2,
+    "origin": "imported",
+    "source": {
+      "name": "JobTestPrep — CCAT verbal questions",
+      "url": "https://www.jobtestprep.com/ccat-verbal-reasoning-questions"
+    },
+    "stem": "MANUSCRIPT is to DOCUMENT as TALON is to:",
+    "options": [
+      "bird",
+      "tooth",
+      "notebook",
+      "prey",
+      "claw"
+    ],
+    "answer": 4,
+    "explanation": {
+      "en": "Manuscript and document are near-synonyms; so are talon and claw. \"Bird\" and \"prey\" are associations, not synonyms.",
+      "pt": "Manuscript e document são quase sinônimos; talon e claw também. \"Bird\" e \"prey\" são associações, não sinônimos."
+    }
+  },
+  {
+    "slug": "jtp-analogia-inevitable",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 2,
+    "origin": "imported",
+    "source": {
+      "name": "JobTestPrep — CCAT verbal questions",
+      "url": "https://www.jobtestprep.com/ccat-verbal-reasoning-questions"
+    },
+    "stem": "INEPT is to ADEPT as INEVITABLE is to:",
+    "options": [
+      "unavoidable",
+      "certain",
+      "avoidable",
+      "invited",
+      "adapted"
+    ],
+    "answer": 2,
+    "explanation": {
+      "en": "Inept and adept are antonyms, so look for the antonym of inevitable: avoidable. \"Unavoidable\" and \"certain\" are synonyms; \"invited\" and \"adapted\" only sound alike.",
+      "pt": "Inept e adept são antônimos; procure o antônimo de inevitable: avoidable. \"Unavoidable\" e \"certain\" são sinônimos; \"invited\" e \"adapted\" só soam parecido."
+    }
+  },
+  {
+    "slug": "iprep-analogia-yacht",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 3,
+    "origin": "imported",
+    "source": {
+      "name": "iPrep — CCAT free course",
+      "url": "https://www.iprep.online/courses/criteria-cognitive-aptitude-test-ccat-free/"
+    },
+    "stem": "YACHT is to VEHICLE as:",
+    "options": [
+      "boat is to automobile",
+      "whale is to mammal",
+      "wheel is to car",
+      "sail is to mast",
+      "fish is to sea"
+    ],
+    "answer": 1,
+    "explanation": {
+      "en": "A yacht is a type of vehicle; a whale is a type of mammal. \"Boat is to automobile\" pairs two vehicles, not a member and its category.",
+      "pt": "Iate é um tipo de veículo; baleia é um tipo de mamífero. \"Boat is to automobile\" junta dois veículos, não um membro e sua categoria."
+    }
+  },
+  {
+    "slug": "jtp-analogia-vault",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 3,
+    "origin": "imported",
+    "source": {
+      "name": "JobTestPrep — Crossover aptitude tests",
+      "url": "https://www.jobtestprep.com/crossover-aptitude-tests"
+    },
+    "stem": "VAULT is to GOLD as:",
+    "options": [
+      "coin is to purse",
+      "key is to lock",
+      "scabbard is to sword",
+      "thief is to jewel",
+      "miner is to ore"
+    ],
+    "answer": 2,
+    "explanation": {
+      "en": "A vault holds and protects gold; a scabbard holds and protects a sword. \"Coin is to purse\" reverses the direction.",
+      "pt": "O cofre guarda e protege o ouro; a bainha guarda e protege a espada. \"Coin is to purse\" inverte a direção."
+    }
+  },
+  {
+    "slug": "jtp-analogia-strings",
+    "tipo": "verbal_analogy",
+    "subtipo": "analogia_simples",
+    "difficulty": 3,
+    "origin": "imported",
+    "source": {
+      "name": "JobTestPrep — CCAT study guide",
+      "url": "https://www.jobtestprep.com/media/i5inx234/ccat-study-guide.pdf"
+    },
+    "stem": "STRINGS is to GUITAR as:",
+    "options": [
+      "keys is to lock",
+      "bars is to xylophone",
+      "stick is to drum",
+      "case is to trumpet",
+      "bow is to arrow"
+    ],
+    "answer": 1,
+    "explanation": {
+      "en": "Strings are the part of a guitar that produces the sound; bars do the same on a xylophone. A drumstick is not part of the drum.",
+      "pt": "As cordas são a parte do violão que produz o som; as barras fazem o mesmo no xilofone. A baqueta não é parte do tambor."
+    }
+  },
+  {
+    "slug": "jtp-idade-nora",
+    "tipo": "math_word",
+    "subtipo": "porcentagem",
+    "difficulty": 3,
+    "origin": "imported",
+    "source": {
+      "name": "JobTestPrep — free CCAT practice test",
+      "url": "https://www.jobtestprep.com/free-ccat-practice-test"
+    },
+    "stem": "Nora is 1/4 of her grandfather's age and 30% younger than her brother, who is 30. How old is her grandfather?",
+    "options": [
+      "63",
+      "80",
+      "84",
+      "90",
+      "120"
+    ],
+    "answer": 2,
+    "expression": "30*70/100*4",
+    "explanation": {
+      "en": "30% younger than 30 is 30 × 0.7 = 21. Nora is a quarter of her grandfather, so he is 21 × 4 = 84.",
+      "pt": "30% mais nova que 30 é 30 × 0,7 = 21. Nora tem um quarto da idade do avô, então ele tem 21 × 4 = 84."
+    }
+  },
+  {
+    "slug": "jtp-ovos-duzia",
+    "tipo": "math_word",
+    "subtipo": "aritmetica",
+    "difficulty": 2,
+    "origin": "imported",
+    "source": {
+      "name": "JobTestPrep — free CCAT practice test",
+      "url": "https://www.jobtestprep.com/free-ccat-practice-test"
+    },
+    "stem": "Eggs are sold only in boxes of a dozen, at $4.00 per box. How much does it cost to buy at least 32 eggs?",
+    "options": [
+      "$8.00",
+      "$10.67",
+      "$12.00",
+      "$16.00"
+    ],
+    "answer": 2,
+    "expression": "3*4",
+    "explanation": {
+      "en": "32 eggs need 3 boxes (2 boxes hold only 24), so 3 × $4 = $12. $10.67 is the trap: you cannot buy part of a box.",
+      "pt": "32 ovos exigem 3 caixas (2 caixas têm só 24), então 3 × $4 = $12. $10,67 é a armadilha: não se compra parte de uma caixa."
+    }
+  },
+  {
+    "slug": "jtp-liquidacao-preco-medio",
+    "tipo": "math_word",
+    "subtipo": "porcentagem",
+    "difficulty": 3,
+    "origin": "imported",
+    "source": {
+      "name": "JobTestPrep — free CCAT practice test",
+      "url": "https://www.jobtestprep.com/free-ccat-practice-test"
+    },
+    "stem": "During a 40%-off sale, Dana paid $180 in total for 4 items. What was the average price of an item before the sale?",
+    "options": [
+      "$45.00",
+      "$63.00",
+      "$72.00",
+      "$75.00",
+      "$300.00"
+    ],
+    "answer": 3,
+    "expression": "180*100/60/4",
+    "explanation": {
+      "en": "After 40% off she paid 60% of the original: $180 ÷ 0.6 = $300 for the 4 items, so $75 each. $300 is the trap — it is the total, not the average.",
+      "pt": "Com 40% de desconto ela pagou 60% do original: $180 ÷ 0,6 = $300 pelos 4 itens, ou $75 cada. $300 é a armadilha — é o total, não a média."
+    }
+  },
+  {
+    "slug": "jtp-porcentagem-reversa-616",
+    "tipo": "math_word",
+    "subtipo": "porcentagem",
+    "difficulty": 2,
+    "origin": "imported",
+    "source": {
+      "name": "JobTestPrep — free CCAT practice test",
+      "url": "https://www.jobtestprep.com/free-ccat-practice-test"
+    },
+    "stem": "616 is 70% of what number?",
+    "options": [
+      "431",
+      "801",
+      "862",
+      "880"
+    ],
+    "answer": 3,
+    "expression": "616*100/70",
+    "explanation": {
+      "en": "Divide by the percentage: 616 ÷ 0.7 = 880. 431 is 70% of 616 — the direction is reversed.",
+      "pt": "Divida pela porcentagem: 616 ÷ 0,7 = 880. 431 é 70% de 616 — a direção está invertida."
+    }
+  },
+  {
+    "slug": "jtp-media-impossivel",
+    "tipo": "math_word",
+    "subtipo": "aritmetica",
+    "difficulty": 4,
+    "origin": "imported",
+    "source": {
+      "name": "JobTestPrep — free CCAT practice test",
+      "url": "https://www.jobtestprep.com/free-ccat-practice-test"
+    },
+    "stem": "The sum of 4 numbers is greater than 36 and less than 64. Which of the following could NOT be their average?",
+    "options": [
+      "9.25",
+      "11",
+      "13",
+      "15.75",
+      "16"
+    ],
+    "answer": 4,
+    "expression": "64/4",
+    "explanation": {
+      "en": "The average lies strictly between 36 ÷ 4 = 9 and 64 ÷ 4 = 16. An average of exactly 16 would need a sum of 64, which is not allowed.",
+      "pt": "A média fica estritamente entre 36 ÷ 4 = 9 e 64 ÷ 4 = 16. Média exatamente 16 exigiria soma 64, o que não é permitido."
+    }
+  },
+  {
+    "slug": "jtp-maquinas-quarta",
+    "tipo": "math_word",
+    "subtipo": "taxa",
+    "difficulty": 4,
+    "origin": "imported",
+    "source": {
+      "name": "JobTestPrep — free CCAT practice test",
+      "url": "https://www.jobtestprep.com/free-ccat-practice-test"
+    },
+    "stem": "3 identical machines wrap 720 toys in 48 hours, earning $5,760 in total. If a 4th identical machine is added, how much more money is earned per hour?",
+    "options": [
+      "$30.00",
+      "$40.00",
+      "$48.00",
+      "$120.00",
+      "$160.00"
+    ],
+    "answer": 1,
+    "expression": "5760/48/3",
+    "explanation": {
+      "en": "The 3 machines earn $5,760 ÷ 48 = $120 per hour, so each earns $40 per hour. A 4th machine adds $40 per hour.",
+      "pt": "As 3 máquinas rendem $5.760 ÷ 48 = $120 por hora, ou $40 cada. A 4ª máquina acrescenta $40 por hora."
+    }
+  },
+  {
+    "slug": "jtp-desemprego-diferenca",
+    "tipo": "math_word",
+    "subtipo": "porcentagem",
+    "difficulty": 3,
+    "origin": "imported",
+    "source": {
+      "name": "JobTestPrep — CCAT math questions",
+      "url": "https://www.jobtestprep.com/ccat-math-practice-questions"
+    },
+    "stem": "Unemployment is 5% among a workforce of 5 million Bachelor's degree holders and 4% among a workforce of 5 million Master's degree holders. How many more unemployed people are there in the Bachelor's group?",
+    "options": [
+      "50",
+      "500",
+      "5,000",
+      "50,000",
+      "500,000"
+    ],
+    "answer": 3,
+    "expression": "5000000*5/100-5000000*4/100",
+    "explanation": {
+      "en": "The rates differ by 1 percentage point of 5,000,000: 0.01 × 5,000,000 = 50,000.",
+      "pt": "As taxas diferem em 1 ponto percentual de 5.000.000: 0,01 × 5.000.000 = 50.000."
+    }
+  },
+  {
+    "slug": "jtp-desconto-combinado",
+    "tipo": "math_word",
+    "subtipo": "porcentagem",
+    "difficulty": 3,
+    "origin": "imported",
+    "source": {
+      "name": "JobTestPrep — Crossover aptitude tests",
+      "url": "https://www.jobtestprep.com/crossover-aptitude-tests"
+    },
+    "stem": "A $150 dress is 40% off and a $50 pair of jeans is 20% off. What percentage of the original total price is saved by buying both?",
+    "options": [
+      "30%",
+      "32.5%",
+      "35%",
+      "40%",
+      "60%"
+    ],
+    "answer": 2,
+    "expression": "(150*40/100+50*20/100)/200*100",
+    "explanation": {
+      "en": "Savings: $60 on the dress and $10 on the jeans, $70 out of $200 = 35%. Averaging 40% and 20% (30%) ignores that the dress weighs more.",
+      "pt": "Economia: $60 no vestido e $10 no jeans, $70 de $200 = 35%. Tirar a média de 40% e 20% (30%) ignora que o vestido pesa mais."
+    }
+  },
+  {
+    "slug": "jtp-milhas-por-hora",
+    "tipo": "math_word",
+    "subtipo": "taxa",
+    "difficulty": 2,
+    "origin": "imported",
+    "source": {
+      "name": "JobTestPrep — CCAT math questions",
+      "url": "https://www.jobtestprep.com/ccat-math-practice-questions"
+    },
+    "stem": "A jet covers 200 miles in 10 minutes. What is its speed in miles per hour?",
+    "options": [
+      "20",
+      "120",
+      "1,200",
+      "2,000"
+    ],
+    "answer": 2,
+    "expression": "200*6",
+    "explanation": {
+      "en": "An hour has six 10-minute periods: 200 × 6 = 1,200 miles per hour.",
+      "pt": "Uma hora tem seis períodos de 10 minutos: 200 × 6 = 1.200 milhas por hora."
+    }
+  },
+  {
+    "slug": "jtp-serie-diferencas-quadrados",
+    "tipo": "math_series",
+    "subtipo": "serie_simples",
+    "difficulty": 3,
+    "origin": "imported",
+    "source": {
+      "name": "JobTestPrep — CCAT study guide",
+      "url": "https://www.jobtestprep.com/media/i5inx234/ccat-study-guide.pdf"
+    },
+    "stem": "5, 9, 18, 34, ?",
+    "options": [
+      "50",
+      "52",
+      "59",
+      "61",
+      "68"
+    ],
+    "answer": 2,
+    "expression": "34+25",
+    "explanation": {
+      "en": "The differences are 4, 9, 16 — the squares 2², 3², 4². The next difference is 5² = 25: 34 + 25 = 59.",
+      "pt": "As diferenças são 4, 9, 16 — os quadrados 2², 3², 4². A próxima é 5² = 25: 34 + 25 = 59."
+    }
+  },
+  {
+    "slug": "jtp-serie-multiplica-subtrai",
+    "tipo": "math_series",
+    "subtipo": "serie_dois_passos",
+    "difficulty": 5,
+    "origin": "imported",
+    "source": {
+      "name": "JobTestPrep — CCAT study guide",
+      "url": "https://www.jobtestprep.com/media/i5inx234/ccat-study-guide.pdf"
+    },
+    "stem": "1, 5, 4, 16, 14, 42, ?",
+    "options": [
+      "38",
+      "39",
+      "40",
+      "44",
+      "126"
+    ],
+    "answer": 1,
+    "expression": "42-3",
+    "explanation": {
+      "en": "Two alternating rules: ×5, −1, ×4, −2, ×3, and next −3. 42 − 3 = 39.",
+      "pt": "Duas regras alternadas: ×5, −1, ×4, −2, ×3, e agora −3. 42 − 3 = 39."
+    }
+  },
+  {
+    "slug": "jtp-serie-intercalada-negativa",
+    "tipo": "math_series",
+    "subtipo": "serie_alternada",
+    "difficulty": 3,
+    "origin": "imported",
+    "source": {
+      "name": "JobTestPrep — free CCAT practice test",
+      "url": "https://www.jobtestprep.com/free-ccat-practice-test"
+    },
+    "stem": "7, 12, 2, 17, -3, ?",
+    "options": [
+      "-8",
+      "12",
+      "20",
+      "22",
+      "27"
+    ],
+    "answer": 3,
+    "expression": "17+5",
+    "explanation": {
+      "en": "Two interleaved series: 7, 2, −3 (−5 each time) and 12, 17, ? (+5 each time). The next term is 22.",
+      "pt": "Duas séries intercaladas: 7, 2, −3 (−5 a cada passo) e 12, 17, ? (+5 a cada passo). O próximo termo é 22."
+    }
+  }
+]

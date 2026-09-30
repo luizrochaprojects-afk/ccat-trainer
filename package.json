@@ -11,6 +11,7 @@
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
     "content:generate": "tsx scripts/generate.ts",
+    "content:import": "tsx scripts/import.ts",
     "content:gate": "tsx scripts/gate.ts",
     "content:promote": "tsx scripts/promote.ts",
     "content:review": "tsx scripts/review.ts",

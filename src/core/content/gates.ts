@@ -135,8 +135,10 @@ function gateDificuldade(q: Question): Violation[] {
   const v: Violation[] = []
   // A faixa 1..5 já é garantida pelo schema; o que resta checar é a coerência
   // com o número de alternativas, que é função do nível nos geradores.
+  // Questão de fora mantém as alternativas da fonte — as oficiais têm sempre 5.
   const esperado = q.difficulty <= 2 ? 4 : 5
-  if (q.verification.method !== 'second-model' && q.options.length !== esperado) {
+  const gerada = q.origin === 'claude-code' && q.verification.method !== 'second-model'
+  if (gerada && q.options.length !== esperado) {
     v.push({
       gate: 'G3_dificuldade',
       questionId: q.id,
@@ -152,7 +154,13 @@ function gateGabarito(q: Question): Violation[] {
   const v: Violation[] = []
   const add = (message: string) => v.push({ gate: 'G2_gabarito', questionId: q.id, message })
 
-  if (!acceptsVerification(q.tipo as Tipo, q.verification.method)) {
+  // Figura importada não tem gerador que a reproduza: o gabarito dela só pode
+  // ser conferido por um segundo modelo resolvendo às cegas. A exceção vale só
+  // para o que veio de fora — espacial gerada continua exigindo a regra.
+  const importadaSemGerador =
+    q.origin !== 'claude-code' && q.tipo === 'spatial' && q.verification.method === 'second-model'
+
+  if (!importadaSemGerador && !acceptsVerification(q.tipo as Tipo, q.verification.method)) {
     const aceitos = (VERIFICATION_METHODS[q.tipo as Tipo] as readonly string[]).join(' ou ')
     add(`tipo ${q.tipo} aceita verificação ${aceitos}, veio "${q.verification.method}"`)
     return v
@@ -169,29 +177,33 @@ function gateGabarito(q: Question): Violation[] {
     return v
   }
 
-  // Caminho 1: re-executar o gerador determinístico.
-  const { seed, generator } = q.verification
-  if (seed === undefined || !generator) {
-    add('verificação por regra sem seed ou sem gerador — não dá para reproduzir')
-    return v
-  }
+  // Caminho 1: re-executar o gerador determinístico. Matemática importada não
+  // tem gerador — a prova do gabarito dela é só a expressão, no caminho 2.
+  const soExpressao = q.origin !== 'claude-code' && q.verification.method === 'solver'
+  if (!soExpressao) {
+    const { seed, generator } = q.verification
+    if (seed === undefined || !generator) {
+      add('verificação por regra sem seed ou sem gerador — não dá para reproduzir')
+      return v
+    }
 
-  let regerada
-  try {
-    regerada = runGenerator(generator, seed, q.difficulty)
-  } catch (erro) {
-    add(`não consegui re-executar o gerador: ${(erro as Error).message}`)
-    return v
-  }
+    let regerada
+    try {
+      regerada = runGenerator(generator, seed, q.difficulty)
+    } catch (erro) {
+      add(`não consegui re-executar o gerador: ${(erro as Error).message}`)
+      return v
+    }
 
-  if (regerada.answerId !== q.answerId) {
-    add(`re-execução deu gabarito "${regerada.answerId}", arquivo diz "${q.answerId}"`)
-  }
-  if (regerada.stem !== q.stem) {
-    add('re-execução produziu enunciado diferente — o arquivo foi editado à mão')
-  }
-  if (JSON.stringify(regerada.options) !== JSON.stringify(q.options)) {
-    add('re-execução produziu alternativas diferentes — o arquivo foi editado à mão')
+    if (regerada.answerId !== q.answerId) {
+      add(`re-execução deu gabarito "${regerada.answerId}", arquivo diz "${q.answerId}"`)
+    }
+    if (regerada.stem !== q.stem) {
+      add('re-execução produziu enunciado diferente — o arquivo foi editado à mão')
+    }
+    if (JSON.stringify(regerada.options) !== JSON.stringify(q.options)) {
+      add('re-execução produziu alternativas diferentes — o arquivo foi editado à mão')
+    }
   }
 
   // Caminho 2 (solver): avaliar a expressão canônica, independente do gerador.

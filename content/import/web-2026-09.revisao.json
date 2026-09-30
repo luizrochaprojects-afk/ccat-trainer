@@ -1,0 +1,17 @@
+{
+  "model": "claude-sonnet-5-5",
+  "respostas": {
+    "criteria-antonimo-lengthen": "b",
+    "criteria-nao-pertence-formas-aninhadas": "b",
+    "jtp-antonimo-concise": "e",
+    "jtp-antonimo-deplete": "d",
+    "iprep-antonimo-sanction": "a",
+    "p4m-antonimo-manifest": "a",
+    "jtp-analogia-agua-ilha": "b",
+    "jtp-analogia-talon": "e",
+    "jtp-analogia-inevitable": "c",
+    "iprep-analogia-yacht": "b",
+    "jtp-analogia-vault": "c",
+    "jtp-analogia-strings": "b"
+  }
+}

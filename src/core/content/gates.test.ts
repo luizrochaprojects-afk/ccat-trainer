@@ -292,3 +292,45 @@ describe('G4 — dedup de questões gráficas', () => {
     expect(dedupSignature(boa('matriz.raios', 1, 3))).not.toBe(dedupSignature(boa('matriz.raios', 2, 3)))
   })
 })
+
+describe('questões de fora (importadas e amostras oficiais)', () => {
+  const FONTE = { name: 'Criteria Corp', url: 'https://www.criteriacorp.com/candidates/ccat-prep' }
+
+  function importadaMat(expression: string): Question {
+    return {
+      ...boa('porcentagem', 11, 1),
+      id: 'importado.teste-media',
+      stem: 'A group of 3 numbers has an average of 17. The first two are 12 and 19. What is the third?',
+      options: ['17', '19', '20', '23', '30'].map((text, i) => ({ id: 'abcde'[i]!, text })),
+      answerId: 'c',
+      origin: 'official-sample',
+      source: FONTE,
+      verification: { method: 'solver', expression },
+    }
+  }
+
+  it('matemática importada é provada só pela expressão, sem gerador', () => {
+    expect(gatesDisparados(importadaMat('17*3-12-19'))).toEqual([])
+  })
+
+  it('e continua reprovada quando a expressão não bate com o gabarito', () => {
+    expect(gatesDisparados(importadaMat('17*3-12'))).toContain('G2_gabarito')
+  })
+
+  it('exige a fonte de toda questão de fora', () => {
+    const { source: _, ...semFonte } = importadaMat('17*3-12-19')
+    expect(gatesDisparados(semFonte)).toContain('G1_schema')
+  })
+
+  it('segundo modelo vale para espacial importada, nunca para a gerada', () => {
+    const gerada = boa('rotacao.arcos', 3)
+    const porModelo = {
+      ...gerada,
+      verification: { method: 'second-model', model: 'm', modelAnswerId: gerada.answerId },
+    }
+    expect(gatesDisparados(porModelo)).toContain('G2_gabarito')
+    expect(gatesDisparados({ ...porModelo, id: 'importado.x', origin: 'imported', source: FONTE })).not.toContain(
+      'G2_gabarito',
+    )
+  })
+})
