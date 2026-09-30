@@ -19,9 +19,9 @@ export const TIPOS = [
 export type Tipo = (typeof TIPOS)[number]
 
 export const SUBTIPOS = {
-  verbal_analogy: ['analogia_simples', 'analogia_dupla'],
-  verbal_vocab: ['antonimo', 'sinonimo', 'completar_frase'],
-  verbal_logic: ['deducao'],
+  verbal_analogy: ['analogia_simples', 'analogia_dupla', 'analogia_lacuna'],
+  verbal_vocab: ['antonimo', 'sinonimo', 'completar_frase', 'completar_frase_dupla'],
+  verbal_logic: ['deducao', 'verdadeiro_falso', 'ordenacao'],
   math_series: ['serie_simples', 'serie_alternada', 'serie_dois_passos', 'serie_letras'],
   math_word: ['aritmetica', 'razao_proporcao', 'porcentagem', 'taxa', 'calculo_basico'],
   spatial: ['rotacao', 'reflexao', 'odd_one_out', 'serie_formas', 'matriz', 'identical_pair'],
@@ -116,6 +116,29 @@ export const EXAM_QUESTION_COUNT = 50
  * 20% e a eliminação ficava mais curta que na prova de verdade.
  */
 export const OPCOES_POR_QUESTAO = 5
+
+/**
+ * Exceção por subtipo ao número de alternativas. "Verdadeiro, falso ou
+ * incerto" tem exatamente três na prova real — True, False, Uncertain —, e
+ * inventar duas a mais mudaria a questão. Schema, gates e geradores perguntam
+ * por aqui; o resto continua exigindo 5.
+ */
+export const OPCOES_POR_SUBTIPO: Partial<Record<AnySubtipo, number>> = {
+  verdadeiro_falso: 3,
+}
+
+/** Quantas alternativas uma questão gerada deste subtipo tem. */
+export function opcoesDoSubtipo(subtipo: string): number {
+  return OPCOES_POR_SUBTIPO[subtipo as AnySubtipo] ?? OPCOES_POR_QUESTAO
+}
+
+/**
+ * Subtipos em que a resposta aparece no enunciado por natureza: em "verdadeiro,
+ * falso ou incerto" o próprio enunciado pergunta se a frase é "true", e na
+ * ordenação as alternativas são nomes das pessoas listadas. O gate não pode
+ * tratar isso como enunciado que entrega a resposta.
+ */
+export const RESPOSTA_CITADA_NO_ENUNCIADO: readonly AnySubtipo[] = ['verdadeiro_falso', 'ordenacao']
 export const EXAM_DURATION_MS = 15 * 60 * 1000
 
 /** Ritmo da prova: ~18s por questão. Usado como relógio por questão no drill. */
@@ -173,8 +196,12 @@ export const SUBTIPO_LABEL: Record<AnySubtipo, LocalizedText> = {
   analogia_dupla: { pt: 'Analogia dupla', en: 'Double analogy' },
   antonimo: { pt: 'Antônimo', en: 'Antonym' },
   sinonimo: { pt: 'Sinônimo', en: 'Synonym' },
+  analogia_lacuna: { pt: 'Analogia com lacuna', en: 'Missing-word analogy' },
   completar_frase: { pt: 'Completar frase', en: 'Sentence completion' },
+  completar_frase_dupla: { pt: 'Completar frase (duas lacunas)', en: 'Two-blank sentence completion' },
   deducao: { pt: 'Dedução', en: 'Deduction' },
+  verdadeiro_falso: { pt: 'Verdadeiro, falso ou incerto', en: 'True, false or uncertain' },
+  ordenacao: { pt: 'Ordenação', en: 'Ordering puzzle' },
   serie_simples: { pt: 'Série simples', en: 'Simple series' },
   serie_alternada: { pt: 'Série alternada', en: 'Interleaved series' },
   serie_dois_passos: { pt: 'Série de dois passos', en: 'Two-step series' },

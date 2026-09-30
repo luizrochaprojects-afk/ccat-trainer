@@ -8,6 +8,9 @@ import {
   SUBTIPO_LABEL,
   TIPOS,
   TIPO_LABEL,
+  opcoesDoSubtipo,
+  OPCOES_POR_QUESTAO,
+  OPCOES_POR_SUBTIPO,
   tipoOfSubtipo,
   VERIFICATION_METHODS,
   VERIFICATION_METHODS_POR_SUBTIPO,
@@ -60,5 +63,15 @@ describe('taxonomia', () => {
       }
     }
     expect(tipoOfSubtipo('nao_existe')).toBeUndefined()
+  })
+
+  it('verdadeiro/falso/incerto tem 3 alternativas; todo outro subtipo continua com 5', () => {
+    expect(opcoesDoSubtipo('verdadeiro_falso')).toBe(3)
+    for (const sub of ALL_SUBTIPOS) {
+      if (sub === 'verdadeiro_falso') continue
+      expect(opcoesDoSubtipo(sub), sub).toBe(OPCOES_POR_QUESTAO)
+    }
+    expect(OPCOES_POR_QUESTAO).toBe(5)
+    for (const sub of Object.keys(OPCOES_POR_SUBTIPO)) expect(tipoOfSubtipo(sub), sub).toBeDefined()
   })
 })

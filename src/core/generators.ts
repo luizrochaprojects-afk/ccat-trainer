@@ -43,6 +43,7 @@ const VERBAL_TIPO: Record<string, Tipo> = {
   sinonimo: 'verbal_vocab',
   completar_frase: 'verbal_vocab',
   deducao: 'verbal_logic',
+  verdadeiro_falso: 'verbal_logic',
 }
 
 export const GENERATORS: Record<string, GeneratorFn> = {
