@@ -1,9 +1,139 @@
 import { describe, expect, it } from 'vitest'
-import { DIFFICULTIES } from '../taxonomy'
+import { DIFFICULTIES, type Difficulty } from '../taxonomy'
 import { SERIES_GENERATORS, SERIES_GENERATOR_IDS } from './series'
 import { evaluateExpression, parseNumber } from './solver'
+import { normalizeText } from '../schema'
+import { buildQuestion } from '../generators'
+import { runGates } from '../content/gates'
 
 const RUNS = 200
+
+const termosDe = (stem: string): number[] =>
+  stem
+    .replace(', ?', '')
+    .split(',')
+    .map((t) => parseNumber(t.trim()))
+
+const difs = (t: number[]): number[] => t.slice(1).map((v, i) => v - (t[i] as number))
+const constantes = (xs: number[]): boolean =>
+  xs.length > 0 && xs.every((x) => Math.abs(x - (xs[0] as number)) < 1e-9)
+
+// --- Leitores independentes ---------------------------------------------------
+//
+// Cada leitor olha SÓ os termos exibidos e tenta recuperar a regra. Se o
+// gerador afirma a família X, o leitor de X precisa fechar com todos os termos
+// e prever exatamente a resposta — é a garantia de que a regra está na tela,
+// não só na cabeça do gerador.
+
+/** Diferenças sucessivas até ficarem constantes (polinômio de grau ≤ ordemMax). */
+function porDiferencas(t: number[], ordemMax: number): number | null {
+  const niveis = [t]
+  for (let o = 1; o <= ordemMax; o++) {
+    const d = difs(niveis.at(-1) as number[])
+    if (d.length < 2) return null
+    niveis.push(d)
+    if (constantes(d)) {
+      let prox = d[0] as number
+      for (let k = niveis.length - 2; k >= 0; k--) prox = ((niveis[k] as number[]).at(-1) as number) + prox
+      return prox
+    }
+  }
+  return null
+}
+
+function porRazao(t: number[]): number | null {
+  if (t.some((v) => v === 0)) return null
+  const r = t.slice(1).map((v, i) => v / (t[i] as number))
+  return constantes(r) ? (t.at(-1) as number) * (r[0] as number) : null
+}
+
+function porSomaDosAnteriores(t: number[], quantos: number): number | null {
+  for (let i = quantos; i < t.length; i++) {
+    const soma = t.slice(i - quantos, i).reduce((a, b) => a + b, 0)
+    if (t[i] !== soma) return null
+  }
+  return t.slice(-quantos).reduce((a, b) => a + b, 0)
+}
+
+/** t(i+1) = r·t(i) + c */
+function porAfim(t: number[]): number | null {
+  const [t0, t1, t2] = t as [number, number, number]
+  if (t1 === t0) return null
+  const r = (t2 - t1) / (t1 - t0)
+  const c = t1 - r * t0
+  for (let i = 1; i < t.length; i++) {
+    if (Math.abs((t[i] as number) - (r * (t[i - 1] as number) + c)) > 1e-9) return null
+  }
+  return r * (t.at(-1) as number) + c
+}
+
+function porDiferencasGeometricas(t: number[]): number | null {
+  const d = difs(t)
+  const r = porRazao(d)
+  return r === null ? null : (t.at(-1) as number) + r
+}
+
+function porMultiplicadorCrescente(t: number[]): number | null {
+  if (t.some((v) => v === 0)) return null
+  const q = t.slice(1).map((v, i) => v / (t[i] as number))
+  if (!difs(q).every((x) => x === 1)) return null
+  return (t.at(-1) as number) * ((q.at(-1) as number) + 1)
+}
+
+const LEITOR_SIMPLES: Record<string, (t: number[]) => number | null> = {
+  diferenca_crescente: (t) => porDiferencas(t, 2),
+  dobro: porRazao,
+  quadrados: (t) => porDiferencas(t, 2),
+  segunda_diferenca: (t) => porDiferencas(t, 2),
+  geometrica: porRazao,
+  fibonacci: (t) => porSomaDosAnteriores(t, 2),
+  quadrados_mais_k: (t) => porDiferencas(t, 2),
+  segunda_diferenca_mista: (t) => porDiferencas(t, 2),
+  geometrica_grande: porRazao,
+  afim: porAfim,
+  cubos: (t) => porDiferencas(t, 3),
+  produto_consecutivo: (t) => porDiferencas(t, 2),
+  diferencas_geometricas: porDiferencasGeometricas,
+  segunda_diferenca_negativa: (t) => porDiferencas(t, 2),
+  cubos_mais_k: (t) => porDiferencas(t, 3),
+  multiplicador_crescente: porMultiplicadorCrescente,
+  geometrica_negativa: porRazao,
+  fracionaria: porRazao,
+  tribonacci: (t) => porSomaDosAnteriores(t, 3),
+  diferencas_alternadas: porDiferencasGeometricas,
+}
+
+const FAMILIAS_SIMPLES: Record<Difficulty, string[]> = {
+  1: ['diferenca_crescente', 'dobro', 'quadrados'],
+  2: ['segunda_diferenca', 'geometrica', 'fibonacci', 'quadrados_mais_k'],
+  3: ['segunda_diferenca_mista', 'geometrica_grande', 'afim', 'cubos'],
+  4: ['produto_consecutivo', 'diferencas_geometricas', 'segunda_diferenca_negativa', 'cubos_mais_k'],
+  5: ['multiplicador_crescente', 'geometrica_negativa', 'fracionaria', 'tribonacci', 'diferencas_alternadas'],
+}
+
+const FAMILIAS_ALTERNADAS: Record<Difficulty, string[]> = {
+  1: ['duas_lineares'],
+  2: ['linear_com_curva'],
+  3: ['duas_curvas'],
+  4: ['curva_com_negativos'],
+  5: ['pares', 'duas_negativas'],
+}
+
+const FAMILIAS_DOIS_PASSOS: Record<Difficulty, string[]> = {
+  1: ['soma_e_subtrai', 'soma_e_dobra'],
+  2: ['soma_e_triplica', 'dobra_e_subtrai'],
+  3: ['triplica_e_subtrai', 'subtrai_e_dobra', 'quadruplica_e_soma'],
+  4: ['ciclo_de_tres', 'soma_crescente'],
+  5: ['sinal_alternado', 'ciclo_de_tres_negativo', 'subtracao_crescente'],
+}
+
+const FAMILIAS = {
+  serie_simples: FAMILIAS_SIMPLES,
+  serie_alternada: FAMILIAS_ALTERNADAS,
+  serie_dois_passos: FAMILIAS_DOIS_PASSOS,
+} as const
+
+// --- Contrato comum -----------------------------------------------------------
 
 describe('geradores de séries numéricas', () => {
   for (const id of SERIES_GENERATOR_IDS) {
@@ -45,11 +175,11 @@ describe('geradores de séries numéricas', () => {
         }
       })
 
-      it('não repete alternativa', () => {
+      it('não repete alternativa, nem depois de normalizar (o gate descarta o sinal)', () => {
         for (const d of DIFFICULTIES) {
           for (let seed = 1; seed <= RUNS; seed++) {
             const q = gerar(seed, d)
-            const textos = q.options.map((o) => o.text)
+            const textos = q.options.map((o) => normalizeText(o.text))
             expect(new Set(textos).size, `${id} nível ${d} seed ${seed}`).toBe(textos.length)
           }
         }
@@ -75,21 +205,69 @@ describe('geradores de séries numéricas', () => {
         for (const d of DIFFICULTIES) {
           for (let seed = 1; seed <= RUNS; seed++) {
             const q = gerar(seed, d)
-            const mostrados = q.stem
-              .replace(', ?', '')
-              .split(',')
-              .map((t) => parseNumber(t.trim()))
-            expect(mostrados).not.toContain(q.answerValue)
+            const mostrados = termosDe(q.stem).map(Math.abs)
+            expect(mostrados, `${id} nível ${d} seed ${seed}`).not.toContain(Math.abs(q.answerValue))
           }
         }
       })
 
-      it('produz apenas inteiros (sem dízima na alternativa)', () => {
+      it('nenhuma série tem diferença constante entre vizinhos', () => {
         for (const d of DIFFICULTIES) {
           for (let seed = 1; seed <= RUNS; seed++) {
-            for (const o of gerar(seed, d).options) {
-              expect(Number.isInteger(parseNumber(o.text))).toBe(true)
+            const q = gerar(seed, d)
+            expect(constantes(difs(termosDe(q.stem))), `${id} nível ${d} seed ${seed}: ${q.stem}`).toBe(false)
+          }
+        }
+      })
+
+      it('nenhum distrator repete número do enunciado nem destoa no sinal ou na escala', () => {
+        for (const d of DIFFICULTIES) {
+          for (let seed = 1; seed <= RUNS; seed++) {
+            const q = gerar(seed, d)
+            const termos = termosDe(q.stem)
+            const mostrados = termos.map(Math.abs)
+            const soPositivos = Math.min(...termos, q.answerValue) > 0
+            const limite = Math.max(Math.abs(q.answerValue), Math.abs(termos.at(-1) as number), 12)
+            const msg = `${id} nível ${d} seed ${seed}: ${q.stem} | ${q.options.map((o) => o.text).join(' ')}`
+            for (const o of q.options) {
+              const v = parseNumber(o.text)
+              expect(mostrados, msg).not.toContain(Math.abs(v))
+              if (soPositivos) expect(v, msg).toBeGreaterThan(0)
+              expect(Math.abs(v - q.answerValue), msg).toBeLessThanOrEqual(limite)
             }
+          }
+        }
+      })
+
+      it('só a família fracionária sai do inteiro, e com no máximo duas casas', () => {
+        for (const d of DIFFICULTIES) {
+          for (let seed = 1; seed <= RUNS; seed++) {
+            const q = gerar(seed, d)
+            const valores = [...termosDe(q.stem), ...q.options.map((o) => parseNumber(o.text))]
+            for (const v of valores) {
+              expect(Math.abs(v * 100 - Math.round(v * 100))).toBeLessThan(1e-9)
+            }
+            if (q.familia !== 'fracionaria') {
+              expect(valores.every(Number.isInteger), `${id} nível ${d} seed ${seed}`).toBe(true)
+            }
+          }
+        }
+      })
+
+      it('cada nível usa só as famílias dele, e todas aparecem', () => {
+        for (const d of DIFFICULTIES) {
+          const esperadas = FAMILIAS[id][d]
+          const vistas = new Set<string>()
+          for (let seed = 1; seed <= RUNS; seed++) vistas.add(gerar(seed, d).familia as string)
+          expect([...vistas].sort(), `${id} nível ${d}`).toEqual([...esperadas].sort())
+        }
+      })
+
+      it('passa nos gates que o pipeline aplica', () => {
+        for (const d of DIFFICULTIES) {
+          for (let seed = 1; seed <= 60; seed++) {
+            const r = runGates([buildQuestion(id, seed, d, '2026-09-21T12:00:00.000Z')])
+            expect(r.violations, `${id} nível ${d} seed ${seed}`).toEqual([])
           }
         }
       })
@@ -114,66 +292,221 @@ describe('geradores de séries numéricas', () => {
   }
 })
 
+// --- serie_simples ------------------------------------------------------------
+
 describe('serie_simples: a regra é recuperável dos termos mostrados', () => {
-  it('nos níveis 1-2 a diferença entre termos vizinhos é constante', () => {
-    for (const d of [1, 2] as const) {
+  it('o leitor da família declarada fecha com todos os termos e prevê a resposta', () => {
+    for (const d of DIFFICULTIES) {
       for (let seed = 1; seed <= RUNS; seed++) {
         const q = SERIES_GENERATORS.serie_simples(seed, d)
-        const termos = q.stem.replace(', ?', '').split(',').map((t) => parseNumber(t.trim()))
-        const difs = termos.slice(1).map((t, i) => t - (termos[i] as number))
-        expect(new Set(difs).size).toBe(1)
-        // e o próximo termo continua a mesma diferença
-        expect((termos.at(-1) as number) + (difs[0] as number)).toBe(q.answerValue)
+        const ler = LEITOR_SIMPLES[q.familia as string]
+        expect(ler, `família sem leitor: ${q.familia}`).toBeDefined()
+        expect(ler!(termosDe(q.stem)), `nível ${d} seed ${seed} [${q.familia}] ${q.stem}`).toBe(q.answerValue)
       }
     }
   })
 
-  it('no nível 3 a série é geométrica OU de Fibonacci, e a regra fecha na resposta', () => {
-    let geometricas = 0
-    let fibonaccis = 0
-
+  it('nível 1 já pede regra não linear: diferença que cresce, dobro ou quadrados', () => {
     for (let seed = 1; seed <= RUNS; seed++) {
-      const q = SERIES_GENERATORS.serie_simples(seed, 3)
-      const termos = q.stem.replace(', ?', '').split(',').map((t) => parseNumber(t.trim()))
-      const ultimo = termos.at(-1) as number
-      const penultimo = termos.at(-2) as number
-
-      const razoes = termos.slice(1).map((t, i) => t / (termos[i] as number))
-      const ehGeometrica = new Set(razoes).size === 1
-      const ehFibonacci = termos
-        .slice(2)
-        .every((t, i) => t === (termos[i] as number) + (termos[i + 1] as number))
-
-      expect(
-        ehGeometrica || ehFibonacci,
-        `seed ${seed}: série não bate com nenhuma família do nível 3 (${q.stem})`,
-      ).toBe(true)
-
-      if (ehGeometrica) {
-        geometricas++
-        expect(ultimo * (razoes[0] as number)).toBe(q.answerValue)
-      } else {
-        fibonaccis++
-        expect(ultimo + penultimo).toBe(q.answerValue)
-      }
+      const q = SERIES_GENERATORS.serie_simples(seed, 1)
+      const t = termosDe(q.stem)
+      expect(porDiferencas(t, 1), q.stem).toBeNull()
+      expect(porDiferencas(t, 2) ?? porRazao(t), q.stem).toBe(q.answerValue)
+      // números pequenos: é o nível de entrada
+      expect(Math.max(...t, q.answerValue)).toBeLessThanOrEqual(1000)
     }
+  })
 
-    // as duas famílias precisam de fato aparecer, senão o sorteio está quebrado
-    expect(geometricas).toBeGreaterThan(20)
-    expect(fibonaccis).toBeGreaterThan(20)
+  it('níveis 4-5 exigem mais que diferença de 2ª ordem ou razão constante na maioria das vezes', () => {
+    for (const d of [4, 5] as const) {
+      let simples = 0
+      for (let seed = 1; seed <= RUNS; seed++) {
+        const q = SERIES_GENERATORS.serie_simples(seed, d)
+        const t = termosDe(q.stem)
+        if (porDiferencas(t, 2) === q.answerValue || porRazao(t) === q.answerValue) simples++
+      }
+      // Caem aqui de propósito: n² + n e a diferença que atravessa o zero (nível 4),
+      // razão negativa e razão fracionária (nível 5). O resto precisa de outra leitura.
+      expect(simples / RUNS, `nível ${d}`).toBeLessThan(0.6)
+    }
+  })
+
+  it('negativos e decimais só aparecem no fim da escala', () => {
+    for (const d of DIFFICULTIES) {
+      let negativos = 0
+      let decimais = 0
+      for (let seed = 1; seed <= RUNS; seed++) {
+        const q = SERIES_GENERATORS.serie_simples(seed, d)
+        const t = [...termosDe(q.stem), q.answerValue]
+        if (t.some((v) => v < 0)) negativos++
+        if (t.some((v) => !Number.isInteger(v))) decimais++
+      }
+      if (d <= 2) expect(negativos, `nível ${d}`).toBe(0)
+      if (d >= 4) expect(negativos, `nível ${d}`).toBeGreaterThan(20)
+      if (d < 5) expect(decimais, `nível ${d}`).toBe(0)
+      else expect(decimais).toBeGreaterThan(10)
+    }
   })
 })
 
-describe('serie_dois_passos: alterna soma e multiplicação', () => {
-  it('a resposta é a soma aplicada ao último termo mostrado', () => {
-    for (let seed = 1; seed <= RUNS; seed++) {
-      const q = SERIES_GENERATORS.serie_dois_passos(seed, 3)
-      const termos = q.stem.replace(', ?', '').split(',').map((t) => parseNumber(t.trim()))
-      const ultimo = termos.at(-1) as number
-      expect(q.answerValue).toBeGreaterThan(ultimo)
-      // a diferença da resposta para o último termo é a mesma soma usada no 2º termo
-      const soma = (termos[1] as number) - (termos[0] as number)
-      expect(q.answerValue - ultimo).toBe(soma)
+// --- serie_alternada ------------------------------------------------------------
+
+/** Candidatas a f em (x, f(x)) — o leitor procura TODAS as que fecham. */
+const FUNCOES_CANDIDATAS: ((x: number) => number)[] = [
+  (x) => x * x,
+  ...[-5, -4, -3, -2, -1, 1, 2, 3, 4, 5].map((k) => (x: number) => 2 * x + k),
+  ...[1, 2, 3, 4, 5].map((k) => (x: number) => 3 * x - k),
+  ...[-3, -2, -1, 1, 2, 3].map((k) => (x: number) => x * x + k),
+]
+
+const trilhas = (t: number[]): [number[], number[]] => [
+  t.filter((_, i) => i % 2 === 0),
+  t.filter((_, i) => i % 2 === 1),
+]
+const linear = (trilha: number[]): boolean => constantes(difs(trilha))
+
+describe('serie_alternada: a dificuldade cresce com o nível', () => {
+  it('a vaga continua a trilha certa, e a regra dela é recuperável', () => {
+    for (const d of DIFFICULTIES) {
+      for (let seed = 1; seed <= RUNS; seed++) {
+        const q = SERIES_GENERATORS.serie_alternada(seed, d)
+        if (q.familia === 'pares') continue
+        const t = termosDe(q.stem)
+        const [impares, pares] = trilhas(t)
+        const daVaga = t.length % 2 === 0 ? impares : pares
+        const previsto = porDiferencas(daVaga, 2) ?? porRazao(daVaga)
+        expect(previsto, `nível ${d} seed ${seed}: ${q.stem}`).toBe(q.answerValue)
+      }
     }
+  })
+
+  it('nível 1: duas lineares; nível 2: uma linear; nível 3+: nenhuma', () => {
+    const esperado: Record<Difficulty, number> = { 1: 2, 2: 1, 3: 0, 4: 0, 5: 0 }
+    for (const d of DIFFICULTIES) {
+      for (let seed = 1; seed <= RUNS; seed++) {
+        const q = SERIES_GENERATORS.serie_alternada(seed, d)
+        const quantas = trilhas(termosDe(q.stem)).filter(linear).length
+        expect(quantas, `nível ${d} seed ${seed}: ${q.stem}`).toBe(esperado[d])
+      }
+    }
+  })
+
+  it('a vaga cai ora numa trilha, ora na outra', () => {
+    for (const d of DIFFICULTIES) {
+      const paridades = new Set<number>()
+      for (let seed = 1; seed <= 60; seed++) {
+        paridades.add(termosDe(SERIES_GENERATORS.serie_alternada(seed, d).stem).length % 2)
+      }
+      if (d !== 5) expect(paridades.size, `nível ${d}`).toBe(2)
+    }
+  })
+
+  it('níveis 4-5 passam por número negativo, exceto os pares (x, f(x))', () => {
+    for (const d of [4, 5] as const) {
+      for (let seed = 1; seed <= RUNS; seed++) {
+        const q = SERIES_GENERATORS.serie_alternada(seed, d)
+        if (q.familia === 'pares') continue
+        expect(termosDe(q.stem).some((v) => v < 0), q.stem).toBe(true)
+      }
+    }
+  })
+
+  it('pares (x, f(x)): toda f que fecha com os pares visíveis dá a mesma resposta', () => {
+    let vistos = 0
+    for (let seed = 1; seed <= RUNS; seed++) {
+      const q = SERIES_GENERATORS.serie_alternada(seed, 5)
+      if (q.familia !== 'pares') continue
+      vistos++
+      const t = termosDe(q.stem)
+      const xs = t.filter((_, i) => i % 2 === 0)
+      const ys = t.filter((_, i) => i % 2 === 1)
+      const fecham = FUNCOES_CANDIDATAS.filter((f) => ys.every((y, i) => f(xs[i] as number) === y))
+      expect(fecham.length, q.stem).toBeGreaterThan(0)
+      for (const f of fecham) expect(f(xs.at(-1) as number), q.stem).toBe(q.answerValue)
+      // e os x seguem regra própria, não linear
+      expect(porDiferencas(xs, 2), q.stem).not.toBeNull()
+      expect(linear(xs)).toBe(false)
+    }
+    expect(vistos).toBeGreaterThan(50)
+  })
+})
+
+// --- serie_dois_passos ----------------------------------------------------------
+
+/**
+ * Lê o ciclo de operações dos termos: para cada comprimento de ciclo L, cada
+ * fase precisa fechar como soma constante, multiplicação constante ou soma que
+ * cresce de 1 em 1. Devolve a previsão de cada L que fecha.
+ */
+function leiturasDeCiclo(t: number[]): number[] {
+  const previsoes: number[] = []
+  const transicoes = t.slice(1).map((y, i) => [t[i] as number, y] as const)
+  const alvo = transicoes.length // índice da próxima transição
+
+  for (const L of [2, 3]) {
+    const preverFase: ((x: number) => number)[] = []
+    let fecha = true
+    for (let fase = 0; fase < L; fase++) {
+      const trans = transicoes.filter((_, i) => i % L === fase)
+      if (trans.length < 2) {
+        fecha = false
+        break
+      }
+      const somas = trans.map(([x, y]) => y - x)
+      const razoes = trans.every(([x]) => x !== 0) ? trans.map(([x, y]) => y / x) : []
+      const passos = difs(somas)
+      if (constantes(somas)) preverFase.push((x) => x + (somas[0] as number))
+      else if (razoes.length > 0 && constantes(razoes)) preverFase.push((x) => x * (razoes[0] as number))
+      else if (passos.every((p) => p === 1) || passos.every((p) => p === -1)) {
+        preverFase.push((x) => x + (somas.at(-1) as number) + (passos[0] as number))
+      } else {
+        fecha = false
+        break
+      }
+    }
+    if (fecha) previsoes.push((preverFase[alvo % L] as (x: number) => number)(t.at(-1) as number))
+  }
+  return previsoes
+}
+
+describe('serie_dois_passos: o ciclo de operações é recuperável', () => {
+  it('toda leitura de ciclo que fecha com os termos dá a resposta', () => {
+    for (const d of DIFFICULTIES) {
+      for (let seed = 1; seed <= RUNS; seed++) {
+        const q = SERIES_GENERATORS.serie_dois_passos(seed, d)
+        const leituras = leiturasDeCiclo(termosDe(q.stem))
+        const msg = `nível ${d} seed ${seed} [${q.familia}] ${q.stem}`
+        expect(leituras.length, msg).toBeGreaterThan(0)
+        for (const v of leituras) expect(v, msg).toBe(q.answerValue)
+      }
+    }
+  })
+
+  it('não é geométrica por acaso', () => {
+    for (const d of DIFFICULTIES) {
+      for (let seed = 1; seed <= RUNS; seed++) {
+        const q = SERIES_GENERATORS.serie_dois_passos(seed, d)
+        expect(porRazao(termosDe(q.stem)), q.stem).toBeNull()
+      }
+    }
+  })
+
+  it('do nível 2 em diante a vaga cai em qualquer uma das operações', () => {
+    for (const d of [2, 3, 4, 5] as const) {
+      const tamanhos = new Set<number>()
+      for (let seed = 1; seed <= 60; seed++) {
+        tamanhos.add(termosDe(SERIES_GENERATORS.serie_dois_passos(seed, d).stem).length)
+      }
+      expect(tamanhos.size, `nível ${d}`).toBeGreaterThan(1)
+    }
+  })
+
+  it('nível 5 passa por número negativo na maioria das vezes', () => {
+    let negativos = 0
+    for (let seed = 1; seed <= RUNS; seed++) {
+      const q = SERIES_GENERATORS.serie_dois_passos(seed, 5)
+      if ([...termosDe(q.stem), q.answerValue].some((v) => v < 0)) negativos++
+    }
+    expect(negativos / RUNS).toBeGreaterThan(0.5)
   })
 })
