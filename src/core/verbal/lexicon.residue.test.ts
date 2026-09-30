@@ -50,10 +50,12 @@ describe('léxico — cobertura suficiente para a cota de 150/tipo', () => {
     expect(LOGIC_TERMS.inventados.length).toBeGreaterThanOrEqual(15)
   })
 
-  it('cada nível tem pelo menos 5 frases de completar', () => {
+  it('cada nível tem pelo menos 10 frases de completar', () => {
+    // o banco consome ~10 por nível; com 5, a mesma frase voltava com as
+    // alternativas embaralhadas e o candidato decorava a resposta
     for (const d of DIFFICULTIES) {
       const n = SENTENCE_FRAMES.filter((f) => f.level === d).length
-      expect(n, `nível ${d} só tem ${n} frases`).toBeGreaterThanOrEqual(5)
+      expect(n, `nível ${d} só tem ${n} frases`).toBeGreaterThanOrEqual(10)
     }
   })
 })
