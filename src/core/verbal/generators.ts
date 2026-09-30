@@ -27,6 +27,7 @@ import {
 } from './syllogism'
 import { gerarVerdadeiroFalso } from './verdadeiroFalso'
 import { gerarOrdenacao } from './ordenacao'
+import { DOUBLE_FRAMES } from './frasesDuplas'
 
 /**
  * Geradores verbais a partir do léxico curado.
@@ -334,6 +335,42 @@ export const gerarCompletarFrase: VerbalGenerator = (seed, difficulty) => {
   }
 }
 
+// --- Completar frase com duas lacunas ----------------------------------------
+
+export const gerarCompletarFraseDupla: VerbalGenerator = (seed, difficulty) => {
+  const rng = mulberry32(seed)
+  const noNivel = DOUBLE_FRAMES.filter((f) => f.level === difficulty)
+  const frame = rng.pick(noNivel.length > 0 ? noNivel : DOUBLE_FRAMES)
+
+  // A alternativa é o par inteiro: acertar uma lacuna só não vale nada.
+  const par = ([a, b]: [string, string]) => `${a} / ${b}`
+  const correta = par(frame.answer)
+  const satisfiesRule = (texto: string) => texto === correta
+
+  const escolhidas = [correta, ...rng.shuffle(frame.distractors).map(par)].slice(0, OPCOES_POR_QUESTAO)
+  const { options, answerId } = embaralhar(rng, escolhidas)
+
+  return {
+    subtipo: 'completar_frase_dupla',
+    stem: frame.frame,
+    options,
+    answerId,
+    explanation: {
+      pt:
+        `A resposta é "${correta}". ${frame.rationale.pt} ` +
+        `Regra geral: ache o conectivo antes das alternativas — contraste ("although", "but", ` +
+        `"despite") pede lacunas opostas; continuidade ("because", "and", os dois-pontos) pede ` +
+        `lacunas na mesma direção. Resolva a lacuna mais fácil e elimine por ela.`,
+      en:
+        `The answer is "${correta}". ${frame.rationale.en} ` +
+        `General rule: find the connective before the options — contrast ("although", "but", ` +
+        `"despite") calls for opposite blanks; continuity ("because", "and", the colon) calls for ` +
+        `blanks pointing the same way. Solve the easier blank and eliminate by it.`,
+    },
+    satisfiesRule,
+  }
+}
+
 // --- Lógica verbal -----------------------------------------------------------
 
 export const gerarDeducao: VerbalGenerator = (seed, difficulty) => {
@@ -431,6 +468,7 @@ export const VERBAL_GENERATORS = {
   antonimo: gerarAntonimo,
   sinonimo: gerarSinonimo,
   completar_frase: gerarCompletarFrase,
+  completar_frase_dupla: gerarCompletarFraseDupla,
   deducao: gerarDeducao,
   verdadeiro_falso: gerarVerdadeiroFalso,
   ordenacao: gerarOrdenacao,

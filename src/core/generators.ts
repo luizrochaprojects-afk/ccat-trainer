@@ -42,6 +42,7 @@ const VERBAL_TIPO: Record<string, Tipo> = {
   antonimo: 'verbal_vocab',
   sinonimo: 'verbal_vocab',
   completar_frase: 'verbal_vocab',
+  completar_frase_dupla: 'verbal_vocab',
   deducao: 'verbal_logic',
   verdadeiro_falso: 'verbal_logic',
   ordenacao: 'verbal_logic',
