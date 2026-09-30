@@ -117,12 +117,21 @@ export const questionSchema = z
     explanation: localizedTextSchema,
     /** aponta para content/theory/<tipo>.md#<ancora> */
     theoryRef: z.string().min(1),
-    origin: z.enum(['claude-code', 'official-sample']),
+    /**
+     * 'official-sample': publicada pela própria Criteria. 'imported': tirada de
+     * material de preparação na web. As duas carregam `source`.
+     */
+    origin: z.enum(['claude-code', 'official-sample', 'imported']),
+    source: z.object({ name: z.string().min(1), url: z.string().url() }).optional(),
     status: z.enum(['draft', 'approved', 'rejected']),
     verification: verificationSchema,
     createdAt: z.string().datetime(),
   })
-  // Integridade estrutural: essas três nunca podem passar, nem em draft.
+  // Integridade estrutural: essas nunca podem passar, nem em draft.
+  .refine((q) => q.origin === 'claude-code' || Boolean(q.source), {
+    message: 'questão de fora precisa registrar a fonte',
+    path: ['source'],
+  })
   .refine((q) => q.options.some((o) => o.id === q.answerId), {
     message: 'answerId não corresponde a nenhuma alternativa',
     path: ['answerId'],
