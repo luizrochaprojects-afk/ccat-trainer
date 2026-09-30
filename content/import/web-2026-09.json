@@ -375,7 +375,7 @@
   {
     "slug": "jtp-analogia-talon",
     "tipo": "verbal_analogy",
-    "subtipo": "analogia_simples",
+    "subtipo": "analogia_lacuna",
     "difficulty": 2,
     "origin": "imported",
     "source": {
@@ -399,7 +399,7 @@
   {
     "slug": "jtp-analogia-inevitable",
     "tipo": "verbal_analogy",
-    "subtipo": "analogia_simples",
+    "subtipo": "analogia_lacuna",
     "difficulty": 2,
     "origin": "imported",
     "source": {
