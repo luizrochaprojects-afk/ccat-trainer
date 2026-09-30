@@ -279,7 +279,7 @@ export const THEORY: Record<Tipo, TipoTheory> = {
 
   math_series: {
     tipo: 'math_series',
-    titulo: { pt: 'Séries numéricas', en: 'Number series' },
+    titulo: { pt: 'Séries de números e letras', en: 'Number and letter series' },
     resumo: {
       pt:
         'Uma sequência — de números, de letras ou dos dois — e a pergunta: qual vem depois? O ' +

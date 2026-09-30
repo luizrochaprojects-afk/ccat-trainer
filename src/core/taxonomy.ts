@@ -163,7 +163,7 @@ export const TIPO_LABEL: Record<Tipo, LocalizedText> = {
   verbal_analogy: { pt: 'Analogias', en: 'Analogies' },
   verbal_vocab: { pt: 'Vocabulário', en: 'Vocabulary' },
   verbal_logic: { pt: 'Lógica verbal', en: 'Verbal logic' },
-  math_series: { pt: 'Séries numéricas', en: 'Number series' },
+  math_series: { pt: 'Séries', en: 'Series' },
   math_word: { pt: 'Problemas matemáticos', en: 'Word problems' },
   spatial: { pt: 'Raciocínio espacial', en: 'Spatial reasoning' },
 }
