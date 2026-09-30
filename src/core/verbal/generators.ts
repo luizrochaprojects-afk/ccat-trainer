@@ -26,6 +26,7 @@ import {
   type Statement,
 } from './syllogism'
 import { gerarVerdadeiroFalso } from './verdadeiroFalso'
+import { gerarOrdenacao } from './ordenacao'
 
 /**
  * Geradores verbais a partir do léxico curado.
@@ -432,6 +433,7 @@ export const VERBAL_GENERATORS = {
   completar_frase: gerarCompletarFrase,
   deducao: gerarDeducao,
   verdadeiro_falso: gerarVerdadeiroFalso,
+  ordenacao: gerarOrdenacao,
 } as const satisfies Record<string, VerbalGenerator>
 
 export type VerbalGeneratorId = keyof typeof VERBAL_GENERATORS

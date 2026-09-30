@@ -213,10 +213,8 @@ describe('verdadeiro_falso — passa pelos gates', () => {
       ),
     )
     const r = runGates(drafts)
-    // repetição exata entre seeds é o dedup fazendo o trabalho dele
-    const outros = r.rejected.filter((x) => x.violations.some((v) => v.gate !== 'G4_dedup'))
-    expect(outros.map((x) => x.violations)).toEqual([])
-    expect(r.approved.length).toBeGreaterThan(250)
+    expect(r.rejected.map((x) => x.violations)).toEqual([])
+    expect(r.approved).toHaveLength(drafts.length)
     for (const q of r.approved) expect(q.options).toHaveLength(3)
   })
 })

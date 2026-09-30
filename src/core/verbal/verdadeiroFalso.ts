@@ -512,7 +512,9 @@ const ORDINAL = ['', 'first', 'second', 'third', 'fourth', 'fifth'] as const
 const QUANTAS = ['', 'one', 'two', 'three', 'four'] as const
 
 export const gerarVerdadeiroFalso: VerbalGenerator = (seed, difficulty) => {
-  const rng = mulberry32(seed)
+  // O nível entra na seed: níveis vizinhos têm a mesma estrutura, e a mesma
+  // seed daria a MESMA questão rotulada com duas dificuldades.
+  const rng = mulberry32(seed + difficulty * 100_003)
   // O alvo sai da seed ANTES da questão: o banco fica equilibrado entre os
   // três vereditos, e "Uncertain" não vira o chute que mais acerta.
   const alvo = rng.pick(VEREDITOS)

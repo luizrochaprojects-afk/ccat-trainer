@@ -44,6 +44,7 @@ const VERBAL_TIPO: Record<string, Tipo> = {
   completar_frase: 'verbal_vocab',
   deducao: 'verbal_logic',
   verdadeiro_falso: 'verbal_logic',
+  ordenacao: 'verbal_logic',
 }
 
 export const GENERATORS: Record<string, GeneratorFn> = {
