@@ -504,7 +504,7 @@ p {
 .enunciado.serie {
   font-family: var(--mono);
   font-variation-settings: normal;
-  font-size: clamp(1.4rem, 4.4vw, 2.1rem);
+  font-size: min(clamp(1.4rem, 4.4vw, 2.1rem), 5dvh);
   letter-spacing: 0.02em;
   font-weight: 500;
   max-width: none;
@@ -638,9 +638,19 @@ p {
   max-width: 46ch;
 }
 
+/* Enunciado longo: a fonte acompanha a altura da tela e a linha fica mais
+   larga, para que regras e passos caibam em menos linhas. Em tela alta os
+   valores batem no teto e nada muda. */
+.shell.em-sessao .enunciado.longo {
+  font-size: min(var(--t-stem), 3.6dvh);
+  line-height: 1.3;
+  max-width: 58ch;
+  margin: clamp(10px, 3dvh, 40px) 0 clamp(10px, 2.6dvh, 32px);
+}
+
 /* --- alternativas -------------------------------------------------------- */
 
-/* Alternativas curtas ao lado de uma tabela: grade de 2 no celular e de 5 no
+/* Alternativas curtas ao lado de uma tabela ou de um enunciado longo: grade de 2 no celular e de 5 no
    desktop, em vez da pilha de cinco cartões. A tecla encolhe junto; o alvo de
    toque continua com os 44px de altura. */
 .opcoes.curtas {

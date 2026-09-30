@@ -154,11 +154,14 @@ export function SessionScreen({
   const urgente = restante <= Math.min(30_000, orcamento * 0.3)
   const total = state.config.questions.length
   const graficas = q.options.some((o) => o.spatial)
-  // Com tabela no enunciado, alternativas curtas (número, rótulo de linha,
-  // "1 and 3") viram grade: a tabela come a altura que a lista vertical de
-  // cinco cartões precisaria, e em 545px de altura não cabem as duas coisas.
+  // Enunciado longo (ordenação com 5 regras, problema de 3 passos) e tabela
+  // disputam a altura com a lista de cinco cartões — em 545px não cabem os
+  // dois. O enunciado encolhe com a altura da tela, e alternativas curtas
+  // (número, nome, rótulo de linha, "1 and 3") viram grade.
+  const longo = q.stem.length > 80
   const curtas =
-    Boolean(q.stemTable) && q.options.every((o) => o.text !== undefined && o.text.length <= 16)
+    (Boolean(q.stemTable) || longo) &&
+    q.options.every((o) => o.text !== undefined && o.text.length <= 32)
   const teoria = subtipoTheory(q.tipo, q.subtipo)
   const decorrido = Math.min(100, ((orcamento - restante) / orcamento) * 100)
 
@@ -204,7 +207,7 @@ export function SessionScreen({
           id="enunciado"
           className={`enunciado${q.tipo === 'math_series' ? ' serie' : ''}${
             q.stemTable ? ' com-tabela' : ''
-          }`}
+          }${longo ? ' longo' : ''}`}
         >
           {q.stem}
         </p>
