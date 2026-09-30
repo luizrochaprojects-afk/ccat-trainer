@@ -1,5 +1,5 @@
 import { mulberry32, type Rng } from '../rng'
-import type { Difficulty } from '../taxonomy'
+import { OPCOES_POR_QUESTAO, type Difficulty } from '../taxonomy'
 import type { LocalizedText } from '../i18n'
 import { optionIdAt } from '../optionIds'
 import { normalizeText } from '../schema'
@@ -1944,7 +1944,7 @@ function montar(
   problema: Problema,
   difficulty: Difficulty,
 ): MathGenerated {
-  const quantidade = difficulty <= 2 ? 4 : 5
+  const quantidade = OPCOES_POR_QUESTAO
   const valores = [problema.valor]
   const vistos = new Set([arredonda(problema.valor)])
 

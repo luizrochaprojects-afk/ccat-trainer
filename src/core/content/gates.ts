@@ -1,7 +1,7 @@
 import { normalizeText, questionSchema, type Question } from '../schema'
 import { evaluateExpression, parseNumber } from '../math/solver'
 import { runGenerator } from '../generators'
-import { acceptsVerification, VERIFICATION_METHODS, type Tipo } from '../taxonomy'
+import { acceptsVerification, OPCOES_POR_QUESTAO, VERIFICATION_METHODS, type Tipo } from '../taxonomy'
 
 /**
  * Os cinco gates do PRD §4.13.
@@ -133,16 +133,16 @@ function gateAlternativas(q: Question): Violation[] {
 
 function gateDificuldade(q: Question): Violation[] {
   const v: Violation[] = []
-  // A faixa 1..5 já é garantida pelo schema; o que resta checar é a coerência
-  // com o número de alternativas, que é função do nível nos geradores.
-  // Questão de fora mantém as alternativas da fonte — as oficiais têm sempre 5.
-  const esperado = q.difficulty <= 2 ? 4 : 5
+  // A faixa 1..5 já é garantida pelo schema; o que resta checar é o número de
+  // alternativas, que na prova real é sempre 5. Questão de fora mantém as
+  // alternativas da fonte.
+  const esperado = OPCOES_POR_QUESTAO
   const gerada = q.origin === 'claude-code' && q.verification.method !== 'second-model'
   if (gerada && q.options.length !== esperado) {
     v.push({
       gate: 'G3_dificuldade',
       questionId: q.id,
-      message: `nível ${q.difficulty} deveria ter ${esperado} alternativas, tem ${q.options.length}`,
+      message: `deveria ter ${esperado} alternativas, tem ${q.options.length}`,
     })
   }
   return v

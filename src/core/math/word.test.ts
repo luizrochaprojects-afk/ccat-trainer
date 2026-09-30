@@ -104,7 +104,7 @@ describe('geradores de problemas matemáticos', () => {
 
       it('4 alternativas nos níveis 1-2, 5 nos níveis 3-5', () => {
         for (const d of DIFFICULTIES) {
-          expect(gerar(9, d).options).toHaveLength(d <= 2 ? 4 : 5)
+          expect(gerar(9, d).options).toHaveLength(5)
         }
       })
 

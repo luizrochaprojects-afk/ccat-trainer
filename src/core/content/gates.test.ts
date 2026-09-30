@@ -105,14 +105,16 @@ describe('G5 — alternativas', () => {
 })
 
 describe('G3 — dificuldade', () => {
-  it('barra nível 1 com 5 alternativas', () => {
-    const q = boa('serie_simples', 42, 3) // nível 3 → 5 alternativas
-    expect(gatesDisparados({ ...q, difficulty: 1 })).toContain('G3_dificuldade')
+  it('gerada tem 5 alternativas em qualquer nível, como a prova real', () => {
+    expect(boa('serie_simples', 42, 1).options).toHaveLength(5)
+    expect(gatesDisparados(boa('serie_simples', 42, 1))).not.toContain('G3_dificuldade')
   })
 
-  it('barra nível 5 com 4 alternativas', () => {
-    const q = boa('serie_simples', 42, 1) // nível 1 → 4 alternativas
-    expect(gatesDisparados({ ...q, difficulty: 5 })).toContain('G3_dificuldade')
+  it('barra gerada com 4 alternativas', () => {
+    const q = boa('serie_simples', 42, 1)
+    const umaErrada = q.options.find((o) => o.id !== q.answerId)!
+    const comQuatro = q.options.filter((o) => o !== umaErrada)
+    expect(gatesDisparados({ ...q, options: comQuatro })).toContain('G3_dificuldade')
   })
 })
 

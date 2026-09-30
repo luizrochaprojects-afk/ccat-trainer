@@ -1,5 +1,5 @@
 import { mulberry32, type Rng } from '../rng'
-import type { Difficulty } from '../taxonomy'
+import { OPCOES_POR_QUESTAO, type Difficulty } from '../taxonomy'
 import { optionIdAt } from '../optionIds'
 import { formatNumber } from './solver'
 import type { LocalizedText } from '../i18n'
@@ -53,7 +53,6 @@ interface Regra {
 /** Devolve null quando o sorteio caiu num caso degenerado; aí se sorteia de novo. */
 type Familia = (rng: Rng) => Regra | null
 
-const optionCountFor = (d: Difficulty): number => (d <= 2 ? 4 : 5)
 
 // --- Série simples -----------------------------------------------------------
 
@@ -1140,10 +1139,10 @@ function montar(
   rng: Rng,
   subtipo: string,
   regra: Regra,
-  difficulty: Difficulty,
+  _difficulty: Difficulty,
 ): MathGenerated {
   const stem = stemDe(regra.terms)
-  const valores = comDistratores(rng, regra, optionCountFor(difficulty), stem)
+  const valores = comDistratores(rng, regra, OPCOES_POR_QUESTAO, stem)
   const embaralhados = rng.shuffle(valores.map((v, i) => ({ v, isCorrect: i === 0 })))
 
   const options = embaralhados.map((o, i) => ({

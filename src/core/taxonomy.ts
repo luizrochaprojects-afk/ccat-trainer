@@ -80,6 +80,13 @@ export type Difficulty = (typeof DIFFICULTIES)[number]
 
 /** 50 questões em 15 minutos. */
 export const EXAM_QUESTION_COUNT = 50
+
+/**
+ * Toda questão da CCAT tem 5 alternativas — as amostras oficiais confirmam,
+ * inclusive nas fáceis. Com 4 nos níveis baixos o chute acertava 25% em vez de
+ * 20% e a eliminação ficava mais curta que na prova de verdade.
+ */
+export const OPCOES_POR_QUESTAO = 5
 export const EXAM_DURATION_MS = 15 * 60 * 1000
 
 /** Ritmo da prova: ~18s por questão. Usado como relógio por questão no drill. */
