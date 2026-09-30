@@ -7,15 +7,16 @@ import { arred, LADO, TINTA, TRACO, type Familia } from './contrato'
  * Mostrador com ponteiros — o vocabulário da imagem de referência 12.
  *
  * Oito posições angulares, marcadas por guias tracejadas, e um conjunto de
- * ponteiros curtos ou longos. Girar é somar módulo 8, o que torna a progressão
- * de uma sequência imediatamente rastreável: o candidato segue um ponteiro.
+ * ponteiros curtos, longos ou com ponta redonda. Girar é somar módulo 8, o que
+ * torna a progressão de uma sequência imediatamente rastreável: o candidato
+ * segue um ponteiro.
  *
  * As guias não são enfeite. Sem elas, estimar "quantos passos andou" vira
  * julgamento de ângulo a olho; com elas, vira contagem.
  */
 
-/** 0 = sem ponteiro, 1 = ponteiro curto, 2 = ponteiro longo. */
-export type Ponteiro = 0 | 1 | 2
+/** 0 = sem ponteiro, 1 = curto, 2 = longo, 3 = médio com ponta redonda. */
+export type Ponteiro = 0 | 1 | 2 | 3
 
 export const POSICOES = 8
 
@@ -28,9 +29,13 @@ export type FiguraRaios = readonly Ponteiro[]
  * O longo para bem antes do aro (34 de 44). Com 40 a ponta encostava na
  * circunferência e as duas linhas viravam um traço só — a pessoa não conseguia
  * ver onde o ponteiro terminava, que é exatamente o que ela precisa contar.
+ *
+ * O de ponta redonda fica no meio (27) para não ser confundido com nenhum dos
+ * dois pelo comprimento; a bola na ponta é o que o identifica.
  */
-const COMPRIMENTO: Record<Exclude<Ponteiro, 0>, number> = { 1: 19, 2: 34 }
+const COMPRIMENTO: Record<Exclude<Ponteiro, 0>, number> = { 1: 19, 2: 34, 3: 27 }
 const RAIO_MOSTRADOR = 44
+const RAIO_BOLA = 4.5
 
 export const familiaRaios: Familia<FiguraRaios> = {
   id: 'raios',
@@ -38,19 +43,28 @@ export const familiaRaios: Familia<FiguraRaios> = {
   suportaReflexao: true,
 
   sortear(rng: Rng, nivel: Difficulty): FiguraRaios {
-    // Nunca menos de dois ponteiros, e nunca dois do MESMO comprimento.
+    // Sempre um longo e um curto, nunca dois do MESMO comprimento sozinhos.
     //
     // Não é escolha estética, é o que torna a família quiral. Num ciclo, um
     // único ponteiro refletido sempre coincide com alguma rotação dele mesmo,
     // e dois de comprimento igual também — o conjunto {i, j} é simétrico em
-    // torno do próprio ponto médio. Só o contraste curto/longo quebra isso.
-    const quantos = nivel <= 4 ? 2 : 3
-    const slots: Ponteiro[] = Array.from({ length: POSICOES }, () => 0)
-    const posicoes = rng.shuffle(Array.from({ length: POSICOES }, (_, i) => i)).slice(0, quantos)
+    // torno do próprio ponto médio. Só o contraste entre tipos quebra isso.
+    //
+    // Piso de complexidade: três ponteiros desde o nível 1 (antes eram dois
+    // até o nível 4, e o mostrador inteiro se lia num relance). O de ponta
+    // redonda entra no 3 e o quarto ponteiro no 4.
+    const extras: Ponteiro[] =
+      nivel <= 2
+        ? [rng.pick([1, 2] as Ponteiro[])]
+        : nivel === 3
+          ? [rng.pick([1, 2, 3] as Ponteiro[])]
+          : [3, rng.pick([1, 2, 3] as Ponteiro[])]
+    const tipos: Ponteiro[] = [2, 1, ...extras]
 
-    // O primeiro é longo, o segundo curto; os demais variam.
+    const slots: Ponteiro[] = Array.from({ length: POSICOES }, () => 0)
+    const posicoes = rng.shuffle(Array.from({ length: POSICOES }, (_, i) => i)).slice(0, tipos.length)
     posicoes.forEach((pos, i) => {
-      slots[pos] = i === 0 ? 2 : i === 1 ? 1 : rng.pick([1, 2] as Ponteiro[])
+      slots[pos] = tipos[i] as Ponteiro
     })
     return slots
   },
@@ -58,9 +72,10 @@ export const familiaRaios: Familia<FiguraRaios> = {
   passosSecundarios: 2,
 
   avancarSecundario(f, passos) {
-    // Inverte curto e longo. Mexe em valores, não em posições: comuta com girar.
+    // Inverte curto e longo; o de ponta redonda fica. Mexe em valores, não em
+    // posições: comuta com girar.
     if (((passos % 2) + 2) % 2 === 0) return f
-    return f.map((v) => (v === 1 ? 2 : v === 2 ? 1 : 0) as Ponteiro)
+    return f.map((v) => (v === 1 ? 2 : v === 2 ? 1 : v) as Ponteiro)
   },
   rotate(f, passos) {
     const p = ((passos % POSICOES) + POSICOES) % POSICOES
@@ -81,15 +96,18 @@ export const familiaRaios: Familia<FiguraRaios> = {
     const ocupadas = copia.map((v, i) => (v !== 0 ? i : -1)).filter((i) => i >= 0)
     const vazias = copia.map((v, i) => (v === 0 ? i : -1)).filter((i) => i >= 0)
 
-    // Move um ponteiro de casa, ou troca seu comprimento se não houver para onde ir.
+    // Move um ponteiro para uma casa vizinha livre — a diferença mínima que
+    // ainda se conta nas guias —, ou para qualquer casa livre, ou troca o tipo
+    // dele se não houver para onde ir.
     if (ocupadas.length > 0 && vazias.length > 0) {
       const de = rng.pick(ocupadas)
-      const para = rng.pick(vazias)
+      const vizinhas = vazias.filter((i) => (i - de + POSICOES) % POSICOES === 1 || (de - i + POSICOES) % POSICOES === 1)
+      const para = rng.pick(vizinhas.length > 0 ? vizinhas : vazias)
       copia[para] = copia[de] as Ponteiro
       copia[de] = 0
     } else if (ocupadas.length > 0) {
       const i = rng.pick(ocupadas)
-      copia[i] = copia[i] === 1 ? 2 : 1
+      copia[i] = rng.pick(([1, 2, 3] as Ponteiro[]).filter((v) => v !== copia[i]))
     }
     return copia
   },
@@ -134,26 +152,30 @@ export const familiaRaios: Familia<FiguraRaios> = {
         stroke: TINTA,
         strokeWidth: p === 2 ? 4 : 2.5,
       })
+      if (p === 3) {
+        shapes.push({ kind: 'circle', cx: fim.x, cy: fim.y, r: RAIO_BOLA, fill: TINTA, stroke: TINTA, strokeWidth: 1 })
+      }
     })
 
     return { width: LADO, height: LADO, shapes }
   },
 
   todasAsConfiguracoes() {
-    // O espaço completo (3^8) é grande demais para enumerar num teste; as
+    // O espaço completo (4^8) é grande demais para enumerar num teste; as
     // configurações de 1 e 2 ponteiros já cobrem toda a álgebra de rotação e
     // reflexão, que é o que o teste exaustivo precisa provar.
     const todas: FiguraRaios[] = []
     const vazio = (): Ponteiro[] => Array.from({ length: POSICOES }, () => 0)
+    const tipos: Ponteiro[] = [1, 2, 3]
 
     for (let i = 0; i < POSICOES; i++) {
-      for (const vi of [1, 2] as Ponteiro[]) {
+      for (const vi of tipos) {
         const um = vazio()
         um[i] = vi
         todas.push(um)
 
         for (let j = i + 1; j < POSICOES; j++) {
-          for (const vj of [1, 2] as Ponteiro[]) {
+          for (const vj of tipos) {
             const dois = vazio()
             dois[i] = vi
             dois[j] = vj
