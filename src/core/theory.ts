@@ -558,11 +558,11 @@ export const THEORY: Record<Tipo, TipoTheory> = {
         },
         armadilha: {
           pt:
-            'Os distratores são a imagem ESPELHADA. De relance parecem iguais; a ordem em que ' +
-            'os detalhes se sucedem é o que denuncia.',
+            'Há dois tipos de distrator: o reflexo da figura e versões com um detalhe trocado — ' +
+            'algumas também espelhadas. Confira a ordem dos detalhes E cada detalhe.',
           en:
-            'The distractors are the MIRROR image. At a glance they look the same; the order in ' +
-            'which the details follow one another is what gives them away.',
+            "There are two kinds of distractor: the figure's mirror image and versions with one " +
+            'detail changed — some of them mirrored too. Check the order of the details AND each detail.',
         },
       },
       {
@@ -587,27 +587,33 @@ export const THEORY: Record<Tipo, TipoTheory> = {
           ],
         },
         armadilha: {
-          pt: 'As alternativas erradas são rotações da figura original — as "certas demais".',
-          en: 'The wrong options are rotations of the original figure — the ones that look too right.',
+          pt:
+            'As erradas são a figura original girada — as "certas demais" — e versões com um ' +
+            'detalhe trocado, espelhadas ou não.',
+          en:
+            'The wrong options are the original figure turned — the ones that look too right — and ' +
+            'versions with one detail changed, mirrored or not.',
         },
       },
       {
         subtipo: 'odd_one_out',
         titulo: { pt: 'Qual não pertence', en: 'Odd one out' },
         oQuePede: {
-          pt: 'A figura que não é rotação das outras.',
-          en: 'The figure that is not a rotation of the others.',
+          pt: 'A figura que não é a mesma das outras, apenas girada.',
+          en: 'The figure that is not the same as the others, merely turned.',
         },
         metodo: {
           pt: [
             'Não compare as figuras duas a duas: são combinações demais.',
             'Escolha um detalhe assimétrico e veja onde ele aparece do lado oposto.',
             'Essa é a intrusa.',
+            'Nos níveis altos a intrusa pode não ser o reflexo: pode ter um único detalhe diferente. Se a ordem dos detalhes bate em todas, compare detalhe por detalhe.',
           ],
           en: [
             'Do not compare the figures pairwise: there are too many combinations.',
             'Pick one asymmetric detail and find where it appears on the opposite side.',
             'That is the odd one.',
+            'At higher levels the odd one may not be the mirror image: it may differ in a single detail. If the order of the details matches in all of them, compare detail by detail.',
           ],
         },
         armadilha: {
@@ -638,11 +644,13 @@ export const THEORY: Record<Tipo, TipoTheory> = {
         },
         armadilha: {
           pt:
-            'Enxergar só a rotação e perder a segunda regra. Nas séries mais difíceis duas ' +
-            'coisas mudam ao mesmo tempo.',
+            'Enxergar só a rotação e perder a segunda regra: toda série muda duas coisas. Nos ' +
+            'níveis altos o giro também muda de tamanho — alterna entre dois passos ou cresce um ' +
+            'passo por casa — e o atributo pode mudar só a cada duas casas.',
           en:
-            'Seeing only the rotation and missing the second rule. In the harder series two ' +
-            'things change at once.',
+            'Seeing only the rotation and missing the second rule: every series changes two ' +
+            'things. At higher levels the turn changes size too — it alternates between two steps ' +
+            'or grows by one step each time — and the attribute may change only every second step.',
         },
       },
       {

@@ -101,7 +101,7 @@ describe.each(SPATIAL_GENERATOR_IDS)('gerador "%s"', (id) => {
   it('tem 4 alternativas nos níveis fáceis e 5 nos difíceis', () => {
     for (const nivel of NIVEIS) {
       for (const seed of SEEDS.slice(0, 6)) {
-        expect(gerar(seed, nivel).options.length).toBe(nivel <= 2 ? 4 : 5)
+        expect(gerar(seed, nivel).options.length).toBe(5)
       }
     }
   })

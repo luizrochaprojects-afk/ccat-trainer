@@ -2,7 +2,7 @@ import type { LocalizedText } from '../i18n'
 import { optionIdAt } from '../optionIds'
 import type { Rng } from '../rng'
 import type { SpatialSpec } from '../schema'
-import type { Difficulty } from '../taxonomy'
+import { OPCOES_POR_QUESTAO, type Difficulty } from '../taxonomy'
 import {
   type Familia,
   type FamiliaQualquer,
@@ -56,10 +56,6 @@ export type FormaDePergunta = <F>(
 ) => QuestaoEspacial
 
 // --- Utilidades --------------------------------------------------------------
-
-function quantasAlternativas(nivel: Difficulty): number {
-  return nivel <= 2 ? 4 : 5
-}
 
 /** Todas as rotações distintas de uma figura. */
 function rotacoes<F>(fam: Familia<F>, f: F): F[] {
@@ -232,7 +228,7 @@ function distratoresEmPares<F>(
  * quiral — daí a tabela de compatibilidade no fim do arquivo.
  */
 export function rotacao<F>(fam: Familia<F>, rng: Rng, nivel: Difficulty): QuestaoEspacial {
-  const quantas = quantasAlternativas(nivel)
+  const quantas = OPCOES_POR_QUESTAO
 
   for (let tentativa = 0; tentativa < TENTATIVAS; tentativa++) {
     const f = sortearUtilizavel(fam, rng, nivel)
@@ -262,7 +258,7 @@ export function rotacao<F>(fam: Familia<F>, rng: Rng, nivel: Difficulty): Questa
 
 /** "Qual opção é o REFLEXO da figura acima?" — o espelho do caso anterior. */
 export function reflexao<F>(fam: Familia<F>, rng: Rng, nivel: Difficulty): QuestaoEspacial {
-  const quantas = quantasAlternativas(nivel)
+  const quantas = OPCOES_POR_QUESTAO
 
   for (let tentativa = 0; tentativa < TENTATIVAS; tentativa++) {
     const f = sortearUtilizavel(fam, rng, nivel)
@@ -305,7 +301,7 @@ type TipoDeIntrusa = 'espelho' | 'variante'
  */
 export function oddOneOut<F>(fam: Familia<F>, rng: Rng, nivel: Difficulty): QuestaoEspacial {
   const f = sortearUtilizavel(fam, rng, nivel)
-  const quantas = quantasAlternativas(nivel)
+  const quantas = OPCOES_POR_QUESTAO
   const tipo: TipoDeIntrusa = !fam.suportaReflexao
     ? 'variante'
     : nivel <= 2
@@ -508,7 +504,7 @@ export function serieFormas<F>(fam: Familia<F>, rng: Rng, nivel: Difficulty): Qu
     stem: 'Which figure continues the sequence?',
     stemSpatial: sequenciaParaSpec([...figuras.slice(0, v).map((f) => fam.toSpec(f)), null]),
     explanation: EXPLICACAO_DA_SERIE[plano.atributoLento ? 'lenta' : plano.regra],
-    ...montar(fam, rng, correta, candidatos, [fam.assinatura(correta)], quantasAlternativas(nivel)),
+    ...montar(fam, rng, correta, candidatos, [fam.assinatura(correta)], OPCOES_POR_QUESTAO),
   }
 }
 
@@ -562,7 +558,7 @@ export function matriz<F>(fam: Familia<F>, rng: Rng, nivel: Difficulty): Questao
           en: 'The figure turns by a fixed step across each row and by another fixed step down each column. Apply both to the cell before the gap.',
           pt: 'A figura gira um passo fixo ao longo da linha e outro passo fixo ao longo da coluna. Aplique os dois à célula anterior ao vão.',
         },
-    ...montar(fam, rng, correta, candidatos, [fam.assinatura(correta)], quantasAlternativas(nivel)),
+    ...montar(fam, rng, correta, candidatos, [fam.assinatura(correta)], OPCOES_POR_QUESTAO),
   }
 }
 
@@ -595,7 +591,7 @@ export function parIdentico<F>(fam: Familia<F>, rng: Rng, nivel: Difficulty): Qu
       en: 'Every option differs from the model in at most one detail. Do not judge the overall shape — pick one position at a time and compare it across the options.',
       pt: 'Cada alternativa difere do modelo em no máximo um detalhe. Não julgue pela forma geral — escolha uma posição por vez e compare-a entre as alternativas.',
     },
-    ...montar(fam, rng, f, candidatos, [fam.assinatura(f)], quantasAlternativas(nivel)),
+    ...montar(fam, rng, f, candidatos, [fam.assinatura(f)], OPCOES_POR_QUESTAO),
   }
 }
 
