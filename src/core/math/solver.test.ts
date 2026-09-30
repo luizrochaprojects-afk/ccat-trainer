@@ -1,9 +1,11 @@
 import { describe, expect, it } from 'vitest'
 import {
+  comparacaoDe,
   evaluateExpression,
   formatNumber,
   parseNumber,
   SolverError,
+  toleranciaDe,
 } from './solver'
 
 describe('evaluateExpression', () => {
@@ -118,5 +120,84 @@ describe('parseNumber', () => {
 
   it('rejeita texto que não é número', () => {
     expect(() => parseNumber('nenhuma das anteriores')).toThrow(SolverError)
+  })
+
+  it('lê fração simples, que é alternativa nas questões de comparação', () => {
+    expect(parseNumber('7/13')).toBe(7 / 13)
+    expect(parseNumber('1/2')).toBe(0.5)
+    expect(parseNumber('-3/4')).toBe(-0.75)
+  })
+
+  it('rejeita fração malformada ou com denominador zero', () => {
+    for (const t of ['1/0', '1/2/3', '/2', '3/', 'a/b', 'and/or']) {
+      expect(() => parseNumber(t), t).toThrow(SolverError)
+    }
+  })
+
+  it('não confunde série de letras com número', () => {
+    for (const t of ['GIK', 'I32', 'A2']) expect(() => parseNumber(t), t).toThrow(SolverError)
+  })
+})
+
+describe('funções de comparação', () => {
+  it('min, max e nearest escolhem entre os argumentos', () => {
+    expect(evaluateExpression('min(0.07,0.009,0.0081,0.0077,0.00779)')).toBe(0.0077)
+    expect(evaluateExpression('max(2/3,5/9,7/13,4/7,3/5)')).toBe(2 / 3)
+    expect(evaluateExpression('nearest(1/3,0.3,0.35,0.33,0.4)')).toBe(0.33)
+  })
+
+  it('a menor fração da prova real: 7/13', () => {
+    expect(evaluateExpression('min(2/3, 5/9, 7/13, 4/7, 3/5)')).toBe(7 / 13)
+  })
+
+  it('compõe com o resto da aritmética', () => {
+    expect(evaluateExpression('2*max(1,4)+min(3,1)')).toBe(9)
+  })
+
+  it('empate é erro: a questão teria duas respostas', () => {
+    expect(() => evaluateExpression('min(0.5,1/2,3)')).toThrow(SolverError)
+    expect(() => evaluateExpression('nearest(0.5,0.4,0.6)')).toThrow(SolverError)
+  })
+
+  it('exige ao menos dois candidatos', () => {
+    expect(() => evaluateExpression('min(3)')).toThrow(SolverError)
+    expect(() => evaluateExpression('nearest(1,2)')).toThrow(SolverError)
+  })
+
+  it('só aceita as três funções de nome fixo', () => {
+    for (const v of ['abs(-2)', 'sqrt(4)', 'min', 'min 1,2', 'max(1,2', 'Min(1,2)', 'min(1,,2)']) {
+      expect(() => evaluateExpression(v), v).toThrow(SolverError)
+    }
+  })
+
+  it('comparacaoDe devolve os candidatos só quando a expressão inteira é a chamada', () => {
+    expect(comparacaoDe('nearest(1/3,0.3,0.33)')).toEqual({
+      funcao: 'nearest',
+      alvo: 1 / 3,
+      candidatos: [0.3, 0.33],
+      valor: 0.33,
+    })
+    expect(comparacaoDe('min(1,2)')?.candidatos).toEqual([1, 2])
+    expect(comparacaoDe('1+min(1,2)')).toBeNull()
+    expect(comparacaoDe('8*12-15')).toBeNull()
+    expect(comparacaoDe('min(1,2)+1')).toBeNull()
+  })
+})
+
+describe('toleranciaDe', () => {
+  it('meia unidade da última casa, com o teto antigo de 0.005 até duas casas', () => {
+    expect(toleranciaDe('81')).toBe(0.005)
+    expect(toleranciaDe('$102.50')).toBe(0.005)
+    expect(toleranciaDe('5.5')).toBe(0.005)
+    expect(toleranciaDe('0.0077')).toBeCloseTo(0.00005, 12)
+    expect(toleranciaDe('0.00779')).toBeCloseTo(0.000005, 12)
+  })
+
+  it('fração é exata', () => {
+    expect(toleranciaDe('7/13')).toBe(1e-9)
+  })
+
+  it('separa 0.0077 de 0.00779, que a tolerância fixa de 0.005 confundia', () => {
+    expect(Math.abs(0.00779 - 0.0077)).toBeGreaterThan(toleranciaDe('0.0077'))
   })
 })

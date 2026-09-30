@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import {
+  acceptsVerification,
   ALL_SUBTIPOS,
   EXAM_BLUEPRINT,
   EXAM_QUESTION_COUNT,
@@ -8,6 +9,9 @@ import {
   TIPOS,
   TIPO_LABEL,
   tipoOfSubtipo,
+  VERIFICATION_METHODS,
+  VERIFICATION_METHODS_POR_SUBTIPO,
+  verificationMethodsOf,
 } from './taxonomy'
 
 describe('taxonomia', () => {
@@ -29,6 +33,24 @@ describe('taxonomia', () => {
   it('todo tipo e subtipo tem rótulo de UI', () => {
     for (const tipo of TIPOS) expect(TIPO_LABEL[tipo]).toBeTruthy()
     for (const sub of ALL_SUBTIPOS) expect(SUBTIPO_LABEL[sub]).toBeTruthy()
+  })
+
+  it('série de letras é verificada por regra; as séries numéricas continuam exigindo o solver', () => {
+    expect(verificationMethodsOf('math_series', 'serie_letras')).toEqual(['rule'])
+    expect(acceptsVerification('math_series', 'rule', 'serie_letras')).toBe(true)
+    expect(acceptsVerification('math_series', 'solver', 'serie_letras')).toBe(false)
+    for (const sub of ['serie_simples', 'serie_alternada', 'serie_dois_passos']) {
+      expect(acceptsVerification('math_series', 'rule', sub), sub).toBe(false)
+      expect(acceptsVerification('math_series', 'solver', sub), sub).toBe(true)
+    }
+    // sem subtipo, vale a regra do tipo
+    expect(verificationMethodsOf('math_series')).toEqual(VERIFICATION_METHODS.math_series)
+  })
+
+  it('toda exceção de verificação aponta para um subtipo que existe', () => {
+    for (const sub of Object.keys(VERIFICATION_METHODS_POR_SUBTIPO)) {
+      expect(tipoOfSubtipo(sub), sub).toBeDefined()
+    }
   })
 
   it('tipoOfSubtipo faz o caminho de volta para todos os subtipos', () => {

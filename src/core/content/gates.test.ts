@@ -7,7 +7,7 @@ import { SPATIAL_GENERATOR_IDS } from '../spatial/generators'
 const AGORA = '2026-09-21T12:00:00.000Z'
 
 /** Uma questão boa, vinda de um gerador determinístico real. */
-function boa(generator = 'serie_simples', seed = 42, difficulty: 1 | 3 = 3): Question {
+function boa(generator = 'serie_simples', seed = 42, difficulty: 1 | 3 | 5 = 3): Question {
   return buildQuestion(generator, seed, difficulty, AGORA)
 }
 
@@ -292,6 +292,97 @@ describe('G4 — dedup de questões gráficas', () => {
 
   it('a assinatura de duas figuras diferentes é diferente', () => {
     expect(dedupSignature(boa('matriz.raios', 1, 3))).not.toBe(dedupSignature(boa('matriz.raios', 2, 3)))
+  })
+})
+
+describe('G2 — série de letras (regra + leitor de letras)', () => {
+  const letras = (seed = 5, d: 1 | 3 = 3) => boa('serie_letras', seed, d)
+
+  it('aprova a série de letras gerada, verificada por regra e sem expressão', () => {
+    const q = letras()
+    expect(q.verification.method).toBe('rule')
+    expect(gatesDisparados(q)).toEqual([])
+  })
+
+  it('o método "rule" vale só para o subtipo de letras, nunca para série numérica', () => {
+    const q = boa('serie_simples', 42)
+    const soRegra = { ...q, verification: { ...q.verification, method: 'rule' as const, expression: undefined } }
+    expect(gatesDisparados(soRegra)).toContain('G2_gabarito')
+  })
+
+  it('e série de letras não aceita "solver" — não há número para avaliar', () => {
+    const q = letras()
+    const errado = { ...q, verification: { ...q.verification, method: 'solver' as const, expression: '1+1' } }
+    expect(gatesDisparados(errado)).toContain('G2_gabarito')
+  })
+
+  it('barra gabarito trocado', () => {
+    const q = letras()
+    const outra = q.options.find((o) => o.id !== q.answerId)!
+    expect(gatesDisparados({ ...q, answerId: outra.id })).toContain('G2_gabarito')
+  })
+
+  it('o leitor reprova enunciado sem regra, independente do gerador', () => {
+    const { violations } = runGates([{ ...letras(), stem: 'A, Q, C, B, ?' }])
+    expect(violations.map((v) => v.message).join(' | ')).toMatch(/leitor de séries de letras/)
+  })
+})
+
+describe('G2 — comparação e alternativas com o mesmo valor', () => {
+  const FONTE = { name: 'Criteria Corp', url: 'https://www.criteriacorp.com/candidates/ccat-prep' }
+  const amostra = (textos: string[], answerId: string, expression: string): Question => ({
+    ...boa('porcentagem', 11, 1),
+    id: 'importado.menor-decimal',
+    subtipo: 'calculo_basico',
+    stem: 'Which of the following is the smallest?',
+    options: textos.map((text, i) => ({ id: 'abcde'[i]!, text })),
+    answerId,
+    origin: 'official-sample',
+    source: FONTE,
+    verification: { method: 'solver', expression },
+  })
+  const DECIMAIS = ['0.07', '0.009', '0.0081', '0.0077', '0.00779']
+  const MIN = `min(${DECIMAIS.join(',')})`
+
+  it('aprova o exemplo da prova real: 0.0077 é o menor', () => {
+    expect(gatesDisparados(amostra(DECIMAIS, 'd', MIN))).toEqual([])
+  })
+
+  it('barra 0.00779 marcado como menor — a tolerância fixa de 0.005 deixava passar', () => {
+    expect(gatesDisparados(amostra(DECIMAIS, 'e', MIN))).toContain('G2_gabarito')
+  })
+
+  it('barra expressão de comparação cujos candidatos não são as alternativas', () => {
+    expect(gatesDisparados(amostra(DECIMAIS, 'd', 'min(0.0077,0.5)'))).toContain('G2_gabarito')
+  })
+
+  it('barra duas alternativas com o mesmo valor escritas de jeitos diferentes', () => {
+    const q = amostra(['1/2', '0.5', '3', '4', '5'], 'b', '1/2')
+    const { violations } = runGates([q])
+    expect(violations.map((v) => v.message).join(' | ')).toMatch(/2 alternativas valem/)
+  })
+
+  it('aprova as questões de comparação geradas', () => {
+    let vistas = 0
+    for (let seed = 1; seed <= 40; seed++) {
+      for (const d of [1, 3] as const) {
+        const q = boa('calculo_basico', seed, d)
+        if (!/^(min|max|nearest)\(/.test(q.verification.expression ?? '')) continue
+        vistas++
+        expect(gatesDisparados(q), `${seed}/${d}`).toEqual([])
+      }
+    }
+    expect(vistas).toBeGreaterThan(10)
+  })
+
+  it('dedup: mesmo enunciado com outras alternativas é outra questão; a mesma lista embaralhada, não', () => {
+    const a = amostra(DECIMAIS, 'd', MIN)
+    const b = amostra(['0.06', '0.008', '0.0072', '0.0065', '0.00658'], 'd', 'min(0.06,0.008,0.0072,0.0065,0.00658)')
+    expect(dedupSignature(a)).not.toBe(dedupSignature(b))
+
+    const invertida = [...a.options].reverse().map((o, i) => ({ ...o, id: 'abcde'[i]! }))
+    const embaralhada = { ...a, options: invertida, answerId: invertida.find((o) => o.text === '0.0077')!.id }
+    expect(dedupSignature(embaralhada)).toBe(dedupSignature(a))
   })
 })
 

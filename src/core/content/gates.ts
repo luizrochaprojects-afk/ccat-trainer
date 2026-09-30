@@ -1,7 +1,8 @@
 import { normalizeText, questionSchema, type Question } from '../schema'
-import { evaluateExpression, parseNumber } from '../math/solver'
+import { comparacaoDe, evaluateExpression, parseNumber, toleranciaDe } from '../math/solver'
+import { lerSerieDeLetras } from '../math/alfabeto'
 import { runGenerator } from '../generators'
-import { acceptsVerification, OPCOES_POR_QUESTAO, VERIFICATION_METHODS, type Tipo } from '../taxonomy'
+import { acceptsVerification, OPCOES_POR_QUESTAO, verificationMethodsOf, type Tipo } from '../taxonomy'
 
 /**
  * Os cinco gates do PRD §4.13.
@@ -160,9 +161,12 @@ function gateGabarito(q: Question): Violation[] {
   const importadaSemGerador =
     q.origin !== 'claude-code' && q.tipo === 'spatial' && q.verification.method === 'second-model'
 
-  if (!importadaSemGerador && !acceptsVerification(q.tipo as Tipo, q.verification.method)) {
-    const aceitos = (VERIFICATION_METHODS[q.tipo as Tipo] as readonly string[]).join(' ou ')
-    add(`tipo ${q.tipo} aceita verificação ${aceitos}, veio "${q.verification.method}"`)
+  if (
+    !importadaSemGerador &&
+    !acceptsVerification(q.tipo as Tipo, q.verification.method, q.subtipo)
+  ) {
+    const aceitos = verificationMethodsOf(q.tipo as Tipo, q.subtipo).join(' ou ')
+    add(`${q.tipo}/${q.subtipo} aceita verificação ${aceitos}, veio "${q.verification.method}"`)
     return v
   }
 
@@ -233,8 +237,43 @@ function gateGabarito(q: Question): Violation[] {
       add(`alternativa marcada "${texto}" não é um número legível`)
       return v
     }
-    if (Math.abs(exibido - valor) > 0.005) {
+
+    // Comparação ("qual é o menor?"): as alternativas são os próprios operandos
+    // de min/max/nearest, escritos por extenso — ali não há arredondamento, e a
+    // comparação é exata. Em conta, o texto pode ser o valor arredondado.
+    const comparacao = comparacaoDe(expression)
+    const tolerancia = (t: string) => (comparacao ? 1e-9 : toleranciaDe(t))
+
+    if (Math.abs(exibido - valor) > tolerancia(texto)) {
       add(`expressão "${expression}" vale ${valor}, mas a alternativa marcada diz ${exibido}`)
+    }
+
+    // Só UMA alternativa pode valer a resposta. "0.5" e "1/2" são textos
+    // diferentes — o G5 não os pega —, mas seriam dois gabaritos.
+    const valendo = q.options.filter((o) => {
+      if (!o.text || !podeSerNumero(o.text)) return false
+      return Math.abs(parseNumber(o.text) - valor) <= tolerancia(o.text)
+    })
+    if (valendo.length > 1) {
+      add(`${valendo.length} alternativas valem ${valor}: ${valendo.map((o) => o.text).join(', ')}`)
+    }
+
+    // E a expressão de comparação só prova o gabarito se os candidatos dela
+    // forem exatamente as alternativas. Sem isso, `min(1, 2)` aprovaria
+    // qualquer alternativa que valesse 1.
+    if (comparacao) v.push(...candidatosSaoAsAlternativas(q, comparacao.candidatos))
+  }
+
+  // Série de letras: o segundo caminho é o leitor, que reconstrói a regra só a
+  // partir do enunciado. Ele precisa fechar com uma resposta única, e ela tem de
+  // ser a marcada.
+  if (q.subtipo === 'serie_letras') {
+    const leituras = lerSerieDeLetras(q.stem)
+    const marcada = q.options.find((o) => o.id === q.answerId)?.text
+    if (leituras.length === 0) add('o leitor de séries de letras não achou regra no enunciado')
+    else if (leituras.length > 1) add(`a série de letras tem mais de uma leitura: ${leituras.join(', ')}`)
+    else if (leituras[0] !== marcada) {
+      add(`o leitor de séries de letras prevê "${leituras[0]}", a alternativa marcada diz "${marcada}"`)
     }
   }
 
@@ -245,6 +284,24 @@ function gateGabarito(q: Question): Violation[] {
   }
 
   return v
+}
+
+function candidatosSaoAsAlternativas(q: Question, candidatos: number[]): Violation[] {
+  const falha = (message: string): Violation[] => [{ gate: 'G2_gabarito', questionId: q.id, message }]
+  const textos = q.options.map((o) => o.text)
+  if (textos.some((t) => !t || !podeSerNumero(t))) {
+    return falha('questão de comparação com alternativa que não é número')
+  }
+  if (candidatos.length !== textos.length) {
+    return falha(`a expressão compara ${candidatos.length} valores, a questão tem ${textos.length} alternativas`)
+  }
+  const restantes = [...candidatos]
+  for (const t of textos as string[]) {
+    const i = restantes.findIndex((c) => Math.abs(c - parseNumber(t)) < 1e-9)
+    if (i < 0) return falha(`a alternativa "${t}" não está entre os candidatos da expressão`)
+    restantes.splice(i, 1)
+  }
+  return []
 }
 
 // --- G4 ----------------------------------------------------------------------
@@ -312,7 +369,10 @@ function respostaDe(q: Question): string {
  *
  * Em questão textual, o enunciado basta. Em questão gráfica, o enunciado é
  * sempre o mesmo — a identidade está nas figuras, então elas entram na
- * assinatura.
+ * assinatura. Questão de comparação ("Which of the following numbers is the
+ * smallest?") é o mesmo caso em texto: o enunciado se repete e a questão está
+ * no conjunto de alternativas — que entra ordenado, porque a mesma lista
+ * embaralhada de outro jeito é a mesma questão.
  */
 export function dedupSignature(q: Question): string {
   const partes: string[] = [normalizeText(q.stem)]
@@ -320,7 +380,20 @@ export function dedupSignature(q: Question): string {
   if (q.options.some((o) => o.spatial)) {
     partes.push(JSON.stringify(q.options.map((o) => o.spatial ?? o.text)))
   }
+  if (ehComparacao(q)) {
+    partes.push(JSON.stringify(q.options.map((o) => normalizeText(o.text ?? '')).sort()))
+  }
   return partes.join('|')
+}
+
+function ehComparacao(q: Question): boolean {
+  const { expression } = q.verification
+  if (!expression) return false
+  try {
+    return comparacaoDe(expression) !== null
+  } catch {
+    return false
+  }
 }
 
 /** Questão cuja identidade está no texto, e não numa figura. */

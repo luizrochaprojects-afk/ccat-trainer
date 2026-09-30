@@ -279,8 +279,12 @@ export const THEORY: Record<Tipo, TipoTheory> = {
     tipo: 'math_series',
     titulo: { pt: 'Séries numéricas', en: 'Number series' },
     resumo: {
-      pt: 'Uma sequência e a pergunta: qual vem depois? O trabalho é achar a regra, não fazer conta.',
-      en: 'A sequence and one question: what comes next? The work is finding the rule, not doing arithmetic.',
+      pt:
+        'Uma sequência — de números, de letras ou dos dois — e a pergunta: qual vem depois? O ' +
+        'trabalho é achar a regra, não fazer conta. Letra vale a posição no alfabeto.',
+      en:
+        'A sequence — of numbers, letters, or both — and one question: what comes next? The ' +
+        'work is finding the rule, not doing arithmetic. A letter stands for its place in the alphabet.',
     },
     ritmo: {
       pt:
@@ -371,6 +375,38 @@ export const THEORY: Record<Tipo, TipoTheory> = {
           en: 'Applying the wrong operation at the wrong turn — half a beat of attention decides the question.',
         },
       },
+      {
+        subtipo: 'serie_letras',
+        titulo: { pt: 'Série de letras', en: 'Letter series' },
+        oQuePede: {
+          pt: 'O próximo termo de uma série de letras, de trios de letras ou de letra com número (A2, C4, E8…).',
+          en: 'The next term of a series of letters, letter trios, or letter-and-number pairs (A2, C4, E8…).',
+        },
+        metodo: {
+          pt: [
+            'Troque cada letra pela posição no alfabeto (A = 1 … Z = 26). Âncoras poupam contar desde o A: E = 5, J = 10, O = 15, T = 20.',
+            'Com uma letra por termo, resolva como série numérica: salto fixo, salto que cresce (+2, +3, +4) ou duas trilhas trançadas.',
+            'Com várias letras por termo (CEG, DFH…), leia por COLUNA: a 1ª letra de cada termo é uma série, a 2ª é outra. Cada coluna pode ter regra própria — inclusive ficar parada.',
+            'Com letra e número, resolva cada parte separada e depois teste se o número sai da letra (B4, D16, F36: o número é o quadrado da posição).',
+          ],
+          en: [
+            'Swap each letter for its place in the alphabet (A = 1 … Z = 26). Anchors save counting from A: E = 5, J = 10, O = 15, T = 20.',
+            'With one letter per term, solve it as a number series: a fixed jump, a growing jump (+2, +3, +4), or two interleaved strands.',
+            'With several letters per term (CEG, DFH…), read by COLUMN: the 1st letter of each term is one series, the 2nd is another. Each column may have its own rule — including standing still.',
+            'With a letter and a number, solve each part separately, then test whether the number comes from the letter (B4, D16, F36: the number is the square of the position).',
+          ],
+        },
+        armadilha: {
+          pt:
+            'Errar a contagem por uma letra — contar a letra de partida como um passo — e, nos ' +
+            'trios, aplicar a regra de uma coluna nas outras. As alternativas erradas costumam ' +
+            'diferir da certa em uma única letra.',
+          en:
+            'Miscounting by one letter — counting the starting letter as a step — and, in trios, ' +
+            'applying one column’s rule to the others. The wrong options usually differ from the ' +
+            'right one by a single letter.',
+        },
+      },
     ],
   },
 
@@ -379,11 +415,13 @@ export const THEORY: Record<Tipo, TipoTheory> = {
     titulo: { pt: 'Problemas matemáticos', en: 'Word problems' },
     resumo: {
       pt:
-        'Aritmética, razão, porcentagem e taxa em forma de texto. Nos níveis altos são 3–4 ' +
-        'passos: média que muda, percentuais em sequência, taxas combinadas, mistura. O erro ' +
-        'quase nunca é de conta; é de base errada ou etapa pulada.',
+        'Aritmética, razão, porcentagem e taxa em forma de texto, mais as contas curtas sem ' +
+        'história (comparar decimais e frações, "de quê?"). Nos níveis altos são 3–4 passos: ' +
+        'média que muda, percentuais em sequência, taxas combinadas, mistura. O erro quase ' +
+        'nunca é de conta; é de base errada ou etapa pulada.',
       en:
-        'Arithmetic, ratio, percentage and rate in prose. Higher levels take 3–4 steps: ' +
+        'Arithmetic, ratio, percentage and rate in prose, plus short calculations with no ' +
+        'story (comparing decimals and fractions, "of what?"). Higher levels take 3–4 steps: ' +
         'shifting averages, successive percentages, combined rates, mixtures. The mistake is ' +
         'rarely arithmetic; it is the wrong base or a skipped step.',
     },
@@ -510,6 +548,38 @@ export const THEORY: Record<Tipo, TipoTheory> = {
           en:
             'Adding the times instead of the RATES. Joint work adds rates; average speed is ' +
             'total distance ÷ total time.',
+        },
+      },
+      {
+        subtipo: 'calculo_basico',
+        titulo: { pt: 'Cálculo e comparação', en: 'Calculation and comparison' },
+        oQuePede: {
+          pt: 'Uma conta curta sem história ("616 is 70% of what?", "3/8 of 2/3 of 96") ou qual de cinco números é o menor, o maior ou o mais perto de um alvo.',
+          en: 'A short calculation with no story ("616 is 70% of what?", "3/8 of 2/3 of 96") or which of five numbers is the smallest, the largest, or the closest to a target.',
+        },
+        metodo: {
+          pt: [
+            'Decimais: complete com zeros até todos terem as mesmas casas e compare como inteiros. Na multiplicação, some as casas dos fatores; na divisão, mova a vírgula dos dois números.',
+            '"De" é vezes: fração de fração e % de % se multiplicam. Multiplique e simplifique antes de aplicar ao número.',
+            '"X é p% de quê?": divida X por p/100 e confira de volta — p% do resultado precisa dar X.',
+            'Frações coladas em 1/2: compare quanto cada uma passa (ou falta) de 1/2, (2a − b)/(2b). Sem referência, use o produto cruzado: a/b > c/d quando a·d > c·b.',
+          ],
+          en: [
+            'Decimals: pad with zeros until they all have the same places and compare them as whole numbers. When multiplying, add up the factors’ places; when dividing, move the point in both numbers.',
+            '"Of" means times: a fraction of a fraction and a % of a % multiply. Multiply and cancel before applying it to the number.',
+            '"X is p% of what?": divide X by p/100 and check backwards — p% of the result must give X.',
+            'Fractions hugging 1/2: compare how far each one is above (or below) 1/2, (2a − b)/(2b). With no benchmark, cross-multiply: a/b > c/d when a·d > c·b.',
+          ],
+        },
+        armadilha: {
+          pt:
+            'Achar que número com mais algarismos é maior (0.00779 contra 0.0077) e errar a casa ' +
+            'decimal por um — as alternativas 10× maiores e menores estão lá de propósito. Em ' +
+            '"de quê?", aplicar o percentual à parte em vez de desfazê-lo.',
+          en:
+            'Assuming a number with more digits is bigger (0.00779 against 0.0077) and slipping ' +
+            'the decimal point by one — the options 10× bigger and smaller are there on purpose. ' +
+            'In "of what?", applying the percentage to the part instead of undoing it.',
         },
       },
     ],
