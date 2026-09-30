@@ -93,7 +93,7 @@ function sortear(pool: Question[], cota: number, seen: Set<string>, rng: Rng): Q
   const repetidas = pool.filter((q) => seen.has(q.id))
 
   const escolhidas: Question[] = []
-  const porNivel = distribuirPorNivel(cota)
+  const porNivel = distribuirPorNivel(cota, rng)
 
   for (const [nivel, quantos] of porNivel) {
     const doNivel = rng.shuffle(novas.filter((q) => q.difficulty === nivel))
@@ -124,7 +124,7 @@ function sortear(pool: Question[], cota: number, seen: Set<string>, rng: Rng): Q
  * demais. O nível 5 continua abaixo do 3 e do 4 — um bloco final só de
  * questão impossível produziria desistência, não treino.
  */
-function distribuirPorNivel(cota: number): [Difficulty, number][] {
+function distribuirPorNivel(cota: number, rng: Rng): [Difficulty, number][] {
   const pesos: [Difficulty, number][] = [
     [1, 0.1],
     [2, 0.2],
@@ -134,14 +134,20 @@ function distribuirPorNivel(cota: number): [Difficulty, number][] {
   ]
   const bruto = pesos.map(([n, p]) => [n, Math.floor(cota * p)] as [Difficulty, number])
   let sobra = cota - bruto.reduce((acc, [, q]) => acc + q, 0)
-  // Distribui o resto do meio para fora, na ordem 3, 4, 2, 5, 1.
-  for (const alvo of [3, 4, 2, 5, 1] as Difficulty[]) {
-    if (sobra <= 0) break
-    const item = bruto.find(([n]) => n === alvo)
-    if (item) {
-      item[1] += 1
-      sobra--
-    }
+
+  // A sobra do arredondamento é sorteada na proporção da fração que cada nível
+  // perdeu. Com uma ordem fixa (3, 4, 2…) os tipos de cota pequena — 3 ou 5
+  // questões — caíam sempre no meio, e a prova saía com 7 questões de nível 5
+  // em vez de 10. Sorteando, a média de muitas provas bate com os pesos.
+  const fracoes = pesos.map(([n, p]) => [n, cota * p - Math.floor(cota * p)] as [Difficulty, number])
+  while (sobra > 0) {
+    const total = fracoes.reduce((acc, [, f]) => acc + f, 0)
+    let alvo = rng.next() * total
+    const idx = fracoes.findIndex(([, f]) => (alvo -= f) < 0)
+    const i = idx === -1 ? fracoes.findIndex(([, f]) => f > 0) : idx
+    bruto[i]![1] += 1
+    fracoes[i]![1] = 0
+    sobra--
   }
   return bruto
 }
