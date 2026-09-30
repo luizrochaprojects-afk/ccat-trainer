@@ -28,6 +28,7 @@ import {
 import { gerarVerdadeiroFalso } from './verdadeiroFalso'
 import { gerarOrdenacao } from './ordenacao'
 import { DOUBLE_FRAMES } from './frasesDuplas'
+import { gerarAnalogiaLacuna } from './lacuna'
 
 /**
  * Geradores verbais a partir do léxico curado.
@@ -465,6 +466,7 @@ const COM_IMPORTACAO = { existentialImport: true } as const
 
 export const VERBAL_GENERATORS = {
   analogia: gerarAnalogia,
+  analogia_lacuna: gerarAnalogiaLacuna,
   antonimo: gerarAntonimo,
   sinonimo: gerarSinonimo,
   completar_frase: gerarCompletarFrase,
