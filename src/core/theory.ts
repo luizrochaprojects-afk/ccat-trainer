@@ -379,11 +379,13 @@ export const THEORY: Record<Tipo, TipoTheory> = {
     titulo: { pt: 'Problemas matemáticos', en: 'Word problems' },
     resumo: {
       pt:
-        'Aritmética, razão, porcentagem e taxa em forma de texto. A conta é simples; a ' +
-        'dificuldade é traduzir a frase e não responder a pergunta errada.',
+        'Aritmética, razão, porcentagem e taxa em forma de texto. Nos níveis altos são 3–4 ' +
+        'passos: média que muda, percentuais em sequência, taxas combinadas, mistura. O erro ' +
+        'quase nunca é de conta; é de base errada ou etapa pulada.',
       en:
-        'Arithmetic, ratio, percentage and rate in prose. The arithmetic is simple; the ' +
-        'difficulty is translating the sentence and not answering the wrong question.',
+        'Arithmetic, ratio, percentage and rate in prose. Higher levels take 3–4 steps: ' +
+        'shifting averages, successive percentages, combined rates, mixtures. The mistake is ' +
+        'rarely arithmetic; it is the wrong base or a skipped step.',
     },
     ritmo: {
       pt:
@@ -446,10 +448,12 @@ export const THEORY: Record<Tipo, TipoTheory> = {
         armadilha: {
           pt:
             'Inverter a razão. "A razão entre camisas e calças é 3:5" não é o mesmo que 5:3 — ' +
-            'confira qual grandeza vem primeiro.',
+            'confira qual grandeza vem primeiro. Com total, divida pela soma dos termos; mais ' +
+            'gente, menos dias; mistura se pondera pelo volume.',
           en:
             'Flipping the ratio. "The ratio of shirts to trousers is 3:5" is not the same as ' +
-            '5:3 — check which quantity comes first.',
+            '5:3 — check which quantity comes first. With a total, divide by the sum of the ' +
+            'terms; more people, fewer days; mixtures are weighted by volume.',
         },
       },
       {
@@ -472,9 +476,12 @@ export const THEORY: Record<Tipo, TipoTheory> = {
           ],
         },
         armadilha: {
-          pt: 'Devolver o desconto em vez do preço final — e ele está sempre entre as alternativas.',
+          pt:
+            'Devolver o desconto em vez do preço final. Percentuais em sequência se multiplicam; o ' +
+            'preço original se acha dividindo, não somando o %.',
           en:
-            'Giving back the discount instead of the final price — and it is always among the options.',
+            'Giving back the discount instead of the final price. Successive percentages multiply; ' +
+            'find the original price by dividing, not by adding the %.',
         },
       },
       {
@@ -497,8 +504,12 @@ export const THEORY: Record<Tipo, TipoTheory> = {
           ],
         },
         armadilha: {
-          pt: 'Multiplicar por só um dos fatores. Conte quantas grandezas o enunciado empilha.',
-          en: 'Multiplying by only one of the factors. Count how many quantities the problem stacks up.',
+          pt:
+            'Somar os tempos em vez das TAXAS. Trabalho conjunto soma taxas; velocidade média é ' +
+            'distância total ÷ tempo total.',
+          en:
+            'Adding the times instead of the RATES. Joint work adds rates; average speed is ' +
+            'total distance ÷ total time.',
         },
       },
     ],
