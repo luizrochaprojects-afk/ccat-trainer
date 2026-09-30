@@ -11,6 +11,7 @@ export const TIPOS = [
   'verbal_analogy',
   'verbal_vocab',
   'verbal_logic',
+  'verbal_detail',
   'math_series',
   'math_word',
   'spatial',
@@ -22,8 +23,9 @@ export const SUBTIPOS = {
   verbal_analogy: ['analogia_simples', 'analogia_dupla'],
   verbal_vocab: ['antonimo', 'sinonimo', 'completar_frase'],
   verbal_logic: ['deducao'],
+  verbal_detail: ['comparacao'],
   math_series: ['serie_simples', 'serie_alternada', 'serie_dois_passos'],
-  math_word: ['aritmetica', 'razao_proporcao', 'porcentagem', 'taxa'],
+  math_word: ['aritmetica', 'razao_proporcao', 'porcentagem', 'taxa', 'tabela'],
   spatial: ['rotacao', 'reflexao', 'odd_one_out', 'serie_formas', 'matriz', 'identical_pair'],
 } as const satisfies Record<Tipo, readonly string[]>
 
@@ -45,6 +47,12 @@ export const ALL_SUBTIPOS: readonly AnySubtipo[] = TIPOS.flatMap(
  *
  * Os tipos numéricos usam 'solver' justamente porque conseguem os dois caminhos;
  * o espacial só tem a regra, e o verbal não tem nenhum dos dois.
+ *
+ * Exceção numérica: a leitura de tabela que pergunta QUAL LINHA vence. A
+ * resposta é um rótulo ("Westgate"), não um número, e o solver não tem o que
+ * comparar — ela é provada pela regra. O gate só aceita 'rule' em matemática
+ * quando a alternativa marcada não é número; resposta numérica continua
+ * obrigada ao solver.
  */
 export type VerificationMethod = 'rule' | 'solver' | 'second-model'
 
@@ -58,8 +66,11 @@ export const VERIFICATION_METHODS = {
   verbal_analogy: ['rule', 'second-model'],
   verbal_vocab: ['rule', 'second-model'],
   verbal_logic: ['rule', 'second-model'],
+  // Comparação de colunas é conferência mecânica de strings: a regra basta, e
+  // não há motivo para aceitar julgamento de modelo onde o programa decide.
+  verbal_detail: ['rule'],
   math_series: ['solver'],
-  math_word: ['solver'],
+  math_word: ['solver', 'rule'],
   spatial: ['rule'],
 } as const satisfies Record<Tipo, readonly VerificationMethod[]>
 
@@ -111,14 +122,18 @@ export const CCAT_NORMS = {
  * A Criteria não publica o mix exato da prova; este blueprint é uma aproximação
  * baseada na divisão aproximadamente igual entre verbal, matemática/lógica e
  * espacial. É config, não verdade — ajustar aqui muda a simulação inteira.
+ *
+ * A comparação de colunas entra com 3 (é o que aparece numa prova real) e sai
+ * do espacial, para a soma continuar 50.
  */
 export const EXAM_BLUEPRINT = {
   verbal_analogy: 7,
   verbal_vocab: 6,
   verbal_logic: 4,
+  verbal_detail: 3,
   math_series: 7,
   math_word: 10,
-  spatial: 16,
+  spatial: 13,
 } as const satisfies Record<Tipo, number>
 
 // --- Rótulos de UI ---------------------------------------------------------
@@ -134,6 +149,7 @@ export const TIPO_LABEL: Record<Tipo, LocalizedText> = {
   verbal_analogy: { pt: 'Analogias', en: 'Analogies' },
   verbal_vocab: { pt: 'Vocabulário', en: 'Vocabulary' },
   verbal_logic: { pt: 'Lógica verbal', en: 'Verbal logic' },
+  verbal_detail: { pt: 'Atenção a detalhes', en: 'Attention to detail' },
   math_series: { pt: 'Séries numéricas', en: 'Number series' },
   math_word: { pt: 'Problemas matemáticos', en: 'Word problems' },
   spatial: { pt: 'Raciocínio espacial', en: 'Spatial reasoning' },
@@ -146,6 +162,7 @@ export const SUBTIPO_LABEL: Record<AnySubtipo, LocalizedText> = {
   sinonimo: { pt: 'Sinônimo', en: 'Synonym' },
   completar_frase: { pt: 'Completar frase', en: 'Sentence completion' },
   deducao: { pt: 'Dedução', en: 'Deduction' },
+  comparacao: { pt: 'Comparação de colunas', en: 'Column comparison' },
   serie_simples: { pt: 'Série simples', en: 'Simple series' },
   serie_alternada: { pt: 'Série alternada', en: 'Interleaved series' },
   serie_dois_passos: { pt: 'Série de dois passos', en: 'Two-step series' },
@@ -153,6 +170,7 @@ export const SUBTIPO_LABEL: Record<AnySubtipo, LocalizedText> = {
   razao_proporcao: { pt: 'Razão e proporção', en: 'Ratio and proportion' },
   porcentagem: { pt: 'Porcentagem', en: 'Percentage' },
   taxa: { pt: 'Taxa e velocidade', en: 'Rate and speed' },
+  tabela: { pt: 'Leitura de tabela', en: 'Table reading' },
   rotacao: { pt: 'Rotação', en: 'Rotation' },
   reflexao: { pt: 'Reflexão', en: 'Reflection' },
   odd_one_out: { pt: 'Qual não pertence', en: 'Odd one out' },

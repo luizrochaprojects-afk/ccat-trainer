@@ -74,6 +74,36 @@ export const spatialSpecSchema = z.object({
 
 export type SpatialSpec = z.infer<typeof spatialSpecSchema>
 
+/**
+ * Tabela do enunciado, em texto — nunca imagem: o leitor de tela precisa ler
+ * célula por célula, e o gate precisa comparar o conteúdo.
+ *
+ *  - 'dados':      a tabela numérica da leitura de tabela. A primeira coluna é
+ *                  o rótulo da linha; as demais são números já formatados, com
+ *                  a unidade no cabeçalho ("Sales ($)") para a célula caber
+ *                  estreita no celular.
+ *  - 'comparacao': as duas colunas lado a lado da atenção a detalhes. A
+ *                  primeira coluna é o número da linha, que é como as
+ *                  alternativas se referem a ela ("1 and 3").
+ *
+ * Nos dois layouts a primeira célula de cada linha é cabeçalho de linha
+ * (`<th scope="row">`), e toda linha tem uma célula por coluna.
+ */
+export const stemTableSchema = z
+  .object({
+    layout: z.enum(['dados', 'comparacao']),
+    /** título curto do que a tabela mostra; vira o <caption> */
+    caption: z.string().min(1).optional(),
+    columns: z.array(z.string().min(1)).min(2).max(5),
+    rows: z.array(z.array(z.string().min(1))).min(2).max(8),
+  })
+  .refine((t) => t.rows.every((r) => r.length === t.columns.length), {
+    message: 'toda linha da tabela precisa ter uma célula por coluna',
+    path: ['rows'],
+  })
+
+export type StemTable = z.infer<typeof stemTableSchema>
+
 export const optionSchema = z
   .object({
     id: z.string().min(1),
@@ -112,6 +142,8 @@ export const questionSchema = z
     stem: z.string().min(1),
     /** enunciado gráfico opcional (série de formas, matriz) */
     stemSpatial: spatialSpecSchema.optional(),
+    /** tabela opcional acima do enunciado (leitura de tabela, comparação de colunas) */
+    stemTable: stemTableSchema.optional(),
     options: z.array(optionSchema).min(4).max(5),
     answerId: z.string().min(1),
     explanation: localizedTextSchema,

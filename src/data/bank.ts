@@ -18,6 +18,7 @@ const LOADERS: Record<Tipo, () => Promise<{ default: unknown }>> = {
   verbal_analogy: () => import('../../content/approved/verbal_analogy.json'),
   verbal_vocab: () => import('../../content/approved/verbal_vocab.json'),
   verbal_logic: () => import('../../content/approved/verbal_logic.json'),
+  verbal_detail: () => import('../../content/approved/verbal_detail.json'),
   math_series: () => import('../../content/approved/math_series.json'),
   math_word: () => import('../../content/approved/math_word.json'),
   spatial: () => import('../../content/approved/spatial.json'),

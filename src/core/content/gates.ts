@@ -166,6 +166,16 @@ function gateGabarito(q: Question): Violation[] {
     return v
   }
 
+  // Matemática só dispensa o solver quando a resposta não é número — a
+  // leitura de tabela que pergunta QUAL LINHA. Resposta numérica provada só
+  // pela regra seria um caminho a menos do que o tipo sempre exigiu.
+  const matematica = q.tipo === 'math_series' || q.tipo === 'math_word'
+  const textoMarcado = q.options.find((o) => o.id === q.answerId)?.text
+  if (matematica && q.verification.method === 'rule' && textoMarcado && podeSerNumero(textoMarcado)) {
+    add('resposta numérica em matemática exige o solver, não só a regra')
+    return v
+  }
+
   if (q.verification.method === 'second-model') {
     if (!q.verification.model) add('verificação por segundo modelo sem identificar o modelo')
     if (!q.verification.modelAnswerId) add('segundo modelo não registrou resposta')
@@ -203,6 +213,9 @@ function gateGabarito(q: Question): Violation[] {
     }
     if (JSON.stringify(regerada.options) !== JSON.stringify(q.options)) {
       add('re-execução produziu alternativas diferentes — o arquivo foi editado à mão')
+    }
+    if (JSON.stringify(regerada.stemTable) !== JSON.stringify(q.stemTable)) {
+      add('re-execução produziu tabela diferente — o arquivo foi editado à mão')
     }
   }
 
@@ -242,6 +255,18 @@ function gateGabarito(q: Question): Violation[] {
   const marcada = q.options.find((o) => o.id === q.answerId)
   if (marcada?.text && normalizeText(q.stem).includes(` ${normalizeText(marcada.text)} `)) {
     add('o enunciado contém a resposta')
+  }
+
+  // Nem a tabela de dados: o valor pedido impresso numa célula se acha de
+  // vista. Rótulo de linha não conta — na pergunta de "qual linha" ele é a
+  // própria alternativa. A tabela de comparação fica de fora: os números de
+  // linha 1–5 coincidem com a contagem por construção.
+  if (marcada?.text && q.stemTable?.layout === 'dados' && podeSerNumero(marcada.text)) {
+    const resposta = parseNumber(marcada.text)
+    const celulas = q.stemTable.rows.flatMap((r) => r.slice(1))
+    if (celulas.some((c) => podeSerNumero(c) && Math.abs(parseNumber(c) - resposta) < 0.005)) {
+      add('a tabela contém a resposta')
+    }
   }
 
   return v
@@ -312,20 +337,22 @@ function respostaDe(q: Question): string {
  *
  * Em questão textual, o enunciado basta. Em questão gráfica, o enunciado é
  * sempre o mesmo — a identidade está nas figuras, então elas entram na
- * assinatura.
+ * assinatura. O mesmo vale para a tabela do enunciado: "Which store had the
+ * highest sales per employee?" se repete, a tabela não.
  */
 export function dedupSignature(q: Question): string {
   const partes: string[] = [normalizeText(q.stem)]
   if (q.stemSpatial) partes.push(JSON.stringify(q.stemSpatial))
+  if (q.stemTable) partes.push(JSON.stringify(q.stemTable))
   if (q.options.some((o) => o.spatial)) {
     partes.push(JSON.stringify(q.options.map((o) => o.spatial ?? o.text)))
   }
   return partes.join('|')
 }
 
-/** Questão cuja identidade está no texto, e não numa figura. */
+/** Questão cuja identidade está no texto, e não numa figura ou tabela. */
 function ehTextual(q: Question): boolean {
-  return !q.stemSpatial && !q.options.some((o) => o.spatial)
+  return !q.stemSpatial && !q.stemTable && !q.options.some((o) => o.spatial)
 }
 
 export function trigrams(texto: string): Set<string> {

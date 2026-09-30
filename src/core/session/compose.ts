@@ -1,6 +1,6 @@
 import { mulberry32, type Rng } from '../rng'
 import type { Question } from '../schema'
-import { EXAM_BLUEPRINT, TIPOS, type Difficulty, type Tipo } from '../taxonomy'
+import { EXAM_BLUEPRINT, EXAM_QUESTION_COUNT, TIPOS, type Difficulty, type Tipo } from '../taxonomy'
 
 /**
  * Composição da fila de questões (PRD §4.3, §4.4, §4.9).
@@ -31,6 +31,26 @@ export function composeExam(bank: Question[], opts: ComposeOptions = {}): Questi
     selecionadas.push(...sortear(bank.filter((q) => q.tipo === tipo), cota, seen, rng))
   }
 
+  // Um tipo com banco curto (ou ainda vazio, logo depois de entrar na
+  // taxonomia) não pode encurtar a prova: a cota que faltou sai do resto do
+  // banco. Com todos os bancos cheios isto não faz nada.
+  //
+  // Sai uma a uma do tipo com MAIS questões inéditas sobrando. Tirar de um
+  // banco justo (math_word tem exatamente 20 provas de estoque) encurtaria as
+  // próximas simulações desse tipo.
+  const usadas = new Set(selecionadas.map((q) => q.id))
+  for (let falta = EXAM_QUESTION_COUNT - selecionadas.length; falta > 0; falta--) {
+    const sobra = (tipo: Tipo, soInedita: boolean) =>
+      bank.filter((q) => q.tipo === tipo && !usadas.has(q.id) && (!soInedita || !seen.has(q.id)))
+    const doador =
+      maiorPool(TIPOS.map((t) => sobra(t, true))) ?? maiorPool(TIPOS.map((t) => sobra(t, false)))
+    if (!doador) break
+    const [extra] = sortear(doador, 1, seen, rng)
+    if (!extra) break
+    usadas.add(extra.id)
+    selecionadas.push(extra)
+  }
+
   return intercalar(ordenarPorDificuldade(selecionadas, rng))
 }
 
@@ -52,6 +72,13 @@ export function composeDrill(bank: Question[], opts: DrillOptions): Question[] {
 }
 
 // --- Seleção -----------------------------------------------------------------
+
+/** O maior pool não vazio; empate fica com o primeiro, na ordem de TIPOS. */
+function maiorPool(pools: Question[][]): Question[] | undefined {
+  let melhor: Question[] | undefined
+  for (const p of pools) if (p.length > 0 && p.length > (melhor?.length ?? 0)) melhor = p
+  return melhor
+}
 
 /**
  * Sorteia `cota` questões espalhadas pelos 5 níveis, preferindo as não vistas.

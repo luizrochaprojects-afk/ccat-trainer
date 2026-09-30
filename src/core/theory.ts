@@ -275,6 +275,65 @@ export const THEORY: Record<Tipo, TipoTheory> = {
     ],
   },
 
+  verbal_detail: {
+    tipo: 'verbal_detail',
+    titulo: { pt: 'Atenção a detalhes', en: 'Attention to detail' },
+    resumo: {
+      pt:
+        'Duas colunas de cinco linhas — nomes, endereços, códigos, números, e-mails — e a ' +
+        'pergunta: quantas linhas são exatamente iguais, ou quais têm diferença? Não há ' +
+        'raciocínio escondido; a prova mede se você confere rápido sem deixar passar nada.',
+      en:
+        'Two columns of five rows — names, addresses, codes, numbers, emails — and the ' +
+        'question: how many rows are exactly identical, or which ones differ? There is no ' +
+        'hidden reasoning; the test measures whether you can check fast without missing anything.',
+    },
+    ritmo: {
+      pt:
+        'Alvo de 10 a 15 segundos: é a questão mais barata da prova. Não releia uma linha que ' +
+        'já conferiu — marque de cabeça e siga para a próxima.',
+      en:
+        'Target 10 to 15 seconds: it is the cheapest question on the test. Do not reread a ' +
+        'row you already checked — note it mentally and move to the next.',
+    },
+    subtipos: [
+      {
+        subtipo: 'comparacao',
+        titulo: { pt: 'Comparação de colunas', en: 'Column comparison' },
+        oQuePede: {
+          pt: 'Contar as linhas idênticas nas duas colunas, ou apontar as que têm diferença.',
+          en: 'Count the rows that are identical in both columns, or point out the ones that differ.',
+        },
+        metodo: {
+          pt: [
+            'Leia a pergunta primeiro: contar as iguais e apontar as diferentes são respostas opostas.',
+            'Compare em blocos de 3 ou 4 caracteres, no mesmo ponto das duas colunas.',
+            'Olhe o miolo e o fim da string — o começo é onde todo mundo confere.',
+            'Na dúvida entre duas alternativas, reconfira só as linhas em que elas discordam.',
+          ],
+          en: [
+            'Read the question first: counting the identical rows and naming the different ones are opposite answers.',
+            'Compare in chunks of 3 or 4 characters, at the same spot in both columns.',
+            'Look at the middle and the end of each string — the start is where everyone checks.',
+            'If torn between two options, recheck only the rows where they disagree.',
+          ],
+        },
+        armadilha: {
+          pt:
+            'Ler a palavra inteira: o cérebro corrige "Phillips" e "Philips" para a mesma coisa. ' +
+            'As alterações são dígitos vizinhos invertidos, St. no lugar de Dr., um hífen que ' +
+            'andou uma casa, O no lugar de 0 — e a resposta "uma a menos" está sempre entre as ' +
+            'alternativas.',
+          en:
+            'Reading the whole word: your brain autocorrects "Phillips" and "Philips" into the ' +
+            'same thing. The changes are swapped neighbouring digits, St. instead of Dr., a ' +
+            'hyphen moved one place, O instead of 0 — and the "one fewer" answer is always ' +
+            'among the options.',
+        },
+      },
+    ],
+  },
+
   math_series: {
     tipo: 'math_series',
     titulo: { pt: 'Séries numéricas', en: 'Number series' },
@@ -379,13 +438,15 @@ export const THEORY: Record<Tipo, TipoTheory> = {
     titulo: { pt: 'Problemas matemáticos', en: 'Word problems' },
     resumo: {
       pt:
-        'Aritmética, razão, porcentagem e taxa em forma de texto. Nos níveis altos são 3–4 ' +
-        'passos: média que muda, percentuais em sequência, taxas combinadas, mistura. O erro ' +
-        'quase nunca é de conta; é de base errada ou etapa pulada.',
+        'Aritmética, razão, porcentagem e taxa em forma de texto — e, na segunda metade da ' +
+        'prova, uma tabela pequena para cruzar. Nos níveis altos são 3–4 passos: média que ' +
+        'muda, percentuais em sequência, taxas combinadas, mistura. O erro quase nunca é de ' +
+        'conta; é de base errada, etapa pulada ou célula errada.',
       en:
-        'Arithmetic, ratio, percentage and rate in prose. Higher levels take 3–4 steps: ' +
-        'shifting averages, successive percentages, combined rates, mixtures. The mistake is ' +
-        'rarely arithmetic; it is the wrong base or a skipped step.',
+        'Arithmetic, ratio, percentage and rate in prose — and, in the second half of the ' +
+        'test, a small table to cross-read. Higher levels take 3–4 steps: shifting averages, ' +
+        'successive percentages, combined rates, mixtures. The mistake is rarely arithmetic; ' +
+        'it is the wrong base, a skipped step or the wrong cell.',
     },
     ritmo: {
       pt:
@@ -510,6 +571,39 @@ export const THEORY: Record<Tipo, TipoTheory> = {
           en:
             'Adding the times instead of the RATES. Joint work adds rates; average speed is ' +
             'total distance ÷ total time.',
+        },
+      },
+      {
+        subtipo: 'tabela',
+        titulo: { pt: 'Leitura de tabela', en: 'Table reading' },
+        oQuePede: {
+          pt: 'Um valor ou uma linha que sai de cruzar poucas células de uma tabela.',
+          en: 'A value, or a row, that comes from combining a few cells of a table.',
+        },
+        metodo: {
+          pt: [
+            'Leia a pergunta antes da tabela e grife a métrica: total, por funcionário, variação %, margem.',
+            'Ache as células que a métrica usa — as outras colunas estão lá para distrair.',
+            'Faça a conta só nessas células; em "qual linha", calcule a métrica de cada linha e compare.',
+            'Confira o filtro: "mais de 20" não inclui a linha que tem exatamente 20.',
+          ],
+          en: [
+            'Read the question before the table and pin down the metric: total, per employee, % change, margin.',
+            'Find the cells that metric uses — the other columns are there to distract.',
+            'Do the arithmetic on those cells only; for "which row", compute the metric on every row and compare.',
+            'Check the filter: "more than 20" does not include the row with exactly 20.',
+          ],
+        },
+        armadilha: {
+          pt:
+            'Responder pela métrica errada: a loja que mais vende não é a que mais vende POR ' +
+            'funcionário, e o produto de maior margem por unidade não é o de maior lucro total. ' +
+            'Variação do total não é a média das variações das linhas.',
+          en:
+            'Answering with the wrong metric: the store that sells the most is not the one that ' +
+            'sells the most PER employee, and the product with the biggest per-unit margin is ' +
+            'not the one with the biggest total profit. The change in the total is not the ' +
+            'average of the row changes.',
         },
       },
     ],
