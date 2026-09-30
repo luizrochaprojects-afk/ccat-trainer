@@ -89,22 +89,26 @@ function sortear(pool: Question[], cota: number, seen: Set<string>, rng: Rng): Q
 }
 
 /**
- * Espalha a cota pelos 5 níveis com peso levemente maior no meio — a prova não
- * é só fácil nem só difícil, e um bloco final de nível 5 só produziria
- * desistência.
+ * Espalha a cota pelos 5 níveis com o peso no meio-alto.
+ *
+ * A CCAT real tem média de 24 acertos em 50: a prova é difícil, não uma rampa
+ * que passa metade do tempo no fácil. Com 20/25/25/20/10 quase metade da
+ * simulação vinha dos níveis 1–2 e o treino deixava a pessoa confortável
+ * demais. O nível 5 continua abaixo do 3 e do 4 — um bloco final só de
+ * questão impossível produziria desistência, não treino.
  */
 function distribuirPorNivel(cota: number): [Difficulty, number][] {
   const pesos: [Difficulty, number][] = [
-    [1, 0.2],
-    [2, 0.25],
+    [1, 0.1],
+    [2, 0.2],
     [3, 0.25],
-    [4, 0.2],
-    [5, 0.1],
+    [4, 0.25],
+    [5, 0.2],
   ]
   const bruto = pesos.map(([n, p]) => [n, Math.floor(cota * p)] as [Difficulty, number])
   let sobra = cota - bruto.reduce((acc, [, q]) => acc + q, 0)
-  // Distribui o resto do meio para fora, na ordem 2, 3, 1, 4, 5.
-  for (const alvo of [2, 3, 1, 4, 5] as Difficulty[]) {
+  // Distribui o resto do meio para fora, na ordem 3, 4, 2, 5, 1.
+  for (const alvo of [3, 4, 2, 5, 1] as Difficulty[]) {
     if (sobra <= 0) break
     const item = bruto.find(([n]) => n === alvo)
     if (item) {
