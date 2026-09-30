@@ -300,16 +300,16 @@ export const THEORY: Record<Tipo, TipoTheory> = {
         },
         metodo: {
           pt: [
-            'Calcule a diferença entre termos vizinhos. Constante? É aritmética, acabou.',
-            'Não sendo, divida um termo pelo anterior. Constante? É geométrica.',
-            'Nem uma nem outra: calcule a diferença DAS diferenças. Constante? É quadrática.',
-            'Ainda não: teste se cada termo é a soma dos dois anteriores (Fibonacci).',
+            'Calcule a diferença entre vizinhos. Se ela cresce de forma regular (+2, +3, +4…), a regra está nas diferenças.',
+            'Não fecha? Divida um termo pelo anterior. Quociente constante (inclusive negativo ou 1,5) é geométrica; quociente que cresce (×2, ×3, ×4) também é regra.',
+            'Calcule a diferença DAS diferenças. Constante é quadrática; se as diferenças se multiplicam, a regra está nelas.',
+            "Ainda nada: teste quadrados e cubos com deslocamento, soma dos dois ou três anteriores e 'multiplica e ajusta' (×2 + 1).",
           ],
           en: [
-            'Take the difference between neighbouring terms. Constant? Arithmetic, done.',
-            'If not, divide one term by the previous. Constant? Geometric.',
-            'Neither: take the difference OF the differences. Constant? Quadratic.',
-            'Still nothing: test whether each term is the sum of the two before it (Fibonacci).',
+            'Take the difference between neighbours. If it grows regularly (+2, +3, +4…), the rule lives in the differences.',
+            'No luck? Divide a term by the previous one. A constant quotient (even negative or 1.5) is geometric; a growing quotient (×2, ×3, ×4) is a rule too.',
+            'Take the difference OF the differences. Constant means quadratic; if the differences multiply, the rule is there.',
+            "Still nothing: test squares and cubes with an offset, the sum of the previous two or three, and 'multiply, then adjust' (×2 + 1).",
           ],
         },
         armadilha: {
