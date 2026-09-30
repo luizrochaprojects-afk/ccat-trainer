@@ -38,15 +38,20 @@ npm run build      # the content gate runs before the bundle
 
 ## How the content is made
 
-No question is hand-written, and none is written by a model without verification. Every
-question comes from a **deterministic generator**: a function that, given a seed and a
+Almost every question comes from a **deterministic generator**: a function that, given a seed and a
 level, returns the question **and the answer key derived from the rule that built it**.
 The bank stores only `(generator, seed, level)`, so the gate re-runs the generator and
 compares. "Verifying the answer key" never degrades into trusting the JSON the generator
 wrote about itself.
 
+The exception is a small imported set (`content/import/`): the official Criteria samples
+and questions from public prep material, each with its source recorded. Imported math is
+proven by a closed-form expression; imported verbal and figure items by a second model
+that solved them blind. They go through the same five gates.
+
 ```bash
-npm run content:generate -- --provas 20   # drafts sized for N mock tests
+npm run content:generate -- --provas 30   # drafts sized for N mock tests
+npm run content:import                    # imported questions -> drafts
 npm run content:gate                      # the five gates
 npm run content:promote                   # promotes what passed into the bank
 npm run content:assert                    # CI lock: nothing in the bank skipped a gate
@@ -55,20 +60,26 @@ npm run content:assert                    # CI lock: nothing in the bank skipped
 The five gates: schema (G1), re-executed answer key (G2), declared level (G3), duplicates
 (G4), and option integrity (G5).
 
-## The six types
+## The seven types
 
-| Type | On the test | How the answer key is proven |
-| --- | --- | --- |
-| Verbal analogy | 7 | relation extracted from the lexicon |
-| Vocabulary | 6 | synonym/antonym from the lexicon |
-| Verbal logic | 4 | syllogism validated by **model checking**: 512 finite models over 3 predicates, no existential import |
-| Number series | 7 | the series rule itself |
-| Math word problems | 10 | symbolic solver |
-| Spatial reasoning | 16 | the transformation that built the figure |
+Every question has 5 options, like the real test (true/false/uncertain has its 3).
+
+| Type | On the test | Formats | How the answer key is proven |
+| --- | --- | --- | --- |
+| Verbal analogy | 5 | full pair, one word missing | relation extracted from the lexicon |
+| Vocabulary | 8 | synonym, antonym, one- and two-blank sentence completion | lexicon, synonym and antonym words kept disjoint |
+| Verbal logic | 5 | "must be true", true/false/uncertain, ordering puzzle | **model checking** with existential import; ordering by brute force over permutations |
+| Attention to detail | 3 | which rows differ between two columns | the edits that built the rows |
+| Series | 3 | number series, letter series | the series rule, re-read from the stem by an independent reader |
+| Math word problems | 14 | multi-step word problems, basic calculation, table reading | symbolic solver |
+| Spatial reasoning | 12 | rotation, reflection, odd one out, series, 3×3 matrix, visual comparison | the transformation that built the figure; no option identifiable without the stem |
+
+The mix follows the per-type counts published by prep sources: math & logic is the largest
+block, spatial the smallest.
 
 ## Spatial reasoning
 
-It is a third of the test and has the most elaborate module, in `src/core/spatial/`. The
+It has the most elaborate module, in `src/core/spatial/`. The
 decision that organizes it is separating **visual vocabulary** from **question form**:
 
 - **Families** (`figuras/`) are the vocabulary: arcs in the corners of a square, hands on
