@@ -212,7 +212,9 @@ export function SessionScreen({
         {/* radiogroup, não lista de botões: `aria-pressed` comunica "botão que
             fica ligado", e o que existe aqui é uma escolha entre cinco. */}
         <div
-          className={`opcoes${graficas ? ' graficas' : ''}${curtas ? ' curtas' : ''}`}
+          className={`opcoes${graficas ? ' graficas' : ''}${curtas ? ' curtas' : ''}${
+            q.tipo === 'math_series' ? ' serie' : ''
+          }`}
           role="radiogroup"
           aria-labelledby="enunciado"
         >

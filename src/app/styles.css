@@ -719,6 +719,16 @@ p {
   flex: 1;
 }
 
+/* Série de letras: a resposta "G" ao lado da tecla "A" se confundia com ela.
+   Monoespaçada e maior, a resposta se lê como termo da série, igual ao
+   enunciado; a tecla continua pequena e em caixa. */
+.opcoes.serie .rotulo {
+  font-family: var(--mono);
+  font-size: 1.125rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
 /* A tecla é elemento de design, não legenda: é assim que se responde rápido. */
 .tecla {
   font-family: var(--mono);
