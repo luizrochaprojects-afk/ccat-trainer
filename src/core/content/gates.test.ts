@@ -118,6 +118,39 @@ describe('G3 — dificuldade', () => {
   })
 })
 
+describe('exceção de 3 alternativas (verdadeiro/falso/incerto)', () => {
+  const vf = (seed = 3) => buildQuestion('verdadeiro_falso', seed, 3, AGORA)
+
+  it('aprova verdadeiro/falso/incerto com as 3 alternativas da prova', () => {
+    const q = vf()
+    expect(q.options.map((o) => o.text)).toEqual(['True', 'False', 'Uncertain'])
+    expect(runGates([q]).violations).toEqual([])
+  })
+
+  it('verdadeiro/falso/incerto com 4 alternativas é barrado', () => {
+    const q = vf()
+    const comQuatro = { ...q, options: [...q.options, { id: 'd', text: 'Probably' }] }
+    expect(gatesDisparados(comQuatro)).toContain('G5_alternativas')
+  })
+
+  it('qualquer outro subtipo com 3 alternativas continua barrado já no schema', () => {
+    for (const [gerador, nivel] of [['deducao', 3], ['analogia', 1], ['serie_simples', 1]] as const) {
+      const q = boa(gerador, 5, nivel)
+      const certa = q.options.find((o) => o.id === q.answerId)!
+      const tres = [certa, ...q.options.filter((o) => o !== certa).slice(0, 2)]
+      expect(gatesDisparados({ ...q, options: tres }), gerador).toEqual(['G1_schema'])
+    }
+  })
+
+  it('outro subtipo gerado com 4 alternativas continua barrado no G3', () => {
+    const q = boa('deducao', 5, 3)
+    const umaErrada = q.options.find((o) => o.id !== q.answerId)!
+    expect(gatesDisparados({ ...q, options: q.options.filter((o) => o !== umaErrada) })).toContain(
+      'G3_dificuldade',
+    )
+  })
+})
+
 describe('G2 — gabarito', () => {
   it('barra gabarito trocado à mão', () => {
     const q = boa()

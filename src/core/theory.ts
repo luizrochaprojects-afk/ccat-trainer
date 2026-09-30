@@ -115,6 +115,36 @@ export const THEORY: Record<Tipo, TipoTheory> = {
             'moving on is worth more than spending 40 seconds on a single question.',
         },
       },
+      {
+        subtipo: 'analogia_lacuna',
+        titulo: { pt: 'Analogia com lacuna', en: 'Missing-word analogy' },
+        oQuePede: {
+          pt: 'Completar o segundo par com UMA palavra: "A está para B assim como C está para ?".',
+          en: 'Complete the second pair with ONE word: "A is to B as C is to ?".',
+        },
+        metodo: {
+          pt: [
+            'Monte a frase-ponte com o primeiro par: "um CINZEL é a ferramenta do ESCULTOR".',
+            'Aplique a mesma frase à palavra C antes de olhar as opções e preveja a resposta.',
+            'Escolha a opção que fecha a frase — se a relação é de sinônimo, desconfie do antônimo, e vice-versa.',
+          ],
+          en: [
+            'Build the bridge sentence from the first pair: "a CHISEL is the tool of a SCULPTOR".',
+            'Apply the same sentence to word C before looking at the options, and predict the answer.',
+            'Pick the option that completes the sentence — if the relation is synonymy, distrust the antonym, and vice versa.',
+          ],
+        },
+        armadilha: {
+          pt:
+            'Duas: (1) a palavra que tem ALGUMA relação com C, mas não a do primeiro par (POTTER → "kiln", a ferramenta, ' +
+            'quando o par pedia o produto); (2) a palavra de som parecido — INEVITABLE puxa "invited", ADEPT puxa ' +
+            '"adapted". Parecer não é relação.',
+          en:
+            'Two of them: (1) the word with SOME relation to C, but not the one in the first pair (POTTER → "kiln", the ' +
+            'tool, when the pair asked for the product); (2) the sound-alike — INEVITABLE pulls toward "invited", ADEPT ' +
+            'toward "adapted". Looking similar is not a relation.',
+        },
+      },
     ],
   },
 
@@ -217,6 +247,34 @@ export const THEORY: Record<Tipo, TipoTheory> = {
             'Reading only the fragment around the blank. The clue is usually in the other half of the sentence.',
         },
       },
+      {
+        subtipo: 'completar_frase_dupla',
+        titulo: { pt: 'Completar frase (duas lacunas)', en: 'Two-blank sentence completion' },
+        oQuePede: {
+          pt: 'O PAR de palavras que, juntas, deixam a frase coerente — as duas lacunas se amarram pelo conectivo.',
+          en: 'The PAIR of words that together make the sentence coherent — the two blanks are tied by the connective.',
+        },
+        metodo: {
+          pt: [
+            'Ache o conectivo: "although", "despite" e "but" pedem lacunas em sentidos OPOSTOS; "because", "and" e "so" pedem o MESMO sentido.',
+            'Resolva primeiro a lacuna mais fácil e elimine todo par cuja palavra naquela posição não serve.',
+            'Entre os pares restantes, confira a outra lacuna contra o conectivo — e só então leia a frase inteira com o par.',
+          ],
+          en: [
+            'Find the connective: "although", "despite" and "but" call for blanks pointing in OPPOSITE directions; "because", "and" and "so" call for the SAME direction.',
+            'Solve the easier blank first and eliminate every pair whose word in that slot does not fit.',
+            'Among the pairs left, check the other blank against the connective — and only then read the whole sentence with the pair.',
+          ],
+        },
+        armadilha: {
+          pt:
+            'O par em que as duas palavras cabem, cada uma, no pedaço de frase em volta delas, mas juntas contradizem o ' +
+            'conectivo. E o par com uma palavra perfeita e a outra só "quase": meia resposta certa é resposta errada.',
+          en:
+            'The pair where each word fits the fragment around it, but together they contradict the connective. And the ' +
+            'pair with one perfect word and the other only "almost": half a right answer is a wrong answer.',
+        },
+      },
     ],
   },
 
@@ -225,11 +283,11 @@ export const THEORY: Record<Tipo, TipoTheory> = {
     titulo: { pt: 'Lógica verbal', en: 'Verbal logic' },
     resumo: {
       pt:
-        'Duas premissas e uma pergunta: o que OBRIGATORIAMENTE se segue? Não é sobre o mundo ' +
-        'ser assim, é sobre a conclusão ser inescapável a partir do que foi dito.',
+        'Premissas e uma pergunta: o que OBRIGATORIAMENTE se segue, o que é impossível, quem pode ' +
+        'ocupar tal lugar na fila? Não é sobre o mundo ser assim, é sobre o que é inescapável a partir do que foi dito.',
       en:
-        'Two premises and one question: what MUST follow? It is not about how the world happens ' +
-        'to be, it is about the conclusion being inescapable from what was stated.',
+        'Premises and one question: what MUST follow, what is impossible, who could take a given ' +
+        'place in the line? It is not about how the world happens to be, it is about what is inescapable from what was stated.',
     },
     ritmo: {
       pt:
@@ -272,6 +330,68 @@ export const THEORY: Record<Tipo, TipoTheory> = {
             '"All Y are X"; (2) flipping a particular negative — "Some X are not Y" does NOT ' +
             'give "Some Y are not X". The test assumes the groups mentioned exist; what it asks ' +
             'is what must hold even so.',
+        },
+      },
+      {
+        subtipo: 'verdadeiro_falso',
+        titulo: { pt: 'Verdadeiro, falso ou incerto', en: 'True, false or uncertain' },
+        oQuePede: {
+          pt: 'Dadas as premissas, dizer se a última frase é obrigatória (True), impossível (False) ou não decidida (Uncertain).',
+          en: 'Given the premises, say whether the last statement is forced (True), impossible (False) or left open (Uncertain).',
+        },
+        metodo: {
+          pt: [
+            'Esqueça o mundo real: só vale o que as premissas dizem. Em comparações, desenhe a fila; em grupos, os círculos.',
+            'Procure um cenário que respeite TODAS as premissas e em que a frase valha; depois, um em que ela falhe.',
+            'Achou os dois? Uncertain. Só o primeiro é possível? True. Só o segundo? False.',
+            'Regra "Everyone who A B" vale num sentido só: de A sai B, e de "não B" sai "não A" — de B não sai nada.',
+          ],
+          en: [
+            'Forget the real world: only what the premises say counts. For comparisons, draw the line-up; for groups, the circles.',
+            'Look for a scenario that respects ALL the premises in which the statement holds; then for one in which it fails.',
+            'Found both? Uncertain. Only the first is possible? True. Only the second? False.',
+            'A rule "Everyone who A B" works in one direction only: A gives B, and "not B" gives "not A" — B gives nothing.',
+          ],
+        },
+        armadilha: {
+          pt:
+            'Marcar False quando a frase só "não foi dita". Não dita é Uncertain; False exige que as premissas a ' +
+            'contradigam. A irmã dessa: ler "everyone who A B" como "só quem A B". Como na dedução, a prova assume que ' +
+            'os grupos citados existem.',
+          en:
+            'Choosing False when the statement was merely "not stated". Not stated is Uncertain; False requires the ' +
+            'premises to contradict it. Its sibling: reading "everyone who A B" as "only those who A B". As in deduction, ' +
+            'the test assumes the groups mentioned exist.',
+        },
+      },
+      {
+        subtipo: 'ordenacao',
+        titulo: { pt: 'Ordenação', en: 'Ordering puzzle' },
+        oQuePede: {
+          pt: 'Com 5 a 7 pessoas numa fila e algumas regras, dizer quem pode, quem deve ou quem não pode ocupar uma posição.',
+          en: 'With 5 to 7 people in a line and a few rules, say who could, who must or who cannot take a position.',
+        },
+        metodo: {
+          pt: [
+            'Desenhe as posições (1 a N) e comece pelas regras rígidas: posição fixa, "imediatamente atrás", "não nas pontas".',
+            'Junte os blocos ("X logo atrás de Y" vira um bloco YX) e aplique a hipótese da pergunta ("If H is 3rd…") antes de tudo.',
+            'Para "could": basta UMA ordem válida com a pessoa ali. Para "must": ela tem de estar ali em TODAS.',
+            'Antes de marcar, confira a ordem candidata contra cada regra, uma por uma — é aí que se pega a regra esquecida.',
+          ],
+          en: [
+            'Draw the positions (1 to N) and start with the rigid rules: fixed position, "right behind", "not at either end".',
+            'Merge the blocks ("X is right behind Y" becomes one YX block) and apply the question’s supposition ("If H is 3rd…") first.',
+            'For "could": ONE valid order with the person there is enough. For "must": they have to be there in ALL of them.',
+            'Before answering, check the candidate order against every rule, one by one — that is where the forgotten rule gets caught.',
+          ],
+        },
+        armadilha: {
+          pt:
+            'Esquecer uma regra no meio do caminho (os distratores são justamente quem seria possível sem ela) e confundir ' +
+            '"could" com "must". É a questão mais cara da prova: se passar de 40 segundos, chute e siga.',
+          en:
+            'Dropping one rule halfway through (the distractors are exactly who would be possible without it) and mixing up ' +
+            '"could" and "must". This is the most expensive question on the test: past 40 seconds, guess and move on.',
         },
       },
     ],

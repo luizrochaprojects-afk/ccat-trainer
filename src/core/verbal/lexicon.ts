@@ -587,11 +587,13 @@ export const ANALOGY_PAIRS: AnalogyPair[] = [
   { a: 'lodestone', b: 'attract', relation: 'object_function', level: 5 },
   { a: 'windlass', b: 'hoist', relation: 'object_function', level: 5 },
 
+  // Nada de filhote que é o nome do adulto + sufixo (owl : owlet, eagle :
+  // eaglet): a alternativa se entrega pela grafia, sem ler a relação.
   { a: 'horse', b: 'foal', relation: 'animal_young', level: 1 },
   { a: 'deer', b: 'fawn', relation: 'animal_young', level: 1 },
-  { a: 'owl', b: 'owlet', relation: 'animal_young', level: 1 },
+  { a: 'sheep', b: 'lamb', relation: 'animal_young', level: 1 },
   { a: 'goose', b: 'gosling', relation: 'animal_young', level: 2 },
-  { a: 'eagle', b: 'eaglet', relation: 'animal_young', level: 2 },
+  { a: 'frog', b: 'tadpole', relation: 'animal_young', level: 2 },
   { a: 'swan', b: 'cygnet', relation: 'animal_young', level: 3 },
   { a: 'kangaroo', b: 'joey', relation: 'animal_young', level: 3 },
   { a: 'hare', b: 'leveret', relation: 'animal_young', level: 4 },
@@ -781,12 +783,12 @@ export const SENTENCE_FRAMES: SentenceFrame[] = [
   {
     frame: 'What began as ___ curiosity, indulged only on the occasional weekend, eventually became his life’s work.',
     answer: 'casual',
-    distractors: ['lifelong', 'insatiable', 'consuming', 'obsessive'],
+    distractors: ['insatiable', 'obsessive', 'lifelong', 'professional', 'reluctant'],
     level: 1,
     rationale: {
-      pt: '"What began as X became Y" pede contraste entre início e fim. O fim é intenso (o trabalho de uma vida), então o começo tem de ser leve. As armadilhas casam com o FIM da frase, não com o começo.',
+      pt: '"What began as X became Y" pede contraste entre início e fim. O fim é intenso (o trabalho de uma vida) e o meio diz "só num fim de semana ou outro": o começo era leve. "insatiable" e "obsessive" casam com o FIM; "professional" não se pratica só nos fins de semana, e "reluctant" briga com "indulged".',
       en:
-        '"What began as X became Y" asks for a contrast between start and end. The end is intense (his life\'s work), so the start must be light. The traps match the END of the sentence, not the start.',
+        '"What began as X became Y" asks for a contrast between start and end. The end is intense (his life\'s work) and the middle says "only on the occasional weekend": the start was light. "insatiable" and "obsessive" match the END; "professional" is not something indulged only at weekends, and "reluctant" clashes with "indulged".',
     },
   },
   {
@@ -814,12 +816,12 @@ export const SENTENCE_FRAMES: SentenceFrame[] = [
   {
     frame: 'Unlike her predecessor, who micromanaged every task, the new director was ___.',
     answer: 'hands-off',
-    distractors: ['meticulous', 'controlling', 'intrusive', 'demanding', 'overbearing'],
+    distractors: ['meticulous', 'controlling', 'overbearing', 'punctual', 'inexperienced'],
     level: 1,
     rationale: {
-      pt: '"Unlike" exige o oposto de microgerenciar. "hands-off" inverte; os demais descrevem justamente o antecessor.',
+      pt: '"Unlike" exige o oposto de microgerenciar, na mesma dimensão. "hands-off" inverte; "controlling" e "overbearing" descrevem o antecessor, e "punctual" e "inexperienced" mudam de assunto — não contrastam com nada.',
       en:
-        '"Unlike" demands the opposite of micromanaging. "hands-off" inverts it; the others describe the predecessor himself.',
+        '"Unlike" demands the opposite of micromanaging, on the same dimension. "hands-off" inverts it; "controlling" and "overbearing" describe the predecessor, and "punctual" and "inexperienced" change the subject — they contrast with nothing.',
     },
   },
   {
@@ -858,12 +860,12 @@ export const SENTENCE_FRAMES: SentenceFrame[] = [
   {
     frame: 'Because the instructions were so ___, half the class assembled the kit incorrectly.',
     answer: 'ambiguous',
-    distractors: ['thorough', 'explicit', 'straightforward', 'precise'],
+    distractors: ['thorough', 'explicit', 'precise', 'illustrated', 'colorful'],
     level: 1,
     rationale: {
-      pt: '"Because" liga causa e efeito: metade errou, logo a instrução permitia mais de uma leitura. "ambiguous" é a causa; as demais evitariam o erro.',
+      pt: '"Because" liga causa e efeito: metade errou, logo a instrução permitia mais de uma leitura. "ambiguous" é a causa; "thorough", "explicit" e "precise" evitariam o erro, e "illustrated" e "colorful" não explicam erro nenhum.',
       en:
-        '"Because" links cause and effect: half the class got it wrong, so the instructions allowed more than one reading. "ambiguous" is the cause; the others would prevent the error.',
+        '"Because" links cause and effect: half the class got it wrong, so the instructions allowed more than one reading. "ambiguous" is the cause; "thorough", "explicit" and "precise" would prevent the error, and "illustrated" and "colorful" explain no error at all.',
     },
   },
   {
@@ -915,12 +917,12 @@ export const SENTENCE_FRAMES: SentenceFrame[] = [
   {
     frame: 'The startup burned through its funding in months, and its investors had long predicted its ___.',
     answer: 'collapse',
-    distractors: ['triumph', 'profitability', 'windfall', 'turnaround', 'longevity'],
+    distractors: ['triumph', 'turnaround', 'longevity', 'relocation', 'rebranding'],
     level: 2,
     rationale: {
-      pt: 'Queimar o caixa em meses é fracasso. "collapse" nomeia o desfecho; "turnaround" e "windfall" contradizem a primeira metade.',
+      pt: 'Queimar o caixa em meses é fracasso, e o "and" continua na mesma direção. "collapse" nomeia o desfecho; "triumph", "turnaround" e "longevity" contradizem a primeira metade, e "relocation" e "rebranding" não decorrem dela.',
       en:
-        'Burning through funding in months is failure. "collapse" names the outcome; "turnaround" and "windfall" contradict the first half.',
+        'Burning through funding in months is failure, and "and" keeps going in the same direction. "collapse" names the outcome; "triumph", "turnaround" and "longevity" contradict the first half, and "relocation" and "rebranding" do not follow from it.',
     },
   },
   {
@@ -937,34 +939,34 @@ export const SENTENCE_FRAMES: SentenceFrame[] = [
   {
     frame: 'Critics dismissed the sequel as ___, a tired rehash of the original film’s best scenes.',
     answer: 'derivative',
-    distractors: ['ambitious', 'innovative', 'subversive', 'polished', 'experimental'],
+    distractors: ['innovative', 'experimental', 'polished', 'lengthy', 'violent'],
     level: 2,
     rationale: {
-      pt: 'A vírgula define a lacuna: "tired rehash" é cópia requentada. "derivative" nomeia isso; "innovative" e "experimental" são o oposto.',
+      pt: 'A vírgula define a lacuna: "tired rehash" é cópia requentada. "derivative" nomeia isso; "innovative" e "experimental" são o oposto, e "polished", "lengthy" e "violent" não são o que "rehash" quer dizer.',
       en:
-        'The comma defines the blank: a "tired rehash" is a warmed-over copy. "derivative" names it; "innovative" and "experimental" are its opposite.',
+        'The comma defines the blank: a "tired rehash" is a warmed-over copy. "derivative" names it; "innovative" and "experimental" are its opposite, and "polished", "lengthy" and "violent" are not what "rehash" means.',
     },
   },
   {
     frame: 'The professor’s explanation was so ___ that even first-year students grasped the theory at once.',
     answer: 'lucid',
-    distractors: ['technical', 'abstruse', 'erudite', 'lengthy', 'convoluted'],
+    distractors: ['abstruse', 'convoluted', 'erudite', 'lengthy', 'hurried'],
     level: 2,
     rationale: {
-      pt: '"so ___ that even first-year students grasped it" pede clareza. "lucid" é isso; "erudite" soa como elogio a professor, mas erudição não facilita para calouros.',
+      pt: '"so ___ that even first-year students grasped it" pede clareza. "lucid" é isso; "abstruse" e "convoluted" atrapalhariam, "erudite" soa como elogio mas não facilita para calouros, e "lengthy" e "hurried" não explicam a compreensão imediata.',
       en:
-        '"so ___ that even first-year students grasped it" calls for clarity. "lucid" is exactly that; "erudite" sounds like praise for a professor, but erudition does not help freshmen.',
+        '"so ___ that even first-year students grasped it" calls for clarity. "lucid" is exactly that; "abstruse" and "convoluted" would get in the way, "erudite" sounds like praise but does not help freshmen, and "lengthy" and "hurried" do not explain instant understanding.',
     },
   },
   {
     frame: 'Once ___, the lake now draws thousands of tourists each summer.',
     answer: 'secluded',
-    distractors: ['crowded', 'famous', 'popular', 'accessible', 'bustling'],
+    distractors: ['crowded', 'popular', 'famous', 'scenic', 'shallow'],
     level: 2,
     rationale: {
-      pt: '"Once ___ ... now draws thousands" pede o oposto de movimentado. "secluded" (isolado) contrasta; "popular" e "famous" descrevem o presente, não o passado.',
+      pt: '"Once ___ ... now draws thousands" pede o oposto de movimentado. "secluded" (isolado) contrasta; "popular", "famous" e "crowded" descrevem o presente, não o passado, e "scenic" e "shallow" não fazem contraste nenhum com atrair turistas.',
       en:
-        '"Once ___ ... now draws thousands" calls for the opposite of busy. "secluded" contrasts; "popular" and "famous" describe the present, not the past.',
+        '"Once ___ ... now draws thousands" calls for the opposite of busy. "secluded" contrasts; "popular", "famous" and "crowded" describe the present, not the past, and "scenic" and "shallow" make no contrast with drawing tourists.',
     },
   },
   {
@@ -981,23 +983,23 @@ export const SENTENCE_FRAMES: SentenceFrame[] = [
   {
     frame: 'Although the author’s early novels sold poorly, her later work was ___ by critics and readers alike.',
     answer: 'acclaimed',
-    distractors: ['ignored', 'panned', 'overlooked', 'censored', 'misunderstood'],
+    distractors: ['ignored', 'panned', 'overlooked', 'translated', 'serialized'],
     level: 2,
     rationale: {
-      pt: '"Although ... sold poorly" anuncia virada para o positivo. "acclaimed" é a virada; "ignored" e "panned" continuam o fracasso.',
+      pt: '"Although ... sold poorly" anuncia virada para o positivo. "acclaimed" é a virada; "ignored", "panned" e "overlooked" continuam o fracasso, e "translated" e "serialized" não viram nada.',
       en:
-        '"Although ... sold poorly" announces a turn for the better. "acclaimed" is the turn; "ignored" and "panned" continue the failure.',
+        '"Although ... sold poorly" announces a turn for the better. "acclaimed" is the turn; "ignored", "panned" and "overlooked" continue the failure, and "translated" and "serialized" turn nothing around.',
     },
   },
   {
     frame: 'Years of careful saving allowed the ___ couple to retire early.',
     answer: 'frugal',
-    distractors: ['extravagant', 'impulsive', 'indebted', 'spendthrift', 'lavish'],
+    distractors: ['extravagant', 'spendthrift', 'impulsive', 'indebted', 'elderly'],
     level: 2,
     rationale: {
-      pt: '"careful saving" descreve gente econômica. "frugal" é isso; "lavish" e "spendthrift" nunca juntariam o bastante para parar cedo.',
+      pt: '"careful saving" descreve gente econômica. "frugal" é isso; "extravagant", "spendthrift" e "impulsive" nunca juntariam o bastante, "indebted" contradiz a poupança, e quem já é "elderly" não se aposenta "early".',
       en:
-        '"careful saving" describes thrifty people. "frugal" is exactly that; "lavish" and "spendthrift" would never put aside enough to stop early.',
+        '"careful saving" describes thrifty people. "frugal" is exactly that; "extravagant", "spendthrift" and "impulsive" would never put enough aside, "indebted" contradicts the saving, and an "elderly" couple does not retire "early".',
     },
   },
 
@@ -1005,23 +1007,23 @@ export const SENTENCE_FRAMES: SentenceFrame[] = [
   {
     frame: 'The manager’s ___ attitude toward safety rules eventually led to a serious accident.',
     answer: 'cavalier',
-    distractors: ['vigilant', 'scrupulous', 'cautious', 'conscientious', 'rigorous'],
+    distractors: ['vigilant', 'scrupulous', 'cautious', 'reverent', 'deferential'],
     level: 3,
     rationale: {
-      pt: 'Uma atitude que LEVA a acidente é descaso. "cavalier" (displicente, arrogante com regras) é a causa; as demais preveniriam o acidente.',
+      pt: 'Uma atitude que LEVA a acidente é descaso. "cavalier" (displicente, arrogante com regras) é a causa; "vigilant", "scrupulous" e "cautious" preveniriam o acidente, e "reverent" e "deferential" (respeitosa) também.',
       en:
-        'An attitude that LEADS to an accident is disregard. "cavalier" (offhand, dismissive of rules) is the cause; the others would prevent the accident.',
+        'An attitude that LEADS to an accident is disregard. "cavalier" (offhand, dismissive of rules) is the cause; "vigilant", "scrupulous" and "cautious" would prevent the accident, and so would "reverent" and "deferential".',
     },
   },
   {
     frame: 'The committee’s report was ___: every recommendation was backed by data.',
     answer: 'rigorous',
-    distractors: ['speculative', 'anecdotal', 'perfunctory', 'hasty', 'biased'],
+    distractors: ['speculative', 'anecdotal', 'hasty', 'lengthy', 'confidential'],
     level: 3,
     rationale: {
-      pt: 'Os dois-pontos definem: tudo apoiado em dados é rigor. "rigorous" nomeia isso; "speculative" e "anecdotal" são justamente o que dados evitam.',
+      pt: 'Os dois-pontos definem: tudo apoiado em dados é rigor. "rigorous" nomeia isso; "speculative", "anecdotal" e "hasty" são o que dados evitam, e "lengthy" e "confidential" não são o que os dois-pontos descrevem.',
       en:
-        'The colon defines it: everything backed by data is rigor. "rigorous" names it; "speculative" and "anecdotal" are precisely what data rules out.',
+        'The colon defines it: everything backed by data is rigor. "rigorous" names it; "speculative", "anecdotal" and "hasty" are what data rules out, and "lengthy" and "confidential" are not what the colon describes.',
     },
   },
   {
@@ -1049,12 +1051,12 @@ export const SENTENCE_FRAMES: SentenceFrame[] = [
   {
     frame: 'His memory of the accident was ___, limited to a sound and a flash of light.',
     answer: 'fragmentary',
-    distractors: ['exhaustive', 'photographic', 'comprehensive', 'fabricated', 'detailed'],
+    distractors: ['exhaustive', 'photographic', 'comprehensive', 'fabricated', 'recent'],
     level: 3,
     rationale: {
-      pt: 'A vírgula explica a lacuna: só restaram pedaços soltos. "fragmentary" nomeia isso; "exhaustive" e "photographic" contradizem o que vem depois.',
+      pt: 'A vírgula explica a lacuna: só restaram pedaços soltos. "fragmentary" nomeia isso; "exhaustive", "photographic" e "comprehensive" contradizem o que vem depois, e "fabricated" e "recent" não têm a ver com restarem só dois fragmentos.',
       en:
-        'The comma explains the blank: only loose pieces remain. "fragmentary" names that; "exhaustive" and "photographic" contradict what follows.',
+        'The comma explains the blank: only loose pieces remain. "fragmentary" names that; "exhaustive", "photographic" and "comprehensive" contradict what follows, and "fabricated" and "recent" have nothing to do with only two fragments being left.',
     },
   },
   {
@@ -1082,12 +1084,12 @@ export const SENTENCE_FRAMES: SentenceFrame[] = [
   {
     frame: 'Far from being ___, the new rules were enforced from the very first day.',
     answer: 'symbolic',
-    distractors: ['stringent', 'draconian', 'binding', 'mandatory', 'punitive'],
+    distractors: ['stringent', 'draconian', 'mandatory', 'unpopular', 'complex'],
     level: 3,
     rationale: {
-      pt: '"Far from being X" nega X: as regras foram aplicadas, logo X é "só de fachada". "symbolic" é isso; as demais combinam com a aplicação e ignoram o "Far from".',
+      pt: '"Far from being X" nega X: as regras foram aplicadas, logo X é "só de fachada". "symbolic" é isso; "stringent", "draconian" e "mandatory" combinam com a aplicação e ignoram o "Far from", e "unpopular" e "complex" não se opõem a aplicar.',
       en:
-        '"Far from being X" denies X: the rules were enforced, so X means "for show only". "symbolic" is that; the others agree with the enforcement and ignore the "Far from".',
+        '"Far from being X" denies X: the rules were enforced, so X means "for show only". "symbolic" is that; "stringent", "draconian" and "mandatory" agree with the enforcement and ignore the "Far from", and "unpopular" and "complex" are not the opposite of enforcing.',
     },
   },
   {
@@ -1140,23 +1142,23 @@ export const SENTENCE_FRAMES: SentenceFrame[] = [
   {
     frame: 'The committee was ___: not one member was willing to change position.',
     answer: 'intransigent',
-    distractors: ['conciliatory', 'vacillating', 'pragmatic', 'deferential', 'malleable'],
+    distractors: ['conciliatory', 'vacillating', 'malleable', 'pragmatic', 'inexperienced'],
     level: 4,
     rationale: {
-      pt: 'Depois dos dois-pontos vem a definição: ninguém cede. "intransigent" é exatamente isso; "conciliatory" e "malleable" são o oposto.',
+      pt: 'Depois dos dois-pontos vem a definição: ninguém cede. "intransigent" é exatamente isso; "conciliatory", "vacillating" e "malleable" são o oposto, e "pragmatic" e "inexperienced" não descrevem recusa a ceder.',
       en:
-        'The colon introduces the definition: nobody will budge. "intransigent" is exactly that; "conciliatory" and "malleable" are its opposite.',
+        'The colon introduces the definition: nobody will budge. "intransigent" is exactly that; "conciliatory", "vacillating" and "malleable" are its opposite, and "pragmatic" and "inexperienced" do not describe a refusal to budge.',
     },
   },
   {
     frame: 'His apology was ___, delivered in a monotone as he checked his watch.',
     answer: 'perfunctory',
-    distractors: ['heartfelt', 'profuse', 'abject', 'tearful', 'elaborate'],
+    distractors: ['heartfelt', 'abject', 'tearful', 'belated', 'public'],
     level: 4,
     rationale: {
-      pt: 'Monotonia + olhar o relógio revelam desculpa feita por obrigação. "perfunctory" nomeia isso; "heartfelt" e "abject" contradizem a cena.',
+      pt: 'Monotonia + olhar o relógio revelam desculpa feita por obrigação. "perfunctory" nomeia isso; "heartfelt", "abject" e "tearful" contradizem a cena, e "belated" e "public" não são o que ela mostra.',
       en:
-        'The monotone and the glance at the watch reveal an apology given out of obligation. "perfunctory" names it; "heartfelt" and "abject" contradict the scene.',
+        'The monotone and the glance at the watch reveal an apology given out of obligation. "perfunctory" names it; "heartfelt", "abject" and "tearful" contradict the scene, and "belated" and "public" are not what it shows.',
     },
   },
   {
@@ -1206,23 +1208,23 @@ export const SENTENCE_FRAMES: SentenceFrame[] = [
   {
     frame: 'Though she was famously ___ in meetings, her memos ran to twenty pages.',
     answer: 'laconic',
-    distractors: ['verbose', 'garrulous', 'loquacious', 'long-winded', 'effusive'],
+    distractors: ['verbose', 'garrulous', 'long-winded', 'punctual', 'cheerful'],
     level: 4,
     rationale: {
-      pt: '"Though" pede contraste com memorandos de vinte páginas: nas reuniões, ela falava pouco. "laconic" contrasta; as demais combinam com os memorandos — é a armadilha.',
+      pt: '"Though" pede contraste com memorandos de vinte páginas: nas reuniões, ela falava pouco. "laconic" contrasta; "verbose", "garrulous" e "long-winded" combinam com os memorandos — é a armadilha —, e "punctual" e "cheerful" não contrastam com escrever muito.',
       en:
-        '"Though" demands a contrast with twenty-page memos: in meetings she said little. "laconic" contrasts; the others match the memos — that is the trap.',
+        '"Though" demands a contrast with twenty-page memos: in meetings she said little. "laconic" contrasts; "verbose", "garrulous" and "long-winded" match the memos — that is the trap —, and "punctual" and "cheerful" do not contrast with writing a lot.',
     },
   },
   {
     frame: 'The ___ official accepted bribes from anyone who asked for a favor.',
     answer: 'venal',
-    distractors: ['scrupulous', 'incorruptible', 'diligent', 'punctilious', 'impartial'],
+    distractors: ['scrupulous', 'incorruptible', 'impartial', 'diligent', 'reclusive'],
     level: 4,
     rationale: {
-      pt: 'Aceitar suborno de qualquer um é corrupção. "venal" (que se vende) é isso; "scrupulous" e "incorruptible" são o oposto.',
+      pt: 'Aceitar suborno de qualquer um é corrupção. "venal" (que se vende) é isso; "scrupulous", "incorruptible" e "impartial" são o oposto, "diligent" não tem a ver com suborno, e quem é "reclusive" não atende "anyone who asked".',
       en:
-        'Taking bribes from anyone is corruption. "venal" (open to bribery) is that; "scrupulous" and "incorruptible" are its opposite.',
+        'Taking bribes from anyone is corruption. "venal" (open to bribery) is that; "scrupulous", "incorruptible" and "impartial" are its opposite, "diligent" has nothing to do with bribes, and a "reclusive" official would not serve "anyone who asked".',
     },
   },
   {
@@ -1239,23 +1241,23 @@ export const SENTENCE_FRAMES: SentenceFrame[] = [
   {
     frame: 'The documentary’s view of the war was ___, weighing the claims of every side without favoring any.',
     answer: 'dispassionate',
-    distractors: ['partisan', 'polemical', 'sentimental', 'jingoistic', 'tendentious'],
+    distractors: ['partisan', 'polemical', 'jingoistic', 'sentimental', 'superficial'],
     level: 4,
     rationale: {
-      pt: 'Pesar todos os lados sem favorecer nenhum é imparcialidade fria. "dispassionate" nomeia; as demais tomam partido ou apelam à emoção.',
+      pt: 'Pesar todos os lados sem favorecer nenhum é imparcialidade fria. "dispassionate" nomeia; "partisan", "polemical" e "jingoistic" tomam partido, "sentimental" apela à emoção, e "superficial" não é o que a vírgula define.',
       en:
-        'Weighing every side without favoring any is cool impartiality. "dispassionate" names it; the others take sides or play on emotion.',
+        'Weighing every side without favoring any is cool impartiality. "dispassionate" names it; "partisan", "polemical" and "jingoistic" take sides, "sentimental" plays on emotion, and "superficial" is not what the comma defines.',
     },
   },
   {
     frame: 'Rather than resolving the dispute, the mediator’s clumsy remarks only ___ it.',
     answer: 'exacerbated',
-    distractors: ['defused', 'settled', 'mitigated', 'resolved', 'clarified'],
+    distractors: ['defused', 'mitigated', 'settled', 'clarified', 'praised'],
     level: 4,
     rationale: {
-      pt: '"Rather than resolving" + "clumsy" anunciam piora. "exacerbated" é piorar; "defused" e "mitigated" seriam o que o mediador NÃO conseguiu.',
+      pt: '"Rather than resolving" + "clumsy" anunciam piora. "exacerbated" é piorar; "defused", "mitigated" e "settled" seriam o que o mediador NÃO conseguiu, e "clarified" e "praised" não combinam com comentários desastrados.',
       en:
-        '"Rather than resolving" plus "clumsy" announce a worsening. "exacerbated" is worsening; "defused" and "mitigated" are what the mediator failed to do.',
+        '"Rather than resolving" plus "clumsy" announce a worsening. "exacerbated" is worsening; "defused", "mitigated" and "settled" are what the mediator failed to do, and "clarified" and "praised" do not fit clumsy remarks.',
     },
   },
 
@@ -1296,12 +1298,12 @@ export const SENTENCE_FRAMES: SentenceFrame[] = [
   {
     frame: 'The policy proved ___ in its effects, harming the very people it had been designed to protect.',
     answer: 'pernicious',
-    distractors: ['salutary', 'benign', 'innocuous', 'negligible', 'salubrious'],
+    distractors: ['salutary', 'benign', 'innocuous', 'nebulous', 'equitable'],
     level: 5,
     rationale: {
-      pt: 'Prejudicar justamente quem deveria proteger é efeito nocivo. "pernicious" nomeia; "salutary" e "benign" são o oposto, e "negligible" nega o dano.',
+      pt: 'Prejudicar justamente quem deveria proteger é efeito nocivo. "pernicious" nomeia; "salutary", "benign" e "innocuous" são o oposto, "nebulous" briga com um dano tão claro, e "equitable" (justo) é o contrário de prejudicar os protegidos.',
       en:
-        'Harming the very people it should protect is a damaging effect. "pernicious" names it; "salutary" and "benign" are its opposite, and "negligible" denies the harm.',
+        'Harming the very people it should protect is a damaging effect. "pernicious" names it; "salutary", "benign" and "innocuous" are its opposite, "nebulous" clashes with harm that clear, and "equitable" is the reverse of hurting the protected.',
     },
   },
   {
@@ -1329,12 +1331,12 @@ export const SENTENCE_FRAMES: SentenceFrame[] = [
   {
     frame: 'Critics called the novel’s prose ___, so clear that every sentence could be taken in at a glance.',
     answer: 'pellucid',
-    distractors: ['turgid', 'abstruse', 'opaque', 'florid', 'byzantine'],
+    distractors: ['turgid', 'abstruse', 'byzantine', 'lurid', 'mawkish'],
     level: 5,
     rationale: {
-      pt: 'A vírgula define: clara a ponto de ser lida num relance. "pellucid" (translúcida) é isso; "turgid", "opaque" e "byzantine" são o oposto.',
+      pt: 'A vírgula define: clara a ponto de ser lida num relance. "pellucid" (translúcida) é isso; "turgid", "abstruse" e "byzantine" são o oposto, e "lurid" (sensacionalista) e "mawkish" (piegas) falam de tom, não de clareza.',
       en:
-        'The comma defines it: clear enough to be read at a glance. "pellucid" (translucent) is that; "turgid", "opaque" and "byzantine" are its opposite.',
+        'The comma defines it: clear enough to be read at a glance. "pellucid" (translucent) is that; "turgid", "abstruse" and "byzantine" are its opposite, and "lurid" and "mawkish" describe tone, not clarity.',
     },
   },
   {
@@ -1362,26 +1364,114 @@ export const SENTENCE_FRAMES: SentenceFrame[] = [
   {
     frame: 'Having inherited a fortune, he spent it with ___ abandon and was penniless within five years.',
     answer: 'profligate',
-    distractors: ['parsimonious', 'frugal', 'prudent', 'abstemious', 'judicious'],
+    distractors: ['parsimonious', 'frugal', 'abstemious', 'grudging', 'reluctant'],
     level: 5,
     rationale: {
-      pt: 'Torrar uma fortuna em cinco anos é esbanjamento. "profligate" é isso; as demais descrevem quem economiza e jamais ficaria sem nada.',
+      pt: 'Torrar uma fortuna em cinco anos é esbanjamento. "profligate" é isso; "parsimonious", "frugal" e "abstemious" descrevem quem economiza, e "grudging" e "reluctant" brigam com "abandon".',
       en:
-        'Blowing a fortune in five years is wastefulness. "profligate" is that; the others describe people who save and would never end up penniless.',
+        'Blowing a fortune in five years is wastefulness. "profligate" is that; "parsimonious", "frugal" and "abstemious" describe people who save, and "grudging" and "reluctant" clash with "abandon".',
     },
   },
   {
     frame: 'The speech was so ___ that half the audience had dozed off before the halfway mark.',
     answer: 'soporific',
-    distractors: ['stirring', 'incendiary', 'rousing', 'provocative', 'galvanizing'],
+    distractors: ['stirring', 'rousing', 'galvanizing', 'hilarious', 'succinct'],
     level: 5,
     rationale: {
-      pt: 'Metade da plateia dormindo é efeito de fala que dá sono. "soporific" nomeia isso; as demais despertariam a plateia.',
+      pt: 'Metade da plateia dormindo é efeito de fala que dá sono. "soporific" nomeia isso; "stirring", "rousing" e "galvanizing" despertariam a plateia, "hilarious" também, e uma fala "succinct" acabaria antes de alguém cochilar.',
       en:
-        'Half the audience asleep is the effect of a sleep-inducing speech. "soporific" names it; the others would wake the audience up.',
+        'Half the audience asleep is the effect of a sleep-inducing speech. "soporific" names it; "stirring", "rousing" and "galvanizing" would wake the audience up, so would "hilarious", and a "succinct" speech would end before anyone dozed off.',
     },
   },
 ]
+
+// --- Sentidos ----------------------------------------------------------------
+
+/**
+ * Grupos de sentido das palavras usadas como alternativa em completar frase.
+ *
+ * Servem para uma auditoria: se os quatro distratores exibidos dizem a mesma
+ * coisa ("lifelong", "insatiable", "consuming", "obsessive") e só o gabarito
+ * destoa ("casual"), a questão se resolve sem ler a frase — basta marcar o
+ * sentido diferente. O teste cruza estes grupos com os clusters do VOCAB (a
+ * palavra e seus sinônimos são um sentido; os antônimos, o oposto) e exige
+ * que nenhum sentido junte distratores suficientes para ocupar todas as
+ * alternativas erradas.
+ *
+ * Uma palavra pode estar em mais de um grupo: "scrupulous" é cuidadoso e é
+ * íntegro.
+ */
+export const SENTIDOS: Record<string, string[]> = {
+  intenso: ['lifelong', 'insatiable', 'consuming', 'obsessive', 'passionate', 'fervent', 'ardent'],
+  controlador: ['controlling', 'intrusive', 'overbearing', 'demanding', 'domineering', 'meddlesome'],
+  claro: ['thorough', 'explicit', 'straightforward', 'precise', 'definitive', 'unequivocal', 'lucid', 'clear', 'detailed'],
+  sucesso: ['triumph', 'profitability', 'windfall', 'turnaround', 'longevity', 'expansion', 'success'],
+  ousado: ['ambitious', 'innovative', 'subversive', 'experimental', 'inventive', 'daring'],
+  dificil: ['technical', 'abstruse', 'erudite', 'convoluted', 'turgid', 'opaque', 'byzantine', 'florid', 'cryptic', 'dense'],
+  movimentado: ['crowded', 'famous', 'popular', 'bustling', 'thronged'],
+  inverossimil: ['embellished', 'fabricated', 'contradictory', 'spurious', 'unfounded', 'far-fetched'],
+  rejeitado: ['ignored', 'panned', 'overlooked', 'censored', 'misunderstood', 'dismissed'],
+  gastador: ['extravagant', 'impulsive', 'spendthrift', 'lavish', 'profligate', 'wasteful'],
+  cuidadoso: ['vigilant', 'scrupulous', 'cautious', 'conscientious', 'rigorous', 'meticulous', 'punctilious', 'diligent', 'careful'],
+  descuidado: ['speculative', 'anecdotal', 'perfunctory', 'hasty', 'cursory', 'sloppy', 'careless'],
+  completo: ['exhaustive', 'photographic', 'comprehensive', 'complete', 'detailed'],
+  franco: ['candid', 'forthright', 'blunt', 'frank', 'direct'],
+  rigido: ['stringent', 'draconian', 'binding', 'mandatory', 'punitive', 'rigid', 'prescriptive', 'strict'],
+  maleavel: ['conciliatory', 'vacillating', 'deferential', 'malleable', 'flexible', 'lenient', 'relaxed', 'accommodating'],
+  sincero: ['heartfelt', 'profuse', 'abject', 'tearful', 'sincere'],
+  prolixo: ['verbose', 'garrulous', 'loquacious', 'long-winded', 'effusive', 'rambling', 'digressive', 'wordy'],
+  integro: ['scrupulous', 'incorruptible', 'punctilious', 'impartial', 'honest'],
+  parcial: ['partisan', 'polemical', 'jingoistic', 'tendentious', 'biased', 'one-sided'],
+  apaziguado: ['defused', 'settled', 'mitigated', 'resolved', 'eased'],
+  inofensivo: ['salutary', 'benign', 'innocuous', 'negligible', 'salubrious', 'harmless'],
+  exagerado: ['alarmist', 'hyperbolic', 'overblown'],
+  poupador: ['parsimonious', 'frugal', 'prudent', 'abstemious', 'judicious', 'thrifty'],
+  estimulante: ['stirring', 'incendiary', 'rousing', 'provocative', 'galvanizing'],
+  seco: ['barren', 'arid', 'parched'],
+  duradouro: ['lasting', 'permanent', 'sustained', 'enduring', 'lifelong'],
+  ornado: ['ornate', 'baroque', 'opulent'],
+  mordaz: ['scathing', 'caustic', 'withering'],
+  corajoso: ['intrepid', 'valiant', 'audacious'],
+  arrependido: ['contrite', 'penitent', 'remorseful'],
+  obediente: ['compliant', 'tractable', 'docile'],
+  obscuro: ['obscure', 'marginal', 'unknown'],
+  desonrado: ['reviled', 'disgraced'],
+  crivel: ['credible', 'plausible'],
+  agitado: ['agitated', 'irate', 'frantic', 'alarmed'],
+  fugaz: ['fleeting', 'ephemeral', 'transient', 'brief'],
+  calado: ['taciturn', 'diffident', 'reticent'],
+}
+
+/** Todos os sentidos de uma palavra: grupos acima + clusters do VOCAB. */
+export function sentidosDe(palavra: string): Set<string> {
+  const out = new Set<string>()
+  for (const [sentido, palavras] of Object.entries(SENTIDOS)) {
+    if (palavras.includes(palavra)) out.add(sentido)
+  }
+  for (const e of VOCAB) {
+    if (e.word === palavra || e.synonyms.includes(palavra)) out.add(`${e.word}+`)
+    if (e.antonyms.includes(palavra)) out.add(`${e.word}-`)
+  }
+  return out
+}
+
+/**
+ * O sentido que ocupa todas as alternativas erradas exibidas, se houver.
+ * `exibidos` é quantos distratores a questão mostra; o gerador sorteia quais,
+ * então basta um sentido cobrir `exibidos` distratores para existir um
+ * sorteio em que o gabarito é o único diferente.
+ */
+export function sentidoDominante(
+  resposta: string,
+  distratores: string[],
+  exibidos: number,
+): string | undefined {
+  const conta = new Map<string, number>()
+  for (const d of distratores) for (const s of sentidosDe(d)) conta.set(s, (conta.get(s) ?? 0) + 1)
+  const daResposta = sentidosDe(resposta)
+  for (const [s, n] of conta) if (n >= exibidos && !daResposta.has(s)) return s
+  return undefined
+}
 
 // --- Silogismos --------------------------------------------------------------
 

@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { ALL_SUBTIPOS, DIFFICULTIES, TIPOS } from './taxonomy'
+import { ALL_SUBTIPOS, DIFFICULTIES, opcoesDoSubtipo, TIPOS } from './taxonomy'
 import { LOCALES } from './i18n'
 
 /**
@@ -144,7 +144,8 @@ export const questionSchema = z
     stemSpatial: spatialSpecSchema.optional(),
     /** tabela opcional acima do enunciado (leitura de tabela, comparação de colunas) */
     stemTable: stemTableSchema.optional(),
-    options: z.array(optionSchema).min(4).max(5),
+    /** 3 só em "verdadeiro, falso ou incerto" (ver opcoesDoSubtipo) */
+    options: z.array(optionSchema).min(3).max(5),
     answerId: z.string().min(1),
     explanation: localizedTextSchema,
     /** aponta para content/theory/<tipo>.md#<ancora> */
@@ -160,6 +161,10 @@ export const questionSchema = z
     createdAt: z.string().datetime(),
   })
   // Integridade estrutural: essas nunca podem passar, nem em draft.
+  .refine((q) => q.options.length >= Math.min(4, opcoesDoSubtipo(q.subtipo)), {
+    message: 'alternativas de menos para o subtipo',
+    path: ['options'],
+  })
   .refine((q) => q.origin === 'claude-code' || Boolean(q.source), {
     message: 'questão de fora precisa registrar a fonte',
     path: ['source'],

@@ -42,10 +42,14 @@ function comTipo(tipo: Tipo, fn: (s: number, d: Difficulty) => Omit<Generated, '
 /** A qual tipo pertence cada gerador verbal. */
 const VERBAL_TIPO: Record<string, Tipo> = {
   analogia: 'verbal_analogy',
+  analogia_lacuna: 'verbal_analogy',
   antonimo: 'verbal_vocab',
   sinonimo: 'verbal_vocab',
   completar_frase: 'verbal_vocab',
+  completar_frase_dupla: 'verbal_vocab',
   deducao: 'verbal_logic',
+  verdadeiro_falso: 'verbal_logic',
+  ordenacao: 'verbal_logic',
 }
 
 export const GENERATORS: Record<string, GeneratorFn> = {

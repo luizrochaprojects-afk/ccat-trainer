@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { DIFFICULTIES } from '../taxonomy'
+import { DIFFICULTIES, opcoesDoSubtipo, RESPOSTA_CITADA_NO_ENUNCIADO, type AnySubtipo } from '../taxonomy'
 import { VERBAL_GENERATORS, VERBAL_GENERATOR_IDS } from './generators'
 import {
   ANALOGY_PAIRS,
@@ -75,10 +75,11 @@ describe('geradores verbais', () => {
         }
       })
 
-      it('4 alternativas nos níveis 1-2, 5 nos níveis 3-5', () => {
+      it('5 alternativas em todo nível (3 só em verdadeiro/falso/incerto)', () => {
         for (const d of DIFFICULTIES) {
           for (let seed = 1; seed <= 30; seed++) {
-            expect(gerar(seed, d).options).toHaveLength(5)
+            const q = gerar(seed, d)
+            expect(q.options).toHaveLength(opcoesDoSubtipo(q.subtipo))
           }
         }
       })
@@ -87,6 +88,8 @@ describe('geradores verbais', () => {
         for (const d of DIFFICULTIES) {
           for (let seed = 1; seed <= RUNS; seed++) {
             const q = gerar(seed, d)
+            // onde citar a resposta é o formato, o teste próprio do subtipo cobre
+            if (RESPOSTA_CITADA_NO_ENUNCIADO.includes(q.subtipo as AnySubtipo)) continue
             const marcada = q.options.find((o) => o.id === q.answerId)!
             // o silogismo repete termos no enunciado por natureza; o que não pode
             // é a FRASE inteira da conclusão já aparecer nas premissas

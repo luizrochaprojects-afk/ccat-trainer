@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { DIFFICULTIES } from '../taxonomy'
+import { DIFFICULTIES, OPCOES_POR_QUESTAO } from '../taxonomy'
 import {
   ANALOGY_PAIRS,
   LOGIC_TERMS,
@@ -12,6 +12,7 @@ import {
   VOCAB_BY_WORD,
   VOCAB_NEIGHBORS,
   pairsOfRelation,
+  sentidoDominante,
   type VocabEntry,
 } from './lexicon'
 
@@ -250,6 +251,38 @@ describe('ANALOGY_PAIRS — integridade', () => {
     for (const p of ANALOGY_PAIRS) {
       expect(acentuado.test(p.a) || acentuado.test(p.b), `${p.a}:${p.b}`).toBe(false)
     }
+  })
+})
+
+describe('ANALOGY_PAIRS — filhote não se entrega pela grafia', () => {
+  it('nenhum filhote é o nome do adulto com sufixo (owl : owlet, eagle : eaglet)', () => {
+    for (const p of pairsOfRelation('animal_young')) {
+      expect(p.b.startsWith(p.a), `${p.a} : ${p.b}`).toBe(false)
+      expect(p.b.endsWith('let'), `${p.a} : ${p.b}`).toBe(false)
+    }
+  })
+})
+
+describe('SENTENCE_FRAMES — não se resolve pelo "sentido diferente"', () => {
+  const exibidos = OPCOES_POR_QUESTAO - 1
+
+  it('nenhum sentido cobre todos os distratores exibidos deixando só o gabarito de fora', () => {
+    for (const f of SENTENCE_FRAMES) {
+      const s = sentidoDominante(f.answer, f.distractors, exibidos)
+      expect(s, `"${f.answer}": ${f.distractors.join(', ')} são todos "${s}"`).toBeUndefined()
+    }
+  })
+
+  it('regressão: os conjuntos antigos seriam barrados (o teste enxerga o defeito)', () => {
+    expect(sentidoDominante('casual', ['lifelong', 'insatiable', 'consuming', 'obsessive'], exibidos)).toBe('intenso')
+    expect(
+      sentidoDominante('secluded', ['crowded', 'famous', 'popular', 'accessible', 'bustling'], exibidos),
+    ).toBe('movimentado')
+    expect(
+      sentidoDominante('soporific', ['stirring', 'incendiary', 'rousing', 'provocative', 'galvanizing'], exibidos),
+    ).toBe('estimulante')
+    // o cluster do VOCAB também conta: sinônimos de um verbete são um sentido
+    expect(sentidoDominante('x', ['frank', 'forthright', 'candid', 'frank'], exibidos)).toBeDefined()
   })
 })
 

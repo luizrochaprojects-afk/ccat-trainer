@@ -2,7 +2,14 @@ import { normalizeText, questionSchema, type Question } from '../schema'
 import { comparacaoDe, evaluateExpression, parseNumber, toleranciaDe } from '../math/solver'
 import { lerSerieDeLetras } from '../math/alfabeto'
 import { runGenerator } from '../generators'
-import { acceptsVerification, OPCOES_POR_QUESTAO, verificationMethodsOf, type Tipo } from '../taxonomy'
+import {
+  acceptsVerification,
+  opcoesDoSubtipo,
+  RESPOSTA_CITADA_NO_ENUNCIADO,
+  verificationMethodsOf,
+  type AnySubtipo,
+  type Tipo,
+} from '../taxonomy'
 
 /**
  * Os cinco gates do PRD §4.13.
@@ -102,8 +109,10 @@ function gateAlternativas(q: Question): Violation[] {
   const v: Violation[] = []
   const add = (message: string) => v.push({ gate: 'G5_alternativas', questionId: q.id, message })
 
-  if (q.options.length < 4 || q.options.length > 5) {
-    add(`esperado 4 ou 5 alternativas, veio ${q.options.length}`)
+  // Formato fixo de 3 (True/False/Uncertain) é exato; o resto aceita 4 ou 5.
+  const doSubtipo = opcoesDoSubtipo(q.subtipo)
+  if (doSubtipo < 4 ? q.options.length !== doSubtipo : q.options.length < 4 || q.options.length > 5) {
+    add(`esperado ${doSubtipo < 4 ? doSubtipo : '4 ou 5'} alternativas, veio ${q.options.length}`)
   }
 
   const corretas = q.options.filter((o) => o.id === q.answerId)
@@ -135,9 +144,9 @@ function gateAlternativas(q: Question): Violation[] {
 function gateDificuldade(q: Question): Violation[] {
   const v: Violation[] = []
   // A faixa 1..5 já é garantida pelo schema; o que resta checar é o número de
-  // alternativas, que na prova real é sempre 5. Questão de fora mantém as
-  // alternativas da fonte.
-  const esperado = OPCOES_POR_QUESTAO
+  // alternativas, que na prova real é 5 (3 em verdadeiro/falso/incerto).
+  // Questão de fora mantém as alternativas da fonte.
+  const esperado = opcoesDoSubtipo(q.subtipo)
   const gerada = q.origin === 'claude-code' && q.verification.method !== 'second-model'
   if (gerada && q.options.length !== esperado) {
     v.push({
@@ -290,9 +299,10 @@ function gateGabarito(q: Question): Violation[] {
     }
   }
 
-  // O enunciado não pode entregar a resposta.
+  // O enunciado não pode entregar a resposta — exceto onde citá-la é o formato.
   const marcada = q.options.find((o) => o.id === q.answerId)
-  if (marcada?.text && normalizeText(q.stem).includes(` ${normalizeText(marcada.text)} `)) {
+  const citada = RESPOSTA_CITADA_NO_ENUNCIADO.includes(q.subtipo as AnySubtipo)
+  if (!citada && marcada?.text && normalizeText(q.stem).includes(` ${normalizeText(marcada.text)} `)) {
     add('o enunciado contém a resposta')
   }
 
