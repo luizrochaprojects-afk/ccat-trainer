@@ -7,10 +7,18 @@ import {
   ehQuiral,
   ehUtilizavel,
   FAMILIAS,
+  familiaAninhadas,
+  familiaAtributos,
+  familiaComposta,
   semSimetriaRotacional,
   sortearUtilizavel,
   type FamiliaQualquer,
 } from './index'
+import type { FiguraAninhadas } from './aninhadas'
+import type { FiguraArcos } from './arcos'
+import type { FiguraAtributos } from './atributos'
+import type { FiguraComposta } from './composta'
+import type { FiguraRaios } from './raios'
 
 /**
  * Estes testes substituem a antiga auditoria de legibilidade em pixels
@@ -224,15 +232,20 @@ describe.each(Object.entries(FAMILIAS))('família "%s"', (_id, fam) => {
    * legítimas para quem está fazendo a prova.
    */
   it('o eixo secundário comuta com a rotação', () => {
+    // Junta as divergências e compara uma vez só: com 4096 configurações em
+    // `composta`, um `expect` por combinação custava segundos e estourava o
+    // tempo do teste quando a suíte roda em paralelo.
+    const divergencias: string[] = []
     for (const f of todas) {
       for (let k = 0; k < fam.passosNoCiclo; k++) {
         for (let a = 0; a < fam.passosSecundarios; a++) {
-          expect(fam.assinatura(fam.avancarSecundario(fam.rotate(f, k), a))).toBe(
-            fam.assinatura(fam.rotate(fam.avancarSecundario(f, a), k)),
-          )
+          const girarDepois = fam.assinatura(fam.avancarSecundario(fam.rotate(f, k), a))
+          const girarAntes = fam.assinatura(fam.rotate(fam.avancarSecundario(f, a), k))
+          if (girarDepois !== girarAntes) divergencias.push(`${fam.assinatura(f)} k=${k} a=${a}`)
         }
       }
     }
+    expect(divergencias).toEqual([])
   })
 
   it('o eixo secundário preserva a utilizabilidade', () => {
@@ -276,5 +289,106 @@ describe('normalização de caminho', () => {
 
   it('reconhece a mesma reta nos dois sentidos', () => {
     expect(caminhoCanonico('M 70 50 L 30 50')).toBe(caminhoCanonico('M 30 50 L 70 50'))
+  })
+})
+
+/**
+ * Piso de complexidade por nível. A auditoria achou figuras simples demais
+ * até no nível 5 — o `composta` com três marcadores, o mostrador com dois
+ * ponteiros até o nível 4. Contar elementos da figura sorteada fixa o piso.
+ */
+describe('piso de complexidade por nível', () => {
+  /** Elementos variáveis de uma figura (o que muda entre figuras), por família. */
+  const ELEMENTOS: Record<string, (f: never) => number> = {
+    arcos: (f: FiguraArcos) =>
+      f.cantos.reduce<number>((n, v) => n + (v === 0 ? 0 : v === 3 ? 2 : 1), 0) + (f.ponto === null ? 0 : 1),
+    raios: (f: FiguraRaios) => f.filter((v) => v !== 0).length,
+    atributos: (f: FiguraAtributos) =>
+      1 + (f.marca === 'nenhuma' ? 0 : f.marca === 'ambas' || f.marca === 'dupla' ? 2 : 1),
+    aninhadas: (f: FiguraAninhadas) => f.aneis + 1 + f.pontos.length,
+    composta: (f: FiguraComposta) => f.filter((m) => m !== 'vazio').length,
+  }
+
+  /** Mínimo por nível (1 a 5), que nenhuma figura sorteada pode furar. */
+  const MINIMO: Record<string, number[]> = {
+    arcos: [3, 3, 4, 5, 6],
+    raios: [3, 3, 3, 4, 4],
+    atributos: [1, 1, 1, 2, 2],
+    aninhadas: [3, 3, 3, 4, 4],
+    composta: [0, 0, 0, 3, 4],
+  }
+
+  describe.each(Object.entries(FAMILIAS))('família "%s"', (id, fam) => {
+    it('respeita o mínimo de elementos em cada nível', () => {
+      for (const nivel of NIVEIS) {
+        for (let s = 0; s < 60; s++) {
+          const f = sortearUtilizavel(fam, mulberry32(s * 17 + nivel), nivel)
+          const n = (ELEMENTOS[id] as (f: unknown) => number)(f)
+          expect(n, `${id} nível ${nivel}: ${fam.assinatura(f)}`).toBeGreaterThanOrEqual(
+            (MINIMO[id] as number[])[nivel - 1] as number,
+          )
+        }
+      }
+    })
+
+    it('a figura média cresce do nível 1 para o 5', () => {
+      const media = (nivel: Difficulty) => {
+        let soma = 0
+        for (let s = 0; s < 60; s++) {
+          soma += (ELEMENTOS[id] as (f: unknown) => number)(sortearUtilizavel(fam, mulberry32(s * 31 + 5), nivel))
+        }
+        return soma / 60
+      }
+      expect(media(5)).toBeGreaterThan(media(1))
+    })
+  })
+
+  it('composta usa triângulo desde o nível 1 e as quatro regiões no 5', () => {
+    const n1 = Array.from({ length: 80 }, (_, s) => sortearUtilizavel(familiaComposta, mulberry32(s), 1))
+    expect(n1.some((f) => f.includes('triangulo'))).toBe(true)
+    for (let s = 0; s < 80; s++) {
+      expect(sortearUtilizavel(familiaComposta, mulberry32(s), 5)).not.toContain('vazio')
+    }
+  })
+})
+
+/**
+ * `variar` alimenta a intrusa de "qual não pertence" e os distratores de
+ * rotação. Se ela trouxer um elemento que a figura não tinha, a diferença
+ * salta aos olhos antes de qualquer comparação — e a questão volta a ser fácil
+ * pelo motivo errado.
+ */
+describe('variar é sutil', () => {
+  it('composta: nenhuma forma de marcador nova, só troca de lugar ou de preenchimento', () => {
+    const forma = (m: string) =>
+      ({ circulo: 'o', anel: 'o', quadrado: 'q', bloco: 'q', triangulo: 't', cunha: 't' })[m] ?? m
+    for (let s = 0; s < 300; s++) {
+      const rng = mulberry32(s + 9)
+      const f = sortearUtilizavel(familiaComposta, rng, ((s % 5) + 1) as Difficulty)
+      if (new Set(f).size < 2) continue
+      const v = familiaComposta.variar(f, rng)
+      const antes = new Set(f.map(forma))
+      for (const m of v) expect(antes.has(forma(m)), `${f.join(',')} → ${v.join(',')}`).toBe(true)
+    }
+  })
+
+  it('atributos: nunca muda preenchimento nem tamanho', () => {
+    for (let s = 0; s < 300; s++) {
+      const rng = mulberry32(s + 3)
+      const f = sortearUtilizavel(familiaAtributos, rng, ((s % 5) + 1) as Difficulty)
+      const v = familiaAtributos.variar(f, rng)
+      expect(v.preenchimento).toBe(f.preenchimento)
+      expect(v.tamanho).toBe(f.tamanho)
+    }
+  })
+
+  it('aninhadas: a variante nunca é só a figura girada', () => {
+    for (let s = 0; s < 300; s++) {
+      const rng = mulberry32(s + 5)
+      const f = sortearUtilizavel(familiaAninhadas, rng, ((s % 5) + 1) as Difficulty)
+      const v = familiaAninhadas.variar(f, rng)
+      const giros = [0, 1, 2, 3].map((k) => familiaAninhadas.assinatura(familiaAninhadas.rotate(f, k)))
+      expect(giros).not.toContain(familiaAninhadas.assinatura(v))
+    }
   })
 })

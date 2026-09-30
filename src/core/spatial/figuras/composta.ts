@@ -23,15 +23,53 @@ import { arred, girarPonto, LADO, TINTA, TRACO, type Familia } from './contrato'
  *        2
  */
 
-export type Marcador = 'vazio' | 'circulo' | 'quadrado' | 'triangulo' | 'barra'
+/**
+ * Cada forma de marcador existe cheia e vazada: círculo (cheio) e anel,
+ * quadrado (vazado) e bloco, triângulo (vazado) e cunha. A barra é só traço.
+ */
+export type Marcador =
+  | 'vazio'
+  | 'circulo'
+  | 'anel'
+  | 'quadrado'
+  | 'bloco'
+  | 'triangulo'
+  | 'cunha'
+  | 'barra'
 
 /** Um marcador por região, na ordem cima → direita → baixo → esquerda. */
 export type FiguraComposta = readonly [Marcador, Marcador, Marcador, Marcador]
 
-const MARCADORES: Marcador[] = ['vazio', 'circulo', 'quadrado', 'triangulo', 'barra']
+const MARCADORES: Marcador[] = ['vazio', 'circulo', 'anel', 'quadrado', 'bloco', 'triangulo', 'cunha', 'barra']
 
-/** Ordem do eixo de atributo; 'vazio' fica de fora e nunca entra no ciclo. */
-const CICLO_MARCADOR: Marcador[] = ['circulo', 'quadrado', 'triangulo', 'barra']
+/**
+ * O eixo de atributo troca cheio por vazado. Era um ciclo de quatro formas
+ * (círculo → quadrado → triângulo → barra), mas numa série de quatro casas
+ * ninguém consegue deduzir a ORDEM de um ciclo arbitrário — a regra ficava
+ * implícita demais. Cheio/vazado alterna e se lê num relance.
+ */
+const PREENCHER: Record<Marcador, Marcador> = {
+  vazio: 'vazio',
+  circulo: 'anel',
+  anel: 'circulo',
+  quadrado: 'bloco',
+  bloco: 'quadrado',
+  triangulo: 'cunha',
+  cunha: 'triangulo',
+  barra: 'barra',
+}
+
+/** Uma letra por marcador — a inicial não serve: 'barra' e 'bloco' colidem. */
+const LETRA: Record<Marcador, string> = {
+  vazio: 'v',
+  circulo: 'c',
+  anel: 'a',
+  quadrado: 'q',
+  bloco: 'k',
+  triangulo: 't',
+  cunha: 'u',
+  barra: 'b',
+}
 
 /** Distância do centro até o meio de cada região triangular. */
 const RAIO_REGIAO = 31
@@ -42,31 +80,42 @@ export const familiaComposta: Familia<FiguraComposta> = {
   suportaReflexao: true,
 
   sortear(rng: Rng, nivel: Difficulty): FiguraComposta {
-    // Nos níveis baixos o vocabulário é menor e há mais regiões vazias, o que
-    // deixa o arranjo mais fácil de guardar na memória entre uma figura e outra.
+    // Nos níveis baixos o vocabulário é menor, o que deixa o arranjo mais fácil
+    // de guardar na memória entre uma figura e outra.
+    //
+    // O piso subiu: o nível 1 já tem o triângulo, que antes só aparecia no 3 —
+    // e é o único marcador que aponta, o que torna a rotação visível no próprio
+    // marcador. Nos níveis 4 e 5 as quatro regiões vêm ocupadas (no 4, no
+    // máximo uma vazia), e as versões cheia e vazada de cada forma convivem.
     const paleta: Marcador[] =
-      nivel <= 2
-        ? ['vazio', 'circulo', 'quadrado']
-        : nivel <= 4
-          ? ['vazio', 'circulo', 'quadrado', 'triangulo']
+      nivel <= 1
+        ? ['vazio', 'circulo', 'quadrado', 'triangulo']
+        : nivel === 2
+          ? ['vazio', 'circulo', 'quadrado', 'triangulo', 'barra', 'anel']
           : MARCADORES
+    const cheia = paleta.filter((m) => m !== 'vazio')
 
-    return [rng.pick(paleta), rng.pick(paleta), rng.pick(paleta), rng.pick(paleta)] as const
+    const regioes = [rng.pick(paleta), rng.pick(paleta), rng.pick(paleta), rng.pick(paleta)]
+    if (nivel >= 4) {
+      // Preenche as vazias, deixando no máximo uma no nível 4.
+      let vaziasPermitidas = nivel === 4 ? 1 : 0
+      for (let i = 0; i < 4; i++) {
+        if (regioes[i] !== 'vazio') continue
+        if (vaziasPermitidas > 0) vaziasPermitidas--
+        else regioes[i] = rng.pick(cheia)
+      }
+    }
+    return regioes as unknown as FiguraComposta
   },
 
-  passosSecundarios: 4,
+  passosSecundarios: 2,
 
   avancarSecundario(f, passos) {
-    // Avança cada marcador presente no ciclo círculo → quadrado → triângulo →
-    // barra. Regiões vazias continuam vazias, senão o arranjo — que é a fonte
-    // da quiralidade — mudaria junto com o atributo.
-    const p = ((passos % CICLO_MARCADOR.length) + CICLO_MARCADOR.length) % CICLO_MARCADOR.length
-    if (p === 0) return f
-    return f.map((m) => {
-      if (m === 'vazio') return 'vazio'
-      const i = CICLO_MARCADOR.indexOf(m)
-      return CICLO_MARCADOR[(i + p) % CICLO_MARCADOR.length] as Marcador
-    }) as unknown as FiguraComposta
+    // Troca cheio por vazado em cada marcador presente. Regiões vazias
+    // continuam vazias, senão o arranjo — que é a fonte da quiralidade —
+    // mudaria junto com o atributo.
+    if (((passos % 2) + 2) % 2 === 0) return f
+    return f.map((m) => PREENCHER[m]) as unknown as FiguraComposta
   },
   rotate(f, passos) {
     // Girar 90° no horário leva a região i para a região i+1.
@@ -82,13 +131,30 @@ export const familiaComposta: Familia<FiguraComposta> = {
   },
 
   assinatura(f) {
-    return f.map((m) => m[0]).join('')
+    return f.map((m) => LETRA[m]).join('')
   },
 
   variar(f, rng) {
-    const i = rng.int(0, 3)
+    // Três variações mínimas, todas sem trazer um marcador que a figura não
+    // tinha — um marcador novo salta aos olhos antes de qualquer comparação:
+    // trocar dois vizinhos de lugar, inverter cheio/vazado de um só, ou trocar
+    // um marcador por outro que já está na figura.
     const copia = [...f] as Marcador[]
-    copia[i] = rng.pick(MARCADORES.filter((m) => m !== f[i]))
+    const i = rng.int(0, 3)
+    const j = (i + 1) % 4
+    const eixo = rng.int(0, 2)
+    if (eixo === 0 && copia[i] !== copia[j]) {
+      copia[i] = f[j] as Marcador
+      copia[j] = f[i] as Marcador
+      return copia as unknown as FiguraComposta
+    }
+    const trocaPreenchimento = PREENCHER[f[i] as Marcador]
+    if (eixo === 1 && trocaPreenchimento !== f[i]) {
+      copia[i] = trocaPreenchimento
+      return copia as unknown as FiguraComposta
+    }
+    const presentes = MARCADORES.filter((m) => m !== f[i] && f.includes(m))
+    copia[i] = rng.pick(presentes.length > 0 ? presentes : MARCADORES.filter((m) => m !== f[i]))
     return copia as unknown as FiguraComposta
   },
 
@@ -167,20 +233,26 @@ function desenharMarcador(
   if (marcador === 'circulo') {
     return { kind: 'circle', cx: centro.x, cy: centro.y, r, fill: TINTA, stroke: TINTA, strokeWidth: 1 }
   }
-  if (marcador === 'quadrado') {
+  if (marcador === 'anel') {
+    return { kind: 'circle', cx: centro.x, cy: centro.y, r: r - 1, fill: 'none', stroke: TINTA, strokeWidth: TRACO }
+  }
+  if (marcador === 'quadrado' || marcador === 'bloco') {
+    // Um pouco menor que o círculo de mesmo "raio": com lado 18 o quadrado
+    // pesava visivelmente mais que os outros marcadores.
+    const l = r * 0.85
     return {
       kind: 'rect',
-      x: arred(centro.x - r),
-      y: arred(centro.y - r),
-      w: r * 2,
-      h: r * 2,
-      fill: 'none',
+      x: arred(centro.x - l),
+      y: arred(centro.y - l),
+      w: arred(l * 2),
+      h: arred(l * 2),
+      fill: marcador === 'bloco' ? TINTA : 'none',
       stroke: TINTA,
       strokeWidth: TRACO,
     }
   }
 
-  if (marcador === 'triangulo') {
+  if (marcador === 'triangulo' || marcador === 'cunha') {
     const bruto = [
       { x: topo.x, y: topo.y - r },
       { x: topo.x + r * 0.9, y: topo.y + r * 0.7 },
@@ -190,7 +262,7 @@ function desenharMarcador(
     return {
       kind: 'polygon',
       points: pontos.flatMap((q) => [q.x, q.y]),
-      fill: 'none',
+      fill: marcador === 'cunha' ? TINTA : 'none',
       stroke: TINTA,
       strokeWidth: TRACO,
     }

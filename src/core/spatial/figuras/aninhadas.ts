@@ -11,6 +11,12 @@ import { arred, girarPonto, LADO, TINTA, TRACO, type Familia } from './contrato'
  * olho é puxado para o invólucro e a diferença está no miolo. É por isso que
  * ela é boa para "qual não pertence" e ruim para qualquer coisa que dependa da
  * silhueta.
+ *
+ * Satélites: pontos nas diagonais entre o miolo e o anel, posicionados EM
+ * RELAÇÃO à direção do miolo. Um ponto numa diagonal nunca está sobre o eixo
+ * de simetria do miolo, então ele sozinho já torna a figura quiral — é o que
+ * deixa triângulo e seta entrarem nas questões de reflexão, que antes só
+ * conheciam a bandeira.
  */
 
 export type Invólucro = 'circulo' | 'quadrado'
@@ -29,9 +35,26 @@ export interface FiguraAninhadas {
    * só espelhar muda. É daqui que sai a quiralidade da família.
    */
   espelhado: boolean
+  /**
+   * Diagonais ocupadas por satélites, em ordem crescente, contadas a partir
+   * da diagonal à direita da ponta do miolo e andando no horário: 0 = frente
+   * direita, 1 = trás direita, 2 = trás esquerda, 3 = frente esquerda.
+   */
+  pontos: readonly number[]
 }
 
 const MIOLOS: Miolo[] = ['triangulo', 'seta', 'bandeira']
+
+/**
+ * Distância do centro até os satélites. Fica entre a ponta do miolo (~21) e o
+ * anel interno (39), com folga de uns 4 de cada lado para o ponto de raio 4.
+ */
+const RAIO_SATELITE = 31
+
+/** Todos os subconjuntos das quatro diagonais, para o teste exaustivo. */
+const SUBCONJUNTOS: number[][] = Array.from({ length: 16 }, (_, m) =>
+  [0, 1, 2, 3].filter((o) => (m >> o) & 1),
+)
 
 export const familiaAninhadas: Familia<FiguraAninhadas> = {
   id: 'aninhadas',
@@ -39,14 +62,17 @@ export const familiaAninhadas: Familia<FiguraAninhadas> = {
   suportaReflexao: true,
 
   sortear(rng: Rng, nivel: Difficulty): FiguraAninhadas {
+    // Piso de complexidade: um satélite desde o nível 1 (antes a figura era
+    // uma moldura e um miolo, dois traços). Dois satélites a partir do 4, e
+    // até três no 5.
+    const quantos = nivel <= 3 ? rng.pick(nivel <= 2 ? [1] : [1, 2]) : nivel === 4 ? 2 : rng.pick([2, 3])
     return {
       invólucro: rng.pick(['circulo', 'quadrado'] as Invólucro[]),
       aneis: nivel <= 2 ? 1 : rng.pick([1, 2]),
-      // 'bandeira' é a única quiral, e por isso está disponível em todo nível:
-      // sem ela a amostragem por rejeição de uma figura quiral nunca converge.
       miolo: rng.pick(MIOLOS),
       direcao: rng.int(0, 3),
       espelhado: false,
+      pontos: rng.shuffle([0, 1, 2, 3]).slice(0, quantos).sort(),
     }
   },
 
@@ -62,20 +88,32 @@ export const familiaAninhadas: Familia<FiguraAninhadas> = {
 
   reflect(f) {
     const direcao = (4 - f.direcao) % 4
+    // A diagonal o, espelhada, vira 3 - o: frente direita troca com frente
+    // esquerda, trás direita com trás esquerda.
+    const pontos = f.pontos.map((o) => 3 - o).sort()
     return f.miolo === 'bandeira'
-      ? { ...f, direcao, espelhado: !f.espelhado }
-      : { ...f, direcao }
+      ? { ...f, direcao, espelhado: !f.espelhado, pontos }
+      : { ...f, direcao, pontos }
   },
 
   assinatura(f) {
-    return `${f.invólucro}|${f.aneis}|${f.miolo}${f.espelhado ? 'E' : ''}|${f.direcao}`
+    return `${f.invólucro}|${f.aneis}|${f.miolo}${f.espelhado ? 'E' : ''}|${f.direcao}|${f.pontos.join('')}`
   },
 
   variar(f, rng) {
+    // Girar o miolo sozinho não serve: todo o resto é relativo a ele, então
+    // isso é girar a figura inteira. As variações são locais — um satélite
+    // muda de diagonal, o miolo troca de forma ou a flâmula troca de lado.
+    const livres = [0, 1, 2, 3].filter((o) => !f.pontos.includes(o))
     const eixo = rng.int(0, 2)
-    if (eixo === 0) return { ...f, direcao: (f.direcao + rng.pick([1, 2, 3])) % 4 }
-    if (eixo === 1) return { ...f, miolo: rng.pick(MIOLOS.filter((m) => m !== f.miolo)) }
-    return { ...f, aneis: f.aneis === 1 ? 2 : 1 }
+    if (eixo === 0 && f.pontos.length > 0 && livres.length > 0) {
+      const sai = rng.pick(f.pontos)
+      const entra = rng.pick(livres)
+      return { ...f, pontos: f.pontos.map((o) => (o === sai ? entra : o)).sort() }
+    }
+    if (eixo === 1 && f.miolo === 'bandeira') return { ...f, espelhado: !f.espelhado }
+    const miolo = rng.pick(MIOLOS.filter((m) => m !== f.miolo))
+    return { ...f, miolo, espelhado: miolo === 'bandeira' ? f.espelhado : false }
   },
 
   toSpec(f): SpatialSpec {
@@ -83,7 +121,8 @@ export const familiaAninhadas: Familia<FiguraAninhadas> = {
     const shapes: SpatialSpec['shapes'] = []
 
     for (let i = 0; i < f.aneis; i++) {
-      const r = 46 - i * 9
+      // Anel interno a 39, não mais a 37: abre espaço para os satélites.
+      const r = 46 - i * 7
       shapes.push(
         f.invólucro === 'circulo'
           ? { kind: 'circle', cx: c, cy: c, r, fill: 'none', stroke: TINTA, strokeWidth: TRACO }
@@ -102,6 +141,11 @@ export const familiaAninhadas: Familia<FiguraAninhadas> = {
 
     shapes.push(desenharMiolo(f.miolo, f.direcao, f.espelhado))
 
+    for (const o of f.pontos) {
+      const p = girarPonto(c, c - RAIO_SATELITE, f.direcao * 90 + 45 + o * 90)
+      shapes.push({ kind: 'circle', cx: p.x, cy: p.y, r: 4, fill: TINTA, stroke: TINTA, strokeWidth: 1 })
+    }
+
     return { width: LADO, height: LADO, shapes }
   },
 
@@ -111,9 +155,11 @@ export const familiaAninhadas: Familia<FiguraAninhadas> = {
       for (const aneis of [1, 2]) {
         for (const miolo of MIOLOS) {
           for (let direcao = 0; direcao < 4; direcao++) {
-            todas.push({ invólucro, aneis, miolo, direcao, espelhado: false })
-            if (miolo === 'bandeira') {
-              todas.push({ invólucro, aneis, miolo, direcao, espelhado: true })
+            for (const pontos of SUBCONJUNTOS) {
+              todas.push({ invólucro, aneis, miolo, direcao, espelhado: false, pontos })
+              if (miolo === 'bandeira') {
+                todas.push({ invólucro, aneis, miolo, direcao, espelhado: true, pontos })
+              }
             }
           }
         }
