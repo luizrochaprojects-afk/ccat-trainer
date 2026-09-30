@@ -30,6 +30,41 @@ describe('composeExam', () => {
 
   it('respeita o blueprint de tipos', () => {
     const fila = composeExam(banco, { seed: 7 })
+    // Um tipo recém-criado pode ainda não ter banco (o gerado é promovido
+    // depois). Ele fica com o que existe, e a cota que faltou vai para os
+    // outros — que nunca recebem MENOS que o blueprint.
+    const curtos = TIPOS.filter((t) => banco.filter((q) => q.tipo === t).length < EXAM_BLUEPRINT[t])
+    for (const tipo of TIPOS) {
+      const n = fila.filter((q) => q.tipo === tipo).length
+      if (curtos.includes(tipo)) {
+        expect(n, tipo).toBe(banco.filter((q) => q.tipo === tipo).length)
+      } else if (curtos.length === 0) {
+        expect(n, tipo).toBe(EXAM_BLUEPRINT[tipo])
+      } else {
+        expect(n, tipo).toBeGreaterThanOrEqual(EXAM_BLUEPRINT[tipo])
+      }
+    }
+  })
+
+  it('com um tipo sem banco, completa as 50 com os outros em vez de encurtar', () => {
+    const semLogica = banco.filter((q) => q.tipo !== 'verbal_logic')
+    const fila = composeExam(semLogica, { seed: 4 })
+    expect(fila).toHaveLength(EXAM_QUESTION_COUNT)
+    expect(new Set(fila.map((q) => q.id)).size).toBe(EXAM_QUESTION_COUNT)
+    expect(fila.some((q) => q.tipo === 'verbal_logic')).toBe(false)
+  })
+
+  it('com o banco completo, o preenchimento não mexe na cota de ninguém', () => {
+    // Banco sintético: cada tipo com exatamente o dobro da cota.
+    const cheio = TIPOS.flatMap((tipo) =>
+      Array.from({ length: EXAM_BLUEPRINT[tipo] * 2 }, (_, i) => ({
+        ...banco[0]!,
+        id: `${tipo}-${i}`,
+        tipo,
+        difficulty: ((i % 5) + 1) as 1 | 2 | 3 | 4 | 5,
+      })),
+    )
+    const fila = composeExam(cheio, { seed: 9 })
     for (const tipo of TIPOS) {
       expect(fila.filter((q) => q.tipo === tipo).length, tipo).toBe(EXAM_BLUEPRINT[tipo])
     }

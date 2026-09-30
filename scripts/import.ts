@@ -18,7 +18,7 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { basename, join } from 'node:path'
 import { optionIdAt, type OptionId } from '../src/core/optionIds'
-import type { Question, SpatialSpec } from '../src/core/schema'
+import type { Question, SpatialSpec, StemTable } from '../src/core/schema'
 import type { Difficulty, Tipo } from '../src/core/taxonomy'
 import { CONTENT_DIR, writeDraftPack } from './lib/bank'
 
@@ -29,6 +29,7 @@ interface ItemImportado {
   difficulty: Difficulty
   stem: string
   stemSpatial?: SpatialSpec
+  stemTable?: StemTable
   /** texto (verbal/matemática) ou figura (espacial), na ordem exibida */
   options: (string | SpatialSpec)[]
   /** índice da alternativa correta */
@@ -76,6 +77,7 @@ for (const arquivo of pacotes) {
       difficulty: item.difficulty,
       stem: item.stem,
       ...(item.stemSpatial ? { stemSpatial: item.stemSpatial } : {}),
+      ...(item.stemTable ? { stemTable: item.stemTable } : {}),
       options: item.options.map((o, i) => ({
         id: optionIdAt(i),
         ...(typeof o === 'string' ? { text: o } : { spatial: o }),

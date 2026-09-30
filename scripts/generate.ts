@@ -15,7 +15,12 @@ import {
   type Difficulty,
   type Tipo,
 } from '../src/core/taxonomy'
-import { buildQuestion, GENERATORS, GENERATED_TIPOS } from '../src/core/generators'
+import {
+  buildQuestion,
+  GENERATORS,
+  GENERATED_TIPOS,
+  generatorLevels,
+} from '../src/core/generators'
 import type { Question } from '../src/core/schema'
 import { dedupSignature } from '../src/core/content/gates'
 import { writeDraftPack } from './lib/bank'
@@ -41,7 +46,8 @@ function cotaDe(tipo: Tipo): number {
 /** Geradores agrupados por tipo. */
 const porTipoGeradores = new Map<Tipo, string[]>()
 for (const [id, fn] of Object.entries(GENERATORS)) {
-  const tipo = fn(1, 1).tipo
+  // Pergunta o tipo no primeiro nível que o gerador cobre (a tabela começa no 2).
+  const tipo = fn(1, generatorLevels(id)[0] as Difficulty).tipo
   porTipoGeradores.set(tipo, [...(porTipoGeradores.get(tipo) ?? []), id])
 }
 
@@ -55,7 +61,8 @@ for (const tipo of TIPOS) {
   // Distribui a cota do tipo entre seus subtipos e os 5 níveis, para o banco
   // sair com ramp de dificuldade em vez de um monte de questão fácil.
   const porTipo = cotaDe(tipo)
-  const porCombinacao = Math.ceil(porTipo / (geradores.length * DIFFICULTIES.length))
+  const combinacoes = geradores.reduce((acc, g) => acc + generatorLevels(g).length, 0)
+  const porCombinacao = Math.ceil(porTipo / combinacoes)
   const vistos = new Set<string>()
   const doTipo: Question[] = []
 
@@ -83,7 +90,7 @@ for (const tipo of TIPOS) {
   // 1ª passada: cota igual para cada (gerador × nível).
   const deficit: { gerador: string; nivel: Difficulty; faltou: number }[] = []
   for (const gerador of geradores) {
-    for (const nivel of DIFFICULTIES) {
+    for (const nivel of generatorLevels(gerador)) {
       const aceitas = colher(gerador, nivel as Difficulty, porCombinacao)
       if (aceitas < porCombinacao) {
         deficit.push({ gerador, nivel: nivel as Difficulty, faltou: porCombinacao - aceitas })
@@ -100,6 +107,7 @@ for (const tipo of TIPOS) {
       for (const gerador of geradores) {
         if (aRedistribuir <= 0) break
         if (esgotados.has(`${gerador}|${nivel}`)) continue
+        if (!generatorLevels(gerador).includes(nivel)) continue
         aRedistribuir -= colher(gerador, nivel as Difficulty, aRedistribuir)
       }
     }

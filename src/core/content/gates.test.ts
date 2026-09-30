@@ -427,3 +427,64 @@ describe('questões de fora (importadas e amostras oficiais)', () => {
     )
   })
 })
+
+describe('tabela no enunciado', () => {
+  /** Primeira seed cujo "tabela" responde valor (ou linha) no nível pedido. */
+  function tabela(kind: 'valor' | 'linha', d: 2 | 3 | 4 | 5 = 4): Question {
+    for (let seed = 1; seed < 200; seed++) {
+      const q = buildQuestion('tabela', seed, d, AGORA)
+      if ((q.verification.method === 'solver') === (kind === 'valor')) return q
+    }
+    throw new Error(`sem questão de ${kind}`)
+  }
+
+  it('aprova as duas formas da leitura de tabela e a comparação de colunas', () => {
+    const r = runGates([tabela('valor'), tabela('linha'), buildQuestion('comparacao', 3, 2, AGORA)])
+    expect(r.violations, JSON.stringify(r.violations, null, 2)).toHaveLength(0)
+  })
+
+  it('o schema barra linha com número errado de células', () => {
+    const q = tabela('valor')
+    const t = q.stemTable!
+    const torta = { ...q, stemTable: { ...t, rows: [t.rows[0]!.slice(1), ...t.rows.slice(1)] } }
+    expect(gatesDisparados(torta)).toContain('G1_schema')
+  })
+
+  it('barra tabela editada à mão (não reproduz pela seed)', () => {
+    const q = buildQuestion('comparacao', 5, 3, AGORA)
+    const t = q.stemTable!
+    // Uma letra a mais na cópia da linha 1: o gabarito do arquivo deixaria de valer.
+    const r0 = t.rows[0]!
+    const editada = { ...q, stemTable: { ...t, rows: [[r0[0]!, r0[1]!, `${r0[2]}x`], ...t.rows.slice(1)] } }
+    expect(gatesDisparados(editada)).toContain('G2_gabarito')
+  })
+
+  it('"qual linha" passa só pela regra; número pela regra, sem solver, não passa', () => {
+    expect(tabela('linha').verification.method).toBe('rule')
+    const q = tabela('valor')
+    const { expression: _, ...semExpressao } = q.verification
+    expect(gatesDisparados({ ...q, verification: { ...semExpressao, method: 'rule' } })).toContain(
+      'G2_gabarito',
+    )
+  })
+
+  it('barra tabela de dados que imprime a resposta numa célula', () => {
+    const q = tabela('valor')
+    const certa = q.options.find((o) => o.id === q.answerId)!.text!
+    const t = q.stemTable!
+    const r0 = t.rows[0]!
+    const vazada = {
+      ...q,
+      stemTable: { ...t, rows: [[r0[0]!, certa.replace(/[$%]/g, ''), ...r0.slice(2)], ...t.rows.slice(1)] },
+    }
+    const r = runGates([vazada])
+    expect(r.violations.map((v) => v.message)).toContain('a tabela contém a resposta')
+  })
+
+  it('a tabela entra na assinatura de dedup: mesmo enunciado, tabelas diferentes, não é duplicata', () => {
+    const a = buildQuestion('comparacao', 1, 2, AGORA)
+    const b = { ...buildQuestion('comparacao', 2, 2, AGORA), stem: a.stem }
+    expect(dedupSignature(a)).not.toBe(dedupSignature(b))
+    expect(dedupSignature(a)).toBe(dedupSignature({ ...a, id: 'outra' }))
+  })
+})

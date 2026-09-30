@@ -1,12 +1,14 @@
-import type { Question, SpatialSpec } from './schema'
-import { TIPOS, type Difficulty, type Tipo } from './taxonomy'
+import type { Question, SpatialSpec, StemTable } from './schema'
+import { DIFFICULTIES, TIPOS, type Difficulty, type Tipo } from './taxonomy'
 import type { LocalizedText } from './i18n'
 import { SPATIAL_GENERATORS } from './spatial/generators'
 import { SERIES_GENERATORS } from './math/series'
 import { LETRAS_GENERATORS } from './math/letras'
 import { WORD_GENERATORS } from './math/word'
 import { CALCULO_GENERATORS } from './math/calculo'
+import { NIVEIS_TABELA, TABLE_GENERATORS } from './math/table'
 import { VERBAL_GENERATORS } from './verbal/generators'
+import { DETAIL_GENERATORS } from './detail/comparacao'
 import { seedFromString } from './rng'
 
 /**
@@ -22,6 +24,7 @@ export interface Generated {
   subtipo: string
   stem: string
   stemSpatial?: SpatialSpec
+  stemTable?: StemTable
   options: { id: string; text?: string; spatial?: SpatialSpec }[]
   answerId: string
   explanation: LocalizedText
@@ -121,6 +124,45 @@ export const GENERATORS: Record<string, GeneratorFn> = {
     ]),
   ),
 
+  // math_word / leitura de tabela — solver quando a resposta é um valor, regra
+  // quando é "qual linha" (ver VERIFICATION_METHODS)
+  ...Object.fromEntries(
+    Object.entries(TABLE_GENERATORS).map(([id, fn]) => [
+      id,
+      comTipo('math_word', (seed, d) => {
+        const q = fn(seed, d)
+        return {
+          subtipo: q.subtipo,
+          stem: q.stem,
+          stemTable: q.stemTable,
+          options: q.options,
+          answerId: q.answerId,
+          explanation: q.explanation,
+          ...(q.expression !== undefined ? { expression: q.expression } : {}),
+          ...(q.answerValue !== undefined ? { answerValue: q.answerValue } : {}),
+        }
+      }),
+    ]),
+  ),
+
+  // verbal_detail — verificação por regra: conferência mecânica de strings
+  ...Object.fromEntries(
+    Object.entries(DETAIL_GENERATORS).map(([id, fn]) => [
+      id,
+      comTipo('verbal_detail', (seed, d) => {
+        const q = fn(seed, d)
+        return {
+          subtipo: q.subtipo,
+          stem: q.stem,
+          stemTable: q.stemTable,
+          options: q.options,
+          answerId: q.answerId,
+          explanation: q.explanation,
+        }
+      }),
+    ]),
+  ),
+
   // verbal — verificação por regra, a partir do léxico curado
   ...Object.fromEntries(
     Object.entries(VERBAL_GENERATORS).map(([id, fn]) => [
@@ -140,6 +182,18 @@ export const GENERATORS: Record<string, GeneratorFn> = {
 }
 
 export const GENERATOR_IDS = Object.keys(GENERATORS)
+
+/**
+ * Níveis em que cada gerador existe. Quase todos cobrem 1–5; a leitura de
+ * tabela começa no 2, como na prova, e pedir o nível 1 a ela é erro.
+ */
+const NIVEIS_POR_GERADOR: Record<string, readonly Difficulty[]> = {
+  tabela: NIVEIS_TABELA,
+}
+
+export function generatorLevels(id: string): readonly Difficulty[] {
+  return NIVEIS_POR_GERADOR[id] ?? DIFFICULTIES
+}
 
 /** Tipos cobertos por gerador determinístico — os demais dependem de LLM. */
 export const GENERATED_TIPOS: Tipo[] = [...TIPOS]
@@ -175,6 +229,7 @@ export function buildQuestion(
     difficulty,
     stem: g.stem,
     ...(g.stemSpatial ? { stemSpatial: g.stemSpatial } : {}),
+    ...(g.stemTable ? { stemTable: g.stemTable } : {}),
     options: g.options,
     answerId: g.answerId,
     explanation: g.explanation,

@@ -533,7 +533,134 @@ p {
   display: block;
 }
 
+/* --- tabela do enunciado ------------------------------------------------- */
+/* Leitura de tabela e comparação de colunas. A tabela divide a dobra com a
+   pergunta e as cinco alternativas, então as alturas são elásticas (dvh) e as
+   células são estreitas por construção: o gerador limita a largura do
+   conteúdo, e o CSS só compacta. O `overflow-x` é rede de segurança, não
+   layout — a página nunca rola na horizontal. */
+
+.tabela-enunciado {
+  margin: clamp(10px, 3dvh, 28px) 0 0;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.tabela-enunciado table {
+  width: auto;
+  min-width: min(100%, 26rem);
+  margin: 0;
+  border-collapse: collapse;
+  font-size: clamp(0.8125rem, 2.3dvh, 0.9375rem);
+  border-bottom: 1.5px solid var(--tinta);
+}
+
+.tabela-enunciado caption {
+  caption-side: top;
+  text-align: left;
+  font-size: var(--t-micro);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--tinta-fraca);
+  padding-bottom: clamp(3px, 0.8dvh, 6px);
+}
+
+.tabela-enunciado th,
+.tabela-enunciado td {
+  padding: clamp(2px, 0.75dvh, 7px) 18px clamp(2px, 0.75dvh, 7px) 0;
+  border-bottom: 1px solid var(--linha);
+  line-height: 1.3;
+  vertical-align: baseline;
+}
+
+.tabela-enunciado tr > :last-child {
+  padding-right: 0;
+}
+
+.tabela-enunciado thead th {
+  font-size: var(--t-micro);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--tinta-fraca);
+  border-top: 1.5px solid var(--tinta);
+  border-bottom: 1px solid var(--tinta);
+  vertical-align: bottom;
+}
+
+.tabela-enunciado tbody th {
+  text-align: left;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.tabela-enunciado td {
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.tabela-enunciado .n {
+  text-align: right;
+}
+
+.tabela-enunciado tbody tr:last-child > * {
+  border-bottom: 0;
+}
+
+/* Comparação: o número da linha é referência, não conteúdo — recua em tom.
+   As duas colunas ganham um fio entre si para o olho saltar de uma à outra
+   na mesma altura. `pre` preserva espaço e pontuação exatamente como são:
+   é justamente o que está sendo comparado. */
+.tabela-enunciado.comparacao tbody th {
+  font-family: var(--mono);
+  font-weight: 500;
+  color: var(--tinta-tenue);
+  padding-right: 12px;
+}
+
+.tabela-enunciado.comparacao td {
+  white-space: pre;
+  letter-spacing: 0.02em;
+}
+
+.tabela-enunciado.comparacao td + td {
+  padding-left: 18px;
+  border-left: 1px solid var(--linha);
+}
+
+/* Com a tabela ocupando a dobra, a pergunta vira uma linha de apoio: menor e
+   mais perto da tabela. */
+.tabela-enunciado + .enunciado.com-tabela {
+  font-size: min(var(--t-stem), 3.4dvh);
+  margin: clamp(8px, 2.4dvh, 22px) 0 clamp(8px, 2.4dvh, 22px);
+  max-width: 46ch;
+}
+
 /* --- alternativas -------------------------------------------------------- */
+
+/* Alternativas curtas ao lado de uma tabela: grade de 2 no celular e de 5 no
+   desktop, em vez da pilha de cinco cartões. A tecla encolhe junto; o alvo de
+   toque continua com os 44px de altura. */
+.opcoes.curtas {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.opcoes.curtas .opcao {
+  gap: 10px;
+  padding-right: 8px;
+}
+
+.opcoes.curtas .tecla {
+  width: 36px;
+}
+
+@media (min-width: 721px) {
+  .opcoes.curtas {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
 
 .opcoes {
   display: grid;
@@ -1291,6 +1418,7 @@ body {
    A explicação do feedback continua selecionável: ali copiar é útil. */
 .barra-sessao,
 .enunciado,
+.tabela-enunciado,
 .opcao,
 .tecla {
   user-select: none;
@@ -1570,6 +1698,54 @@ body {
   .opcao svg {
     max-width: 100%;
     margin-top: 6px;
+  }
+}
+
+/* Tabela no celular: fonte e respiro menores. Duas colunas de 18 caracteres
+   em monoespaçada de 12px cabem nos 335px úteis de um 375; em 13px não. */
+@media (max-width: 480px) {
+  .tabela-enunciado table {
+    min-width: 100%;
+    font-size: 0.75rem;
+  }
+
+  .tabela-enunciado th,
+  .tabela-enunciado td {
+    padding-right: 10px;
+  }
+
+  .tabela-enunciado.comparacao tbody th {
+    padding-right: 8px;
+  }
+
+  .tabela-enunciado.comparacao td {
+    letter-spacing: 0;
+  }
+
+  .tabela-enunciado.comparacao td + td {
+    padding-left: 10px;
+  }
+}
+
+/* Celular baixo com tabela: o cabeçalho da comparação ("Row / Original /
+   Copy") só repete o óbvio — sai da tela e fica para o leitor de tela. */
+@media (max-height: 600px) and (max-width: 480px) {
+  .tabela-enunciado.comparacao thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
+  .tabela-enunciado {
+    margin-top: 8px;
+  }
+
+  .tabela-enunciado + .enunciado.com-tabela {
+    font-size: 1rem;
+    line-height: 1.25;
+    margin: 8px 0;
   }
 }
 

@@ -47,6 +47,10 @@ export default defineConfig({
   },
   test: {
     globals: true,
+    // Os geradores são provados por varredura (centenas de seeds × níveis), e
+    // com a suíte inteira em paralelo essas varreduras passavam dos 5s padrão
+    // sem nada de errado — falha intermitente que ensina a ignorar vermelho.
+    testTimeout: 30_000,
     // Dois ambientes: a regra pura continua em `node`, como sempre esteve, e
     // só os testes de componente pagam o custo do jsdom.
     projects: [

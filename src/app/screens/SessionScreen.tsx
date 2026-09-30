@@ -11,6 +11,7 @@ import { subtipoTheory } from '../../core/theory'
 import { DRILL_PER_QUESTION_MS, SUBTIPO_LABEL, type AnySubtipo } from '../../core/taxonomy'
 import { Confirmacao } from '../components/Confirmacao'
 import { SpatialFigure } from '../components/SpatialFigure'
+import { TabelaEnunciado } from '../components/TabelaEnunciado'
 import { tocar } from '../haptics'
 import { useGuardaDeSaida, useSalvarAoSair } from '../useBotaoVoltar'
 import { useOptionHotkeys, useSession } from '../useSession'
@@ -153,6 +154,11 @@ export function SessionScreen({
   const urgente = restante <= Math.min(30_000, orcamento * 0.3)
   const total = state.config.questions.length
   const graficas = q.options.some((o) => o.spatial)
+  // Com tabela no enunciado, alternativas curtas (número, rótulo de linha,
+  // "1 and 3") viram grade: a tabela come a altura que a lista vertical de
+  // cinco cartões precisaria, e em 545px de altura não cabem as duas coisas.
+  const curtas =
+    Boolean(q.stemTable) && q.options.every((o) => o.text !== undefined && o.text.length <= 16)
   const teoria = subtipoTheory(q.tipo, q.subtipo)
   const decorrido = Math.min(100, ((orcamento - restante) / orcamento) * 100)
 
@@ -190,9 +196,15 @@ export function SessionScreen({
           </div>
         )}
 
+        {/* A tabela vem ANTES da pergunta, como na prova: o olho passa por ela
+            uma vez, lê o que se pede e volta direto às células que importam. */}
+        {q.stemTable && <TabelaEnunciado tabela={q.stemTable} />}
+
         <p
           id="enunciado"
-          className={`enunciado${q.tipo === 'math_series' ? ' serie' : ''}`}
+          className={`enunciado${q.tipo === 'math_series' ? ' serie' : ''}${
+            q.stemTable ? ' com-tabela' : ''
+          }`}
         >
           {q.stem}
         </p>
@@ -200,7 +212,7 @@ export function SessionScreen({
         {/* radiogroup, não lista de botões: `aria-pressed` comunica "botão que
             fica ligado", e o que existe aqui é uma escolha entre cinco. */}
         <div
-          className={`opcoes${graficas ? ' graficas' : ''}`}
+          className={`opcoes${graficas ? ' graficas' : ''}${curtas ? ' curtas' : ''}`}
           role="radiogroup"
           aria-labelledby="enunciado"
         >
