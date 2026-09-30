@@ -1,8 +1,25 @@
 import { describe, expect, it } from 'vitest'
 import { DIFFICULTIES } from '../taxonomy'
 import { VERBAL_GENERATORS, VERBAL_GENERATOR_IDS } from './generators'
-import { ANALOGY_PAIRS, VOCAB, VOCAB_BY_WORD, forbiddenFor } from './lexicon'
-import { allStatements, entails, renderStatement, VALID_FORMS } from './syllogism'
+import {
+  ANALOGY_PAIRS,
+  RELATION_FAMILY,
+  VOCAB,
+  VOCAB_BY_WORD,
+  areConfusable,
+  forbiddenFor,
+  neighborsOf,
+  type AnalogyPair,
+  type VocabEntry,
+} from './lexicon'
+import {
+  allStatements,
+  entails,
+  findCountermodel,
+  renderStatement,
+  VALID_FORMS,
+  type Statement,
+} from './syllogism'
 
 const RUNS = 200
 
@@ -147,6 +164,83 @@ describe('analogia — o gabarito vem da relação do léxico', () => {
   })
 })
 
+describe('analogia — distratores se parecem com o enunciado', () => {
+  const parDe = (texto: string) => ANALOGY_PAIRS.find((p) => `${p.a} is to ${p.b}` === texto)!
+  const baseDe = (stem: string) => {
+    const [a, b] = stem.replace(' as:', '').toLowerCase().split(' is to ')
+    return ANALOGY_PAIRS.find((p) => p.a === a && p.b === b)!
+  }
+  const palavras = (p: AnalogyPair) => [p.a, p.b]
+
+  it('pelo menos dois distratores dividem palavra ou família de relação com o enunciado', () => {
+    for (const d of DIFFICULTIES) {
+      for (let seed = 1; seed <= RUNS; seed++) {
+        const q = VERBAL_GENERATORS.analogia(seed, d)
+        const base = baseDe(q.stem)
+        const parecidos = q.options.filter((o) => {
+          if (o.id === q.answerId) return false
+          const p = parDe(o.text)
+          return (
+            palavras(p).some((w) => palavras(base).includes(w)) ||
+            RELATION_FAMILY[p.relation] === RELATION_FAMILY[base.relation]
+          )
+        })
+        expect(parecidos.length, `nível ${d} seed ${seed}: ${q.stem}`).toBeGreaterThanOrEqual(2)
+      }
+    }
+  })
+
+  it('nenhum distrator é de relação confundível com a do enunciado', () => {
+    for (const d of DIFFICULTIES) {
+      for (let seed = 1; seed <= RUNS; seed++) {
+        const q = VERBAL_GENERATORS.analogia(seed, d)
+        const base = baseDe(q.stem)
+        for (const o of q.options) {
+          const r = parDe(o.text).relation
+          expect(areConfusable(r, base.relation), `${q.stem} × "${o.text}"`).toBe(false)
+        }
+      }
+    }
+  })
+
+  it('cada alternativa é de uma relação diferente (nada se elimina em bloco)', () => {
+    for (const d of DIFFICULTIES) {
+      for (let seed = 1; seed <= RUNS; seed++) {
+        const q = VERBAL_GENERATORS.analogia(seed, d)
+        const relacoes = q.options.map((o) => parDe(o.text).relation)
+        expect(new Set(relacoes).size, `nível ${d} seed ${seed}`).toBe(relacoes.length)
+      }
+    }
+  })
+
+  it('o gabarito não divide palavra com o enunciado, e nenhum distrator com o gabarito', () => {
+    for (const d of DIFFICULTIES) {
+      for (let seed = 1; seed <= RUNS; seed++) {
+        const q = VERBAL_GENERATORS.analogia(seed, d)
+        const base = baseDe(q.stem)
+        const correta = parDe(q.options.find((o) => o.id === q.answerId)!.text)
+        expect(palavras(correta).some((w) => palavras(base).includes(w)), q.stem).toBe(false)
+        for (const o of q.options) {
+          if (o.id === q.answerId) continue
+          const p = parDe(o.text)
+          expect(
+            palavras(p).some((w) => palavras(correta).includes(w)),
+            `${q.stem}: "${o.text}" divide palavra com o gabarito`,
+          ).toBe(false)
+        }
+      }
+    }
+  })
+
+  it('analogia_simples nos níveis 1-3, analogia_dupla nos níveis 4-5', () => {
+    for (const d of DIFFICULTIES) {
+      expect(VERBAL_GENERATORS.analogia(1, d).subtipo).toBe(
+        d >= 4 ? 'analogia_dupla' : 'analogia_simples',
+      )
+    }
+  })
+})
+
 describe('antônimo — distratores nunca são antônimos defensáveis', () => {
   it('nenhum distrator está na lista de antônimos do verbete', () => {
     for (const d of DIFFICULTIES) {
@@ -177,15 +271,17 @@ describe('antônimo — distratores nunca são antônimos defensáveis', () => {
     }
   })
 
-  it('inclui pelo menos um sinônimo como armadilha', () => {
-    let comArmadilha = 0
-    for (let seed = 1; seed <= RUNS; seed++) {
-      const q = VERBAL_GENERATORS.antonimo(seed, 3)
-      const palavra = q.stem.match(/"([A-Z]+)"/)?.[1]?.toLowerCase()
-      const entry = VOCAB_BY_WORD.get(palavra as string)!
-      if (q.options.some((o) => entry.synonyms.includes(o.text))) comArmadilha++
+  it('sempre inclui um sinônimo como armadilha (o quase-acerto)', () => {
+    for (const d of DIFFICULTIES) {
+      for (let seed = 1; seed <= RUNS; seed++) {
+        const q = VERBAL_GENERATORS.antonimo(seed, d)
+        const entry = verbeteDo(q.stem)
+        expect(
+          q.options.some((o) => entry.synonyms.includes(o.text)),
+          `nível ${d} seed ${seed}: "${entry.word}" sem armadilha`,
+        ).toBe(true)
+      }
     }
-    expect(comArmadilha).toBeGreaterThan(RUNS * 0.9)
   })
 
   it('nenhum distrator vem do mesmo cluster semântico do alvo', () => {
@@ -220,6 +316,88 @@ describe('sinônimo — espelho do antônimo', () => {
         for (const o of q.options) {
           if (o.id === q.answerId) continue
           expect(entry.synonyms, `"${o.text}" também é sinônimo`).not.toContain(o.text)
+        }
+      }
+    }
+  })
+})
+
+describe('vocabulário — sinônimo e antônimo não se entregam', () => {
+  it('nenhuma palavra é enunciado nos dois subtipos', () => {
+    const doSinonimo = new Set<string>()
+    const doAntonimo = new Set<string>()
+    for (const d of DIFFICULTIES) {
+      for (let seed = 1; seed <= RUNS; seed++) {
+        doSinonimo.add(verbeteDo(VERBAL_GENERATORS.sinonimo(seed, d).stem).word)
+        doAntonimo.add(verbeteDo(VERBAL_GENERATORS.antonimo(seed, d).stem).word)
+      }
+    }
+    const nosDois = [...doSinonimo].filter((w) => doAntonimo.has(w))
+    expect(nosDois, `cobradas nos dois subtipos: ${nosDois.join(', ')}`).toHaveLength(0)
+  })
+
+  it('o verbete sorteado é sempre do subtipo e do nível pedidos', () => {
+    for (const subtipo of ['sinonimo', 'antonimo'] as const) {
+      for (const d of DIFFICULTIES) {
+        for (let seed = 1; seed <= RUNS; seed++) {
+          const entry = verbeteDo(VERBAL_GENERATORS[subtipo](seed, d).stem)
+          expect(entry.subtipo, `${subtipo} nível ${d} seed ${seed}`).toBe(subtipo)
+          expect(entry.level, `${subtipo} nível ${d} seed ${seed}`).toBe(d)
+        }
+      }
+    }
+  })
+
+  it('sinônimo sempre traz um antônimo como armadilha', () => {
+    for (const d of DIFFICULTIES) {
+      for (let seed = 1; seed <= RUNS; seed++) {
+        const q = VERBAL_GENERATORS.sinonimo(seed, d)
+        const entry = verbeteDo(q.stem)
+        expect(q.options.some((o) => entry.antonyms.includes(o.text))).toBe(true)
+      }
+    }
+  })
+
+  it('nenhum preenchimento vem de um vizinho declarado do enunciado', () => {
+    for (const subtipo of ['sinonimo', 'antonimo'] as const) {
+      for (const d of DIFFICULTIES) {
+        for (let seed = 1; seed <= RUNS; seed++) {
+          const q = VERBAL_GENERATORS[subtipo](seed, d)
+          const entry = verbeteDo(q.stem)
+          const vizinhos = neighborsOf(entry.word)
+          for (const o of q.options) {
+            if (forbiddenFor(entry).has(o.text)) continue // gabarito e armadilhas
+            // qualquer dono da palavra conta: "humdrum" é de mundane e de tedious
+            const donos = VOCAB.filter((e) => e.word === o.text || e.synonyms.includes(o.text))
+            for (const dono of donos) {
+              expect(vizinhos.has(dono.word), `${entry.word}: "${o.text}" (${dono.word})`).toBe(
+                false,
+              )
+            }
+          }
+        }
+      }
+    }
+  })
+
+  it('o preenchimento é da mesma classe gramatical e de clusters distintos entre si', () => {
+    for (const subtipo of ['sinonimo', 'antonimo'] as const) {
+      for (const d of DIFFICULTIES) {
+        for (let seed = 1; seed <= RUNS; seed++) {
+          const q = VERBAL_GENERATORS[subtipo](seed, d)
+          const entry = verbeteDo(q.stem)
+          const clusters: string[] = []
+          for (const o of q.options) {
+            if (forbiddenFor(entry).has(o.text)) continue // gabarito e armadilhas
+            const dono = VOCAB.find((e) => e.word === o.text || e.synonyms.includes(o.text))
+            expect(dono, `"${o.text}" não vem do léxico`).toBeDefined()
+            expect(dono!.pos, `${subtipo} "${entry.word}": "${o.text}"`).toBe(entry.pos)
+            expect(dono!.cluster).not.toBe(entry.cluster)
+            clusters.push(dono!.cluster)
+          }
+          expect(new Set(clusters).size, `${subtipo} "${entry.word}": [${clusters}]`).toBe(
+            clusters.length,
+          )
         }
       }
     }
@@ -276,6 +454,60 @@ describe('dedução — o gabarito é teorema', () => {
   })
 })
 
+describe('dedução — importação existencial (sem segunda resposta defensável)', () => {
+  const SEEDS = 400
+
+  it('todo distrator tem contramodelo com os três grupos povoados', () => {
+    for (const d of DIFFICULTIES) {
+      for (let seed = 1; seed <= SEEDS; seed++) {
+        const q = VERBAL_GENERATORS.deducao(seed, d)
+        const { premissas, ler } = reconstruir(q.stem)
+        for (const o of q.options) {
+          if (o.id === q.answerId) continue
+          const cm = findCountermodel(premissas, ler(o.text), { existentialImport: true })
+          expect(
+            cm,
+            `nível ${d} seed ${seed}: "${o.text}" se segue de "${q.stem.split('\n')[0]}" ` +
+              `para quem assume que os grupos existem`,
+          ).not.toBeNull()
+          for (const extensao of cm!) expect(extensao.some(Boolean)).toBe(true)
+        }
+      }
+    }
+  })
+
+  it('o gabarito vale mesmo sem importação existencial (vale para todo leitor)', () => {
+    for (const d of DIFFICULTIES) {
+      for (let seed = 1; seed <= SEEDS; seed++) {
+        const q = VERBAL_GENERATORS.deducao(seed, d)
+        const { premissas, ler } = reconstruir(q.stem)
+        const marcada = q.options.find((o) => o.id === q.answerId)!
+        expect(entails(premissas, ler(marcada.text)), `nível ${d} seed ${seed}`).toBe(true)
+      }
+    }
+  })
+
+  it('regressão da auditoria: Cesare nunca traz "Some A are not C" como distrator', () => {
+    for (let seed = 1; seed <= SEEDS; seed++) {
+      const q = VERBAL_GENERATORS.deducao(seed, 1)
+      const { premissas, ler } = reconstruir(q.stem)
+      const marcada = ler(q.options.find((o) => o.id === q.answerId)!.text)
+      if (marcada.quantifier !== 'no') continue
+      // a subalterna da conclusão universal negativa
+      const subalterna: Statement = { ...marcada, quantifier: 'some-not' }
+      const textos = q.options.map((o) => ler(o.text))
+      const aparece = textos.some(
+        (s) =>
+          s.quantifier === 'some-not' &&
+          s.subject === subalterna.subject &&
+          s.predicate === subalterna.predicate,
+      )
+      expect(aparece, `seed ${seed}: "${q.stem}"`).toBe(false)
+      expect(entails(premissas, subalterna, { existentialImport: true })).toBe(true)
+    }
+  })
+})
+
 describe('cobertura das formas silogísticas', () => {
   it('todo nível tem ao menos uma forma válida disponível', () => {
     for (const d of DIFFICULTIES) {
@@ -284,6 +516,33 @@ describe('cobertura das formas silogísticas', () => {
     }
   })
 })
+
+function verbeteDo(stem: string): VocabEntry {
+  const palavra = stem.match(/"([A-Z]+)"/)?.[1]?.toLowerCase()
+  const entry = VOCAB_BY_WORD.get(palavra as string)
+  if (!entry) throw new Error(`verbete "${palavra}" não encontrado em "${stem}"`)
+  return entry
+}
+
+/**
+ * Reconstrói as premissas e um leitor de alternativas a partir do texto.
+ *
+ * A atribuição de índices aos termos é arbitrária, mas é a MESMA para premissas
+ * e alternativas — e validade não depende do nome dado a cada termo.
+ */
+function reconstruir(stem: string): { premissas: Statement[]; ler: (t: string) => Statement } {
+  const [linha] = stem.split('\n')
+  const termos = extrairTermos(linha as string)
+  const ler = (texto: string): Statement => {
+    const s = allStatements().find((st) => renderStatement(st, termos) === texto)
+    if (!s) throw new Error(`não reconheço "${texto}" com os termos ${termos.join(', ')}`)
+    return s
+  }
+  const premissas = (linha as string)
+    .split(/(?<=\.) /)
+    .map((frase) => ler(frase.trim()))
+  return { premissas, ler }
+}
 
 /** Lê os três termos a partir das premissas renderizadas. */
 function extrairTermos(premissas: string): string[] {

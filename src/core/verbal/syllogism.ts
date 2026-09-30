@@ -2,16 +2,25 @@
  * Silogismos categóricos com validade **provada**, não julgada.
  *
  * Cada conclusão candidata é verificada por model checking: enumeramos todos os
- * modelos finitos pequenos dos três predicados e perguntamos se existe algum em
- * que as premissas valem e a conclusão falha. Se não existe, a conclusão se
- * segue; se existe, é distrator — e o contramodelo é a prova de que é distrator.
+ * modelos dos três predicados e perguntamos se existe algum em que as premissas
+ * valem e a conclusão falha. Se não existe, a conclusão se segue; se existe, é
+ * distrator — e o contramodelo é a prova de que é distrator.
  *
  * Isso tira o verbal_logic da dependência de julgamento de modelo: o gabarito é
  * teorema.
  *
- * Convenção: lógica moderna, **sem importação existencial**. "All A are B" não
- * implica que exista algum A. É por isso que "All A are C" não entrega
- * "Some A are C" — e essa é justamente uma das armadilhas clássicas.
+ * Duas semânticas, e a questão precisa sobreviver às duas:
+ *
+ * - **Booleana** (lógica moderna, padrão): classes podem ser vazias. "All A are
+ *   B" não implica que exista algum A.
+ * - **Com importação existencial** (lógica tradicional): todo termo nomeado tem
+ *   ao menos um membro. É como a CCAT e quase todo candidato leem "All
+ *   engineers are analysts" — ninguém imagina que não existam engenheiros.
+ *
+ * O gabarito tem de valer na booleana (vale para todo leitor, porque os modelos
+ * com importação são um subconjunto). O distrator tem de falhar na com
+ * importação: se "Some A are B" só não se segue porque A poderia ser vazio, ele
+ * é uma segunda resposta defensável, não um distrator.
  */
 
 export type Quantifier = 'all' | 'no' | 'some' | 'some-not'
@@ -24,47 +33,81 @@ export interface Statement {
   predicate: number
 }
 
+export interface Semantics {
+  /**
+   * Restringe os modelos aos que têm os três predicados não vazios. Omitido,
+   * vale a semântica booleana (classes vazias permitidas).
+   */
+  existentialImport?: boolean
+}
+
 export const PREDICATE_COUNT = 3
 
-/** Tamanho do domínio varrido. 3 basta para refutar as formas silogísticas. */
-const DOMAIN_SIZE = 3
+/** Regiões do diagrama de Venn de 3 predicados: cada bit de `r` diz se está em A, B, C. */
+const REGION_COUNT = 1 << PREDICATE_COUNT
 
 /**
  * A conclusão se segue necessariamente das premissas?
  *
- * Varre 2^(3×3) = 512 modelos. Para silogismos categóricos com 3 predicados,
- * um domínio de 3 elementos é suficiente: qualquer inferência inválida tem
- * contramodelo desse tamanho.
+ * Em lógica monádica, a verdade de qualquer afirmação categórica depende só de
+ * QUAIS regiões do diagrama de Venn estão ocupadas, não de quantos elementos há
+ * em cada uma. Então varrer os 2^8 = 256 padrões de ocupação é exaustivo — não
+ * é amostragem, não há contramodelo que escape.
  */
-export function entails(premises: Statement[], conclusion: Statement): boolean {
-  return findCountermodel(premises, conclusion) === null
+export function entails(
+  premises: Statement[],
+  conclusion: Statement,
+  semantics: Semantics = {},
+): boolean {
+  return findCountermodel(premises, conclusion, semantics) === null
 }
 
-/** Devolve um modelo onde as premissas valem e a conclusão falha, ou null. */
+/**
+ * Devolve um modelo onde as premissas valem e a conclusão falha, ou null.
+ *
+ * O modelo vem como `modelo[predicado][elemento]`, com um elemento por região
+ * ocupada.
+ */
 export function findCountermodel(
   premises: Statement[],
   conclusion: Statement,
+  semantics: Semantics = {},
 ): boolean[][] | null {
-  const totalBits = PREDICATE_COUNT * DOMAIN_SIZE
-
-  for (let mask = 0; mask < 1 << totalBits; mask++) {
-    const modelo = decodeModel(mask)
+  for (const modelo of modelsFor(semantics)) {
     if (!premises.every((p) => holds(p, modelo))) continue
     if (!holds(conclusion, modelo)) return modelo
   }
   return null
 }
 
+/**
+ * As premissas admitem algum modelo? Com importação existencial, premissas
+ * incompatíveis com termos não vazios implicariam qualquer coisa — questão
+ * degenerada.
+ */
+export function isSatisfiable(premises: Statement[], semantics: Semantics = {}): boolean {
+  return modelsFor(semantics).some((m) => premises.every((p) => holds(p, m)))
+}
+
+const MODELOS_BOOLEANOS: boolean[][][] = Array.from({ length: 1 << REGION_COUNT }, (_, mask) =>
+  decodeModel(mask),
+)
+const MODELOS_COM_IMPORTACAO = MODELOS_BOOLEANOS.filter((m) =>
+  m.every((extensao) => extensao.some(Boolean)),
+)
+
+function modelsFor(semantics: Semantics): boolean[][][] {
+  return semantics.existentialImport ? MODELOS_COM_IMPORTACAO : MODELOS_BOOLEANOS
+}
+
+/** Cada bit de `mask` liga uma região; cada região ocupada vira um elemento. */
 function decodeModel(mask: number): boolean[][] {
+  const regioes: number[] = []
+  for (let r = 0; r < REGION_COUNT; r++) if ((mask >> r) & 1) regioes.push(r)
+
   const modelo: boolean[][] = []
-  let bit = 0
   for (let p = 0; p < PREDICATE_COUNT; p++) {
-    const extensao: boolean[] = []
-    for (let x = 0; x < DOMAIN_SIZE; x++) {
-      extensao.push(((mask >> bit) & 1) === 1)
-      bit++
-    }
-    modelo.push(extensao)
+    modelo.push(regioes.map((r) => ((r >> p) & 1) === 1))
   }
   return modelo
 }

@@ -3,12 +3,16 @@ import { DIFFICULTIES } from '../taxonomy'
 import {
   ANALOGY_PAIRS,
   LOGIC_TERMS,
+  CONFUSABLE_RELATIONS,
   RELATIONS,
+  RELATION_FAMILY,
   RELATION_LABEL,
   SENTENCE_FRAMES,
   VOCAB,
   VOCAB_BY_WORD,
+  VOCAB_NEIGHBORS,
   pairsOfRelation,
+  type VocabEntry,
 } from './lexicon'
 
 /**
@@ -78,10 +82,72 @@ describe('VOCAB — integridade', () => {
     }
   })
 
-  it('cada nível tem pelo menos 8 verbetes', () => {
+  it('cada nível tem pelo menos 20 verbetes por subtipo', () => {
+    // o banco consome ~10 por (subtipo × nível); 20 dá folga para não repetir
     for (const d of DIFFICULTIES) {
-      const n = VOCAB.filter((e) => e.level === d).length
-      expect(n, `nível ${d}`).toBeGreaterThanOrEqual(8)
+      for (const subtipo of ['sinonimo', 'antonimo'] as const) {
+        const n = VOCAB.filter((e) => e.level === d && e.subtipo === subtipo).length
+        expect(n, `nível ${d} ${subtipo}`).toBeGreaterThanOrEqual(20)
+      }
+    }
+  })
+
+  /**
+   * Um enunciado que aparece como alternativa em outra questão entrega a
+   * resposta: ver "CANDID → frank" numa e "candid" como armadilha de outro
+   * verbete é meio caminho andado. Enunciado só é enunciado.
+   */
+  it('nenhuma palavra-chave aparece nas listas de outro verbete', () => {
+    const chaves = new Set(VOCAB.map((e) => e.word))
+    for (const e of VOCAB) {
+      for (const w of [...e.synonyms, ...e.antonyms]) {
+        expect(chaves.has(w), `"${w}" é palavra-chave e aparece nas listas de "${e.word}"`).toBe(
+          false,
+        )
+      }
+    }
+  })
+
+  /**
+   * O cluster só protege se for fechado: uma palavra listada em dois verbetes de
+   * clusters diferentes é uma ponte por onde um distrator vira segunda resposta.
+   */
+  it('palavra repetida entre verbetes fica no mesmo cluster e na mesma classe', () => {
+    const dono = new Map<string, VocabEntry>()
+    for (const e of VOCAB) {
+      for (const w of [e.word, ...e.synonyms, ...e.antonyms]) {
+        const outro = dono.get(w)
+        if (outro) {
+          expect(e.cluster, `"${w}" em ${outro.word} (${outro.cluster}) e ${e.word}`).toBe(
+            outro.cluster,
+          )
+          expect(e.pos, `"${w}" em ${outro.word} e ${e.word}`).toBe(outro.pos)
+        } else dono.set(w, e)
+      }
+    }
+  })
+
+  it('VOCAB_NEIGHBORS liga palavras-chave reais de clusters diferentes', () => {
+    for (const [x, y, porque] of VOCAB_NEIGHBORS) {
+      const ex = VOCAB_BY_WORD.get(x)
+      const ey = VOCAB_BY_WORD.get(y)
+      expect(ex, `vizinho "${x}" não é verbete`).toBeDefined()
+      expect(ey, `vizinho "${y}" não é verbete`).toBeDefined()
+      // mesmo cluster já não se encontra; o par seria letra morta
+      expect(ex!.cluster, `${x} × ${y}`).not.toBe(ey!.cluster)
+      expect(porque.length, `${x} × ${y} sem justificativa`).toBeGreaterThan(3)
+    }
+  })
+
+  it('polaridade coerente entre verbetes que compartilham palavras', () => {
+    // se X lista w como sinônimo e Y lista w como antônimo, X e Y são opostos —
+    // então nenhum sinônimo de X pode ser também sinônimo de Y
+    for (const x of VOCAB) {
+      for (const y of VOCAB) {
+        if (x === y || !x.synonyms.some((w) => y.antonyms.includes(w))) continue
+        const conflito = x.synonyms.filter((w) => y.synonyms.includes(w))
+        expect(conflito, `${x.word} × ${y.word}`).toHaveLength(0)
+      }
     }
   })
 
@@ -117,6 +183,37 @@ describe('ANALOGY_PAIRS — integridade', () => {
   it('toda relação tem rótulo em português para a explicação', () => {
     for (const r of RELATIONS) {
       expect(RELATION_LABEL[r], `relação ${r} sem rótulo`).toBeTruthy()
+    }
+  })
+
+  it('toda relação tem família, e toda família tem mais de uma relação', () => {
+    for (const r of RELATIONS) expect(RELATION_FAMILY[r], `relação ${r} sem família`).toBeTruthy()
+    const porFamilia = new Map<string, number>()
+    for (const r of RELATIONS) {
+      const f = RELATION_FAMILY[r] as string
+      porFamilia.set(f, (porFamilia.get(f) ?? 0) + 1)
+    }
+    for (const [f, n] of porFamilia) expect(n, `família ${f}`).toBeGreaterThanOrEqual(2)
+  })
+
+  it('relações confundíveis apontam para relações que existem', () => {
+    for (const [x, y] of CONFUSABLE_RELATIONS) {
+      expect(RELATIONS).toContain(x)
+      expect(RELATIONS).toContain(y)
+    }
+  })
+
+  it('toda relação tem pelo menos dois pares no nível 1 (gabarito sem subir de nível)', () => {
+    for (const r of RELATIONS) {
+      const n = pairsOfRelation(r).filter((p) => p.level === 1).length
+      expect(n, `relação ${r}`).toBeGreaterThanOrEqual(2)
+    }
+  })
+
+  it('cada nível tem pares-enunciado suficientes', () => {
+    for (const d of DIFFICULTIES) {
+      const n = ANALOGY_PAIRS.filter((p) => p.level === d).length
+      expect(n, `nível ${d}`).toBeGreaterThanOrEqual(30)
     }
   })
 
@@ -187,6 +284,19 @@ describe('SENTENCE_FRAMES — integridade', () => {
   it('não repete frase', () => {
     const frases = SENTENCE_FRAMES.map((f) => f.frame)
     expect(new Set(frases).size).toBe(frases.length)
+  })
+
+  it('nenhuma lacuna vem depois de "a"/"an" (o artigo entregaria a inicial)', () => {
+    for (const f of SENTENCE_FRAMES) {
+      expect(f.frame, f.frame).not.toMatch(/\ban? ___/i)
+    }
+  })
+
+  it('distratores não repetem a resposta com outra caixa ou espaço', () => {
+    for (const f of SENTENCE_FRAMES) {
+      const norm = (w: string) => w.trim().toLowerCase()
+      expect(f.distractors.map(norm), f.frame).not.toContain(norm(f.answer))
+    }
   })
 })
 

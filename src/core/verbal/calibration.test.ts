@@ -34,6 +34,30 @@ describe('analogia — distratores não são mais difíceis que a questão', () 
   })
 })
 
+/**
+ * O piso subiu: o nível 1 tinha WOLF : HOWL, DOG : PUPPY, CALM, SIMPLE e
+ * "Years of ___ left the machinery rusted" — dava para acertar sem pensar. Estes
+ * testes travam o piso para ele não voltar a descer por descuido.
+ */
+describe('nível 1 exige pensar', () => {
+  it('as relações de escola primária não existem mais', () => {
+    const relacoes = new Set(ANALOGY_PAIRS.map((p) => p.relation))
+    for (const r of ['animal_sound', 'body_sense']) expect(relacoes.has(r), r).toBe(false)
+  })
+
+  it('os pares triviais de antes não voltaram', () => {
+    const triviais = ['dog:puppy', 'cat:kitten', 'wolf:howl', 'lion:roar', 'eye:sight', 'pen:write']
+    const chaves = new Set(ANALOGY_PAIRS.map((p) => `${p.a}:${p.b}`))
+    for (const t of triviais) expect(chaves.has(t), t).toBe(false)
+  })
+
+  it('as palavras triviais de antes não são mais verbete', () => {
+    for (const w of ['calm', 'simple', 'rapid', 'vacant', 'noisy', 'humid', 'visible']) {
+      expect(VOCAB.some((e) => e.word === w), w).toBe(false)
+    }
+  })
+})
+
 describe('vocabulário — distratores não são mais difíceis que a questão', () => {
   for (const subtipo of ['antonimo', 'sinonimo'] as const) {
     it(`${subtipo}: nenhum distrator vem de verbete muito acima do nível`, () => {
