@@ -58,6 +58,11 @@ describe('HomeScreen', () => {
     indisponivel.mockReturnValue(false)
   })
 
+  it('tem a entrada do Math de case', () => {
+    montar()
+    expect(screen.getByRole('link', { name: /Case math/ })).toHaveAttribute('href', '/quickmath')
+  })
+
   it('leva ao simulado quando o banco carrega', async () => {
     const user = userEvent.setup()
     montar()

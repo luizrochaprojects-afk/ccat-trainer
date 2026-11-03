@@ -14,6 +14,9 @@ import { SessaoProvider, useSessaoPendente } from './SessionContext'
 import { DrillSetupScreen } from './screens/DrillSetupScreen'
 import { HomeScreen } from './screens/HomeScreen'
 import { ProgressScreen } from './screens/ProgressScreen'
+import { QuickMathResultScreen } from './screens/QuickMathResultScreen'
+import { QuickMathScreen } from './screens/QuickMathScreen'
+import { QuickMathSessionScreen } from './screens/QuickMathSessionScreen'
 import { ResultScreen } from './screens/ResultScreen'
 import { SessionScreen } from './screens/SessionScreen'
 import { TheoryIndexScreen, TheoryTipoScreen } from './screens/TheoryScreen'
@@ -32,6 +35,9 @@ import { TheoryIndexScreen, TheoryTipoScreen } from './screens/TheoryScreen'
  * O custo é o `#` na URL e nenhum SEO. Um app offline, sem servidor e sem
  * conta, não tem o que indexar.
  */
+/** Rotas que ocupam a tela inteira, sem cabeçalho: a da CCAT e a do Quick Math. */
+const ROTAS_DE_SESSAO = ['/sessao', '/quickmath/sessao']
+
 const router = createHashRouter([
   {
     element: <Shell />,
@@ -44,6 +50,9 @@ const router = createHashRouter([
       { path: 'progresso', element: <ProgressScreen /> },
       { path: 'teoria', element: <TheoryIndexScreen /> },
       { path: 'teoria/:tipo', element: <TheoryTipoScreen /> },
+      { path: 'quickmath', element: <QuickMathScreen /> },
+      { path: 'quickmath/sessao', element: <QuickMathSessionScreen /> },
+      { path: 'quickmath/resultado', element: <QuickMathResultScreen /> },
       { path: '*', element: <NaoEncontrado /> },
     ],
   },
@@ -61,7 +70,7 @@ export function App() {
 
 function Shell() {
   const { pathname } = useLocation()
-  const emSessao = pathname === '/sessao'
+  const emSessao = ROTAS_DE_SESSAO.includes(pathname)
 
   return (
     <div className={`shell${emSessao ? ' em-sessao' : ''}`}>
@@ -99,7 +108,7 @@ function Cabecalho() {
 
   // Durante a sessão o cabeçalho some: qualquer link visível é um convite a
   // abandonar a prova no meio, e a barra do cronômetro já ancora a tela.
-  if (pathname === '/sessao') return null
+  if (ROTAS_DE_SESSAO.includes(pathname)) return null
 
   return (
     <header className="topo">

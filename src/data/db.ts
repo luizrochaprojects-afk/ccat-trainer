@@ -1,6 +1,7 @@
 import { openDB, type DBSchema, type IDBPDatabase } from 'idb'
 import type { AnswerRecord, SessionState } from '../core/session/engine'
 import type { SessionScore } from '../core/session/score'
+import { limparQuickMath } from './quickmath'
 
 /**
  * Persistência local (PRD §4.21–4.22).
@@ -228,4 +229,5 @@ export async function clearAllData(): Promise<void> {
       d.clear('active'),
     ])
   }, undefined)
+  await limparQuickMath()
 }
