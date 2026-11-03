@@ -1,5 +1,6 @@
 import { expect } from 'vitest'
 import { evaluateExpression } from '../../math/solver'
+import { seedFromString } from '../../rng'
 import { ordemDeGrandeza } from '../formato'
 import type { QmGerador, QmOpcao, QmQuestao } from '../questao'
 import { NIVEIS, type Nivel } from '../taxonomia'
@@ -72,6 +73,22 @@ const ordenar = (os: QmOpcao[]) => [...os].sort((x, y) => x.valor - y.valor)
 
 export const HEURISTICAS: Record<string, (q: QmQuestao) => QmOpcao | undefined> = {
   mediana: (q) => ordenar(q.opcoes)[2],
+  menor: (q) => ordenar(q.opcoes)[0],
+  segundaMenor: (q) => ordenar(q.opcoes)[1],
+  segundaMaior: (q) => ordenar(q.opcoes)[3],
+  maior: (q) => ordenar(q.opcoes)[4],
+  // descarta as que têm outro número de zeros e fica com o meio do resto
+  medianaDaOrdem: (q) => {
+    const ordens = q.opcoes.map((o) => Math.floor(Math.log10(Math.abs(o.valor))))
+    const moda = ordens.sort((a, b) => ordens.filter((x) => x === b).length - ordens.filter((x) => x === a).length)[0]
+    const resto = ordenar(q.opcoes.filter((o) => Math.floor(Math.log10(Math.abs(o.valor))) === moda))
+    return resto[Math.floor((resto.length - 1) / 2)]
+  },
+  // quando só algumas alternativas são inteiras, a do meio entre elas
+  inteiras: (q) => {
+    const r = ordenar(q.opcoes.filter((o) => Number.isInteger(o.valor)))
+    return r.length > 0 && r.length < 5 ? r[Math.floor((r.length - 1) / 2)] : undefined
+  },
   repetidosBaixa: (q) => {
     const r = repetidos(q)
     return r.length ? r[Math.floor((r.length - 1) / 2)] : undefined
@@ -91,8 +108,9 @@ function repetidos(q: QmQuestao): QmOpcao[] {
 /** Taxa de acerto de cada heurística em `seeds` questões do nível. */
 export function taxasDasHeuristicas(g: QmGerador, nivel: Nivel, seeds = 1000): Record<string, number> {
   const acertos: Record<string, number> = Object.fromEntries(Object.keys(HEURISTICAS).map((k) => [k, 0]))
-  for (let seed = 1; seed <= seeds; seed++) {
-    const q = g(seed, nivel)
+  for (let i = 1; i <= seeds; i++) {
+    // seeds por hash, como na sessão: seeds consecutivas têm o primeiro sorteio correlacionado
+    const q = g(seedFromString(`heuristica:${i}`), nivel)
     for (const [nome, h] of Object.entries(HEURISTICAS)) if (h(q)?.id === q.answerId) acertos[nome]!++
   }
   return Object.fromEntries(Object.entries(acertos).map(([k, v]) => [k, v / seeds]))

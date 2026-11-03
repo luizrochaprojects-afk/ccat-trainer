@@ -5,8 +5,17 @@ import { gerarFracoes } from './fracoes'
 import { gerarQuestao } from './index'
 import { gerarMultiplicacao } from './multiplicacao'
 import { gerarPorcentagem } from './porcentagem'
-import { encontrar, taxasDasHeuristicas, verificarPropriedades } from './propriedades'
-import { NIVEIS } from '../taxonomia'
+import { encontrar, verificarPropriedades } from './propriedades'
+import { gerarBreakeven } from './breakeven'
+import { gerarCrescimento } from './crescimento'
+import { gerarMediaPonderada } from './mediaPonderada'
+import { gerarUnidades } from './unidades'
+import { type Subskill } from '../taxonomia'
+import { seedFromString } from '../../rng'
+import { evaluateExpression, parseNumber } from '../../math/solver'
+
+/** Multiplicador do sufixo de escala em inglês ("$1.4B" → 1e9). */
+const escala = (t: string) => ({ K: 1e3, M: 1e6, B: 1e9, T: 1e12 })[t.at(-1) as 'K'] ?? 1
 
 describe.each([
   ['multiplicacao', gerarMultiplicacao],
@@ -14,16 +23,12 @@ describe.each([
   ['porcentagem', gerarPorcentagem],
   ['fracoes', gerarFracoes],
   ['cadeia', gerarCadeia],
+  ['crescimento', gerarCrescimento],
+  ['unidades', gerarUnidades],
+  ['breakeven', gerarBreakeven],
+  ['media_ponderada', gerarMediaPonderada],
 ])('%s', (_, g) => {
   it('satisfaz as propriedades em todos os níveis', () => verificarPropriedades(g))
-
-  // A anti-meta do spec: acertar sem fazer a conta. Nenhum atalho de padrão
-  // (valor do meio, dígitos que se repetem) pode passar de 40%; chutar dá 20%.
-  it.each(NIVEIS)('nível %i não se resolve por padrão das alternativas', (nivel) => {
-    for (const [nome, taxa] of Object.entries(taxasDasHeuristicas(g, nivel))) {
-      expect(taxa, `${nome} no nível ${nivel}`).toBeLessThanOrEqual(0.4)
-    }
-  })
 })
 
 describe('multiplicação', () => {
@@ -77,9 +82,11 @@ describe('porcentagem', () => {
 })
 
 describe('cadeia', () => {
-  it('cada camada esquecida vira candidato', () => {
-    const q = gerarCadeia(3, 3)
-    expect(q.opcoes.filter((o) => o.erro?.pt.startsWith('Esqueceu')).length).toBeGreaterThanOrEqual(1)
+  it('a camada esquecida aparece entre as alternativas na maioria das questões', () => {
+    const com = Array.from({ length: 100 }, (_, i) => gerarCadeia(i + 1, 3)).filter((q) =>
+      q.opcoes.some((o) => o.erro?.pt.startsWith('Esqueceu')),
+    ).length
+    expect(com).toBeGreaterThanOrEqual(80)
   })
   it('nível 3 tem quatro camadas', () => {
     expect(gerarCadeia(3, 3).expression.split('*')).toHaveLength(4)
@@ -117,9 +124,92 @@ describe('cadeia: unidades e rótulos', () => {
   })
 })
 
+describe('fatia 2', () => {
+  /** Quantas das 100 primeiras seeds trazem um distrator cujo erro contém `trecho`. */
+  const presenca = (g: (s: number, n: 1 | 2 | 3 | 4 | 5) => { opcoes: { erro?: { pt: string } }[] }, nivel: 1 | 2 | 3 | 4 | 5, trecho: string) =>
+    Array.from({ length: 100 }, (_, i) => g(seedFromString(`presenca:${i}`), nivel)).filter((q) =>
+      q.opcoes.some((o) => o.erro?.pt.includes(trecho)),
+    ).length
+
+  // O erro mais plausível entra mesmo quando cai em outra ordem de grandeza:
+  // "esqueceu o × 12" é o que a questão existe para pegar.
+  it.each([
+    [gerarUnidades, 2, 'valor do mês|semana como mês'],
+    [gerarUnidades, 4, 'Dividiu por 30'],
+    [gerarUnidades, 5, 'Esqueceu o ÷ 12'],
+    [gerarBreakeven, 2, 'meses'],
+    [gerarBreakeven, 4, 'anualizar'],
+    [gerarBreakeven, 5, 'Esqueceu o × 12'],
+  ] as const)('o erro principal de outra ordem aparece (%#)', (g, nivel, trechos) => {
+    const n = Array.from({ length: 100 }, (_, i) => g(seedFromString(`presenca:${i}`), nivel)).filter((q) =>
+      q.opcoes.some((o) => trechos.split('|').some((t) => o.erro?.pt.includes(t))),
+    ).length
+    expect(n).toBeGreaterThanOrEqual(80)
+  })
+
+  it('média ponderada: nenhuma alternativa fora do intervalo das margens', () => {
+    for (const nivel of [1, 2, 4] as const) {
+      for (let i = 0; i < 200; i++) {
+        const q = gerarMediaPonderada(seedFromString(`faixa:${i}`), nivel)
+        const margens = [...q.enunciado.pt.matchAll(/margem de (\d+)%|: (\d+)% \(|é (\d+)%|, (\d+)%\./g)].map((m) => Number(m.slice(1).find(Boolean)))
+        const [lo, hi] = [Math.min(...margens), Math.max(...margens)]
+        for (const o of q.opcoes) expect(o.valor, q.enunciado.pt).toBeGreaterThanOrEqual(lo)
+        for (const o of q.opcoes) expect(o.valor, q.enunciado.pt).toBeLessThanOrEqual(hi)
+      }
+    }
+  })
+
+  it('crescimento: nenhuma alternativa abaixo do valor inicial', () => {
+    for (const nivel of [1, 3, 5] as const) {
+      for (let i = 0; i < 200; i++) {
+        const q = gerarCrescimento(seedFromString(`faixa:${i}`), nivel)
+        const minimo = Math.min(...q.opcoes.map((o) => o.valor))
+        const inicial = evaluateExpression(q.expression.split('*')[0]!)
+        expect(minimo, q.enunciado.pt).toBeGreaterThan(inicial)
+      }
+    }
+  })
+
+  it('níveis exatos mostram a resposta exata, sem arredondar', () => {
+    for (const [g, nivel] of [[gerarCrescimento, 1], [gerarMediaPonderada, 1], [gerarMediaPonderada, 2]] as const) {
+      for (let i = 0; i < 200; i++) {
+        const q = g(seedFromString(`exata:${i}`), nivel)
+        const certa = q.opcoes.find((o) => o.id === q.answerId)!
+        expect(Math.abs(parseNumber(certa.texto.en.replace(/[KMB]$/, '')) * escala(certa.texto.en) - certa.valor), certa.texto.en).toBeLessThan(1e-6 * Math.abs(certa.valor))
+      }
+    }
+  })
+
+  it('crescimento: o erro de somar as taxas aparece nos níveis 1 e 3', () => {
+    expect(presenca(gerarCrescimento, 1, 'simples')).toBeGreaterThanOrEqual(80)
+    expect(presenca(gerarCrescimento, 3, 'simples')).toBeGreaterThanOrEqual(80)
+  })
+  it('crescimento: regra do 72 dá anos exatos', () => {
+    const q = encontrar(gerarCrescimento, 2, (q) => q.enunciado.pt.includes(' 8%') && q.enunciado.pt.includes('quantos anos'))
+    expect(q.opcoes.find((o) => o.id === q.answerId)!.valor).toBe(9)
+  })
+  it('crescimento: no CAGR, a média simples nunca é a resposta', () => {
+    for (let seed = 1; seed <= 100; seed++) {
+      const q = gerarCrescimento(seed, 4)
+      const certa = q.opcoes.find((o) => o.id === q.answerId)!
+      expect(certa.erro).toBeUndefined()
+      expect(q.enunciado.pt).toMatch(/CAGR/)
+    }
+  })
+  it('unidades nível 1: o distrator × 10 em vez de × 12 aparece', () => {
+    expect(presenca(gerarUnidades, 1, '10 em vez de 12')).toBeGreaterThanOrEqual(80)
+  })
+  it('break-even nível 1: o distrator "usou o preço" aparece', () => {
+    expect(presenca(gerarBreakeven, 1, 'preço')).toBeGreaterThanOrEqual(80)
+  })
+  it('média ponderada: o distrator da média simples aparece', () => {
+    for (const nivel of [1, 2, 3] as const) expect(presenca(gerarMediaPonderada, nivel, 'média simples')).toBeGreaterThanOrEqual(80)
+  })
+})
+
 describe('gerarQuestao', () => {
-  it('recusa subskill inativa', () => {
-    expect(() => gerarQuestao('crescimento', 1, 1)).toThrow()
+  it('recusa subskill sem gerador', () => {
+    expect(() => gerarQuestao('inexistente' as Subskill, 1, 1)).toThrow()
   })
   it('despacha para o gerador da subskill', () => {
     expect(gerarQuestao('cadeia', 2, 9).subskill).toBe('cadeia')

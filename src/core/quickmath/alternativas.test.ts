@@ -45,8 +45,9 @@ describe('montarAlternativas', () => {
   })
 
   it('distrator carrega o erro que representa; a certa não tem erro', () => {
-    const r = montarAlternativas(mulberry32(1), 100, [{ valor: 1000, erro: { pt: 'zero', en: 'zero' } }], 'numero', false)!
-    expect(r.opcoes.find((o) => o.valor === 1000)?.erro?.pt).toBe('zero')
+    // o erro real mais plausível na mesma ordem de grandeza sempre entra
+    const r = montarAlternativas(mulberry32(1), 100, [{ valor: 140, erro: { pt: 'dígito', en: 'digit' } }], 'numero', false)!
+    expect(r.opcoes.find((o) => o.valor === 140)?.erro?.pt).toBe('dígito')
     expect(r.opcoes.find((o) => o.id === r.answerId)?.erro).toBeUndefined()
   })
 
