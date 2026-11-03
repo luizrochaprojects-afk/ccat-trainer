@@ -63,6 +63,8 @@ function fracaoEmPercentual(rng: Rng, nivel: 1 | 2 | 4): Problema {
     unidade: 'percent',
     estimativa,
     expression: `${n}/${d}*100`,
+    // fração menor que 1 não passa de 100%: 125% para 1/8 sai por bom senso
+    restricoes: { faixa: [0, 100] },
     atalho:
       n === 1
         ? { pt: `1/${d} = 100 ÷ ${d} ${estimativa ? '≈' : '='} ${r.pt}.`, en: `1/${d} = 100 ÷ ${d} ${estimativa ? '≈' : '='} ${r.en}.` }

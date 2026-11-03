@@ -38,6 +38,7 @@ function doisProdutos(rng: Rng): Problema | null {
   const w = rng.pick([20, 25, 30, 40])
   const [a, b] = margensDistintas(rng, 2) as [number, number]
   const correta = (w * a + (100 - w) * b) / 100
+  if (Math.abs(correta * 10 - Math.round(correta * 10)) > 1e-9) return null // exata: no máximo 1 casa
   if (!longe(media([a, b]), correta)) return null
   const r = fmt(correta, 'percent')
   return {
@@ -53,6 +54,8 @@ function doisProdutos(rng: Rng): Problema | null {
     ],
     unidade: 'percent',
     estimativa: false,
+    // a média fica entre os valores que ela pondera
+    restricoes: { faixa: [Math.min(a, b), Math.max(a, b)] },
     expression: `(${w}*${a}+${100 - w}*${b})/100`,
     atalho: {
       pt: `${w}% × ${a}% + ${100 - w}% × ${b}% = ${r.pt}.`,
@@ -68,6 +71,7 @@ function tresProdutos(rng: Rng): Problema | null {
   if (pesos[2]! < 10) return null
   const ms = margensDistintas(rng, 3)
   const correta = ponderada(ms, pesos)
+  if (Math.abs(correta * 10 - Math.round(correta * 10)) > 1e-9) return null // exata: no máximo 1 casa
   if (!longe(media(ms), correta)) return null
   // Pesos dos dois maiores trocados.
   const ordem = [0, 1, 2].sort((i, j) => pesos[j]! - pesos[i]!)
@@ -88,6 +92,8 @@ function tresProdutos(rng: Rng): Problema | null {
     ],
     unidade: 'percent',
     estimativa: false,
+    // a média fica entre os valores que ela pondera
+    restricoes: { faixa: [Math.min(...ms), Math.max(...ms)] },
     expression: `(${ms.map((m, i) => `${m}*${pesos[i]}`).join('+')})/100`,
     atalho: {
       pt: `Some margem × peso: ${ms.map((m, i) => `${m} × ${pesos[i]}%`).join(' + ')} = ${r.pt}.`,
@@ -120,6 +126,8 @@ function pesosEmReceita(rng: Rng): Problema | null {
     ],
     unidade: 'percent',
     estimativa: true,
+    // a média fica entre os valores que ela pondera
+    restricoes: { faixa: [Math.min(...ms), Math.max(...ms)] },
     expression: `(${receitas.map((v, i) => `${v}*${ms[i]}`).join('+')})/(${receitas.join('+')})`,
     atalho: {
       pt: `Pese pela receita: total ${tot.pt}; some receita × margem e divida pelo total ≈ ${r.pt}.`,
@@ -153,6 +161,8 @@ function mudancaDeMix(rng: Rng): Problema | null {
     ],
     unidade: 'percent',
     estimativa: true,
+    // a média fica entre os valores que ela pondera
+    restricoes: { faixa: [a, b] },
     expression: `(${w2}*${a}+${100 - w2}*${b})/100`,
     atalho: {
       pt: `Só o mix novo importa: ${w2}% × ${a}% + ${100 - w2}% × ${b}% ≈ ${r.pt}.`,
@@ -186,6 +196,8 @@ function crescimentoDeSegmentos(rng: Rng): Problema | null {
     ],
     unidade: 'percent',
     estimativa: true,
+    // a média fica entre os valores que ela pondera
+    restricoes: { faixa: [Math.min(g1, g2), Math.max(g1, g2)] },
     expression: `(${s1}*${g1}+${s2}*(${g2}))/(${s1}+${s2})`,
     atalho: {
       pt: `Pese pelo tamanho: (${a.pt} × ${g1}% + ${b.pt} × ${g2}%) ÷ (${a.pt} + ${b.pt}) ≈ ${r.pt}.`,

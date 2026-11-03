@@ -1,6 +1,6 @@
 import type { LocalizedText } from '../../i18n'
 import { mulberry32, type Rng } from '../../rng'
-import { montarAlternativas, type Candidato } from '../alternativas'
+import { montarAlternativas, type Candidato, type Restricoes } from '../alternativas'
 import { arredondarSig, formatarValor, type Unidade } from '../formato'
 import type { QmQuestao } from '../questao'
 import { ALVO_MS, type Nivel, type Subskill } from '../taxonomia'
@@ -19,6 +19,8 @@ export interface Problema {
   estimativa: boolean
   expression: string
   atalho: LocalizedText
+  /** o que é possível e o formato da resposta; ver `Restricoes` */
+  restricoes?: Restricoes
 }
 
 /** Devolve null quando o sorteio caiu num caso degenerado; aí se sorteia de novo. */
@@ -31,7 +33,7 @@ export function gerar(subskill: Subskill, construir: Construtor, seed: number, n
   for (let i = 0; i < TENTATIVAS; i++) {
     const p = construir(rng, nivel)
     if (!p) continue
-    const alternativas = montarAlternativas(rng, p.correta, p.candidatos, p.unidade, p.estimativa)
+    const alternativas = montarAlternativas(rng, p.correta, p.candidatos, p.unidade, p.estimativa, p.restricoes)
     if (!alternativas) continue
     return {
       id: `${subskill}-${nivel}-${seed}`,

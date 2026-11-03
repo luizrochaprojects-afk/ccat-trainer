@@ -3,6 +3,7 @@ import type { Rng } from '../../rng'
 import type { Candidato } from '../alternativas'
 import type { QmGerador } from '../questao'
 import type { Nivel } from '../taxonomia'
+import { arredondarSig } from '../formato'
 import { decimalCurto, errosDeEscala, fmt, fmtResposta, gerar, mantissa, type Problema } from './comum'
 
 /**
@@ -38,6 +39,8 @@ function composto(rng: Rng, nivel: 1 | 3): Problema | null {
   const N = mantissa(rng, nivel === 1 ? 1 : 2) * 10 ** rng.int(5, 8)
   const correta = N * fator
   const estimativa = nivel === 3
+  // Nível exato: a resposta tem de caber nos 3 algarismos que a tela mostra.
+  if (!estimativa && Math.abs(arredondarSig(correta, 3) - correta) > 1e-9 * correta) return null
   const base = fmt(N, 'moeda')
   const r = fmtResposta(correta, 'moeda', estimativa)
   const fTxt = decimalCurto(f)
@@ -61,6 +64,8 @@ function composto(rng: Rng, nivel: 1 | 3): Problema | null {
     candidatos,
     unidade: 'moeda',
     estimativa,
+    // crescer não deixa o valor abaixo do inicial
+    restricoes: { faixa: [N * 1.01, Number.POSITIVE_INFINITY] },
     expression: produtoExpr(N, `(1+${g}/100)`, n),
     atalho: {
       pt: `Componha: ${fTxt.pt} elevado a ${n} ${estimativa ? '≈' : '='} ${fatorTxt.pt}; ${base.pt} × ${fatorTxt.pt} ${estimativa ? '≈' : '='} ${r.pt}.`,
@@ -103,6 +108,7 @@ function regraDo72(rng: Rng): Problema {
     candidatos: [...erros, ...errosDeEscala(correta).slice(pedeAnos ? 0 : 1, 2)],
     unidade: pedeAnos ? 'numero' : 'percent',
     estimativa: false,
+    restricoes: { inteiro: true, faixa: [1, 72] },
     expression: `72/${dado}`,
     atalho: pedeAnos
       ? { pt: `Regra do 72: 72 ÷ ${dado} = ${correta} anos.`, en: `Rule of 72: 72 ÷ ${dado} = ${correta} years.` }
@@ -136,6 +142,7 @@ function cagr(rng: Rng): Problema | null {
     ],
     unidade: 'percent',
     estimativa: true,
+    restricoes: { faixa: [1, 100] },
     // O solver não tem potência nem raiz: o gabarito é a taxa que construiu B.
     expression: String(g),
     atalho: {
@@ -167,6 +174,7 @@ function dobras(rng: Rng): Problema {
     ],
     unidade: 'moeda',
     estimativa: true,
+    restricoes: { faixa: [N * 1.01, Number.POSITIVE_INFINITY] },
     expression: produtoExpr(N, `(1+${g}/100)`, n),
     atalho: {
       pt: `Regra do 72: a ${g}% dobra a cada ${72 / g} anos; ${n} anos são ${k} dobras → × ${2 ** k} ≈ ${r.pt}.`,

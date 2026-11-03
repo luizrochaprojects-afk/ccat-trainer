@@ -54,7 +54,8 @@ function emUnidades(rng: Rng): Problema | null {
 }
 
 function payback(rng: Rng): Problema {
-  const anos = rng.pick([2, 4, 5, 8])
+  // não só inteiros: com a resposta sempre inteira, ela sairia por ser a única redonda
+  const anos = rng.pick([2, 2.5, 4, 5, 8, 10])
   const I = mantissa(rng, 1) * 10 ** rng.int(6, 8)
   const G = I / anos
   const i = fmt(I, 'moeda')
