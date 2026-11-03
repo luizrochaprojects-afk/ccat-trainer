@@ -63,7 +63,7 @@ function variacao(rng: Rng): Problema | null {
     correta,
     candidatos: [
       { valor: ((B - A) / B) * 100, erro: { pt: 'Usou o valor final como base.', en: 'Used the final value as the base.' } },
-      { valor: -correta, erro: { pt: 'Trocou o sinal da variação.', en: 'Flipped the sign of the change.' } },
+      { valor: -correta, fator: -1, erro: { pt: 'Trocou o sinal da variação.', en: 'Flipped the sign of the change.' } },
       { valor: (B / A) * 100, erro: { pt: 'Calculou a razão B/A, não a variação.', en: 'Computed the ratio B/A, not the change.' } },
       ...errosDeEscala(correta).slice(0, 2),
     ],
@@ -121,7 +121,7 @@ function sobeECai(rng: Rng): Problema | null {
     correta,
     candidatos: [
       { valor: p - q, erro: { pt: 'Somou as variações; elas se multiplicam.', en: 'Added the changes; they compound.' } },
-      { valor: -correta, erro: { pt: 'Trocou o sinal da variação.', en: 'Flipped the sign of the change.' } },
+      { valor: -correta, fator: -1, erro: { pt: 'Trocou o sinal da variação.', en: 'Flipped the sign of the change.' } },
       ...errosDeEscala(correta).slice(0, 2),
     ],
     unidade: 'percent',
@@ -149,7 +149,7 @@ function pontoPercentual(rng: Rng): Problema | null {
     candidatos: [
       { valor: r2 - r1, erro: { pt: 'Deu a diferença em pontos percentuais, não em %.', en: 'Gave the difference in percentage points, not percent.' } },
       { valor: ((r2 - r1) / r2) * 100, erro: { pt: 'Usou a taxa final como base.', en: 'Used the final rate as the base.' } },
-      { valor: -correta, erro: { pt: 'Trocou o sinal da variação.', en: 'Flipped the sign of the change.' } },
+      { valor: -correta, fator: -1, erro: { pt: 'Trocou o sinal da variação.', en: 'Flipped the sign of the change.' } },
       ...errosDeEscala(correta).slice(0, 2),
     ],
     unidade: 'percent',

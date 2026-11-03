@@ -5,7 +5,8 @@ import { gerarFracoes } from './fracoes'
 import { gerarQuestao } from './index'
 import { gerarMultiplicacao } from './multiplicacao'
 import { gerarPorcentagem } from './porcentagem'
-import { encontrar, verificarPropriedades } from './propriedades'
+import { encontrar, taxasDasHeuristicas, verificarPropriedades } from './propriedades'
+import { NIVEIS } from '../taxonomia'
 
 describe.each([
   ['multiplicacao', gerarMultiplicacao],
@@ -15,6 +16,14 @@ describe.each([
   ['cadeia', gerarCadeia],
 ])('%s', (_, g) => {
   it('satisfaz as propriedades em todos os níveis', () => verificarPropriedades(g))
+
+  // A anti-meta do spec: acertar sem fazer a conta. Nenhum atalho de padrão
+  // (valor do meio, dígitos que se repetem) pode passar de 40%; chutar dá 20%.
+  it.each(NIVEIS)('nível %i não se resolve por padrão das alternativas', (nivel) => {
+    for (const [nome, taxa] of Object.entries(taxasDasHeuristicas(g, nivel))) {
+      expect(taxa, `${nome} no nível ${nivel}`).toBeLessThanOrEqual(0.4)
+    }
+  })
 })
 
 describe('multiplicação', () => {

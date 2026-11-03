@@ -19,18 +19,31 @@ import { FOLGA_ESTIMATIVA, FOLGA_EXATA } from './taxonomia'
  *    ao lado de "R$ 1,4 bi" se elimina contando zeros;
  *  - unicidade: os cinco textos são distintos nos dois idiomas.
  *
+ * Uma quarta regra, que os testes de propriedade medem com atalhos de quem
+ * chuta: o padrão das alternativas não pode apontar a certa. Por isso:
+ *
+ *  - o erro de zero (×10, ÷10, mil ↔ milhão) nunca vem sozinho. Quando a
+ *    resposta ganha um "gêmeo" com os mesmos dígitos, um dos distratores da
+ *    mesma ordem ganha o seu também — senão a certa seria sempre a que repete
+ *    dígitos com outra alternativa;
+ *  - os distratores da mesma ordem não ficam sempre do mesmo lado da resposta:
+ *    as perturbações dos dígitos iniciais são sorteadas dos dois lados, senão a
+ *    certa seria sempre o valor do meio.
+ *
  * Os candidatos vêm do gerador, em ordem de plausibilidade: são os erros que se
- * cometem de verdade. Quando eles não fecham a regra da ordem de grandeza,
- * entram perturbações dos dígitos iniciais — o vai-um esquecido, a conta
- * parcial errada.
+ * cometem de verdade. Um candidato com `fator` é um gêmeo da resposta
+ * (`valor = correta × fator`): o zero perdido, a escala trocada, o sinal
+ * invertido.
  */
 
 export interface Candidato {
   valor: number
   erro: LocalizedText
+  /** gêmeo da resposta: `valor = correta × fator` */
+  fator?: number
 }
 
-const FATORES_PERTURBACAO = [1.2, 0.8, 1.5, 0.7, 1.3, 0.6, 1.4, 0.85] as const
+const FATORES_PERTURBACAO = [0.6, 0.7, 0.75, 0.8, 0.85, 1.15, 1.2, 1.25, 1.3, 1.4, 1.5, 1.6] as const
 
 const ERRO_DIGITOS: LocalizedText = {
   pt: 'Conta parcial errada nos primeiros dígitos.',
@@ -38,6 +51,13 @@ const ERRO_DIGITOS: LocalizedText = {
 }
 
 const DISTRATORES = 4
+const CHANCE_SEGUNDO_REAL = 0.35
+
+interface Aceito {
+  valor: number
+  erro: LocalizedText
+  texto: LocalizedText
+}
 
 export function montarAlternativas(
   rng: Rng,
@@ -53,7 +73,7 @@ export function montarAlternativas(
 
   const textoCerto = formatarLocalizado(certa, unidade)
   const ordem = ordemDeGrandeza(certa)
-  const aceitos: { valor: number; erro: LocalizedText; texto: LocalizedText }[] = []
+  const aceitos: Aceito[] = []
 
   const cabe = (valor: number): boolean => {
     if (!Number.isFinite(valor)) return false
@@ -64,44 +84,62 @@ export function montarAlternativas(
     const textos = [textoCerto, ...aceitos.map((a) => a.texto)]
     return !textos.some((t) => t.pt === texto.pt || t.en === texto.en)
   }
-
-  const aceitar = (valor: number, erro: LocalizedText) =>
+  const aceitar = (valor: number, erro: LocalizedText): boolean => {
+    if (aceitos.length >= DISTRATORES || !cabe(valor)) return false
     aceitos.push({ valor, erro, texto: formatarLocalizado(valor, unidade) })
+    return true
+  }
+  const mesmaOrdem = (v: number) => ordemDeGrandeza(v) === ordem
 
-  for (const candidato of candidatos) {
-    if (aceitos.length === DISTRATORES) break
-    const valor = exibir(candidato.valor)
-    if (cabe(valor)) aceitar(valor, candidato.erro)
+  const reais = candidatos.filter((c) => c.fator === undefined)
+  const gemeos = candidatos.filter((c) => c.fator !== undefined)
+  const reaisMesmaOrdem = reais.filter((c) => mesmaOrdem(exibir(c.valor)))
+  const reaisOutraOrdem = reais.filter((c) => !mesmaOrdem(exibir(c.valor)))
+  const pool = rng.shuffle(FATORES_PERTURBACAO)
+
+  const perturbar = (qualquerOrdem = false): boolean => {
+    for (const f of pool) {
+      const v = arredondarSig(certa * f, 2)
+      if ((qualquerOrdem || mesmaOrdem(v)) && aceitar(v, ERRO_DIGITOS)) return true
+    }
+    return false
   }
 
-  const perturbacoes = FATORES_PERTURBACAO.map((f) => arredondarSig(certa * f, 2))
-  const mesmaOrdem = () => aceitos.filter((a) => ordemDeGrandeza(a.valor) === ordem).length
+  // Dois distratores na mesma ordem de grandeza: o erro real mais plausível e,
+  // às vezes, outro erro real; senão uma perturbação sorteada. Erros reais
+  // costumam cair do mesmo lado da resposta, e dois deles juntos a deixariam
+  // sempre num extremo ou no meio.
+  let i = 0
+  while (i < reaisMesmaOrdem.length && !aceitar(exibir(reaisMesmaOrdem[i]!.valor), reaisMesmaOrdem[i]!.erro)) i++
+  if (aceitos.length === 0) perturbar()
+  const outroReal = reaisMesmaOrdem.slice(i + 1).find((c) => cabe(exibir(c.valor)))
+  if (!(outroReal && rng.next() < CHANCE_SEGUNDO_REAL && aceitar(exibir(outroReal.valor), outroReal.erro))) perturbar()
+  if (aceitos.length < 2) return null
 
-  // Abre espaço para os distratores na mesma ordem de grandeza, tirando os de
-  // ordem diferente menos plausíveis (os últimos aceitos).
-  const faltam = Math.max(0, 2 - mesmaOrdem())
-  while (aceitos.length + faltam > DISTRATORES) {
-    const i = aceitos.map((a) => ordemDeGrandeza(a.valor) !== ordem).lastIndexOf(true)
-    if (i < 0) break
-    aceitos.splice(i, 1)
-  }
-  for (const valor of perturbacoes) {
-    if (mesmaOrdem() >= 2 || aceitos.length === DISTRATORES) break
-    if (ordemDeGrandeza(valor) === ordem && cabe(valor)) aceitar(valor, ERRO_DIGITOS)
-  }
-  for (const valor of perturbacoes) {
-    if (aceitos.length === DISTRATORES) break
-    if (cabe(valor)) aceitar(valor, ERRO_DIGITOS)
+  // O gêmeo da resposta entra junto com o gêmeo de um distrator.
+  if (gemeos.length > 0 && (reaisOutraOrdem.length === 0 || rng.next() < 0.6)) {
+    for (const g of rng.shuffle(gemeos)) {
+      const v = exibir(certa * g.fator!)
+      if (!aceitar(v, g.erro)) continue
+      const par = rng.shuffle(aceitos.slice(0, 2)).find((b) => aceitar(exibir(b.valor * g.fator!), g.erro))
+      if (par) break
+      aceitos.pop()
+    }
   }
 
-  if (aceitos.length < DISTRATORES || mesmaOrdem() < 2) return null
+  for (const c of [...reaisOutraOrdem, ...reaisMesmaOrdem]) aceitar(exibir(c.valor), c.erro)
+  while (aceitos.length < DISTRATORES && perturbar()) {}
+  // Resposta na borda da ordem (100, 1 mi): perturbações abaixo mudam de ordem.
+  while (aceitos.length < DISTRATORES && perturbar(true)) {}
+
+  if (aceitos.length < DISTRATORES || aceitos.filter((a) => mesmaOrdem(a.valor)).length < 2) return null
 
   const todas = rng.shuffle([
     { valor: certa, texto: textoCerto, erro: undefined as LocalizedText | undefined, certa: true },
     ...aceitos.map((a) => ({ ...a, certa: false })),
   ])
-  const opcoes: QmOpcao[] = todas.map((o, i) => ({
-    id: optionIdAt(i),
+  const opcoes: QmOpcao[] = todas.map((o, j) => ({
+    id: optionIdAt(j),
     valor: o.valor,
     texto: o.texto,
     ...(o.erro ? { erro: o.erro } : {}),

@@ -84,6 +84,7 @@ function fracaoDoAno(rng: Rng): Problema {
     { valor: ((k + 1) / 12) * 100, erro: { pt: 'Contou um mês a mais.', en: 'Counted one month too many.' } },
     { valor: ((m - 1) / 12) * 100, erro: { pt: 'Contou os meses antes da entrada.', en: 'Counted the months before go-live.' } },
     { valor: (k / 10) * 100, erro: { pt: 'Dividiu por 10 em vez de 12.', en: 'Divided by 10 instead of 12.' } },
+    ...errosDeEscala(correta).slice(0, 2),
   ]
   return {
     enunciado: {

@@ -65,14 +65,16 @@ export const zeros = (n: number): number => 10 ** n
 /** Os erros de contar zeros: um a mais, um a menos, e a escala trocada (mil ↔ milhão). */
 export function errosDeEscala(valor: number): Candidato[] {
   return [
-    { valor: valor * 10, erro: { pt: 'Você colocou um zero a mais.', en: 'You added an extra zero.' } },
-    { valor: valor / 10, erro: { pt: 'Você perdeu um zero.', en: 'You dropped a zero.' } },
+    { valor: valor * 10, fator: 10, erro: { pt: 'Você colocou um zero a mais.', en: 'You added an extra zero.' } },
+    { valor: valor / 10, fator: 0.1, erro: { pt: 'Você perdeu um zero.', en: 'You dropped a zero.' } },
     {
       valor: valor * 1000,
+      fator: 1000,
       erro: { pt: 'Errou a escala: três zeros a mais (mil ↔ milhão).', en: 'Wrong scale: three extra zeros (thousand ↔ million).' },
     },
     {
       valor: valor / 1000,
+      fator: 0.001,
       erro: { pt: 'Errou a escala: três zeros a menos (milhão ↔ mil).', en: 'Wrong scale: three zeros short (million ↔ thousand).' },
     },
   ]
