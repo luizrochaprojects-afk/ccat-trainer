@@ -197,6 +197,38 @@ const en = {
 
   // 404
   // comuns
+  // quick math (math de case)
+  'home.quickmath.title': 'Case math',
+  'home.quickmath.body':
+    'Mental math for case interviews: big numbers, percentages, fractions of a year, chained estimates. 15 minutes a day.',
+  'qm.title': 'Case math',
+  'qm.lead':
+    'Fifteen minutes a day. A two-minute warm-up, then five-question blocks on whatever you are weakest at. Every wrong option is a real slip: a lost zero, an added percentage, a month too many.',
+  'qm.start': 'Start today’s session',
+  'qm.levels': 'Your level by skill',
+  'qm.level': 'Level {n}',
+  'qm.loading': 'Setting up the session…',
+  'qm.warmup': 'Warm-up',
+  'qm.skip': 'Skip',
+  'qm.next': 'Next',
+  'qm.finish': 'End',
+  'qm.correct': 'Correct',
+  'qm.incorrect': 'Incorrect',
+  'qm.slip': 'Likely slip: {erro}',
+  'qm.timeLeft': '{time} left in the session',
+  'qm.confirm.title': 'End the session now?',
+  'qm.confirm.body': 'Everything you answered is already saved.',
+  'qm.confirm.yes': 'End the session',
+  'qm.confirm.no': 'Keep going',
+  'qm.result.title': 'Session done',
+  'qm.result.lead': '{certas} of {n} correct.',
+  'qm.result.empty': 'No questions answered in this session.',
+  'qm.result.skill': 'Skill',
+  'qm.result.correct': 'Correct',
+  'qm.result.time': 'Avg. time / target',
+  'qm.result.level': 'Level',
+  'qm.result.again': 'Another session',
+  'qm.result.home': 'Home',
   'common.retry': 'Try again',
   'common.cancel': 'Cancel',
 
@@ -409,6 +441,38 @@ const pt: Record<StringKey, string> = {
   'theory.seeAll': 'Ver todos os tipos',
 
   // comuns
+  // quick math (math de case)
+  'home.quickmath.title': 'Math de case',
+  'home.quickmath.body':
+    'Conta de cabeça para case interview: números grandes, porcentagem, fração do ano, estimativas encadeadas. 15 minutos por dia.',
+  'qm.title': 'Math de case',
+  'qm.lead':
+    'Quinze minutos por dia. Dois minutos de aquecimento e depois blocos de cinco questões no que você estiver mais fraco. Cada alternativa errada é um erro de verdade: o zero perdido, a porcentagem somada, o mês a mais.',
+  'qm.start': 'Começar a sessão de hoje',
+  'qm.levels': 'Seu nível por habilidade',
+  'qm.level': 'Nível {n}',
+  'qm.loading': 'Montando a sessão…',
+  'qm.warmup': 'Aquecimento',
+  'qm.skip': 'Pular',
+  'qm.next': 'Próxima',
+  'qm.finish': 'Encerrar',
+  'qm.correct': 'Correto',
+  'qm.incorrect': 'Incorreto',
+  'qm.slip': 'Erro provável: {erro}',
+  'qm.timeLeft': 'Faltam {time} de sessão',
+  'qm.confirm.title': 'Encerrar a sessão agora?',
+  'qm.confirm.body': 'Tudo o que você respondeu já está salvo.',
+  'qm.confirm.yes': 'Encerrar a sessão',
+  'qm.confirm.no': 'Continuar',
+  'qm.result.title': 'Sessão concluída',
+  'qm.result.lead': '{certas} de {n} certas.',
+  'qm.result.empty': 'Nenhuma questão respondida nesta sessão.',
+  'qm.result.skill': 'Habilidade',
+  'qm.result.correct': 'Certas',
+  'qm.result.time': 'Tempo médio / alvo',
+  'qm.result.level': 'Nível',
+  'qm.result.again': 'Outra sessão',
+  'qm.result.home': 'Início',
   'common.retry': 'Tentar de novo',
   'common.cancel': 'Cancelar',
 

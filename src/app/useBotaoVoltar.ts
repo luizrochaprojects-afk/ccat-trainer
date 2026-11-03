@@ -18,7 +18,10 @@ import { useBlocker } from 'react-router-dom'
  * navegação bloqueada é descartada — quem encerra uma prova quer a nota, não a
  * tela anterior.
  */
-export function useGuardaDeSaida(aoSair: () => void): {
+export function useGuardaDeSaida(
+  aoSair: () => void,
+  rotas: { sessao: string; resultado: string } = { sessao: '/sessao', resultado: '/resultado' },
+): {
   pedindo: boolean
   pedir: () => void
   confirmar: () => void
@@ -28,7 +31,7 @@ export function useGuardaDeSaida(aoSair: () => void): {
   // navega ao terminar, e sem ela o guarda bloquearia o desfecho normal.
   const blocker = useBlocker(
     ({ currentLocation, nextLocation }) =>
-      currentLocation.pathname === '/sessao' && nextLocation.pathname !== '/resultado',
+      currentLocation.pathname === rotas.sessao && nextLocation.pathname !== rotas.resultado,
   )
 
   const [pedido, setPedido] = useState(false)

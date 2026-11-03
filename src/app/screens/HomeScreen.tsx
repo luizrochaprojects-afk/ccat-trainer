@@ -129,6 +129,14 @@ export function HomeScreen() {
         <p>{t('home.drill.body')}</p>
       </Link>
 
+      <Link className="ato" to="/quickmath">
+        <span className="seta" aria-hidden="true">
+          →
+        </span>
+        <h2>{t('home.quickmath.title')}</h2>
+        <p>{t('home.quickmath.body')}</p>
+      </Link>
+
       <Link className="ato" to="/teoria">
         <span className="seta" aria-hidden="true">
           →

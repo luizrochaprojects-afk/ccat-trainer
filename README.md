@@ -103,6 +103,29 @@ merely correct but distinguishable by eye in 18 seconds.
 npx tsx scripts/preview-spatial.ts 2 matriz   # visual audit, filtered by generator
 ```
 
+## Case math
+
+A separate mode (`#/quickmath`) for the mental math of case interviews, not part of the CCAT
+mock test. A daily 15-minute session: a two-minute warm-up, then five-question blocks on the
+weakest skill, with the level per skill moving up or down after each block. Five skills so
+far: big-number multiplication, division, percentages, fractions (including the fraction of
+the year a project runs) and chained estimates.
+
+It works differently from the CCAT content on purpose:
+
+- **Generated on the fly, no bank.** Each question comes from a seeded generator in
+  `src/core/quickmath/geradores/`, and the property tests there act as the gate: for 200
+  seeds per level they re-derive the answer through `evaluateExpression`, and check that no
+  wrong option is within 10% of the answer (15% when the answer is an estimate), that at
+  least two wrong options share its order of magnitude, and that the five options read
+  differently in both languages.
+- **Wrong options are real slips**: a lost zero, thousand vs million, added percentages,
+  the wrong base for a change, a month too many, a forgotten layer in the chain.
+  The feedback names the slip.
+- **Content follows the language switch** (PT `R$ 1,4 bi`, EN `$1.4B`), unlike the CCAT
+  questions, which stay in English.
+- **Its own IndexedDB** (`ccat-quickmath`), so the CCAT database never needed a migration.
+
 ## Layout
 
 ```
