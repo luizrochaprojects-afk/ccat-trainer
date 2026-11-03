@@ -72,6 +72,8 @@ const ordenar = (os: QmOpcao[]) => [...os].sort((x, y) => x.valor - y.valor)
 
 export const HEURISTICAS: Record<string, (q: QmQuestao) => QmOpcao | undefined> = {
   mediana: (q) => ordenar(q.opcoes)[2],
+  menor: (q) => ordenar(q.opcoes)[0],
+  maior: (q) => ordenar(q.opcoes)[4],
   repetidosBaixa: (q) => {
     const r = repetidos(q)
     return r.length ? r[Math.floor((r.length - 1) / 2)] : undefined

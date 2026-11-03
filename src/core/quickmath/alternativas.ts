@@ -43,7 +43,7 @@ export interface Candidato {
   fator?: number
 }
 
-const FATORES_PERTURBACAO = [0.6, 0.7, 0.75, 0.8, 0.85, 1.15, 1.2, 1.25, 1.3, 1.4, 1.5, 1.6] as const
+const FATORES_PERTURBACAO = [0.4, 0.5, 0.6, 0.7, 0.75, 0.8, 0.85, 1.15, 1.2, 1.25, 1.3, 1.4, 1.5, 1.7, 2, 2.5] as const
 
 const ERRO_DIGITOS: LocalizedText = {
   pt: 'Conta parcial errada nos primeiros dígitos.',
@@ -52,6 +52,7 @@ const ERRO_DIGITOS: LocalizedText = {
 
 const DISTRATORES = 4
 const CHANCE_SEGUNDO_REAL = 0.35
+const CHANCE_GEMEOS = 0.6
 
 interface Aceito {
   valor: number
@@ -95,12 +96,24 @@ export function montarAlternativas(
   const gemeos = candidatos.filter((c) => c.fator !== undefined)
   const reaisMesmaOrdem = reais.filter((c) => mesmaOrdem(exibir(c.valor)))
   const reaisOutraOrdem = reais.filter((c) => !mesmaOrdem(exibir(c.valor)))
+  // A posição da certa entre as cinco é sorteada: quantos distratores ficam
+  // abaixo dela (0 a 4). Os erros reais caem onde caem; as perturbações
+  // completam o lado que falta. Lados independentes deixariam a certa no meio
+  // por pura combinatória (dois abaixo e dois acima em ~37% das vezes).
+  //
+  // Perto da borda da ordem (1,2 mi; 9 mi) quase não cabe perturbação na mesma
+  // ordem de um dos lados. Por isso só os dois primeiros distratores precisam
+  // ficar na ordem da resposta; os seguintes podem cruzá-la, do lado que falta.
+  const alvoAbaixo = rng.int(0, DISTRATORES)
   const pool = rng.shuffle(FATORES_PERTURBACAO)
+  const faltamAbaixo = () => alvoAbaixo - aceitos.filter((a) => a.valor < certa).length
 
-  const perturbar = (qualquerOrdem = false): boolean => {
-    for (const f of pool) {
-      const v = arredondarSig(certa * f, 2)
-      if ((qualquerOrdem || mesmaOrdem(v)) && aceitar(v, ERRO_DIGITOS)) return true
+  const perturbar = (naMesmaOrdem: boolean): boolean => {
+    const lado = faltamAbaixo() > 0 ? -1 : 1
+    const valores = pool.map((f) => arredondarSig(certa * f, 2))
+    const ordenados = [...valores.filter((v) => Math.sign(v - certa) === lado), ...valores.filter((v) => Math.sign(v - certa) !== lado)]
+    for (const v of ordenados) {
+      if ((!naMesmaOrdem || mesmaOrdem(v)) && aceitar(v, ERRO_DIGITOS)) return true
     }
     return false
   }
@@ -111,14 +124,21 @@ export function montarAlternativas(
   // sempre num extremo ou no meio.
   let i = 0
   while (i < reaisMesmaOrdem.length && !aceitar(exibir(reaisMesmaOrdem[i]!.valor), reaisMesmaOrdem[i]!.erro)) i++
-  if (aceitos.length === 0) perturbar()
+  if (aceitos.length === 0) perturbar(true)
   const outroReal = reaisMesmaOrdem.slice(i + 1).find((c) => cabe(exibir(c.valor)))
-  if (!(outroReal && rng.next() < CHANCE_SEGUNDO_REAL && aceitar(exibir(outroReal.valor), outroReal.erro))) perturbar()
+  if (!(outroReal && rng.next() < CHANCE_SEGUNDO_REAL && aceitar(exibir(outroReal.valor), outroReal.erro))) perturbar(true)
   if (aceitos.length < 2) return null
 
-  // O gêmeo da resposta entra junto com o gêmeo de um distrator.
-  if (gemeos.length > 0 && (reaisOutraOrdem.length === 0 || rng.next() < 0.6)) {
-    for (const g of rng.shuffle(gemeos)) {
+  // O gêmeo da resposta entra junto com o gêmeo de um distrator — e não em
+  // toda questão: com o par sempre presente, quem chuta escolhe entre só duas
+  // alternativas (a certa e o distrator do par), sobretudo quando o gerador só
+  // oferece um sentido de erro de zero (÷ 10 numa margem; × 10 daria 300%).
+  if (gemeos.length > 0 && rng.next() < CHANCE_GEMEOS) {
+    // O par cai todo de um lado: ÷ 10 conta dois abaixo, × 10 dois acima.
+    const falta = faltamAbaixo()
+    const preferidos = (g: Candidato) => (falta >= 2 ? g.fator! < 1 : falta <= 0 ? g.fator! > 1 : true)
+    const embaralhados = rng.shuffle(gemeos)
+    for (const g of [...embaralhados.filter(preferidos), ...embaralhados.filter((g) => !preferidos(g))]) {
       const v = exibir(certa * g.fator!)
       if (!aceitar(v, g.erro)) continue
       const par = rng.shuffle(aceitos.slice(0, 2)).find((b) => aceitar(exibir(b.valor * g.fator!), g.erro))
@@ -127,10 +147,14 @@ export function montarAlternativas(
     }
   }
 
-  for (const c of [...reaisOutraOrdem, ...reaisMesmaOrdem]) aceitar(exibir(c.valor), c.erro)
-  while (aceitos.length < DISTRATORES && perturbar()) {}
-  // Resposta na borda da ordem (100, 1 mi): perturbações abaixo mudam de ordem.
-  while (aceitos.length < DISTRATORES && perturbar(true)) {}
+  // Os demais erros reais entram quando caem do lado que ainda falta; os que
+  // sobram ficam de fora para não empurrar a certa de volta para o meio.
+  for (const c of [...reaisOutraOrdem, ...reaisMesmaOrdem]) {
+    const v = exibir(c.valor)
+    const lado = faltamAbaixo() > 0 ? -1 : 1
+    if (Math.sign(v - certa) === lado) aceitar(v, c.erro)
+  }
+  while (aceitos.length < DISTRATORES && perturbar(false)) {}
 
   if (aceitos.length < DISTRATORES || aceitos.filter((a) => mesmaOrdem(a.valor)).length < 2) return null
 

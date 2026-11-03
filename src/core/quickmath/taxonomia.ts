@@ -23,13 +23,17 @@ export const SUBSKILLS = [
 
 export type Subskill = (typeof SUBSKILLS)[number]
 
-/** Fatia 1: as subskills que já têm gerador. As outras quatro vêm na fatia 2. */
+/** As subskills que já têm gerador e entram na sessão diária. */
 export const SUBSKILLS_ATIVAS = [
   'multiplicacao',
   'divisao',
   'porcentagem',
   'fracoes',
   'cadeia',
+  'crescimento',
+  'unidades',
+  'breakeven',
+  'media_ponderada',
 ] as const satisfies readonly Subskill[]
 
 export type SubskillAtiva = (typeof SUBSKILLS_ATIVAS)[number]
@@ -68,9 +72,8 @@ export const ALVO_MS: Record<Subskill, Record<Nivel, number>> = {
   porcentagem: s(10, 15, 25, 30, 40),
   fracoes: s(8, 10, 15, 20, 25),
   cadeia: s(30, 45, 60, 75, 90),
-  // fatia 2: provisórios até os geradores existirem
   crescimento: s(15, 20, 30, 40, 50),
-  unidades: s(15, 20, 30, 40, 50),
+  unidades: s(12, 15, 25, 30, 40),
   breakeven: s(15, 20, 30, 40, 50),
   media_ponderada: s(15, 20, 30, 40, 50),
 }

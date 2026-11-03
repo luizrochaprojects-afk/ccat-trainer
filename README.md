@@ -107,9 +107,10 @@ npx tsx scripts/preview-spatial.ts 2 matriz   # visual audit, filtered by genera
 
 A separate mode (`#/quickmath`) for the mental math of case interviews, not part of the CCAT
 mock test. A daily 15-minute session: a two-minute warm-up, then five-question blocks on the
-weakest skill, with the level per skill moving up or down after each block. Five skills so
-far: big-number multiplication, division, percentages, fractions (including the fraction of
-the year a project runs) and chained estimates.
+weakest skill, with the level per skill moving up or down after each block. Nine skills:
+big-number multiplication and division, percentages, fractions (including the fraction of the
+year a project runs), chained estimates, growth (compounding, rule of 72, CAGR), units and
+scale, break-even and payback, and weighted averages.
 
 It works differently from the CCAT content on purpose:
 
