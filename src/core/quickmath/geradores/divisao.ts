@@ -72,6 +72,7 @@ function construir(rng: Rng, nivel: Nivel): Problema | null {
   const resposta = fmtResposta(correta, unidade, estimativa)
   const aprox = estimativa ? '≈ ' : ''
   const quocienteDigitos = String(Number((mn / md).toPrecision(3)))
+  const quocientePt = quocienteDigitos.replace('.', ',')
   const z = textoZeros(zn - zd)
 
   const candidatos = errosDeEscala(correta)
@@ -101,7 +102,7 @@ function construir(rng: Rng, nivel: Nivel): Problema | null {
     estimativa,
     expression: `${dividendo}/${divisor}`,
     atalho: {
-      pt: `Divida dígitos e subtraia zeros: ${mn} ÷ ${md} ${estimativa ? '≈' : '='} ${quocienteDigitos}, com ${zn} − ${zd} = ${z.pt} → ${aprox}${resposta.pt}.`,
+      pt: `Divida dígitos e subtraia zeros: ${mn} ÷ ${md} ${estimativa ? '≈' : '='} ${quocientePt}, com ${zn} − ${zd} = ${z.pt} → ${aprox}${resposta.pt}.`,
       en: `Divide digits, subtract zeros: ${mn} ÷ ${md} ${estimativa ? '≈' : '='} ${quocienteDigitos}, with ${zn} − ${zd} = ${z.en} → ${aprox}${resposta.en}.`,
     },
   }

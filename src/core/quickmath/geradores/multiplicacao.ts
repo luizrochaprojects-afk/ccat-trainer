@@ -11,7 +11,6 @@ import {
   gerar,
   mantissa,
   textoZeros,
-  zeros,
   type Problema,
 } from './comum'
 
