@@ -111,6 +111,9 @@ function sobeECai(rng: Rng): Problema | null {
   const p = rng.int(2, 12) * 5
   const q = rng.int(2, 12) * 5
   const correta = ((1 + p / 100) * (1 - q / 100) - 1) * 100
+  // toFixed corta o resíduo binário: 1 − 0,55 = 0,44999999999999996
+  const sobe = Number((1 + p / 100).toFixed(2))
+  const cai = Number((1 - q / 100).toFixed(2))
   if (Math.abs(correta) < 2) return null
   const r = fmtResposta(correta, 'percent', true)
   return {
@@ -128,8 +131,8 @@ function sobeECai(rng: Rng): Problema | null {
     estimativa: true,
     expression: `((1+${p}/100)*(1-${q}/100)-1)*100`,
     atalho: {
-      pt: `Multiplique os fatores: ${String(1 + p / 100).replace('.', ',')} × ${String(1 - q / 100).replace('.', ',')} − 1 ≈ ${r.pt}.`,
-      en: `Multiply the factors: ${1 + p / 100} × ${1 - q / 100} − 1 ≈ ${r.en}.`,
+      pt: `Multiplique os fatores: ${String(sobe).replace('.', ',')} × ${String(cai).replace('.', ',')} − 1 ≈ ${r.pt}.`,
+      en: `Multiply the factors: ${sobe} × ${cai} − 1 ≈ ${r.en}.`,
     },
   }
 }

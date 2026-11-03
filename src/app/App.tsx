@@ -16,7 +16,7 @@ import { HomeScreen } from './screens/HomeScreen'
 import { ProgressScreen } from './screens/ProgressScreen'
 import { QuickMathResultScreen } from './screens/QuickMathResultScreen'
 import { QuickMathScreen } from './screens/QuickMathScreen'
-import { QuickMathSessionScreen } from './screens/QuickMathSessionScreen'
+import { QuickMathSessionRoute } from './screens/QuickMathSessionScreen'
 import { ResultScreen } from './screens/ResultScreen'
 import { SessionScreen } from './screens/SessionScreen'
 import { TheoryIndexScreen, TheoryTipoScreen } from './screens/TheoryScreen'
@@ -51,7 +51,7 @@ const router = createHashRouter([
       { path: 'teoria', element: <TheoryIndexScreen /> },
       { path: 'teoria/:tipo', element: <TheoryTipoScreen /> },
       { path: 'quickmath', element: <QuickMathScreen /> },
-      { path: 'quickmath/sessao', element: <QuickMathSessionScreen /> },
+      { path: 'quickmath/sessao', element: <QuickMathSessionRoute /> },
       { path: 'quickmath/resultado', element: <QuickMathResultScreen /> },
       { path: '*', element: <NaoEncontrado /> },
     ],

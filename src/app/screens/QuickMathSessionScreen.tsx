@@ -1,5 +1,5 @@
-import { useCallback, useEffect, useMemo, useRef } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { Navigate, useNavigate, useNavigationType } from 'react-router-dom'
 import type { OptionId } from '../../core/optionIds'
 import { restanteMs } from '../../core/quickmath/sessao'
 import { SUBSKILL_LABEL } from '../../core/quickmath/taxonomia'
@@ -13,6 +13,23 @@ import { useOptionHotkeys } from '../useSession'
 
 const LETRAS = 'ABCDE'
 const ROTAS = { sessao: '/quickmath/sessao', resultado: '/quickmath/resultado' }
+
+/**
+ * Sessão só começa por um toque (PUSH): o botão da tela do modo ou "Outra
+ * sessão". Chegar aqui pela história — F5, ou o Voltar a partir do resultado —
+ * leva à tela do modo, como a `RotaSessao` da CCAT leva à Home. Sem isso o
+ * Voltar do resultado abria uma sessão nova, e o Voltar seguinte caía no
+ * "Encerrar?", sem saída pela história.
+ *
+ * O tipo de navegação é lido UMA vez, na montagem: o guarda de saída repõe uma
+ * entrada-sentinela a cada Voltar, e essas navegações também são POP.
+ */
+export function QuickMathSessionRoute() {
+  const tipo = useNavigationType()
+  const [pelaHistoria] = useState(tipo === 'POP')
+  if (pelaHistoria) return <Navigate to="/quickmath" replace />
+  return <QuickMathSessionScreen />
+}
 
 /**
  * Tela da sessão de Quick Math.

@@ -116,7 +116,7 @@ export function avancar(s: QmSessao, agora: number): QmSessao {
 
   let bloco = fechado.bloco
   if (!bloco) {
-    const rng = mulberry32(seedDaQuestao(s.seed, indice))
+    const rng = mulberry32(seedDaSelecao(s.seed, indice))
     const subskill = escolherSubskill(rng, [...s.historico, ...fechado.respostas], SUBSKILLS_ATIVAS)
     bloco = { subskill, inicio: fechado.respostas.length }
   }
@@ -162,9 +162,18 @@ function seedDaQuestao(seed: number, indice: number): number {
   return seedFromString(`${seed}:${indice}`)
 }
 
+/**
+ * Seed da escolha da subskill, separada da seed da questão. Com a mesma, o
+ * primeiro sorteio do gerador ficava preso à faixa que escolheu a subskill: o
+ * aquecimento de porcentagem era sempre "20% de…" e o de frações sempre 1/8.
+ */
+function seedDaSelecao(seed: number, indice: number): number {
+  return seedFromString(`${seed}:${indice}:selecao`)
+}
+
 function questaoDeAquecimento(seed: number, indice: number, niveis: Record<Subskill, Nivel>): QmQuestao {
   const s = seedDaQuestao(seed, indice)
-  const subskill = mulberry32(s).pick(SUBSKILLS_ATIVAS)
+  const subskill = mulberry32(seedDaSelecao(seed, indice)).pick(SUBSKILLS_ATIVAS)
   const nivel = Math.min(niveis[subskill], AQUECIMENTO_NIVEL_MAX) as Nivel
   return gerarQuestao(subskill, nivel, s)
 }

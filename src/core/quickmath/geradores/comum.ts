@@ -100,6 +100,35 @@ export function fmtResposta(valor: number, unidade: Unidade, estimativa: boolean
   return fmt(estimativa ? arredondarSig(valor, 2) : valor, unidade)
 }
 
+/** Inteiro com separador de milhar do idioma: "39.600" / "39,600". */
+export function inteiro(n: number): LocalizedText {
+  return { pt: n.toLocaleString('pt-BR'), en: n.toLocaleString('en-US') }
+}
+
+/** Decimal curto (2 algarismos) com o separador do idioma. */
+export function decimalCurto(v: number): LocalizedText {
+  const t = String(Number(v.toPrecision(2)))
+  return { pt: t.replace('.', ','), en: t }
+}
+
+/**
+ * A mantissa como se arredonda de cabeça: 57 → 60, 664 → 660. Um dígito fica
+ * como está.
+ */
+export function arredondarMantissa(m: number): number {
+  if (m < 10) return m
+  return arredondarSig(m, m >= 100 ? 2 : 1)
+}
+
+/** "664 ≈ 660, 57 ≈ 60" — só as mantissas que mudaram ganham o "≈". */
+export function textoArredondamento(ms: number[]): LocalizedText {
+  const partes = ms.map((m) => {
+    const r = arredondarMantissa(m)
+    return r === m ? { pt: inteiro(m).pt, en: inteiro(m).en } : { pt: `${m} ≈ ${inteiro(r).pt}`, en: `${m} ≈ ${inteiro(r).en}` }
+  })
+  return { pt: partes.map((p) => p.pt).join(', '), en: partes.map((p) => p.en).join(', ') }
+}
+
 export function textoZeros(n: number): LocalizedText {
   return {
     pt: n === 1 ? '1 zero' : `${n} zeros`,

@@ -87,6 +87,21 @@ describe('sessão diária', () => {
     for (const l of linhas) expect(l.tempoMedioMs).toBeGreaterThan(0)
   })
 
+  it('aquecimento varia a questão dentro de cada subskill', () => {
+    const percentuais = new Set<string>()
+    const fracoes = new Set<string>()
+    const cenarios = new Set<string>()
+    for (let seed = 1; seed <= 400; seed++) {
+      const q = criarSessao({ seed, agora: t0, niveis: {}, historico: [] }).atual
+      if (q.subskill === 'porcentagem') percentuais.add(/(\d+)%/.exec(q.enunciado.pt)![1]!)
+      if (q.subskill === 'fracoes') fracoes.add(/(\d+\/\d+)/.exec(q.enunciado.pt)![1]!)
+      if (q.subskill === 'cadeia') cenarios.add(q.enunciado.pt.includes('crédito') ? 'credito' : 'mercado')
+    }
+    expect(percentuais.size).toBeGreaterThanOrEqual(3)
+    expect(fracoes.size).toBeGreaterThanOrEqual(3)
+    expect(cenarios.size).toBe(2)
+  })
+
   it('determinística para a mesma seed e os mesmos instantes', () => {
     const roda = () => avancar(certa(nova(), t0 + 1_000), t0 + 2_000)
     expect(roda()).toEqual(roda())

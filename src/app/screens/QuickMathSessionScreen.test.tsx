@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event'
 import { RouterProvider, createMemoryRouter } from 'react-router-dom'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { LocaleProvider } from '../LocaleContext'
-import { QuickMathSessionScreen } from './QuickMathSessionScreen'
+import { QuickMathSessionRoute } from './QuickMathSessionScreen'
 
 const { salvarResposta, salvarNiveis, salvarSessaoQm } = vi.hoisted(() => ({
   salvarResposta: vi.fn(async () => {}),
@@ -21,26 +21,35 @@ vi.mock('../../data/quickmath', () => ({
   salvarSessaoQm,
 }))
 
-function montar() {
+/** Por padrão entra na sessão por PUSH, como o botão da tela do modo faz. */
+function montar(entrada: 'push' | 'pop' = 'push') {
   const router = createMemoryRouter(
     [
-      { path: '/quickmath/sessao', element: <QuickMathSessionScreen /> },
+      { path: '/quickmath/sessao', element: <QuickMathSessionRoute /> },
       { path: '/quickmath/resultado', element: <p>resultado</p> },
       { path: '/quickmath', element: <p>quickmath</p> },
     ],
-    { initialEntries: ['/quickmath/sessao'] },
+    { initialEntries: [entrada === 'pop' ? '/quickmath/sessao' : '/quickmath'] },
   )
-  return render(
+  const r = render(
     <LocaleProvider>
       <RouterProvider router={router} />
     </LocaleProvider>,
   )
+  if (entrada === 'push') void router.navigate('/quickmath/sessao')
+  return r
 }
 
 describe('QuickMathSessionScreen', () => {
   beforeEach(() => {
     vi.clearAllMocks()
     localStorage.clear()
+  })
+
+  it('chegar pela história (F5, Voltar do resultado) leva à tela do modo, sem abrir sessão', async () => {
+    montar('pop')
+    expect(await screen.findByText('quickmath')).toBeInTheDocument()
+    expect(salvarSessaoQm).not.toHaveBeenCalled()
   })
 
   it('mostra a questão com 5 alternativas e o relógio da sessão', async () => {

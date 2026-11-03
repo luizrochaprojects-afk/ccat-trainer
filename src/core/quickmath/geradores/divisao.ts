@@ -1,10 +1,15 @@
+import type { LocalizedText } from '../../i18n'
 import type { Rng } from '../../rng'
 import { ordemDeGrandeza, type Unidade } from '../formato'
 import type { QmGerador } from '../questao'
 import type { Nivel } from '../taxonomia'
 import {
   arredondadoParaBaixo,
+  arredondarMantissa,
+  decimalCurto,
   ERRO_ARREDONDAMENTO,
+  inteiro,
+  textoArredondamento,
   errosDeEscala,
   fmt,
   fmtResposta,
@@ -70,9 +75,6 @@ function construir(rng: Rng, nivel: Nivel): Problema | null {
   const a = fmt(dividendo, unidade)
   const b = fmt(divisor, 'numero')
   const resposta = fmtResposta(correta, unidade, estimativa)
-  const aprox = estimativa ? '≈ ' : ''
-  const quocienteDigitos = String(Number((mn / md).toPrecision(3)))
-  const quocientePt = quocienteDigitos.replace('.', ',')
   const z = textoZeros(zn - zd)
 
   const candidatos = errosDeEscala(correta)
@@ -101,10 +103,26 @@ function construir(rng: Rng, nivel: Nivel): Problema | null {
     unidade,
     estimativa,
     expression: `${dividendo}/${divisor}`,
-    atalho: {
-      pt: `Divida dígitos e subtraia zeros: ${mn} ÷ ${md} ${estimativa ? '≈' : '='} ${quocientePt}, com ${zn} − ${zd} = ${z.pt} → ${aprox}${resposta.pt}.`,
-      en: `Divide digits, subtract zeros: ${mn} ÷ ${md} ${estimativa ? '≈' : '='} ${quocienteDigitos}, with ${zn} − ${zd} = ${z.en} → ${aprox}${resposta.en}.`,
-    },
+    atalho: estimativa
+      ? atalhoEstimado(mn, md, zn - zd, unidade, resposta)
+      : {
+          pt: `Divida dígitos e subtraia zeros: ${mn} ÷ ${md} = ${mn / md}, com ${zn} − ${zd} = ${z.pt} → ${resposta.pt}.`,
+          en: `Divide digits, subtract zeros: ${mn} ÷ ${md} = ${mn / md}, with ${zn} − ${zd} = ${z.en} → ${resposta.en}.`,
+        },
+  }
+}
+
+/** 577 ÷ 631 não se faz de cabeça: 580 ÷ 630 ≈ 0,92, e os zeros dizem a escala. */
+function atalhoEstimado(mn: number, md: number, zeros: number, unidade: Unidade, resposta: LocalizedText): LocalizedText {
+  const rn = arredondarMantissa(mn)
+  const rd = arredondarMantissa(md)
+  const q = decimalCurto(rn / rd)
+  const aproximado = fmtResposta((rn / rd) * 10 ** zeros, unidade, true)
+  const arred = textoArredondamento([mn, md])
+  const z = textoZeros(zeros)
+  return {
+    pt: `Arredonde: ${arred.pt} → ${inteiro(rn).pt} ÷ ${inteiro(rd).pt} ≈ ${q.pt}, com ${z.pt} ≈ ${aproximado.pt}. Na alternativa, ${resposta.pt}.`,
+    en: `Round first: ${arred.en} → ${inteiro(rn).en} ÷ ${inteiro(rd).en} ≈ ${q.en}, with ${z.en} ≈ ${aproximado.en}. The option reads ${resposta.en}.`,
   }
 }
 

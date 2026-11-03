@@ -1,6 +1,7 @@
 import type { LocalizedText } from '../../i18n'
 import type { Rng } from '../../rng'
 import type { Candidato } from '../alternativas'
+import type { Unidade } from '../formato'
 import type { QmGerador } from '../questao'
 import type { Nivel } from '../taxonomia'
 import { errosDeEscala, fmt, fmtResposta, gerar, mantissa, type Problema } from './comum'
@@ -34,13 +35,28 @@ interface Camada {
   nome: LocalizedText
   /** pedaço da expressão: "9/12", "40/100" */
   expr: string
+  /**
+   * O que o produto parcial é depois desta camada. No market sizing, população
+   * × penetração são pessoas, × frequência são compras; só o ticket vira
+   * dinheiro.
+   */
+  unidade: Unidade
 }
 
-const pct = (p: number, nome: LocalizedText): Camada => ({
+const pct = (p: number, nome: LocalizedText, unidade: Unidade): Camada => ({
   valor: p / 100,
   texto: { pt: `${p}%`, en: `${p}%` },
   nome,
   expr: `${p}/100`,
+  unidade,
+})
+
+const conversaoAnual = (unidade: Unidade): Camada => ({
+  valor: 12,
+  texto: { pt: '12', en: '12' },
+  nome: { pt: 'a conversão de mês para ano (× 12)', en: 'the monthly-to-annual conversion (× 12)' },
+  expr: '12',
+  unidade,
 })
 
 const REDONDOS = [20, 25, 40, 50, 60, 75, 80]
@@ -71,19 +87,19 @@ function impactoAno1(rng: Rng, nivel: Nivel): Cenario {
       texto: valorBase,
       nome: { pt: 'o valor-base', en: 'the base value' },
       expr: String(base),
+      unidade: 'moeda',
     },
   ]
-  if (mensal) {
-    camadas.push({ valor: 12, texto: { pt: '12', en: '12' }, nome: { pt: 'a conversão de mês para ano (× 12)', en: 'the monthly-to-annual conversion (× 12)' }, expr: '12' })
-  }
+  if (mensal) camadas.push(conversaoAnual('moeda'))
   camadas.push({
     valor: k / 12,
     texto: { pt: `${k}/12`, en: `${k}/12` },
     nome: { pt: `a fração do ano (${k}/12)`, en: `the fraction of the year (${k}/12)` },
     expr: `${k}/12`,
+    unidade: 'moeda',
   })
-  if (nivel >= 2) camadas.push(pct(adocao, { pt: `a adoção de ${adocao}%`, en: `the ${adocao}% adoption` }))
-  if (nivel >= 3) camadas.push(pct(carteira, { pt: `a parcela de ${carteira}% da carteira`, en: `the ${carteira}% share of the portfolio` }))
+  if (nivel >= 2) camadas.push(pct(adocao, { pt: `a adoção de ${adocao}%`, en: `the ${adocao}% adoption` }, 'moeda'))
+  if (nivel >= 3) camadas.push(pct(carteira, { pt: `a parcela de ${carteira}% da carteira`, en: `the ${carteira}% share of the portfolio` }, 'moeda'))
 
   const periodo = mensal ? { pt: 'por mês', en: 'per month' } : { pt: 'por ano', en: 'per year' }
   const frases: LocalizedText[] = [
@@ -118,21 +134,21 @@ function marketSizing(rng: Rng, nivel: Nivel): Cenario {
   const pop = fmt(populacao, 'numero')
   const tk = fmt(ticket, 'moeda')
   const camadas: Camada[] = [
-    { valor: populacao, texto: pop, nome: { pt: 'a população', en: 'the population' }, expr: String(populacao) },
+    { valor: populacao, texto: pop, nome: { pt: 'a população', en: 'the population' }, expr: String(populacao), unidade: 'numero' },
   ]
-  if (nivel >= 2) camadas.push(pct(penetracao, { pt: `a penetração de ${penetracao}%`, en: `the ${penetracao}% penetration` }))
+  if (nivel >= 2) camadas.push(pct(penetracao, { pt: `a penetração de ${penetracao}%`, en: `the ${penetracao}% penetration` }, 'numero'))
   if (nivel >= 3) {
+    const periodo = mensal ? { pt: 'por mês', en: 'a month' } : { pt: 'por ano', en: 'a year' }
     camadas.push({
       valor: frequencia,
       texto: { pt: `${frequencia}`, en: `${frequencia}` },
-      nome: { pt: `a frequência (${frequencia}× por ano)`, en: `the frequency (${frequencia}× a year)` },
+      nome: { pt: `a frequência (${frequencia}× ${periodo.pt})`, en: `the frequency (${frequencia}× ${periodo.en})` },
       expr: String(frequencia),
+      unidade: 'numero',
     })
   }
-  if (mensal) {
-    camadas.push({ valor: 12, texto: { pt: '12', en: '12' }, nome: { pt: 'a conversão de mês para ano (× 12)', en: 'the monthly-to-annual conversion (× 12)' }, expr: '12' })
-  }
-  camadas.push({ valor: ticket, texto: tk, nome: { pt: `o ticket de ${tk.pt}`, en: `the ${tk.en} ticket` }, expr: String(ticket) })
+  if (mensal) camadas.push(conversaoAnual('numero'))
+  camadas.push({ valor: ticket, texto: tk, nome: { pt: `o ticket de ${tk.pt}`, en: `the ${tk.en} ticket` }, expr: String(ticket), unidade: 'moeda' })
 
   const frases: LocalizedText[] = [
     nivel >= 2
@@ -175,7 +191,7 @@ function construir(rng: Rng, nivel: Nivel): Problema | null {
   let parcial = camadas[0]!.valor
   for (const c of camadas.slice(1)) {
     parcial *= c.valor
-    const p = fmtResposta(parcial, 'moeda', estimativa)
+    const p = fmtResposta(parcial, c.unidade, estimativa)
     passos.push({ pt: `× ${c.texto.pt} = ${p.pt}`, en: `× ${c.texto.en} = ${p.en}` })
   }
   const aprox = estimativa ? ' (arredondando)' : ''

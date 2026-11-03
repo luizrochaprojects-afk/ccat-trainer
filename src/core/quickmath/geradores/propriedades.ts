@@ -37,6 +37,8 @@ export function verificarPropriedades(g: QmGerador, seeds = 200): void {
         expect(new Set(q.opcoes.map((o) => o.texto[l])).size, rotulo).toBe(5)
         expect(q.enunciado[l].length, rotulo).toBeGreaterThan(0)
         expect(q.atalho[l].length, rotulo).toBeGreaterThan(0)
+        // resíduo de ponto flutuante ou número longo sem separador de milhar
+        expect(q.atalho[l], `${rotulo} — atalho ilegível`).not.toMatch(/\d[.,]\d{4,}|\d{5,}/)
       }
       expect(q.nivel).toBe(nivel)
       expect(g(seed, nivel)).toEqual(q)

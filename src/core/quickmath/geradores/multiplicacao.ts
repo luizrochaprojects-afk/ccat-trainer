@@ -1,10 +1,14 @@
+import type { LocalizedText } from '../../i18n'
 import type { Rng } from '../../rng'
 import type { Unidade } from '../formato'
 import type { QmGerador } from '../questao'
 import type { Nivel } from '../taxonomia'
 import {
   arredondadoParaBaixo,
+  arredondarMantissa,
   ERRO_ARREDONDAMENTO,
+  inteiro,
+  textoArredondamento,
   errosDeEscala,
   fmt,
   fmtResposta,
@@ -79,11 +83,9 @@ function construir(rng: Rng, nivel: Nivel): Problema | null {
   const unidade: Unidade = rng.next() < 0.5 ? 'moeda' : 'numero'
 
   const textos = valores.map((v, i) => fmt(v, i === 0 ? unidade : 'numero'))
-  const produtoMantissas = fatores.reduce((a, f) => a * f.m, 1)
   const totalZeros = fatores.reduce((a, f) => a + f.z, 0)
   const resposta = fmtResposta(correta, unidade, estimativa)
   const zerosTxt = textoZeros(totalZeros)
-  const aprox = estimativa ? '≈ ' : ''
 
   const candidatos = errosDeEscala(correta)
   if (estimativa) {
@@ -103,10 +105,31 @@ function construir(rng: Rng, nivel: Nivel): Problema | null {
     unidade,
     estimativa,
     expression: valores.map(String).join('*'),
-    atalho: {
-      pt: `Separe dígitos e zeros: ${fatores.map((f) => f.m).join(' × ')} = ${produtoMantissas}, mais ${zerosTxt.pt} → ${aprox}${resposta.pt}.`,
-      en: `Split digits from zeros: ${fatores.map((f) => f.m).join(' × ')} = ${produtoMantissas}, plus ${zerosTxt.en} → ${aprox}${resposta.en}.`,
-    },
+    atalho: estimativa ? atalhoEstimado(fatores, totalZeros, unidade, resposta) : atalhoExato(fatores, zerosTxt, resposta),
+  }
+}
+
+function atalhoExato(fatores: Fator[], zerosTxt: LocalizedText, resposta: LocalizedText): LocalizedText {
+  const produto = inteiro(fatores.reduce((a, f) => a * f.m, 1))
+  const ms = fatores.map((f) => f.m).join(' × ')
+  return {
+    pt: `Separe dígitos e zeros: ${ms} = ${produto.pt}, mais ${zerosTxt.pt} → ${resposta.pt}.`,
+    en: `Split digits from zeros: ${ms} = ${produto.en}, plus ${zerosTxt.en} → ${resposta.en}.`,
+  }
+}
+
+/** De cabeça não se faz 664 × 57: arredonda-se para 660 × 60 e confere-se a ordem de grandeza. */
+function atalhoEstimado(fatores: Fator[], totalZeros: number, unidade: Unidade, resposta: LocalizedText): LocalizedText {
+  const redondos = fatores.map((f) => arredondarMantissa(f.m))
+  const produto = redondos.reduce((a, b) => a * b, 1)
+  const conta = inteiro(produto)
+  const aproximado = fmtResposta(produto * 10 ** totalZeros, unidade, true)
+  const zerosTxt = textoZeros(totalZeros)
+  const arred = textoArredondamento(fatores.map((f) => f.m))
+  const ms = redondos.map((r) => inteiro(r))
+  return {
+    pt: `Arredonde: ${arred.pt} → ${ms.map((m) => m.pt).join(' × ')} = ${conta.pt}, mais ${zerosTxt.pt} ≈ ${aproximado.pt}. Na alternativa, ${resposta.pt}.`,
+    en: `Round first: ${arred.en} → ${ms.map((m) => m.en).join(' × ')} = ${conta.en}, plus ${zerosTxt.en} ≈ ${aproximado.en}. The option reads ${resposta.en}.`,
   }
 }
 

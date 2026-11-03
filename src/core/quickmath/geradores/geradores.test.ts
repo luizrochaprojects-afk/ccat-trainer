@@ -86,6 +86,37 @@ describe('cadeia', () => {
   })
 })
 
+describe('atalho', () => {
+  it('estimativa mostra o arredondamento, não a conta longa', () => {
+    for (const g of [gerarMultiplicacao, gerarDivisao]) {
+      for (const nivel of [3, 4, 5] as const) expect(g(7, nivel).atalho.pt).toMatch(/^Arredonde/)
+    }
+  })
+  it('número de 4 dígitos sai com separador de milhar nos dois idiomas', () => {
+    const q = encontrar(gerarMultiplicacao, 4, (q) => /\d\.\d{3}/.test(q.atalho.pt))
+    expect(q.atalho.en).toMatch(/\d,\d{3}/)
+  })
+})
+
+describe('cadeia: unidades e rótulos', () => {
+  it('market sizing: os produtos parciais antes do ticket não são dinheiro', () => {
+    const q = encontrar(gerarCadeia, 3, (q) => q.enunciado.pt.includes('adultos'))
+    const passos = q.atalho.pt.split(';')
+    expect(passos.slice(0, -1).join(';')).not.toContain('R$')
+    expect(passos.at(-1)).toContain('R$')
+  })
+  it('frequência mensal aparece como mensal no erro da camada esquecida', () => {
+    const q = encontrar(
+      gerarCadeia,
+      5,
+      (q) => q.enunciado.pt.includes('por mês') && q.opcoes.some((o) => o.erro?.pt.includes('frequência')),
+    )
+    const erro = q.opcoes.find((o) => o.erro?.pt.includes('frequência'))!.erro!
+    expect(erro.pt).toContain('por mês')
+    expect(erro.en).toContain('a month')
+  })
+})
+
 describe('gerarQuestao', () => {
   it('recusa subskill inativa', () => {
     expect(() => gerarQuestao('crescimento', 1, 1)).toThrow()
